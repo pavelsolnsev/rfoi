@@ -1,0 +1,41 @@
+@use "sass:math";
+
+// Константы для брейкпоинтов
+$maxWidth: 1440;
+$tabWidth: 992;
+$mobWidth: 767;
+$px: px;
+
+// Функция для перевода пикселей в rem
+@function rem($px) {
+  @return #{math.div($px, 16)}rem;
+}
+
+// Миксин адаптивного значения свойства
+@mixin adaptiv-value($property, $descSize, $tabSize, $mobSize) {
+  $addSize: $descSize - $mobSize;
+  $addSize2: $descSize - $tabSize;
+
+  @media (min-width: #{$maxWidth + px}) {
+    #{$property}: #{$descSize + px};
+  }
+
+  @media (max-width: #{$maxWidth + px}) {
+    #{$property}: calc(#{$descSize + px} + #{$addSize2} * ((100vw - 1920px) / #{$maxWidth - 360}));
+  }
+
+  @media (max-width: #{$tabWidth + px}) {
+    #{$property}: calc(#{$tabSize + px} + #{$addSize2} * ((100vw - 992px) / #{$maxWidth - 992}));
+  }
+
+  @media (max-width: #{$mobWidth + px}) {
+    #{$property}: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 360px) / #{$maxWidth - 360}));
+  }
+}
+
+// Пример медиа-миксина
+@mixin media($point) {
+  @media (min-width: $point + $px) {
+    @content;
+  }
+}
