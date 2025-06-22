@@ -2,8 +2,7 @@
 
 // Константы для брейкпоинтов
 $maxWidth: 1440;
-$tabWidth: 992;
-$mobWidth: 767;
+$mobWidth: 768;
 $px: px;
 
 // Функция для перевода пикселей в rem
@@ -12,25 +11,17 @@ $px: px;
 }
 
 // Миксин адаптивного значения свойства
-@mixin adaptiv-value($property, $descSize, $tabSize, $mobSize) {
-  $addSize: $descSize - $mobSize;
-  $addSize2: $descSize - $tabSize;
+@mixin adaptiv-value($property, $mobSize, $descSize ) {
+    $addSize: $descSize - $mobSize;
+    #{$property}: $mobSize + $px;
 
-  @media (min-width: #{$maxWidth + px}) {
-    #{$property}: #{$descSize + px};
-  }
+    @media (min-width: #{$mobWidth + 1}px) and (max-width: #{$maxWidth}px) {
+        #{$property}: calc(#{$mobSize}px + #{$addSize} * ((100vw - #{$mobWidth}px) / (#{$maxWidth} - #{$mobWidth})));
+    }
 
-  @media (max-width: #{$maxWidth + px}) {
-    #{$property}: calc(#{$descSize + px} + #{$addSize2} * ((100vw - 1920px) / #{$maxWidth - 360}));
-  }
-
-  @media (max-width: #{$tabWidth + px}) {
-    #{$property}: calc(#{$tabSize + px} + #{$addSize2} * ((100vw - 992px) / #{$maxWidth - 992}));
-  }
-
-  @media (max-width: #{$mobWidth + px}) {
-    #{$property}: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 360px) / #{$maxWidth - 360}));
-  }
+    @media (min-width: #{$maxWidth + 1}px) {
+        #{$property}: $descSize + $px;
+    }
 }
 
 // Пример медиа-миксина

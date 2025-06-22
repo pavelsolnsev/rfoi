@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 .players-table {
   width: 100%;
   border-collapse: collapse;
@@ -14,10 +15,18 @@
 
   thead {
     th {
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: rem(10);
+        white-space: nowrap;
+      }
+
       span:last-child {
         display: none;
         @include media(768) {
-          display: block;
+          display: flex;
         }
       }
       span:nth-child(1) {
@@ -173,7 +182,7 @@
 }
 
 /* Desktop Styles */
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 768px) {
   .s-main {
     padding: 1.25rem 0;
   }
@@ -204,7 +213,7 @@
 
   .players-table th:nth-child(2),
   .players-table td:nth-child(2) {
-    width: 22rem; /* Увеличим ширину для фото и имени */
+    @include adaptiv-value(width, 170, 352);
   }
 
   .players-table th:nth-child(3),
@@ -272,6 +281,10 @@
   border-top: 4px solid #1abc9c;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+}
+
+.player-row {
+  cursor: pointer;
 }
 
 @keyframes spin {
