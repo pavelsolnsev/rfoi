@@ -8,25 +8,87 @@ $(function () {
   const errorMessage = document.getElementById("error-message");
   const emptyMessage = document.getElementById("empty-message");
   const loader = document.getElementById("loader");
+  const playerModal = new bootstrap.Modal(document.getElementById("playerModal"));
 
   if (
     !desktopTable ||
     !desktopTableBody ||
     !errorMessage ||
     !emptyMessage ||
-    !loader
+    !loader ||
+    !playerModal
   ) {
     console.error("Ошибка: Один или несколько элементов DOM не найдены");
     return;
   }
 
   let players = [];
+  let sortConfig = {
+    key: 'rating',
+    direction: 'desc'
+  };
 
   const getMaxNameLength = () => (window.innerWidth <= 992 ? 20 : 30);
 
+  const truncateUnicodeString = (str, maxLength) => {
+    const chars = [...str];
+    if (chars.length > maxLength) {
+      return chars.slice(0, maxLength).join('') + '...';
+    }
+    return str;
+  };
+
+  const sortPlayers = (players, key, direction) => {
+    return [...players].sort((a, b) => {
+      let valueA, valueB;
+      
+      switch (key) {
+        case 'index':
+          valueA = players.indexOf(a) + 1;
+          valueB = players.indexOf(b) + 1;
+          break;
+        case 'name':
+          valueA = a.username === "@unknown" ? a.name : a.username.replace(/@/g, "");
+          valueB = b.username === "@unknown" ? b.name : b.username.replace(/@/g, "");
+          return direction === 'asc' 
+            ? valueA.localeCompare(valueB)
+            : valueB.localeCompare(valueA);
+        default:
+          valueA = a[key];
+          valueB = b[key];
+      }
+
+      if (direction === 'asc') {
+        return valueA - valueB;
+      }
+      return valueB - valueA;
+    });
+  };
+
+  const updateSortIndicators = () => {
+    // Remove existing sort indicators from all spans
+    document.querySelectorAll('.players-table th span').forEach(span => {
+      span.textContent = span.textContent.replace(/[▲▼]/g, '').trim();
+    });
+
+    // Add indicators to all headers except 'index' and 'name'
+    document.querySelectorAll('.players-table th').forEach(th => {
+      const sortKey = th.getAttribute('data-sort');
+      if (sortKey && sortKey !== 'index' && sortKey !== 'name') {
+        const spans = th.querySelectorAll('span');
+        const isActive = sortKey === sortConfig.key;
+        const indicator = isActive ? (sortConfig.direction === 'asc' ? ' ▲' : ' ▼') : ' ▼';
+        
+        spans.forEach(span => {
+          span.textContent += indicator;
+        });
+      }
+    });
+  };
+
   const renderTable = () => {
     desktopTableBody.innerHTML = "";
-    const sortedPlayers = [...players].sort((a, b) => b.rating - a.rating);
+    const sortedPlayers = sortPlayers(players, sortConfig.key, sortConfig.direction);
     const maxNameLength = getMaxNameLength();
 
     sortedPlayers.forEach((player, index) => {
@@ -34,35 +96,62 @@ $(function () {
         player.username === "@unknown"
           ? player.name
           : player.username.replace(/@/g, "");
-      if (name.length > maxNameLength) {
-        name = name.substring(0, maxNameLength) + "...";
-      }
+      name = truncateUnicodeString(name, maxNameLength);
 
       const desktopRow = `
-  <tr>
-    <td data-label="№">${index + 1}</td>
-    <td data-label="Игрок">
-      <div class="player-info">
-        <div class="player-photo"> 
-          <img src="/img/players/${
-            player.photo
-          }?v=1.0.1" alt="${name}" class="">
-        </div>
-        <span>${name}</span>
-      </div>
-    </td>
-    <td data-label="Игры">${player.gamesPlayed}</td>
-    <td data-label="Победы">${player.wins}</td>
-    <td data-label="Ничьи">${player.draws}</td>
-    <td data-label="Поражения">${player.losses}</td>
-    <td data-label="Голы">${player.goals}</td>
-    <td data-label="Рейтинг">${player.rating}</td>
-  </tr>
-`;
+        <tr class="player-row" data-player-index="${index}">
+          <td data-label="№">${index + 1}</td>
+          <td data-label="Игрок">
+            <div class="player-info">
+              <div class="player-photo"> 
+                <img src="/img/players/${
+                  player.photo
+                }?v=1.0.1" alt="${name}" class="">
+              </div>
+              <span>${name}</span>
+            </div>
+          </td>
+          <td data-label="Игры">${player.gamesPlayed}</td>
+          <td data-label="Победы">${player.wins}</td>
+          <td data-label="Ничьи">${player.draws}</td>
+          <td data-label="Поражения">${player.losses}</td>
+          <td data-label="Голы">${player.goals}</td>
+          <td data-label="Рейтинг">${player.rating}</td>
+        </tr>
+      `;
       desktopTableBody.insertAdjacentHTML("beforeend", desktopRow);
     });
 
+    document.querySelectorAll(".player-row").forEach((row) => {
+      row.addEventListener("click", () => {
+        const playerIndex = row.getAttribute("data-player-index");
+        const player = sortedPlayers[playerIndex];
+        showPlayerModal(player);
+      });
+    });
+
     desktopTable.style.display = "table";
+    updateSortIndicators();
+  };
+
+  const showPlayerModal = (player) => {
+    let name =
+      player.username === "@unknown"
+        ? player.name
+        : player.username.replace(/@/g, "");
+    name = truncateUnicodeString(name, 30);
+
+    document.getElementById("modal-player-name").textContent = name;
+    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.0.1`;
+    document.getElementById("modal-player-photo").alt = name;
+    document.getElementById("modal-player-games").textContent = player.gamesPlayed;
+    document.getElementById("modal-player-wins").textContent = player.wins;
+    document.getElementById("modal-player-draws").textContent = player.draws;
+    document.getElementById("modal-player-losses").textContent = player.losses;
+    document.getElementById("modal-player-goals").textContent = player.goals;
+    document.getElementById("modal-player-rating").textContent = player.rating;
+
+    playerModal.show();
   };
 
   const fetchPlayers = async () => {
@@ -80,8 +169,6 @@ $(function () {
       );
       clearTimeout(timeoutId);
       console.log("Ответ получен, статус:", response.status);
-      // Добавляем искусственную задержку в 3 секунды
-      // await new Promise((resolve) => setTimeout(resolve, 3000));
       if (!response.ok) {
         throw new Error(`Ошибка загрузки данных (статус: ${response.status})`);
       }
@@ -103,9 +190,8 @@ $(function () {
       const cachedPlayers = localStorage.getItem("players");
       if (cachedPlayers) {
         const { data, timestamp } = JSON.parse(cachedPlayers);
-        const cacheAge = (Date.now() - timestamp) / 1000 / 60; // В минутах
+        const cacheAge = (Date.now() - timestamp) / 1000 / 60;
         if (cacheAge < 60) {
-          // Использовать кэш, если он не старше 60 минут
           players = data;
           renderTable();
         }
@@ -116,16 +202,21 @@ $(function () {
     }
   };
 
-  // const cachedPlayers = localStorage.getItem("players");
-  // if (cachedPlayers) {
-  //   const { data, timestamp } = JSON.parse(cachedPlayers);
-  //   const cacheAge = (Date.now() - timestamp) / 1000 / 60; // В минутах
-  //   if (cacheAge < 60) {
-  //     players = data;
-  //     renderTable();
-  //   } else {
-  //     localStorage.removeItem("players"); // Удалить устаревший кэш
-  //   }
-  // }
+  document.querySelectorAll('.players-table th').forEach(th => {
+    const sortKey = th.getAttribute('data-sort');
+    if (sortKey) {
+      th.style.cursor = 'pointer';
+      th.addEventListener('click', () => {
+        if (sortConfig.key === sortKey) {
+          sortConfig.direction = sortConfig.direction === 'asc' ? 'desc' : 'asc';
+        } else {
+          sortConfig.key = sortKey;
+          sortConfig.direction = 'asc';
+        }
+        renderTable();
+      });
+    }
+  });
+
   fetchPlayers();
 });
