@@ -7,7 +7,7 @@
         <tr>
           <th data-sort="index"><span>№</span><span>№</span></th>
           <th data-sort="name"><span>Игрок</span><span>Игрок</span></th>
-          <th data-sort="gamesPlayed"><span>И▲</span><span>Игры▲</span></th>
+          <th data-sort="gamesPlayed"><span>И</span><span>Игры</span></th>
           <th data-sort="wins"><span>В</span><span>Победы</span></th>
           <th data-sort="draws"><span>Н</span><span>Ничьи</span></th>
           <th data-sort="losses"><span>П</span><span>Поражения</span></th>
