@@ -105,8 +105,10 @@
 .players-table td[data-label="Рейтинг"],
 .players-table td[data-label="Рейт"] {
   font-weight: bold;
-  color: #d35400;
+  color: #ef4444;
+  
 }
+
 
 .players-table tbody tr:nth-child(1) {
   background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, transparent 100%); // ярче золото

@@ -19,6 +19,7 @@
             <th data-sort="losses"><span>П</span><span>Поражения</span></th>
             <th data-sort="goals"><span>Г</span><span>Голы</span></th>
             <th data-sort="rating"><span>Рейт</span><span>Рейтинг</span></th>
+            
           </tr>
         </thead>
         <tbody id="desktop-table-body">
