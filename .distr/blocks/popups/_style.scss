@@ -1,14 +1,14 @@
 .modal {
   &.fade {
     .modal-dialog {
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      transform: translateY(20px) scale(0.95);
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+      transform: translateY(-50px);
       opacity: 0;
     }
 
     &.show {
       .modal-dialog {
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
         opacity: 1;
       }
     }
@@ -16,285 +16,265 @@
 }
 
 .modal-dialog {
-  max-width: 500px;
-  margin: 1.75rem auto;
-  
-  @media (max-width: 576px) {
-    margin: 0.5rem;
-    max-width: calc(100% - 1rem);
+  max-width: rem(600);
+  margin: rem(30) auto;
+
+  @media screen and (max-width: rem(768)) {
+    margin: rem(15) rem(10);
   }
 }
 
 .modal-content {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
   border: none;
-  border-radius: 12px;
+  border-radius: rem(12);
+  box-shadow: 0 rem(8) rem(24) rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  background: #ffffff;
   position: relative;
-  
+
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    height: rem(4);
+    background: linear-gradient(90deg, #1abc9c, #2c3e50);
+    z-index: 1;
   }
 }
 
 .modal-header {
   border-bottom: none;
-  padding: 1.5rem;
+  padding: rem(20) rem(24);
+  background: #2c3e50;
+  color: #fff;
   position: relative;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  color: white;
-  
-  .header-content {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    
-    .user-icon {
-      font-size: 1.5rem;
-      color: rgba(255, 255, 255, 0.8);
-    }
-    
-    .modal-title {
-      margin: 0;
-      font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: 0.5px;
-    }
+  z-index: 2;
+  align-items: flex-start;
+
+  .modal-title {
+    font-size: rem(24);
+    font-weight: 600;
+    letter-spacing: rem(0.5);
+    text-transform: uppercase;
   }
-  
+
   .btn-close {
     background: none;
     border: none;
-    color: white;
+    color: #fff;
+    font-size: rem(20);
     opacity: 0.8;
     transition: opacity 0.2s ease;
-    padding: 0.5rem;
-    font-size: 1.25rem;
-    
+
     &:hover {
       opacity: 1;
+    }
+
+    &::before {
+      content: "×";
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
     }
   }
 }
 
 .modal-body {
-  padding: 2rem;
-  
-  @media (max-width: 576px) {
-    padding: 1.5rem;
+  padding: rem(24);
+  background: #fff;
+
+  .player-profile {
+    text-align: center;
   }
-}
 
-.player-profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .player-photo {
+    margin: 0 auto rem(16);
+    width: rem(65);
+    height: rem(65);
+  }
 
-.player-photo-container {
-  margin-bottom: 1.5rem;
-  position: relative;
-  
-  .photo-frame {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
+  #modal-player-name {
+    font-size: rem(28);
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: rem(20);
+    text-transform: capitalize;
+  }
+
+  .player-stats {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
+    max-width: rem(400);
+    margin: 0 auto;
+  }
+
+  .rating-container {
+    background: #28a745;
+    border-radius: rem(12);
+    padding: rem(20);
+    margin-bottom: rem(20);
+    text-align: center;
+    box-shadow: 0 rem(4) rem(12) rgba(0, 0, 0, 0.2);
     position: relative;
-    border: 5px solid #f8fafc;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    
-    .player-photo-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-    
-    .photo-overlay {
+    overflow: hidden;
+
+    &::before {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(30, 60, 114, 0.3), rgba(42, 82, 152, 0.3));
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(
+        circle,
+        rgba(26, 188, 156, 0.15) 0%,
+        transparent 70%
+      );
+      z-index: 0;
     }
-    
-    &:hover {
-      .player-photo-img {
-        transform: scale(1.05);
-      }
-      
-      .photo-overlay {
-        opacity: 1;
-      }
-    }
-  }
-}
 
-.player-name {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #1a202c;
-  text-align: center;
-  position: relative;
-  
-  &::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(90deg, #1e3c72, #2a5298);
-    margin: 0.75rem auto 0;
-    border-radius: 3px;
-  }
-}
-
-.rating-container {
-  margin-bottom: 2rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  
-  .rating-badge {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    border-radius: 50px;
-    padding: 0.75rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    box-shadow: 0 5px 15px rgba(30, 60, 114, 0.3);
-    
-    .rating-label {
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-    
-    .rating-value {
-      color: white;
-      font-weight: 700;
-      font-size: 1.25rem;
-    }
-  }
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  width: 100%;
-  
-  @media (max-width: 400px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.stat-card {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border: 1px solid #f1f5f9;
-  
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .stat-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    color: white;
-  }
-  
-  .stat-info {
-    display: flex;
-    flex-direction: column;
-    
-    .stat-label {
-      font-size: 0.75rem;
-      color: #64748b;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
     .stat-value {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #1e293b;
+      font-size: rem(48);
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 rem(2) rem(6) rgba(26, 188, 156, 0.6);
+      position: relative;
+      z-index: 1;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
-  
-  &.wins {
-    .stat-icon {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+
+  .results-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(12);
+    margin-bottom: rem(20);
+
+    @media screen and (max-width: rem(480)) {
+      grid-template-columns: 1fr;
+    }
+
+    .stat-item {
+      padding: rem(12);
+      border-radius: rem(8);
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      .stat-label {
+        font-size: rem(16);
+        font-weight: 500;
+        color: #2c3e50;
+      }
+
+      .stat-value {
+        font-size: rem(20);
+        font-weight: 600;
+      }
+    }
+
+    .wins {
+      background: #e6f4ea;
+      .stat-value {
+        color: #28a745;
+      }
+    }
+
+    .draws {
+      background: #fff3cd;
+      .stat-value {
+        color: #ffc107;
+      }
+    }
+
+    .losses {
+      background: #f8d7da;
+      .stat-value {
+        color: #dc3545;
+      }
     }
   }
-  
-  &.draws {
-    .stat-icon {
-      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+
+  .stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(12);
+
+    @media screen and (max-width: rem(480)) {
+      grid-template-columns: 1fr;
     }
-  }
-  
-  &.losses {
-    .stat-icon {
-      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-    }
-  }
-  
-  &.games, &.goals {
-    .stat-icon {
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: rem(12);
+      background: #f8f9fa;
+      border-radius: rem(8);
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #e9ecef;
+      }
+
+      .stat-label {
+        font-size: rem(16);
+        font-weight: 500;
+        color: #2c3e50;
+      }
+
+      .stat-value {
+        font-size: rem(18);
+        font-weight: 600;
+        color: #1abc9c;
+      }
+
+      #modal-player-goals {
+        color: rgba(14, 165, 233);
+      }
+      #modal-player-games {
+        color: #2c3e50;
+      }
     }
   }
 }
 
 .modal-footer {
   border-top: none;
-  padding: 1.5rem;
-  display: flex;
+  padding: rem(16) rem(24);
+  background: #fff;
   justify-content: center;
-  background: #f8fafc;
-  
-  .btn-close-modal {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+
+  .btn-secondary {
+    background: linear-gradient(90deg, #2c3e50, #34495e);
     border: none;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(30, 60, 114, 0.2);
-    
+    border-radius: rem(8);
+    padding: rem(10) rem(24);
+    font-size: rem(16);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: rem(0.5);
+    color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 7px 14px rgba(30, 60, 114, 0.3);
+      box-shadow: 0 rem(4) rem(8) rgba(0, 0, 0, 0.1);
     }
   }
+}
+
+.sort-indicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
 }
