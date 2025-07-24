@@ -2,46 +2,88 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="playerModalLabel">Профиль игрока</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        <div class="header-content">
+          <i class="fas fa-user-circle user-icon"></i>
+          <h5 class="modal-title" id="playerModalLabel">Профиль игрока</h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
       <div class="modal-body">
         <div class="player-profile">
-          <div class="player-photo text-center mb-3">
-            <img id="modal-player-photo" src="" alt="Player Photo" class="rounded-circle">
+          <div class="player-photo-container">
+            <div class="photo-frame">
+              <img id="modal-player-photo" src="" alt="Player Photo" class="player-photo-img">
+              <div class="photo-overlay"></div>
+            </div>
           </div>
-          <h4 id="modal-player-name" class="text-center mb-3"></h4>
+          <h3 id="modal-player-name" class="player-name"></h3>
+          
           <div class="rating-container">
-            <span id="modal-player-rating" class="stat-value"></span>
-          </div>
-          <div class="results-container">
-            <div class="stat-item wins">
-              <span class="stat-label">Победы</span>
-              <span id="modal-player-wins" class="stat-value"></span>
-            </div>
-            <div class="stat-item draws">
-              <span class="stat-label">Ничьи</span>
-              <span id="modal-player-draws" class="stat-value"></span>
-            </div>
-            <div class="stat-item losses">
-              <span class="stat-label">Поражения</span>
-              <span id="modal-player-losses" class="stat-value"></span>
+            <div class="rating-badge">
+              <span class="rating-label">Рейтинг</span>
+              <span id="modal-player-rating" class="rating-value"></span>
             </div>
           </div>
-          <div class="stats-container">
-            <div class="stat-item games">
-              <span class="stat-label">Игры</span>
-              <span id="modal-player-games" class="stat-value"></span>
+          
+          <div class="stats-grid">
+            <div class="stat-card wins">
+              <div class="stat-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Победы</span>
+                <span id="modal-player-wins" class="stat-value"></span>
+              </div>
             </div>
-            <div class="stat-item goals">
-              <span class="stat-label">Голы</span>
-              <span id="modal-player-goals" class="stat-value"></span>
+            
+            <div class="stat-card draws">
+              <div class="stat-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Ничьи</span>
+                <span id="modal-player-draws" class="stat-value"></span>
+              </div>
+            </div>
+            
+            <div class="stat-card losses">
+              <div class="stat-icon">
+                <i class="fas fa-times-circle"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Поражения</span>
+                <span id="modal-player-losses" class="stat-value"></span>
+              </div>
+            </div>
+            
+            <div class="stat-card games">
+              <div class="stat-icon">
+                <i class="fas fa-futbol"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Игры</span>
+                <span id="modal-player-games" class="stat-value"></span>
+              </div>
+            </div>
+            
+            <div class="stat-card goals">
+              <div class="stat-icon">
+                <i class="fas fa-futbol"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Голы</span>
+                <span id="modal-player-goals" class="stat-value"></span>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-close-modal" data-bs-dismiss="modal">
+          <i class="fas fa-times"></i> Закрыть
+        </button>
       </div>
     </div>
   </div>
