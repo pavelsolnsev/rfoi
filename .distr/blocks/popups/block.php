@@ -19,14 +19,14 @@
             </div>
           </div>
           <h3 id="modal-player-name" class="player-name"></h3>
-          
+
           <div class="rating-container">
             <div class="rating-badge">
               <span class="rating-label">Рейтинг</span>
               <span id="modal-player-rating" class="rating-value"></span>
             </div>
           </div>
-          
+
           <div class="stats-grid">
             <div class="stat-card wins">
               <div class="stat-icon">
@@ -37,7 +37,7 @@
                 <span id="modal-player-wins" class="stat-value"></span>
               </div>
             </div>
-            
+
             <div class="stat-card draws">
               <div class="stat-icon">
                 <i class="fas fa-handshake"></i>
@@ -47,7 +47,7 @@
                 <span id="modal-player-draws" class="stat-value"></span>
               </div>
             </div>
-            
+
             <div class="stat-card losses">
               <div class="stat-icon">
                 <i class="fas fa-times-circle"></i>
@@ -57,24 +57,22 @@
                 <span id="modal-player-losses" class="stat-value"></span>
               </div>
             </div>
-            
-            <div class="stat-card games">
-              <div class="stat-icon">
-                <i class="fas fa-futbol"></i>
-              </div>
-              <div class="stat-info">
-                <span class="stat-label">Игры</span>
-                <span id="modal-player-games" class="stat-value"></span>
-              </div>
-            </div>
-            
             <div class="stat-card goals">
               <div class="stat-icon">
-                <i class="fas fa-futbol"></i>
+                <i class="fas fa-futbol"></i> <!-- Иконка мяча для голов -->
               </div>
               <div class="stat-info">
                 <span class="stat-label">Голы</span>
                 <span id="modal-player-goals" class="stat-value"></span>
+              </div>
+            </div>
+            <div class="stat-card games">
+              <div class="stat-icon">
+                <i class="fas fa-running"></i> <!-- Иконка бегущего игрока для игр -->
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Игры</span>
+                <span id="modal-player-games" class="stat-value"></span>
               </div>
             </div>
           </div>
