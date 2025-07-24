@@ -50,6 +50,16 @@
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.0625rem;
+  .caption-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .trophy-icon {
+      font-size: 1.5rem;
+      color: #FFD700;
+    }
+  }
 }
 
 .players-table th,
@@ -71,7 +81,7 @@
 }
 
 .players-table tbody tr:nth-child(even) {
-  background: #f8f9fa;
+  background: #fafafa;
 }
 
 .players-table tbody tr:hover {
@@ -99,8 +109,65 @@
 }
 
 .players-table tbody tr:nth-child(1) {
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, transparent 100%); // ярче золото
+  
+  td:first-child {
+    position: relative;
+
+    &::before {
+      content: "🥇";
+      position: absolute;
+      left: rem(13);
+      top: 51%;
+      transform: translateY(-50%);
+      
+      @include media(768) {
+        left: rem(23);
+      }
+    }
+  }
 }
+
+.players-table tbody tr:nth-child(2) {
+  background: linear-gradient(90deg, rgba(192, 192, 192, 0.2) 0%, transparent 100%); // ярче серебро
+  
+  td:first-child {
+    position: relative;
+
+    &::before {
+      content: "🥈";
+      position: absolute;
+      left: rem(13);
+      top: 51%;
+      transform: translateY(-50%);
+      
+      @include media(768) {
+        left: rem(25);
+      }
+    }
+  }
+}
+
+.players-table tbody tr:nth-child(3) {
+  background: linear-gradient(90deg, rgba(205, 127, 50, 0.15) 0%, transparent 100%); // ярче бронза
+  
+  td:first-child {
+    position: relative;
+
+    &::before {
+      content: "🥉";
+      position: absolute;
+      left: rem(13);
+      top: 51%;
+      transform: translateY(-50%);
+      
+      @include media(768) {
+        left: rem(25);
+      }
+    }
+  }
+}
+
 
 /* Стили для контейнера с фото и именем */
 .player-info {
