@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 .players-table {
   width: 100%;
   border-collapse: collapse;
@@ -15,7 +14,6 @@
 
   thead {
     th {
-
       span {
         display: flex;
         align-items: center;
@@ -32,6 +30,51 @@
       span:nth-child(1) {
         @include media(768) {
           display: none;
+        }
+      }
+    }
+  }
+
+  &.table-asc {
+    tbody {
+      tr:last-child {
+        background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, transparent 100%);
+        white-space: nowrap;
+        td:first-child {
+          &::after {
+            content: "🥇";
+          }
+        }
+      }
+
+      tr:nth-last-child(2) {
+        background: linear-gradient(90deg, rgba(192, 192, 192, 0.2) 0%, transparent 100%);
+        white-space: nowrap;
+        td:first-child {
+          &::after {
+            content: "🥈";
+          }
+        }
+      }
+
+      tr:nth-last-child(3) {
+        background: linear-gradient(90deg, rgba(205, 127, 50, 0.15) 0%, transparent 100%);
+        white-space: nowrap;
+        td:first-child {
+          &::after {
+            content: "🥉";
+          }
+        }
+      }
+
+      // Сбрасываем стили для первых трех строк
+      tr:nth-child(1),
+      tr:nth-child(2),
+      tr:nth-child(3) {
+        background: none;
+        
+        td:first-child::after {
+          content: none;
         }
       }
     }
@@ -106,70 +149,37 @@
 .players-table td[data-label="Рейт"] {
   font-weight: bold;
   color: #ef4444;
-  
 }
 
-
 .players-table tbody tr:nth-child(1) {
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, transparent 100%); // ярче золото
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, transparent 100%);
   
   td:first-child {
-    position: relative;
-
-    &::before {
+    &::after {
       content: "🥇";
-      position: absolute;
-      left: rem(13);
-      top: 48%;
-      transform: translateY(-50%);
-      
-      @include media(768) {
-        left: rem(23);
-      }
     }
   }
 }
 
 .players-table tbody tr:nth-child(2) {
-  background: linear-gradient(90deg, rgba(192, 192, 192, 0.2) 0%, transparent 100%); // ярче серебро
+  background: linear-gradient(90deg, rgba(192, 192, 192, 0.2) 0%, transparent 100%);
   
   td:first-child {
-    position: relative;
-
-    &::before {
+    &::after {
       content: "🥈";
-      position: absolute;
-      left: rem(13);
-      top: 48%;
-      transform: translateY(-50%);
-      
-      @include media(768) {
-        left: rem(25);
-      }
     }
   }
 }
 
 .players-table tbody tr:nth-child(3) {
-  background: linear-gradient(90deg, rgba(205, 127, 50, 0.15) 0%, transparent 100%); // ярче бронза
+  background: linear-gradient(90deg, rgba(205, 127, 50, 0.15) 0%, transparent 100%);
   
   td:first-child {
-    position: relative;
-
-    &::before {
+    &::after {
       content: "🥉";
-      position: absolute;
-      left: rem(13);
-      top: 48%;
-      transform: translateY(-50%);
-      
-      @include media(768) {
-        left: rem(25);
-      }
     }
   }
 }
-
 
 /* Стили для контейнера с фото и именем */
 .player-info {
@@ -194,7 +204,6 @@
     height: 100%;
     object-fit: cover;
   }
-
 }
 
 /* Column widths for mobile */
@@ -303,7 +312,6 @@
   .player-photo {
     width: 2.5rem;
     height: 2.5rem;
-
   }
 }
 

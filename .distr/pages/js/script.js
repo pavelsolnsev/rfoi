@@ -66,12 +66,10 @@ $(function () {
   };
 
   const updateSortIndicators = () => {
-    // Remove existing sort indicators from all spans
     document.querySelectorAll('.players-table th span').forEach(span => {
       span.textContent = span.textContent.replace(/[▲▼]/g, '').trim();
     });
 
-    // Add indicators to all headers except 'index' and 'name'
     document.querySelectorAll('.players-table th').forEach(th => {
       const sortKey = th.getAttribute('data-sort');
       if (sortKey && sortKey !== 'index' && sortKey !== 'name') {
@@ -90,6 +88,8 @@ $(function () {
     desktopTableBody.innerHTML = "";
     const sortedPlayers = sortPlayers(players, sortConfig.key, sortConfig.direction);
     const maxNameLength = getMaxNameLength();
+
+    desktopTable.classList.toggle('table-asc', sortConfig.direction === 'asc');
 
     sortedPlayers.forEach((player, index) => {
       let name =
