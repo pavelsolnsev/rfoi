@@ -120,7 +120,7 @@
       content: "🥇";
       position: absolute;
       left: rem(13);
-      top: 51%;
+      top: 48%;
       transform: translateY(-50%);
       
       @include media(768) {
@@ -140,7 +140,7 @@
       content: "🥈";
       position: absolute;
       left: rem(13);
-      top: 51%;
+      top: 48%;
       transform: translateY(-50%);
       
       @include media(768) {
@@ -160,7 +160,7 @@
       content: "🥉";
       position: absolute;
       left: rem(13);
-      top: 51%;
+      top: 48%;
       transform: translateY(-50%);
       
       @include media(768) {
