@@ -86,3 +86,37 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content team-modal-content">
+      <div class="modal-header team-modal-header">
+        <h5 class="modal-title" id="teamModalLabel">Состав команды</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body team-modal-body">
+        <div class="team-info-wrapper">
+          <div class="team-header">
+            <div class="team-photo-wrapper">
+              <img id="modal-team-photo" src="" alt="Team Photo" class="team-photo">
+            </div>
+            <h3 id="modal-team-name" class="team-name"></h3>
+            <span id="modal-team-trophies"></span>
+
+          </div>
+
+          <div id="modal-team-players" class="team-players-grid">
+            <!-- Игроки будут подставлены сюда -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer team-modal-footer">
+        <button type="button" class="btn btn-close-modal" data-bs-dismiss="modal">
+          <i class="fas fa-times"></i> Закрыть
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
