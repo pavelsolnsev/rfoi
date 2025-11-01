@@ -5,8 +5,16 @@
       <table id="desktop-table" class="players-table">
         <caption class="table-caption">
           <div class="caption-content">
-            <i class="fas fa-trophy trophy-icon"></i>
-            <span>Статистика игроков</span>
+            <div class="caption-content-wrap">
+              <i class="fas fa-trophy trophy-icon"></i>
+              <span>Статистика игроков</span>
+            </div>
+            <div class="caption-content-icon">
+              <img src="img/main/dark.svg" loading="lazy" alt="">
+            </div>
+          </div>
+          <div class="caption-link">
+            <a id="page-link" href="/tournament">👉 Турнир</a>
           </div>
         </caption>
         <thead>
@@ -19,7 +27,7 @@
             <th data-sort="losses"><span>П</span><span>Поражения</span></th>
             <th data-sort="goals"><span>Г</span><span>Голы</span></th>
             <th data-sort="rating"><span>Рейт</span><span>Рейтинг</span></th>
-            
+
           </tr>
         </thead>
         <tbody id="desktop-table-body">

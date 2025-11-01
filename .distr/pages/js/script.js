@@ -1,7 +1,8 @@
 $(function () {
-  window.addEventListener("resize", () => {
-    renderTable();
-  });
+
+
+  //=require main/script.js
+  //=require popups/script.js
 
   const desktopTable = document.getElementById("desktop-table");
   const desktopTableBody = document.getElementById("desktop-table-body");
@@ -18,7 +19,7 @@ $(function () {
     !loader ||
     !playerModal
   ) {
-    console.error("Ошибка: Один или несколько элементов DOM не найдены");
+    // console.error("Ошибка: Один или несколько элементов DOM не найдены");
     return;
   }
 
@@ -106,7 +107,7 @@ $(function () {
               <div class="player-photo"> 
                 <img src="/img/players/${
                   player.photo
-                }?v=1.0.3" alt="${name}" class="">
+                }?v=1.0.7" alt="${name}" class="">
               </div>
               <span>${name}</span>
             </div>
@@ -142,7 +143,7 @@ $(function () {
     name = truncateUnicodeString(name, 30);
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.0.3`;
+    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.0.8`;
     document.getElementById("modal-player-photo").alt = name;
     document.getElementById("modal-player-games").textContent = player.gamesPlayed;
     document.getElementById("modal-player-wins").textContent = player.wins;
@@ -168,12 +169,10 @@ $(function () {
         }
       );
       clearTimeout(timeoutId);
-      console.log("Ответ получен, статус:", response.status);
       if (!response.ok) {
         throw new Error(`Ошибка загрузки данных (статус: ${response.status})`);
       }
       const data = await response.json();
-      console.log("Данные успешно распарсены:", data);
       players = data;
       localStorage.setItem(
         "players",
@@ -220,3 +219,6 @@ $(function () {
 
   fetchPlayers();
 });
+
+
+  //=require main/script-tournament.js
