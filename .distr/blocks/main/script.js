@@ -28,7 +28,7 @@
   });
 
   function updateThemeIcon(isDark) {
-    themeToggle.src = isDark ? "img/main/dark.svg" : "img/main/light.svg";
+    themeToggle.src = isDark ? "img/main/light.svg" : "img/main/dark.svg";
   }
 })();
 
