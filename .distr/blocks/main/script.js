@@ -1,19 +1,36 @@
-const themeToggle = document.querySelector(".caption-content-icon img");
+/**
+ * Модуль переключения темы (темная/светлая)
+ */
+(function() {
+  'use strict';
+  
+  const themeToggle = document.querySelector(".caption-content-icon img");
 
-if (themeToggle) {
+  if (!themeToggle) {
+    return;
+  }
+
+  // Восстановление темы из localStorage
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.body.setAttribute("data-theme", savedTheme);
+    updateThemeIcon(savedTheme === "dark");
+  }
+
   themeToggle.addEventListener("click", () => {
     const body = document.body;
     const isDark = body.getAttribute("data-theme") === "dark";
+    const newTheme = isDark ? "light" : "dark";
 
-    if (isDark) {
-      body.setAttribute("data-theme", "light");
-      themeToggle.src = "img/main/dark.svg";
-    } else {
-      body.setAttribute("data-theme", "dark");
-      themeToggle.src = "img/main/light.svg";
-    }
+    body.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    updateThemeIcon(!isDark);
   });
-}
+
+  function updateThemeIcon(isDark) {
+    themeToggle.src = isDark ? "img/main/dark.svg" : "img/main/light.svg";
+  }
+})();
 
 
 
