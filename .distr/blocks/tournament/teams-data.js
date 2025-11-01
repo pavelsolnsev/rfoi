@@ -30,6 +30,14 @@ const TEAMS_DATA = [
         name: "dergaev94",
         photo: "img/players/dergaev.png",
       },
+      {
+        name: "filipps1",
+        photo: "img/players/filipps1.png",
+      },
+      {
+        name: "Иван",
+        photo: "img/players/default.jpg",
+      },
     ],
   },
   {
@@ -187,6 +195,7 @@ const TEAMS_DATA = [
       {
         name: "Abdulatip44",
         photo: "img/players/Abdulatip44.png",
+        icon: "🟨",
       },
       {
         name: "KroxaAn",
