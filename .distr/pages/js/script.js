@@ -220,5 +220,3 @@ $(function () {
   fetchPlayers();
 });
 
-
-  //=require main/script-tournament.js

@@ -2,5 +2,5 @@
 {% set PAGE_CLASS = 'page-tournament' %}
 
 {% block blocks %}
-{% include 'main/block-tournament.php' %}
+{% include 'tournament/block-tournament.php' %}
 {% endblock %}
