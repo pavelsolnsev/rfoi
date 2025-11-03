@@ -5,10 +5,10 @@
 const TEAMS_DATA = [
   {
     name: "Администрация",
-    trophies: "🏆🏆",
-    tournaments: 2,
-    points: 6,
-    photo: "img/team/admin2.webp",
+    trophies: "🏆🏆🏆",
+    tournaments: 3,
+    points: 9,
+    photo: "img/team/admin.png",
     players: [
       {
         name: "pavelsolnsev",
@@ -43,8 +43,8 @@ const TEAMS_DATA = [
   {
     name: "Леон",
     trophies: "⚪️",
-    tournaments: 3,
-    points: 4,
+    tournaments: 4,
+    points: 6,
     photo: "img/team/leon.webp",
     players: [
       {
@@ -86,7 +86,7 @@ const TEAMS_DATA = [
     trophies: "🏆",
     tournaments: 2,
     points: 3,
-    photo: "img/team/nologo.webp",
+    photo: "img/team/logo.jpg",
     players: [
       {
         name: "Ислам Халиков",
@@ -115,7 +115,7 @@ const TEAMS_DATA = [
     trophies: "⚪️",
     tournaments: 1,
     points: 2,
-    photo: "img/team/nologo.webp",
+    photo: "img/team/logo.jpg",
     players: [
       {
         name: "filipps1",
@@ -131,7 +131,7 @@ const TEAMS_DATA = [
       },
       {
         name: "SenyaAvgan",
-        photo: "img/players/senyaAvgan.png",
+        photo: "img/players/SenyaAvgan.png",
       },
       {
         name: "mr_snak4",
@@ -142,9 +142,9 @@ const TEAMS_DATA = [
   {
     name: "Worlds",
     trophies: "⚪️",
-    tournaments: 2,
-    points: 2,
-    photo: "img/team/nologo.webp",
+    tournaments: 3,
+    points: 3,
+    photo: "img/team/logo.jpg",
     players: [
       {
         name: "Jorik",
@@ -178,11 +178,11 @@ const TEAMS_DATA = [
     ],
   },
   {
-    name: "Вольт",
+    name: "Volt",
     trophies: "⚪️",
     tournaments: 1,
     points: 1,
-    photo: "img/team/nologo.webp",
+    photo: "img/team/volt.webp",
     players: [
       {
         name: "t1ma27",
@@ -199,7 +199,7 @@ const TEAMS_DATA = [
       },
       {
         name: "KroxaAn",
-        photo: "img/players/kroxaAn.png",
+        photo: "img/players/KroxaAn.png",
       },
       {
         name: "deltaivan",
@@ -212,7 +212,7 @@ const TEAMS_DATA = [
     trophies: "⚪️",
     tournaments: 1,
     points: 0,
-    photo: "img/team/nologo.webp",
+    photo: "img/team/logo.jpg",
     players: [
       {
         name: "deltaivan",
@@ -224,7 +224,7 @@ const TEAMS_DATA = [
       },
       {
         name: "KroxaAn",
-        photo: "img/players/kroxaAn.png",
+        photo: "img/players/KroxaAn.png",
       },
       {
         name: "Дмитрий Шмелев",
@@ -239,9 +239,9 @@ const TEAMS_DATA = [
   {
     name: "Engelbert",
     trophies: "⚪️",
-    tournaments: 0,
+    tournaments: 1,
     points: 0,
-    photo: "img/team/nologo.webp",
+    photo: "img/team/logo.jpg",
     players: [
       {
         name: "AlyevRuslan",

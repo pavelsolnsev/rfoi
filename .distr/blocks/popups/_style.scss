@@ -408,8 +408,6 @@
   height: 60px;
   border-radius: 50%;
   overflow: hidden;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .team-photo {
@@ -500,6 +498,16 @@
   object-fit: cover;
   margin-bottom: 0.5rem;
   border: 2px solid #4f4f7c;
+}
+
+.team-row {
+  img {
+    object-fit: contain;
+  }
+}
+
+#modal-team-photo {
+  object-fit: contain;
 }
 
 
