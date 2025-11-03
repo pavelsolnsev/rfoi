@@ -14,6 +14,8 @@
   }
 }
 
+// [reverted] removed wrapper aura styles per request
+
 // ===== TABLE CAPTION =====
 
 .table-caption {
@@ -32,7 +34,8 @@
   border: 1px solid rgba(59, 130, 246, 0.4);
   border-bottom: 1px solid rgba(59, 130, 246, 0.5);
   backdrop-filter: saturate(140%) blur(6px);
-  box-shadow: 0 8px 16px rgba(24, 24, 27, 0.06), 0 1px 0 rgba(24, 24, 27, 0.08) inset;
+  box-shadow: 0 8px 16px rgba(24, 24, 27, 0.06),
+    0 1px 0 rgba(24, 24, 27, 0.08) inset;
 
   @include media(768) {
     font-size: 1.375rem;
@@ -505,9 +508,25 @@
 
 // ===== DARK THEME =====
 body[data-theme="dark"] {
-  background: #0e0e0e;
-  color: #e0e0e0;
-  transition: background 0.3s ease, color 0.3s ease;
+  // [reverted] removed wrapper aura styles per request
+
+  .wrapper {
+    background: radial-gradient(
+        120% 160% at 10% 0%,
+        rgba(37, 99, 235, 0.22) 0%,
+        rgba(37, 99, 235, 0.08) 35%,
+        transparent 65%
+      ),
+      radial-gradient(
+        120% 160% at 90% 10%,
+        rgba(59, 130, 246, 0.18) 0%,
+        rgba(59, 130, 246, 0.06) 35%,
+        transparent 65%
+      ),
+      linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
+    color: #e0e0e0;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
 
   .players-table {
     background: #161616;
@@ -516,8 +535,7 @@ body[data-theme="dark"] {
   }
 
   .caption-link a {
-    color: #00d4ff;
-
+    background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
     &:hover {
       color: #fff;
     }
