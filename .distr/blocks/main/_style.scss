@@ -15,28 +15,28 @@
 }
 
 // ===== TABLE CAPTION =====
+
 .table-caption {
   font-size: 1.125rem;
-  font-weight: bold;
-  padding: 0.75rem;
+  font-weight: 600;
+  padding: 1rem;
   text-align: left;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%),
-    radial-gradient(
-      circle at 10% 20%,
-      rgba(255, 255, 255, 0.1) 0%,
-      transparent 20%
-    );
-  background-blend-mode: overlay;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   color: #fff;
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 0.0625rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  letter-spacing: 0.01em;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.5);
+  backdrop-filter: saturate(140%) blur(6px);
+  box-shadow: 0 8px 16px rgba(24, 24, 27, 0.06), 0 1px 0 rgba(24, 24, 27, 0.08) inset;
 
   @include media(768) {
-    font-size: 1.5rem;
-    padding: 0.9375rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+    font-size: 1.375rem;
+    padding: 1.25rem;
   }
 
   .caption-content {
@@ -57,11 +57,11 @@
     }
 
     .caption-content-icon {
-      max-width: rem(18);
+      max-width: rem(20);
       cursor: pointer;
 
       @include media(768) {
-        max-width: rem(28);
+        max-width: rem(24);
       }
     }
   }
@@ -436,14 +436,26 @@
   margin-top: 0.5rem;
 
   a {
-    color: #ffd700;
-    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: 9999px;
+    background: var(--brand-accent);
+    color: #fff;
     font-weight: 600;
-    transition: color 0.2s ease;
+    font-size: 0.875rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.25);
+    transition: transform 0.15s ease, background 0.2s ease;
 
     &:hover {
-      color: #fff;
-      text-decoration: underline;
+      background: #2563eb;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
     }
   }
 
@@ -564,8 +576,9 @@ body[data-theme="dark"] {
   }
 
   .table-caption {
-    background: linear-gradient(135deg, #111a23 0%, #1a2735 100%);
-    color: #f1f1f1;
+    background: linear-gradient(135deg, #0b2a6a 0%, #1e40af 100%);
+    color: #f1f5f9;
+    border-color: rgba(59, 130, 246, 0.45);
   }
 
   .error-message {
