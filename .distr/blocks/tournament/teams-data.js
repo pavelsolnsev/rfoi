@@ -4,10 +4,10 @@
  */
 const TEAMS_DATA = [
   {
-    name: "Администрация",
-    trophies: "🏆🏆🏆",
-    tournaments: 3,
-    points: 9,
+    name: "РФОИ",
+    trophies: "🏆🏆🏆🏆",
+    tournaments: 4,
+    points: 12,
     photo: "img/team/admin.png",
     players: [
       {
@@ -36,7 +36,11 @@ const TEAMS_DATA = [
       },
       {
         name: "Иван",
-        photo: "img/players/default.jpg",
+        photo: "img/players/ivan.png",
+      },
+      {
+        name: "y0ung_m0on",
+        photo: "img/players/igor_oru.png",
       },
     ],
   },
@@ -69,7 +73,7 @@ const TEAMS_DATA = [
       },
       {
         name: "vehrbrvk50",
-        photo: "img/players/default.jpg",
+        photo: "img/players/vehrbrvk50.png",
       },
       {
         name: "alexdugar59",
@@ -126,8 +130,9 @@ const TEAMS_DATA = [
         photo: "img/players/vl_l24.png",
       },
       {
-        name: "Mirinian",
-        photo: "img/players/mirinian.png",
+        name: "ZhekaFootball",
+        photo: "img/players/Evgenkozl.png",
+        icon: "🟨",
       },
       {
         name: "SenyaAvgan",
@@ -142,9 +147,9 @@ const TEAMS_DATA = [
   {
     name: "Worlds",
     trophies: "⚪️",
-    tournaments: 3,
-    points: 3,
-    photo: "img/team/logo.jpg",
+    tournaments: 4,
+    points: 4,
+    photo: "img/team/worlds.png",
     players: [
       {
         name: "Jorik",
@@ -153,10 +158,11 @@ const TEAMS_DATA = [
       {
         name: "evgeniyshvetsov",
         photo: "img/players/evgeniyshvetsov.png",
+        icon: "🟨",
       },
       {
         name: "Дмитрий З",
-        photo: "img/players/default.jpg",
+        photo: "img/players/dmitri.png",
       },
       {
         name: "ZhekaFootball",
@@ -174,6 +180,19 @@ const TEAMS_DATA = [
       {
         name: "Vyacheslav Batrakov",
         photo: "img/players/vacheslav.png",
+      },
+      {
+        name: "seivrtd",
+        photo: "img/players/seivrtd.png",
+      },
+      {
+        name: "Артём",
+        photo: "img/players/artem.png",
+      },
+      {
+        name: "Abdulatip44",
+        photo: "img/players/Abdulatip44.png",
+        icon: "🟨",
       },
     ],
   },
@@ -239,7 +258,7 @@ const TEAMS_DATA = [
   {
     name: "Engelbert",
     trophies: "⚪️",
-    tournaments: 1,
+    tournaments: 2,
     points: 0,
     photo: "img/team/logo.jpg",
     players: [
@@ -257,13 +276,53 @@ const TEAMS_DATA = [
       },
       {
         name: "HA_3AKATE_KAPbEPbI",
-        photo: "img/players/default.jpg",
+        photo: "img/players/zakat.png",
       },
       {
         name: "GoshaSc",
+        photo: "img/players/GoshaSc.png",
+      },
+      {
+        name: "Дмитрий З",
+        photo: "img/players/dmitri.png",
+      },
+      {
+        name: "Lexus85",
+        photo: "img/players/default.jpg",
+      },
+      {
+        name: "Александр",
+        photo: "img/players/aleksandr.png",
+      },
+    ],
+  },
+  {
+    name: "Форест Тим",
+    trophies: "⚪️",
+    tournaments: 1,
+    points: 2,
+    photo: "img/team/logo.jpg",
+    players: [
+      {
+        name: "Сергей",
+        photo: "img/players/sergey.png",
+      },
+      {
+        name: "PChizhov87",
+        photo: "img/players/PChizhov87.png",
+      },
+      {
+        name: " Vlades 19",
+        photo: "img/players/Vlades.png",
+      },
+      {
+        name: "Кирилл Романов",
+        photo: "img/players/romanov.png",
+      },
+      {
+        name: "alexey_neponyatno",
         photo: "img/players/default.jpg",
       },
     ],
   },
 ];
-

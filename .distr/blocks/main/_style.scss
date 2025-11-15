@@ -272,8 +272,14 @@
 
   // ===== TOP 3 PLAYERS STYLES =====
   tbody tr:nth-child(1) {
-    background: linear-gradient(
-      90deg,
+    background-color: rgba(255, 215, 0, 0.05);
+    background-image: -webkit-linear-gradient(
+      left,
+      rgba(255, 215, 0, 0.15) 0%,
+      transparent 100%
+    );
+    background-image: linear-gradient(
+      to right,
       rgba(255, 215, 0, 0.15) 0%,
       transparent 100%
     );
@@ -284,8 +290,14 @@
   }
 
   tbody tr:nth-child(2) {
-    background: linear-gradient(
-      90deg,
+    background-color: rgba(192, 192, 192, 0.05);
+    background-image: -webkit-linear-gradient(
+      left,
+      rgba(192, 192, 192, 0.2) 0%,
+      transparent 100%
+    );
+    background-image: linear-gradient(
+      to right,
       rgba(192, 192, 192, 0.2) 0%,
       transparent 100%
     );
@@ -296,8 +308,14 @@
   }
 
   tbody tr:nth-child(3) {
-    background: linear-gradient(
-      90deg,
+    background-color: rgba(205, 127, 50, 0.05);
+    background-image: -webkit-linear-gradient(
+      left,
+      rgba(205, 127, 50, 0.15) 0%,
+      transparent 100%
+    );
+    background-image: linear-gradient(
+      to right,
       rgba(205, 127, 50, 0.15) 0%,
       transparent 100%
     );
@@ -311,8 +329,14 @@
   &.table-asc {
     tbody {
       tr:last-child {
-        background: linear-gradient(
-          90deg,
+        background-color: rgba(255, 215, 0, 0.05);
+        background-image: -webkit-linear-gradient(
+          left,
+          rgba(255, 215, 0, 0.15) 0%,
+          transparent 100%
+        );
+        background-image: linear-gradient(
+          to right,
           rgba(255, 215, 0, 0.15) 0%,
           transparent 100%
         );
@@ -323,8 +347,14 @@
       }
 
       tr:nth-last-child(2) {
-        background: linear-gradient(
-          90deg,
+        background-color: rgba(192, 192, 192, 0.05);
+        background-image: -webkit-linear-gradient(
+          left,
+          rgba(192, 192, 192, 0.2) 0%,
+          transparent 100%
+        );
+        background-image: linear-gradient(
+          to right,
           rgba(192, 192, 192, 0.2) 0%,
           transparent 100%
         );
@@ -335,8 +365,14 @@
       }
 
       tr:nth-last-child(3) {
-        background: linear-gradient(
-          90deg,
+        background-color: rgba(205, 127, 50, 0.05);
+        background-image: -webkit-linear-gradient(
+          left,
+          rgba(205, 127, 50, 0.15) 0%,
+          transparent 100%
+        );
+        background-image: linear-gradient(
+          to right,
           rgba(205, 127, 50, 0.15) 0%,
           transparent 100%
         );
@@ -564,24 +600,42 @@ body[data-theme="dark"] {
   }
 
   .players-table tbody tr:nth-child(1) {
-    background: linear-gradient(
-      90deg,
+    background-color: rgba(255, 215, 0, 0.08);
+    background-image: -webkit-linear-gradient(
+      left,
+      rgba(255, 215, 0, 0.25) 0%,
+      transparent 100%
+    );
+    background-image: linear-gradient(
+      to right,
       rgba(255, 215, 0, 0.25) 0%,
       transparent 100%
     );
   }
 
   .players-table tbody tr:nth-child(2) {
-    background: linear-gradient(
-      90deg,
+    background-color: rgba(180, 200, 255, 0.08);
+    background-image: -webkit-linear-gradient(
+      left,
+      rgba(180, 200, 255, 0.25) 0%,
+      transparent 100%
+    );
+    background-image: linear-gradient(
+      to right,
       rgba(180, 200, 255, 0.25) 0%,
       transparent 100%
     );
   }
 
   .players-table tbody tr:nth-child(3) {
-    background: linear-gradient(
-      90deg,
+    background-color: rgba(205, 127, 50, 0.08);
+    background-image: -webkit-linear-gradient(
+      left,
+      rgba(205, 127, 50, 0.25) 0%,
+      transparent 100%
+    );
+    background-image: linear-gradient(
+      to right,
       rgba(205, 127, 50, 0.25) 0%,
       transparent 100%
     );
@@ -650,8 +704,14 @@ body[data-theme="dark"] {
 
 // Топ-3 команд — те же стили, что у игроков
 .players-table tbody tr:nth-child(1) {
-  background: linear-gradient(
-    90deg,
+  background-color: rgba(255, 215, 0, 0.05);
+  background-image: -webkit-linear-gradient(
+    left,
+    rgba(255, 215, 0, 0.15) 0%,
+    transparent 100%
+  );
+  background-image: linear-gradient(
+    to right,
     rgba(255, 215, 0, 0.15) 0%,
     transparent 100%
   );
@@ -661,8 +721,14 @@ body[data-theme="dark"] {
 }
 
 .players-table tbody tr:nth-child(2) {
-  background: linear-gradient(
-    90deg,
+  background-color: rgba(192, 192, 192, 0.05);
+  background-image: -webkit-linear-gradient(
+    left,
+    rgba(192, 192, 192, 0.2) 0%,
+    transparent 100%
+  );
+  background-image: linear-gradient(
+    to right,
     rgba(192, 192, 192, 0.2) 0%,
     transparent 100%
   );
@@ -672,8 +738,14 @@ body[data-theme="dark"] {
 }
 
 .players-table tbody tr:nth-child(3) {
-  background: linear-gradient(
-    90deg,
+  background-color: rgba(205, 127, 50, 0.05);
+  background-image: -webkit-linear-gradient(
+    left,
+    rgba(205, 127, 50, 0.15) 0%,
+    transparent 100%
+  );
+  background-image: linear-gradient(
+    to right,
     rgba(205, 127, 50, 0.15) 0%,
     transparent 100%
   );
@@ -695,24 +767,42 @@ body[data-theme="dark"] {
   }
 
   .players-table tbody tr:nth-child(1) {
-    background: linear-gradient(
-      90deg,
+    background-color: rgba(255, 215, 0, 0.08);
+    background-image: -webkit-linear-gradient(
+      left,
+      rgba(255, 215, 0, 0.25) 0%,
+      transparent 100%
+    );
+    background-image: linear-gradient(
+      to right,
       rgba(255, 215, 0, 0.25) 0%,
       transparent 100%
     );
   }
 
   .players-table tbody tr:nth-child(2) {
-    background: linear-gradient(
-      90deg,
+    background-color: rgba(180, 200, 255, 0.08);
+    background-image: -webkit-linear-gradient(
+      left,
+      rgba(180, 200, 255, 0.25) 0%,
+      transparent 100%
+    );
+    background-image: linear-gradient(
+      to right,
       rgba(180, 200, 255, 0.25) 0%,
       transparent 100%
     );
   }
 
   .players-table tbody tr:nth-child(3) {
-    background: linear-gradient(
-      90deg,
+    background-color: rgba(205, 127, 50, 0.08);
+    background-image: -webkit-linear-gradient(
+      left,
+      rgba(205, 127, 50, 0.25) 0%,
+      transparent 100%
+    );
+    background-image: linear-gradient(
+      to right,
       rgba(205, 127, 50, 0.25) 0%,
       transparent 100%
     );
