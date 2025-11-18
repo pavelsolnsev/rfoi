@@ -141,6 +141,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     updateSortIndicators();
+    
+    // Анимация появления строк таблицы с задержкой
+    setTimeout(() => {
+      const rows = teamsTableBody.querySelectorAll(".team-row");
+      rows.forEach((row, index) => {
+        setTimeout(() => {
+          row.classList.add("animate-in");
+        }, index * 30); // Задержка 30ms между строками
+      });
+    }, 100);
   };
 
   // Сортировка по заголовкам
