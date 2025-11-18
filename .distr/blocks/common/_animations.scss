@@ -24,6 +24,27 @@
   }
 }
 
+/* Анимация для иконки переключения темы */
+@keyframes rotatePulse {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
 /* Анимация для строк таблицы (игроки и команды) */
 .players-table tbody tr,
 #teams-table tbody tr {
@@ -190,5 +211,22 @@
 .caption-link a .pointing-arrow {
   display: inline-block;
   animation: pointRight 1.5s ease-in-out infinite;
+}
+
+/* Анимация для иконки переключения темы */
+.caption-content-icon {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.caption-content-icon img {
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: gentlePulse 3s ease-in-out infinite;
+}
+
+.caption-content-icon:hover img {
+  animation: rotatePulse 1s ease-in-out infinite;
+  transform: rotate(180deg) scale(1.1);
 }
 
