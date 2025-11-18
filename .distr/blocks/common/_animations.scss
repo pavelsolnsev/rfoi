@@ -1,0 +1,172 @@
+/* ============================================
+   АНИМАЦИИ ДЛЯ ПОПАПОВ (МОДАЛЬНЫХ ОКОН)
+   ============================================ */
+
+/* Базовые keyframes */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Анимация для строк таблицы (игроки и команды) */
+.players-table tbody tr,
+#teams-table tbody tr {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.players-table tbody tr.animate-in,
+#teams-table tbody tr.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Анимация для модальных окон */
+.modal.fade.show .modal-content {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* Анимация для карточек статистики в модальном окне */
+.stat-card {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.modal.show .stat-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal.show .stat-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.modal.show .stat-card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.modal.show .stat-card:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.modal.show .stat-card:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.modal.show .stat-card:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+/* Анимация для фото игрока в модальном окне */
+.player-photo-container {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.modal.show .player-photo-container {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Анимация для имени игрока */
+.player-name {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease-out 0.2s, transform 0.4s ease-out 0.2s;
+}
+
+.modal.show .player-name {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Анимация для рейтинга */
+.rating-container {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.4s ease-out 0.3s, transform 0.4s ease-out 0.3s;
+}
+
+.modal.show .rating-container {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* Анимация для трофеев команды */
+#modal-team-trophies {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.4s ease-out 0.3s, transform 0.4s ease-out 0.3s;
+}
+
+.modal.show #modal-team-trophies {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Анимация для карточек игроков в модальном окне команды (плавное появление с масштабированием) */
+.team-players-grid .player-card {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.modal.show .team-players-grid .player-card {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal.show .team-players-grid .player-card:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.modal.show .team-players-grid .player-card:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.modal.show .team-players-grid .player-card:nth-child(3) {
+  transition-delay: 0.15s;
+}
+
+.modal.show .team-players-grid .player-card:nth-child(4) {
+  transition-delay: 0.2s;
+}
+
+.modal.show .team-players-grid .player-card:nth-child(5) {
+  transition-delay: 0.25s;
+}
+
+.modal.show .team-players-grid .player-card:nth-child(6) {
+  transition-delay: 0.3s;
+}
+
+.modal.show .team-players-grid .player-card:nth-child(7) {
+  transition-delay: 0.35s;
+}
+
+.modal.show .team-players-grid .player-card:nth-child(8) {
+  transition-delay: 0.4s;
+}
+
+.modal.show .team-players-grid .player-card:nth-child(9) {
+  transition-delay: 0.45s;
+}
+
+.modal.show .team-players-grid .player-card:nth-child(10) {
+  transition-delay: 0.5s;
+}
+
+.modal.show .team-players-grid .player-card:nth-child(n+11) {
+  transition-delay: 0.55s;
+}
+

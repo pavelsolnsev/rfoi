@@ -133,6 +133,16 @@ $(function () {
 
     desktopTable.style.display = "table";
     updateSortIndicators();
+    
+    // Анимация появления строк таблицы с задержкой
+    setTimeout(() => {
+      const rows = desktopTableBody.querySelectorAll(".player-row");
+      rows.forEach((row, index) => {
+        setTimeout(() => {
+          row.classList.add("animate-in");
+        }, index * 30); // Задержка 30ms между строками
+      });
+    }, 100);
   };
 
   const showPlayerModal = (player) => {
