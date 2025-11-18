@@ -260,7 +260,7 @@ const TEAMS_DATA = [
     trophies: "⚪️",
     tournaments: 2,
     points: 0,
-    photo: "img/team/logo.jpg",
+    photo: "img/team/Engelbert.png",
     players: [
       {
         name: "AlyevRuslan",
