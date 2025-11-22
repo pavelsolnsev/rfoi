@@ -18,7 +18,7 @@ html {
 
 /* Modern color system */
 :root {
-  --surface: #ffffff;
+  --surface: #f0f4f8;
   --surface-elevated: #f8f9fa;
   --text-primary: #111827;
   --text-inverse: #ffffff;
@@ -50,66 +50,6 @@ body {
   line-height: 1.2;
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   background: var(--surface);
-  
-  // Футбольный фон для светлой темы
-  &:not([data-theme="dark"]) {
-    background: 
-      // Градиент неба
-      linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 25%, #a5d6a7 50%, #81c784 75%, #66bb6a 100%),
-      // Паттерн футбольного поля (полосы)
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 2px,
-        rgba(76, 175, 80, 0.03) 2px,
-        rgba(76, 175, 80, 0.03) 4px
-      ),
-      // Центральный круг (разметка поля)
-      radial-gradient(
-        circle at 50% 50%,
-        transparent 0%,
-        transparent 30%,
-        rgba(255, 255, 255, 0.1) 30%,
-        rgba(255, 255, 255, 0.1) 32%,
-        transparent 32%
-      ),
-      // Базовый зеленый фон
-      linear-gradient(180deg, #f1f8f4 0%, #e8f5e9 100%);
-    background-size: 100% 100%, 20px 20px, 100% 100%, 100% 100%;
-    background-attachment: fixed;
-    
-    // Добавляем легкие тени для глубины
-    position: relative;
-    
-    &::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        // Горизонтальные линии поля
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 98px,
-          rgba(255, 255, 255, 0.15) 98px,
-          rgba(255, 255, 255, 0.15) 100px
-        ),
-        // Вертикальная центральная линия
-        linear-gradient(
-          90deg,
-          transparent 0%,
-          transparent 49%,
-          rgba(255, 255, 255, 0.2) 49%,
-          rgba(255, 255, 255, 0.2) 51%,
-          transparent 51%
-        );
-      pointer-events: none;
-      z-index: 0;
-    }
-  }
 }
 
 .wrapper {
@@ -121,14 +61,13 @@ body {
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background: var(--surface-elevated);
   position: relative;
   z-index: 1;
   
   // Для светлой темы делаем wrapper полупрозрачным, чтобы был виден фон
   body:not([data-theme="dark"]) & {
-    background: rgba(248, 249, 250, 0.85);
-    backdrop-filter: blur(1px);
+    // background: rgba(248, 249, 250, 0.85);
+    // backdrop-filter: blur(1px);
   }
 }
 
