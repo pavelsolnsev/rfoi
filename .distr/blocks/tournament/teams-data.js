@@ -122,7 +122,11 @@ const TEAMS_DATA = [
       },
       {
         name: "IkRoMchIk_75",
-        photo: "img/players/default.jpg",
+        photo: "img/players/IkRoMchIk_75.png",
+      },
+      {
+        name: "gos_it_tech",
+        photo: "img/players/gos_it_tech.png",
       },
     ],
   },
@@ -276,6 +280,10 @@ const TEAMS_DATA = [
       {
         name: "mr_snak4",
         photo: "img/players/mr_snak4.png",
+      },
+      {
+        name: "N_Trimonov",
+        photo: "img/players/N_Trimonov.png",
       },
     ],
   },
