@@ -42,6 +42,10 @@ const TEAMS_DATA = [
         name: "y0ung_m0on",
         photo: "img/players/igor_oru.png",
       },
+      {
+        name: "Михаил",
+        photo: "img/players/mixail.png",
+      },
     ],
   },
   {
@@ -88,8 +92,8 @@ const TEAMS_DATA = [
   {
     name: "Ручеёк",
     trophies: "🏆",
-    tournaments: 2,
-    points: 3,
+    tournaments: 3,
+    points: 5,
     photo: "img/team/rych.webp",
     players: [
       {
@@ -111,6 +115,14 @@ const TEAMS_DATA = [
       {
         name: "svyatoslavspirin",
         photo: "img/players/svyatoslavspirin.png",
+      },
+      {
+        name: "Ravil'",
+        photo: "img/players/Ravil.png",
+      },
+      {
+        name: "IkRoMchIk_75",
+        photo: "img/players/default.jpg",
       },
     ],
   },
@@ -199,7 +211,7 @@ const TEAMS_DATA = [
   {
     name: "Volt",
     trophies: "⚪️",
-    tournaments: 1,
+    tournaments: 2,
     points: 1,
     photo: "img/team/volt.webp",
     players: [
@@ -224,13 +236,21 @@ const TEAMS_DATA = [
         name: "deltaivan",
         photo: "img/players/deltaivan.png",
       },
+      {
+        name: "seivrtd",
+        photo: "img/players/seivrtd.png",
+      },
+      {
+        name: "Артем",
+        photo: "img/players/artem.png",
+      },
     ],
   },
   {
     name: "Юность",
     trophies: "⚪️",
-    tournaments: 1,
-    points: 0,
+    tournaments: 2,
+    points: 1,
     photo: "img/team/un.webp",
     players: [
       {
@@ -252,6 +272,10 @@ const TEAMS_DATA = [
       {
         name: "Vyacheslav Batrakov",
         photo: "img/players/vacheslav.png",
+      },
+      {
+        name: "mr_snak4",
+        photo: "img/players/mr_snak4.png",
       },
     ],
   },
