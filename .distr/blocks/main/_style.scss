@@ -597,6 +597,22 @@ body[data-theme="dark"] {
 
 // ===== TOURNAMENT TABLE CUSTOMIZATION =====
 
+// Стили для цифры в трофеях
+.trophy-number {
+  font-weight: 900;
+  font-size: 1.2em;
+  color: #0066FF;
+  display: inline-block;
+  line-height: 1;
+}
+
+// Темная тема
+body[data-theme="dark"] {
+  .trophy-number {
+    color: #4A9EFF;
+  }
+}
+
 // Цвет очков (О)
 .players-table td[data-label="О"],
 .players-table td[data-label="Очки"] {

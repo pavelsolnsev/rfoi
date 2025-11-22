@@ -5,7 +5,8 @@
 const TEAMS_DATA = [
   {
     name: "РФОИ",
-    trophies: "🏆🏆🏆🏆🏆",
+    // trophies: '<span class="trophy-number">5</span>🏆',
+    trophies: '🏆🏆🏆🏆🏆',
     tournaments: 5,
     points: 15,
     photo: "img/team/admin.png",
@@ -99,6 +100,7 @@ const TEAMS_DATA = [
       {
         name: "Ислам Халиков",
         photo: "img/players/islam.png",
+        icon: "🟨",
       },
       {
         name: "seivrtd",
@@ -226,6 +228,7 @@ const TEAMS_DATA = [
       {
         name: "y0ung_m0on",
         photo: "img/players/igor_oru.png",
+        icon: "🟨",
       },
       {
         name: "Abdulatip44",

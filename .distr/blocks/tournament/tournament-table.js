@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     modalName.textContent = team.name;
-    modalTrophies.textContent = team.trophies;
+    modalTrophies.innerHTML = team.trophies;
     modalPhoto.src = team.photo;
     modalPlayers.innerHTML = "";
 
