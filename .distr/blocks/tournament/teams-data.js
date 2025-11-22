@@ -7,7 +7,7 @@ const TEAMS_DATA = [
     name: "РФОИ",
     trophies: "🏆🏆🏆🏆🏆",
     tournaments: 4,
-    points: 12,
+    points: 15,
     photo: "img/team/admin.png",
     players: [
       {
