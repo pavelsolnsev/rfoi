@@ -32,7 +32,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./public/
-          server-dir: /public_html/  # Путь на сервере (для Beget обычно /public_html/)
+          server-dir: /football.pavelsolntsev.ru/public_html/  # Путь на сервере
           exclude: |
             **/.git*
             **/.git*/**
