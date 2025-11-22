@@ -90,7 +90,7 @@ const TEAMS_DATA = [
     trophies: "🏆",
     tournaments: 2,
     points: 3,
-    photo: "img/team/logo.jpg",
+    photo: "img/team/rych.webp",
     players: [
       {
         name: "Ислам Халиков",
@@ -231,7 +231,7 @@ const TEAMS_DATA = [
     trophies: "⚪️",
     tournaments: 1,
     points: 0,
-    photo: "img/team/logo.jpg",
+    photo: "img/team/un.webp",
     players: [
       {
         name: "deltaivan",

@@ -12,6 +12,7 @@
       </div>
       <div class="modal-body">
         <div class="player-profile">
+          
           <div class="player-photo-container">
             <div class="photo-frame">
               <img id="modal-player-photo" src="" alt="Player Photo" class="player-photo-img">

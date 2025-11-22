@@ -107,7 +107,7 @@ $(function () {
               <div class="player-photo"> 
                 <img src="/img/players/${
                   player.photo
-                }?v=1.1.3" alt="${name}" class="">
+                }?v=1.1.5" alt="${name}" class="">
               </div>
               <span>${name}</span>
             </div>
@@ -153,7 +153,7 @@ $(function () {
     name = truncateUnicodeString(name, 30);
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.3`;
+    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.5`;
     document.getElementById("modal-player-photo").alt = name;
     document.getElementById("modal-player-games").textContent = player.gamesPlayed;
     document.getElementById("modal-player-wins").textContent = player.wins;
