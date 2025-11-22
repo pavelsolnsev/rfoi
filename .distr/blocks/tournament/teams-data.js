@@ -42,6 +42,7 @@ const TEAMS_DATA = [
       {
         name: "y0ung_m0on",
         photo: "img/players/igor_oru.png",
+        icon: "🟨",
       },
       {
         name: "Михаил",
