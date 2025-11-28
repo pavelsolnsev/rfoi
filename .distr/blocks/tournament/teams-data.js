@@ -7,8 +7,8 @@ const TEAMS_DATA = [
     name: "РФОИ",
     // trophies: '<span class="trophy-number">5</span>🏆',
     trophies: '🏆🏆🏆🏆🏆',
-    tournaments: 5,
-    points: 15,
+    tournaments: 6,
+    points: 17,
     photo: "img/team/admin.png",
     players: [
       {
@@ -52,9 +52,9 @@ const TEAMS_DATA = [
   },
   {
     name: "Леон",
-    trophies: "⚪️",
-    tournaments: 4,
-    points: 6,
+    trophies: "🏆",
+    tournaments: 5,
+    points: 9,
     photo: "img/team/leon.webp",
     players: [
       {
@@ -294,8 +294,8 @@ const TEAMS_DATA = [
   {
     name: "Engelbert",
     trophies: "⚪️",
-    tournaments: 2,
-    points: 0,
+    tournaments: 3,
+    points: 1,
     photo: "img/team/Engelbert.png",
     players: [
       {
@@ -358,6 +358,35 @@ const TEAMS_DATA = [
       {
         name: "alexey_neponyatno",
         photo: "img/players/default.jpg",
+      },
+    ],
+  },
+  {
+    name: "California",
+    trophies: "⚪️",
+    tournaments: 1,
+    points: 0,
+    photo: "img/team/california.webp",
+    players: [
+      {
+        name: "dergaev94",
+        photo: "img/players/dergaev.png",
+      },
+      {
+        name: "Gavrilovram",
+        photo: "img/players/Gavrilov.png",
+      },
+      {
+        name: "delay_kpacubo",
+        photo: "img/players/kpacubo.png",
+      },
+      {
+        name: "Сергей Ефремов",
+        photo: "img/players/default.jpg",
+      },
+      {
+        name: "Aleksandr93",
+        photo: "img/players/Aleksandr93.png",
       },
     ],
   },
