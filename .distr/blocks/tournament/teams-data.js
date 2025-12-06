@@ -7,7 +7,7 @@ const TEAMS_DATA = [
     name: "РФОИ",
     // trophies: '<span class="trophy-number">5</span>🏆',
     trophies: '🏆🏆🏆🏆🏆',
-    tournaments: 6,
+    tournaments: 7,
     points: 17,
     photo: "img/team/admin.png",
     players: [
@@ -93,9 +93,9 @@ const TEAMS_DATA = [
   },
   {
     name: "Ручеёк",
-    trophies: "🏆",
-    tournaments: 3,
-    points: 5,
+    trophies: "🏆🏆",
+    tournaments: 4,
+    points: 8,
     photo: "img/team/rych.webp",
     players: [
       {
@@ -166,8 +166,8 @@ const TEAMS_DATA = [
   {
     name: "Worlds",
     trophies: "⚪️",
-    tournaments: 4,
-    points: 4,
+    tournaments: 5,
+    points: 5,
     photo: "img/team/worlds.png",
     players: [
       {
@@ -294,8 +294,8 @@ const TEAMS_DATA = [
   {
     name: "Engelbert",
     trophies: "⚪️",
-    tournaments: 3,
-    points: 1,
+    tournaments: 4,
+    points: 3,
     photo: "img/team/Engelbert.png",
     players: [
       {
