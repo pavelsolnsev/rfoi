@@ -7,8 +7,8 @@ const TEAMS_DATA = [
     name: "РФОИ",
     // trophies: '<span class="trophy-number">5</span>🏆',
     trophies: '🏆🏆🏆🏆🏆',
-    tournaments: 7,
-    points: 17,
+    tournaments: 8,
+    points: 19,
     photo: "img/team/admin.png",
     players: [
       {
@@ -40,11 +40,6 @@ const TEAMS_DATA = [
         photo: "img/players/ivan.png",
       },
       {
-        name: "y0ung_m0on",
-        photo: "img/players/igor_oru.png",
-        icon: "🟨",
-      },
-      {
         name: "Михаил",
         photo: "img/players/mixail.png",
       },
@@ -53,7 +48,7 @@ const TEAMS_DATA = [
   {
     name: "Леон",
     trophies: "🏆",
-    tournaments: 5,
+    tournaments: 6,
     points: 9,
     photo: "img/team/leon.webp",
     players: [
@@ -93,9 +88,9 @@ const TEAMS_DATA = [
   },
   {
     name: "Ручеёк",
-    trophies: "🏆🏆",
-    tournaments: 4,
-    points: 8,
+    trophies: "🏆🏆🏆",
+    tournaments: 5,
+    points: 11,
     photo: "img/team/rych.webp",
     players: [
       {
@@ -294,8 +289,8 @@ const TEAMS_DATA = [
   {
     name: "Engelbert",
     trophies: "⚪️",
-    tournaments: 4,
-    points: 3,
+    tournaments: 5,
+    points: 4,
     photo: "img/team/Engelbert.png",
     players: [
       {
@@ -303,20 +298,8 @@ const TEAMS_DATA = [
         photo: "img/players/CyJlTaH1117.png",
       },
       {
-        name: "izi0895",
-        photo: "img/players/izi0895.png",
-      },
-      {
         name: " IIpets",
         photo: "img/players/IIpets.png",
-      },
-      {
-        name: "HA_3AKATE_KAPbEPbI",
-        photo: "img/players/zakat.png",
-      },
-      {
-        name: "GoshaSc",
-        photo: "img/players/GoshaSc.png",
       },
       {
         name: "Дмитрий З",
