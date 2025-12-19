@@ -48,13 +48,14 @@ const TEAMS_DATA = [
   {
     name: "Леон",
     trophies: "🏆",
-    tournaments: 6,
+    tournaments: 7,
     points: 9,
     photo: "img/team/leon.webp",
     players: [
       {
         name: "nikita_a1exandrovich",
         photo: "img/players/nikita.png",
+        icon: "🟨",
       },
       {
         name: "Vadik_69_11",
@@ -89,8 +90,8 @@ const TEAMS_DATA = [
   {
     name: "Ручеёк",
     trophies: "🏆🏆🏆",
-    tournaments: 5,
-    points: 11,
+    tournaments: 6,
+    points: 13,
     photo: "img/team/rych.webp",
     players: [
       {
@@ -146,7 +147,7 @@ const TEAMS_DATA = [
       {
         name: "ZhekaFootball",
         photo: "img/players/Evgenkozl.png",
-        icon: "🟨",
+        icon: "🟨🟨",
       },
       {
         name: "SenyaAvgan",
@@ -289,8 +290,8 @@ const TEAMS_DATA = [
   {
     name: "Engelbert",
     trophies: "⚪️",
-    tournaments: 5,
-    points: 4,
+    tournaments: 6,
+    points: 5,
     photo: "img/team/Engelbert.png",
     players: [
       {
@@ -370,6 +371,32 @@ const TEAMS_DATA = [
       {
         name: "Aleksandr93",
         photo: "img/players/Aleksandr93.png",
+      },
+    ],
+  },
+  {
+    name: "Ясность",
+    trophies: "🏆",
+    tournaments: 1,
+    points: 3,
+    photo: "img/team/iasnostb.jpg",
+    players: [
+      {
+        name: "evgeniyshvetsov",
+        photo: "img/players/evgeniyshvetsov.png",
+        icon: "🟨",
+      },
+      {
+        name: "deltaivan",
+        photo: "img/players/deltaivan.png",
+      },
+      {
+        name: "Кодиржон",
+        photo: "kodirjon.png",
+      },
+      {
+        name: "Aleksandr_bannik",
+        photo: "default.jpg",
       },
     ],
   },
