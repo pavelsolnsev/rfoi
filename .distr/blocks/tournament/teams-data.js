@@ -392,11 +392,15 @@ const TEAMS_DATA = [
       },
       {
         name: "Кодиржон",
-        photo: "kodirjon.png",
+        photo: "img/players/kodirjon.png",
       },
       {
         name: "Aleksandr_bannik",
-        photo: "default.jpg",
+        photo: "img/players/default.jpg",
+      },
+      {
+        name: "iamnotnikita",
+        photo: "img/players/iamnotnikita.png",
       },
     ],
   },
