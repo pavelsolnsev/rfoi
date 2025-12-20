@@ -396,7 +396,7 @@ const TEAMS_DATA = [
       },
       {
         name: "Aleksandr_bannik",
-        photo: "img/players/default.jpg",
+        photo: "img/players/Aleksandr_bannik.png",
       },
       {
         name: "iamnotnikita",
