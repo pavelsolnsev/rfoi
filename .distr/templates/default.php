@@ -35,7 +35,7 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <link rel="stylesheet" href="css/style.css?v=<?= $cssVersion ?>">
 </head>
 
-<body class="">
+<body class="{{ PAGE_CLASS }}">
 
     <div class="wrapper">
         {% block blocks %}

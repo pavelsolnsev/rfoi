@@ -53,6 +53,13 @@
   transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
+/* Отключение анимации для статичных страниц (например, сезон 2025) */
+body.page-static .players-table tbody tr,
+body.page-static #teams-table tbody tr {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .players-table tbody tr.animate-in,
 #teams-table tbody tr.animate-in {
   opacity: 1;
