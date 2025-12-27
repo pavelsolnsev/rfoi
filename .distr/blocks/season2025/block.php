@@ -1672,7 +1672,7 @@ usort($players, function ($a, $b) {
             </div>
           </div>
           <div class="caption-link">
-            <a id="page-link" href="/">Текущий сезон</a>
+            <a id="page-link" href="/">Текущий рейтинг</a>
           </div>
         </caption>
         <thead>
