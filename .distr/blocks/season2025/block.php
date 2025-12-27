@@ -1655,7 +1655,6 @@ usort($players, function ($a, $b) {
   return ($b['rating'] ?? 0) - ($a['rating'] ?? 0);
 });
 ?>
-?>
 
 <section class="s-main">
   <div class="container">
