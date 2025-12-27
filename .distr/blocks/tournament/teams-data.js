@@ -48,7 +48,7 @@ const TEAMS_DATA = [
   {
     name: "Леон",
     trophies: "🏆",
-    tournaments: 7,
+    tournaments: 8,
     points: 9,
     photo: "img/team/leon.webp",
     players: [
@@ -89,9 +89,9 @@ const TEAMS_DATA = [
   },
   {
     name: "Ручеёк",
-    trophies: "🏆🏆🏆",
-    tournaments: 6,
-    points: 13,
+    trophies: "🏆🏆🏆🏆",
+    tournaments: 7,
+    points: 16,
     photo: "img/team/rych.webp",
     players: [
       {
@@ -214,8 +214,8 @@ const TEAMS_DATA = [
   {
     name: "Volt",
     trophies: "⚪️",
-    tournaments: 2,
-    points: 1,
+    tournaments: 3,
+    points: 3,
     photo: "img/team/volt.webp",
     players: [
       {
@@ -290,8 +290,8 @@ const TEAMS_DATA = [
   {
     name: "Engelbert",
     trophies: "⚪️",
-    tournaments: 6,
-    points: 5,
+    tournaments: 7,
+    points: 6,
     photo: "img/team/Engelbert.png",
     players: [
       {
