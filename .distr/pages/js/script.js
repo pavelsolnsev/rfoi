@@ -90,7 +90,26 @@ $(function () {
     const sortedPlayers = sortPlayers(players, sortConfig.key, sortConfig.direction);
     const maxNameLength = getMaxNameLength();
 
+    desktopTable.style.display = "table";
+    emptyMessage.style.display = "none";
+
     desktopTable.classList.toggle('table-asc', sortConfig.direction === 'asc');
+
+    // Проверка на пустой список игроков
+    if (sortedPlayers.length === 0) {
+      const columnCount = desktopTable.querySelectorAll('thead th').length;
+      const emptyRow = `
+        <tr class="empty-row">
+          <td colspan="${columnCount}" style="text-align: center; padding: 2rem;">
+            <i class="fas fa-exclamation-circle"></i>
+            <span style="margin-left: 0.5rem;">Список игроков пуст</span>
+          </td>
+        </tr>
+      `;
+      desktopTableBody.insertAdjacentHTML("beforeend", emptyRow);
+      updateSortIndicators();
+      return;
+    }
 
     sortedPlayers.forEach((player, index) => {
       let name =
@@ -131,7 +150,6 @@ $(function () {
       });
     });
 
-    desktopTable.style.display = "table";
     updateSortIndicators();
     
     // Анимация появления строк таблицы с задержкой
