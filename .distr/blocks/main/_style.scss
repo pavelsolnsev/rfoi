@@ -340,6 +340,20 @@
       }
     }
   }
+
+  // ===== EMPTY ROW STYLES =====
+  tbody tr.empty-row {
+    background: #fafafa !important;
+    cursor: default;
+
+    td:first-child::after {
+      content: none !important;
+    }
+
+    &:hover {
+      background: #fafafa !important;
+    }
+  }
 }
 
 // ===== PLAYER INFO COMPONENT =====
