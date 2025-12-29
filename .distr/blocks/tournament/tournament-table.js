@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
       rows.forEach((row, index) => {
         setTimeout(() => {
           row.classList.add("animate-in");
-        }, index * 30); // Задержка 30ms между строками
+        }, index * 30); // Задержка 30 мс между строками
       });
     }, 100);
   };
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
   teamsTable.querySelectorAll("th").forEach((th) => {
     const sortKey = th.getAttribute("data-sort");
 
-    // Игнорируем games
+    // Игнорируем игры
     if (!sortKey || sortKey === "games") return;
 
     th.style.cursor = "pointer";

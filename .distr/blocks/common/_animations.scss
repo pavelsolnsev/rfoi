@@ -20,7 +20,7 @@
     transform: translateX(0);
   }
   50% {
-    transform: translateX(5px);
+    transform: translateX(rem(5));
   }
 }
 
@@ -52,7 +52,7 @@
 /* Анимация для карточек статистики в модальном окне */
 .stat-card {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(rem(10));
   transition: opacity 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease;
 }
 
@@ -96,7 +96,7 @@
 /* Анимация для имени игрока */
 .player-name {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(rem(-10));
   transition: opacity 0.4s ease-out 0.2s, transform 0.4s ease-out 0.2s;
 }
 
@@ -134,7 +134,7 @@
 .caption-link a {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: rem(4);
 }
 
 .caption-link a .pointing-arrow {

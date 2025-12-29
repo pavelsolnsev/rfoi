@@ -16,7 +16,7 @@ html {
   box-sizing: inherit;
 }
 
-/* Modern color system */
+/* Современная цветовая система */
 :root {
   --surface: #f0f4f8;
   --surface-elevated: #f8f9fa;
@@ -75,6 +75,7 @@ body {
   max-width: rem(1232);
   margin: 0 auto;
   padding: 0 rem(15);
+  
   @media screen and (max-width: rem(768)) {
     padding: 0;
   }

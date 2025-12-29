@@ -45,7 +45,7 @@ logError("Время подключения к базе данных: $connectTi
 
 $mysqli->set_charset("utf8mb4");
 
-$query = "SELECT name, username, goals, gamesPlayed, wins, draws, losses, rating, photo FROM players";
+$query = "SELECT name, username, goals, assists, saves, mvp, gamesPlayed, wins, draws, losses, rating, photo FROM players";
 $result = $mysqli->query($query);
 
 if (!$result) {
@@ -60,6 +60,9 @@ $players = [];
 while ($row = $result->fetch_assoc()) {
     // Cast values to appropriate types
     $row['goals'] = (int)$row['goals'];
+    $row['assists'] = (int)($row['assists'] ?? 0);
+    $row['saves'] = (int)($row['saves'] ?? 0);
+    $row['mvp'] = (int)($row['mvp'] ?? 0);
     $row['gamesPlayed'] = (int)$row['gamesPlayed'];
     $row['wins'] = (int)$row['wins'];
     $row['draws'] = (int)$row['draws'];
@@ -69,6 +72,9 @@ while ($row = $result->fetch_assoc()) {
 
     // Check if all stats are zero
     if (!($row['goals'] === 0 &&
+          $row['assists'] === 0 &&
+          $row['saves'] === 0 &&
+          $row['mvp'] === 0 &&
           $row['gamesPlayed'] === 0 &&
           $row['wins'] === 0 &&
           $row['draws'] === 0 &&

@@ -29,7 +29,14 @@ $(function () {
     direction: 'desc'
   };
 
-  const getMaxNameLength = () => (window.innerWidth <= 992 ? 20 : 30);
+  const getMaxNameLength = () => {
+    if (window.innerWidth <= 380) return 9;
+    if (window.innerWidth <= 578) return 13;
+    if (window.innerWidth <= 768) return 15;
+    if (window.innerWidth <= 992) return 22;
+    if (window.innerWidth <= 1200) return 20;
+    return 29;
+  };
 
   const truncateUnicodeString = (str, maxLength) => {
     const chars = [...str];
@@ -132,11 +139,14 @@ $(function () {
             </div>
           </td>
           <td data-label="Игры">${player.gamesPlayed}</td>
-          <td data-label="Победы">${player.wins}</td>
-          <td data-label="Ничьи">${player.draws}</td>
-          <td data-label="Поражения">${player.losses}</td>
+          <td data-label="Поб">${player.wins}</td>
+          <td data-label="Нич">${player.draws}</td>
+          <td data-label="Пор">${player.losses}</td>
           <td data-label="Голы">${player.goals}</td>
-          <td data-label="Рейтинг">${player.rating}</td>
+          <td data-label="Асс">${player.assists || 0}</td>
+          <td data-label="Сейвы">${player.saves || 0}</td>
+          <td data-label="MVP">${player.mvp || 0}</td>
+          <td data-label="Рейт">${player.rating}</td>
         </tr>
       `;
       desktopTableBody.insertAdjacentHTML("beforeend", desktopRow);
@@ -178,6 +188,9 @@ $(function () {
     document.getElementById("modal-player-draws").textContent = player.draws;
     document.getElementById("modal-player-losses").textContent = player.losses;
     document.getElementById("modal-player-goals").textContent = player.goals;
+    document.getElementById("modal-player-assists").textContent = player.assists || 0;
+    document.getElementById("modal-player-saves").textContent = player.saves || 0;
+    document.getElementById("modal-player-mvp").textContent = player.mvp || 0;
     document.getElementById("modal-player-rating").textContent = player.rating;
 
     playerModal.show();

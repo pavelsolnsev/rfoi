@@ -2,7 +2,7 @@
   &.fade {
     .modal-dialog {
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      transform: translateY(20px) scale(0.95);
+      transform: translateY(rem(20)) scale(0.95);
       opacity: 0;
     }
 
@@ -16,19 +16,20 @@
 }
 
 .modal-dialog {
-  max-width: 500px;
-  margin: 1.75rem auto;
+  max-width: rem(500);
+  margin: rem(28) auto;
   border-radius: rem(12);
-  @media (max-width: 576px) {
-    margin: 0.5rem;
-    max-width: calc(100% - 1rem);
+  
+  @media screen and (max-width: rem(576)) {
+    margin: rem(8);
+    max-width: calc(100% - #{rem(16)});
   }
 }
 
 .modal-content {
   border: none;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 rem(10) rem(25) rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: rem(12);
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
@@ -36,7 +37,7 @@
 
 .modal-header {
   border: none;
-  padding: 1.5rem;
+  padding: rem(24);
   position: relative;
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   color: white;
@@ -45,18 +46,18 @@
   .header-content {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: rem(12);
 
     .user-icon {
-      font-size: 1.5rem;
+      font-size: rem(24);
       color: rgba(255, 255, 255, 0.8);
     }
 
     .modal-title {
       margin: 0;
       font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: 0.5px;
+      font-size: rem(20);
+      letter-spacing: rem(0.5);
     }
   }
 
@@ -66,8 +67,8 @@
     color: white;
     opacity: 0.8;
     transition: opacity 0.2s ease;
-    padding: 0.5rem;
-    font-size: 1.25rem;
+    padding: rem(8);
+    font-size: rem(20);
 
     &:hover {
       opacity: 1;
@@ -76,10 +77,10 @@
 }
 
 .modal-body {
-  padding: 2rem;
+  padding: rem(32);
   background: #fafafa;
   @media (max-width: 576px) {
-    padding: 1.5rem;
+    padding: rem(24);
   }
 }
 
@@ -90,17 +91,17 @@
 }
 
 .player-photo-container {
-  margin-bottom: 1.5rem;
+  margin-bottom: rem(24);
   position: relative;
 
   .photo-frame {
-    width: 120px;
-    height: 120px;
+    width: rem(120);
+    height: rem(120);
     border-radius: 50%;
     overflow: hidden;
     position: relative;
-    border: 5px solid #f8fafc;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: rem(5) solid #f8fafc;
+    box-shadow: 0 rem(5) rem(15) rgba(0, 0, 0, 0.1);
 
     .player-photo-img {
       width: 100%;
@@ -133,9 +134,9 @@
 }
 
 .player-name {
-  font-size: 1.5rem;
+  font-size: rem(24);
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: rem(24);
   color: #1a202c;
   text-align: center;
   position: relative;
@@ -143,39 +144,39 @@
   &::after {
     content: "";
     display: block;
-    width: 50px;
-    height: 3px;
+    width: rem(50);
+    height: rem(3);
     background: linear-gradient(90deg, #1e3c72, #2a5298);
-    margin: 0.75rem auto 0;
-    border-radius: 3px;
+    margin: rem(12) auto 0;
+    border-radius: rem(3);
   }
 }
 
 .rating-container {
-  margin-bottom: 2rem;
+  margin-bottom: rem(32);
   width: 100%;
   display: flex;
   justify-content: center;
 
   .rating-badge {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    border-radius: 50px;
-    padding: 0.75rem 1.5rem;
+    border-radius: rem(50);
+    padding: rem(12) rem(24);
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    box-shadow: 0 5px 15px rgba(30, 60, 114, 0.3);
+    gap: rem(12);
+    box-shadow: 0 rem(5) rem(15) rgba(30, 60, 114, 0.3);
 
     .rating-label {
       color: rgba(255, 255, 255, 0.9);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: rem(14);
     }
 
     .rating-value {
       color: white;
       font-weight: 700;
-      font-size: 1.25rem;
+      font-size: rem(20);
     }
   }
 }
@@ -183,22 +184,22 @@
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: rem(16);
   width: 100%;
 
-  @media (max-width: 400px) {
+  @media screen and (max-width: rem(400)) {
     grid-template-columns: 1fr;
   }
 }
 
 .stat-card {
   background: #ffffff;
-  border-radius: 10px;
-  padding: 1rem;
+  border-radius: rem(10);
+  padding: rem(16);
   display: flex;
   align-items: center;
-  gap: 1rem;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  gap: rem(16);
+  box-shadow: 0 rem(3) rem(10) rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   border: 1px solid #f1f5f9;
   position: relative;
@@ -218,20 +219,20 @@
   }
 
   &:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 rem(5) rem(15) rgba(0, 0, 0, 0.1);
     &::before {
       opacity: 1;
     }
   }
 
   .stat-icon {
-    width: 40px;
-    height: 40px;
+    width: rem(40);
+    height: rem(40);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: rem(16);
     color: white;
     position: relative;
     z-index: 1;
@@ -245,15 +246,15 @@
     z-index: 1;
 
     .stat-label {
-      font-size: 0.75rem;
+      font-size: rem(12);
       color: #64748b;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: rem(0.5);
     }
 
     .stat-value {
-      font-size: 1.25rem;
+      font-size: rem(20);
       font-weight: 700;
       color: #1e293b;
     }
@@ -337,11 +338,59 @@
       color: #8b5cf6;
     }
   }
+
+  &.assists {
+    background-color: rgba(6, 182, 212, 0.1);
+
+    .stat-icon {
+      background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    }
+
+    &::before {
+      background-color: rgba(6, 182, 212, 0.2);
+    }
+
+    .stat-value {
+      color: #06b6d4;
+    }
+  }
+
+  &.saves {
+    background-color: rgba(236, 72, 153, 0.1);
+
+    .stat-icon {
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+    }
+
+    &::before {
+      background-color: rgba(236, 72, 153, 0.2);
+    }
+
+    .stat-value {
+      color: #ec4899;
+    }
+  }
+
+  &.mvp {
+    background-color: rgba(255, 215, 0, 0.1);
+
+    .stat-icon {
+      background: linear-gradient(135deg, #ffd700 0%, #ffb800 100%);
+    }
+
+    &::before {
+      background-color: rgba(255, 215, 0, 0.2);
+    }
+
+    .stat-value {
+      color: #ffd700;
+    }
+  }
 }
 
 .modal-footer {
   border-top: none;
-  padding: 1.5rem;
+  padding: rem(24);
   display: flex;
   justify-content: center;
   background: #f8fafc;
@@ -350,13 +399,13 @@
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     border: none;
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: rem(12) rem(24);
     border-radius: 50px;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: rem(0.5);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: rem(8);
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(30, 60, 114, 0.2);
 
@@ -367,43 +416,43 @@
   }
 }
 
-/* Контейнер модала */
+/* Контейнер модального окна */
 .team-modal-content {
-  border-radius: 16px;
+  border-radius: rem(16);
   overflow: hidden;
   background-color: #1e1e2f;
   color: #ffffff;
 }
 
-/* Заголовок */
+/* Заголовок модального окна */
 .team-modal-header {
   background-color: #252536;
-  border-bottom: 1px solid #3a3a4e;
-  padding: 1rem 1.5rem;
+  border-bottom: rem(1) solid #3a3a4e;
+  padding: rem(16) rem(24);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: rem(20);
 }
 
-/* Тело модала */
+/* Тело модального окна */
 .team-modal-body {
-  padding: 1.5rem;
+  padding: rem(24);
 }
 
-/* Хедер команды */
+/* Заголовок команды */
 .team-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: rem(16);
+  margin-bottom: rem(24);
   flex-wrap: wrap;
 }
 
 .team-photo-wrapper {
-  width: 60px;
-  height: 60px;
+  width: rem(60);
+  height: rem(60);
   border-radius: 50%;
   overflow: hidden;
 }
@@ -415,7 +464,7 @@
 }
 
 .team-name {
-  font-size: 1.5rem;
+  font-size: rem(24);
   font-weight: 700;
   color: #1a202c;
 }
@@ -427,7 +476,7 @@
   @include media(576) {
     grid-template-columns: 1fr 1fr;
   }
-  gap: 1rem;
+  gap: rem(16);
 }
 
 /* Карточка игрока */
@@ -435,55 +484,55 @@
   .player-card {
     background-color: #3a4a5c;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 0.5rem;
+    border-radius: rem(12);
+    padding: rem(8);
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
     min-width: 0;
     display: flex;
-    gap: 20px;
+    gap: rem(20);
     position: relative; // нужно для позиционирования псевдоэлемента
 
     @include media(576) {
       display: block;
     }
 
-    // плашка для первого игрока
+    // Плашка для первого игрока
     &:first-child::before {
       content: '🚩';
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: rem(10);
+      right: rem(10);
       background: linear-gradient(135deg, #ffcc33, #ff8800);
       color: #1a1a1a;
       font-weight: 600;
-      font-size: 0.75rem;
+      font-size: rem(12);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      letter-spacing: rem(0.5);
+      padding: rem(4) rem(10);
+      border-radius: rem(6);
+      box-shadow: 0 rem(2) rem(6) rgba(0, 0, 0, 0.3);
       z-index: 2;
       pointer-events: none;
       @include media(576) {
-        top: 10px;
-        left: 10px;
+        top: rem(10);
+        left: rem(10);
         right: inherit;
       }
     }
 
-    // при наведении слегка приподнимаем карточку
+    // При наведении слегка приподнимаем карточку
     &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transform: translateY(rem(-3));
+      box-shadow: 0 rem(4) rem(10) rgba(0, 0, 0, 0.3);
     }
   }
 }
 
 
 .team-players-grid .player-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(rem(-4));
+  box-shadow: 0 rem(6) rem(12) rgba(0, 0, 0, 0.4);
 }
 
 .player-card .player-info {
@@ -491,12 +540,12 @@
 }
 
 .player-card .player-photo {
-  width: 60px;
-  height: 60px;
+  width: rem(60);
+  height: rem(60);
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 0.5rem;
-  border: 2px solid #4f4f7c;
+  margin-bottom: rem(8);
+  border: rem(2) solid #4f4f7c;
 }
 
 .team-row {
@@ -513,8 +562,8 @@
 .player-card .player-info .player-name {
   display: block;
   font-weight: 600;
-  font-size: 0.95rem;
-  margin-bottom: 0.25rem;
+  font-size: rem(15);
+  margin-bottom: rem(4);
   color: #ffffff;
   word-wrap: break-word;
   overflow: hidden;
@@ -528,8 +577,8 @@
 
 .team-modal-footer {
   background-color: #252536;
-  border-top: 1px solid #3a3a4e;
-  padding: 1rem 1.5rem;
+  border-top: rem(1) solid #3a3a4e;
+  padding: rem(16) rem(24);
   display: flex;
   justify-content: flex-end;
 }
@@ -537,9 +586,9 @@
 .team-modal-footer .btn-close-modal {
   background-color: #4f4f7c;
   color: #ffffff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+    border: none;
+    padding: rem(8) rem(16);
+    border-radius: rem(8);
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -552,8 +601,8 @@
 body[data-theme="dark"] {
   .modal-content {
     background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    border-radius: 12px;
+    box-shadow: 0 rem(10) rem(30) rgba(0, 0, 0, 0.6);
+    border-radius: rem(12);
   }
 
   .modal-header {
@@ -646,6 +695,27 @@ body[data-theme="dark"] {
       background-color: rgba(139, 92, 246, 0.15);
       .stat-value {
         color: #a78bfa;
+      }
+    }
+
+    &.assists {
+      background-color: rgba(6, 182, 212, 0.15);
+      .stat-value {
+        color: #22d3ee;
+      }
+    }
+
+    &.saves {
+      background-color: rgba(236, 72, 153, 0.15);
+      .stat-value {
+        color: #f472b6;
+      }
+    }
+
+    &.mvp {
+      background-color: rgba(255, 215, 0, 0.15);
+      .stat-value {
+        color: #ffd700;
       }
     }
   }

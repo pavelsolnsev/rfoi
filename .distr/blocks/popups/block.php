@@ -67,6 +67,33 @@
                 <span id="modal-player-goals" class="stat-value"></span>
               </div>
             </div>
+            <div class="stat-card assists">
+              <div class="stat-icon">
+                <i class="fas fa-hand-holding"></i> <!-- Иконка для ассистов -->
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Ассисты</span>
+                <span id="modal-player-assists" class="stat-value"></span>
+              </div>
+            </div>
+            <div class="stat-card saves">
+              <div class="stat-icon">
+                <i class="fas fa-shield-alt"></i> <!-- Иконка для сейвов -->
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Сейвы</span>
+                <span id="modal-player-saves" class="stat-value"></span>
+              </div>
+            </div>
+            <div class="stat-card mvp">
+              <div class="stat-icon">
+                <i class="fas fa-star"></i> <!-- Иконка для MVP -->
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">MVP</span>
+                <span id="modal-player-mvp" class="stat-value"></span>
+              </div>
+            </div>
             <div class="stat-card games">
               <div class="stat-icon">
                 <i class="fas fa-running"></i> <!-- Иконка бегущего игрока для игр -->
