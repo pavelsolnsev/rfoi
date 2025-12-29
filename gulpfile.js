@@ -49,6 +49,24 @@ function pages() {
 		;
 };
 
+/* Задача для копирования API файлов */
+function api() {
+	console.log('* Копирование API файлов *');
+
+	return src(['**/*.php'], { cwd: CONFIG.input + 'api', dot: true })
+		.pipe(dest(CONFIG.output + '/api'))
+		;
+};
+
+/* Задача для копирования модулей турнира */
+function tournamentModules() {
+	console.log('* Копирование модулей турнира *');
+
+	return src(['tournament/modules/**/*.js'], { cwd: CONFIG.blocks, dot: true })
+		.pipe(dest(CONFIG.output + '/tournament/modules'))
+		;
+};
+
 
 /* Задача для замены имён файлов в HTML и CSS */
 function revreplace(callback) {
@@ -165,5 +183,5 @@ function cleanPublic() {
 // exports.
 exports.delete = cleanPublic;
 exports.fonts = fonts;
-exports.public = series(cleanPublic, images, parallel(nunjucks, styles, scripts, pages));
-exports.default = series(cleanPublic, parallel(styles, scripts, pages, images, nunjucks, sync, watching))
+exports.public = series(cleanPublic, images, parallel(nunjucks, styles, scripts, pages, api, tournamentModules));
+exports.default = series(cleanPublic, parallel(styles, scripts, pages, images, nunjucks, api, tournamentModules, sync, watching))

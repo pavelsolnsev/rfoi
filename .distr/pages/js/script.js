@@ -30,7 +30,7 @@ $(function () {
   };
 
   const getMaxNameLength = () => {
-    if (window.innerWidth <= 380) return 9;
+    if (window.innerWidth <= 380) return 8;
     if (window.innerWidth <= 578) return 13;
     if (window.innerWidth <= 768) return 15;
     if (window.innerWidth <= 992) return 22;
@@ -183,6 +183,8 @@ $(function () {
     document.getElementById("modal-player-name").textContent = name;
     document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.7`;
     document.getElementById("modal-player-photo").alt = name;
+    
+    // Обновляем значения для мобильных (Swiper)
     document.getElementById("modal-player-games").textContent = player.gamesPlayed;
     document.getElementById("modal-player-wins").textContent = player.wins;
     document.getElementById("modal-player-draws").textContent = player.draws;
@@ -191,7 +193,36 @@ $(function () {
     document.getElementById("modal-player-assists").textContent = player.assists || 0;
     document.getElementById("modal-player-saves").textContent = player.saves || 0;
     document.getElementById("modal-player-mvp").textContent = player.mvp || 0;
+    
+    // Обновляем значения для десктопа
+    document.getElementById("modal-player-games-desktop").textContent = player.gamesPlayed;
+    document.getElementById("modal-player-wins-desktop").textContent = player.wins;
+    document.getElementById("modal-player-draws-desktop").textContent = player.draws;
+    document.getElementById("modal-player-losses-desktop").textContent = player.losses;
+    document.getElementById("modal-player-goals-desktop").textContent = player.goals;
+    document.getElementById("modal-player-assists-desktop").textContent = player.assists || 0;
+    document.getElementById("modal-player-saves-desktop").textContent = player.saves || 0;
+    document.getElementById("modal-player-mvp-desktop").textContent = player.mvp || 0;
+    
     document.getElementById("modal-player-rating").textContent = player.rating;
+    
+    // Инициализируем Swiper для статистики на мобильных
+    const statsSwiperContainer = document.querySelector('.stats-swiper');
+    if (statsSwiperContainer && window.innerWidth < 576 && typeof Swiper !== 'undefined') {
+      // Удаляем старый Swiper, если есть
+      if (statsSwiperContainer.swiper) {
+        statsSwiperContainer.swiper.destroy(true, true);
+      }
+      
+      new Swiper(statsSwiperContainer, {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        pagination: {
+          el: statsSwiperContainer.querySelector('.swiper-pagination'),
+          clickable: true,
+        },
+      });
+    }
 
     playerModal.show();
   };

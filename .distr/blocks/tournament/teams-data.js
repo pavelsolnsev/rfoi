@@ -11,10 +11,7 @@ const TEAMS_DATA = [
     points: 19,
     photo: "img/team/admin.png",
     players: [
-      {
-        name: "pavelsolnsev",
-        photo: "img/players/pavelsolnsev.png",
-      },
+
       {
         name: "Gavrilovram",
         photo: "img/players/Gavrilov.png",

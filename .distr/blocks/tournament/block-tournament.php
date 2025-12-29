@@ -38,7 +38,7 @@
           </div>
           <div class="caption-link">
             <a id="page-link" href="/">👉 Рейтинг игроков</a>
-            <a id="season-link" href="/tournament/2025" style="margin-left: 10px;">Турнир 2025</a>
+            <a id="season-link" href="/tournament/2025">Турнир 2025</a>
           </div>
         </caption>
         <thead>

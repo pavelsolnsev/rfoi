@@ -140,6 +140,10 @@
   color: #1a202c;
   text-align: center;
   position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
 
   &::after {
     content: "";
@@ -182,13 +186,66 @@
 }
 
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: rem(16);
+  position: relative;
   width: 100%;
-
-  @media screen and (max-width: rem(400)) {
-    grid-template-columns: 1fr;
+  
+  // Swiper для мобильных
+  .stats-swiper {
+    display: block;
+    @include media(576) {
+      display: none;
+    }
+    
+    .swiper-wrapper {
+      padding-bottom: rem(40);
+    }
+    
+    .swiper-slide {
+      width: 100%;
+      height: auto;
+      flex-shrink: 0;
+    }
+    
+    .swiper-pagination {
+      bottom: rem(10);
+    }
+    
+    .swiper-pagination-bullet {
+      background: #2c3e50;
+      opacity: 0.5;
+      
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #2c3e50;
+      }
+    }
+    
+    // Для темной темы
+    [data-theme="dark"] & {
+      .swiper-pagination-bullet {
+        background: #fff;
+        opacity: 0.5;
+        
+        &.swiper-pagination-bullet-active {
+          opacity: 1;
+          background: #fff;
+        }
+      }
+    }
+  }
+  
+  // Сетка для десктопа
+  .stats-grid-desktop {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(16);
+    @include media(576) {
+      display: grid;
+    }
+    
+    @media screen and (max-width: rem(400)) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
@@ -471,34 +528,92 @@
 
 /* Сетка игроков */
 .team-players-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  @include media(576) {
-    grid-template-columns: 1fr 1fr;
+  position: relative;
+  
+  // Swiper для мобильных
+  .team-players-swiper {
+    display: block;
+    @include media(576) {
+      display: none;
+    }
+    
+    .swiper-wrapper {
+      padding-bottom: rem(40);
+    }
+    
+    .swiper-slide {
+      width: 100%;
+      height: auto;
+      flex-shrink: 0;
+      
+      .player-card {
+        width: 100%;
+      }
+    }
+    
+    .swiper-pagination {
+      bottom: rem(10);
+    }
+    
+    .swiper-pagination-bullet {
+      background: #2c3e50;
+      opacity: 0.5;
+      
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #2c3e50;
+      }
+    }
+    
+    // Для темной темы
+    [data-theme="dark"] & {
+      .swiper-pagination-bullet {
+        background: #fff;
+        opacity: 0.5;
+        
+        &.swiper-pagination-bullet-active {
+          opacity: 1;
+          background: #fff;
+        }
+      }
+    }
   }
-  gap: rem(16);
+  
+  // Сетка для десктопа
+  .team-players-grid-desktop {
+    display: none;
+    grid-template-columns: 1fr;
+    @include media(576) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    gap: rem(16);
+  }
 }
 
 /* Карточка игрока */
 .team-players-grid {
-  .player-card {
+  .team-players-swiper .player-card,
+  .team-players-grid-desktop .player-card {
     background-color: #3a4a5c;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: rem(12);
     padding: rem(8);
     text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: none;
     min-width: 0;
     display: flex;
     gap: rem(20);
     position: relative; // нужно для позиционирования псевдоэлемента
+    cursor: default;
+    box-sizing: border-box;
 
     @include media(576) {
       display: block;
     }
 
-    // Плашка для первого игрока
-    &:first-child::before {
+    // Плашка для капитана
+    &.is-captain::before {
       content: '🚩';
       position: absolute;
       top: rem(10);
@@ -521,18 +636,8 @@
       }
     }
 
-    // При наведении слегка приподнимаем карточку
-    &:hover {
-      transform: translateY(rem(-3));
-      box-shadow: 0 rem(4) rem(10) rgba(0, 0, 0, 0.3);
-    }
+    // Убрали эффект наведения
   }
-}
-
-
-.team-players-grid .player-card:hover {
-  transform: translateY(rem(-4));
-  box-shadow: 0 rem(6) rem(12) rgba(0, 0, 0, 0.4);
 }
 
 .player-card .player-info {
