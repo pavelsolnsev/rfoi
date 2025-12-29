@@ -154,8 +154,10 @@
   animation: gentlePulse 3s ease-in-out infinite;
 }
 
-.caption-content-icon:hover img {
-  animation: rotatePulse 1s ease-in-out infinite;
-  transform: rotate(180deg) scale(1.1);
+@media (hover: hover) {
+  .caption-content-icon:hover img {
+    animation: rotatePulse 1s ease-in-out infinite;
+    transform: rotate(180deg) scale(1.1);
+  }
 }
 

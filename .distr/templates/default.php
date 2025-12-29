@@ -17,7 +17,7 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <base href="<?= $BASE_HREF . ($query_string ? '?' . $query_string : '') ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
     <meta http-equiv="Pragma" content="no-cache">

@@ -91,20 +91,81 @@ document.addEventListener('DOMContentLoaded', function() {
     modalName.textContent = team.name || 'Неизвестно';
     modalTrophies.innerHTML = team.trophies || '';
     modalPhoto.src = '/' + (team.photo || 'img/team/default.jpg');
-    modalPlayers.innerHTML = '';
     
-    if (team.players && Array.isArray(team.players)) {
-      team.players.forEach((player) => {
-        const playerItem = document.createElement('div');
-        playerItem.className = 'player-card';
-        playerItem.innerHTML = `
-          <img src="/${player.photo || 'img/players/default.jpg'}" alt="${player.name || ''}" class="player-photo">
-          <div class="player-info">
-            <span class="player-name">${player.name || ''}${player.icon ? ' ' + player.icon : ''}</span>
+    // Находим контейнеры для Swiper и сетки
+    const swiperWrapper = modalPlayers.querySelector('.swiper-wrapper');
+    const gridDesktop = modalPlayers.querySelector('.team-players-grid-desktop');
+    
+    // Очищаем контейнеры, если они есть
+    if (swiperWrapper) {
+      swiperWrapper.innerHTML = '';
+    }
+    if (gridDesktop) {
+      gridDesktop.innerHTML = '';
+    }
+    
+    // Проверяем наличие игроков
+    const players = team.players || [];
+    
+    if (players.length > 0) {
+      // Группируем игроков по 5 для Swiper
+      const playersPerSlide = 5;
+      let currentSlidePlayers = [];
+      
+      players.forEach((player, index) => {
+        const playerItem = `
+          <div class="player-card">
+            <img src="/${player.photo || 'img/players/default.jpg'}" alt="${player.name || ''}" class="player-photo">
+            <div class="player-info">
+              <span class="player-name">${player.name || ''}${player.icon ? ' ' + player.icon : ''}</span>
+            </div>
           </div>
         `;
-        modalPlayers.appendChild(playerItem);
+        
+        // Добавляем в текущий слайд
+        currentSlidePlayers.push(playerItem);
+        
+        // Если набралось 5 игроков или это последний игрок, создаем слайд
+        if (currentSlidePlayers.length === playersPerSlide || index === players.length - 1) {
+          const slideContent = currentSlidePlayers.join('');
+          if (swiperWrapper) {
+            swiperWrapper.insertAdjacentHTML('beforeend', `
+              <div class="swiper-slide">
+                <div class="team-players-slide-grid">
+                  ${slideContent}
+                </div>
+              </div>
+            `);
+          }
+          currentSlidePlayers = [];
+        }
+        
+        // Добавляем в сетку (для десктопа)
+        if (gridDesktop) {
+          gridDesktop.insertAdjacentHTML('beforeend', playerItem);
+        }
       });
+      
+      // Инициализируем или обновляем Swiper только если есть игроки
+      const swiperContainer = modalPlayers.querySelector('.team-players-swiper');
+      if (swiperContainer) {
+        // Удаляем старый Swiper, если есть
+        if (swiperContainer.swiper) {
+          swiperContainer.swiper.destroy(true, true);
+        }
+        
+        // Инициализируем новый Swiper только на мобильных
+        if (window.innerWidth < 576 && typeof Swiper !== 'undefined') {
+          new Swiper(swiperContainer, {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            pagination: {
+              el: swiperContainer.querySelector('.swiper-pagination'),
+              clickable: true,
+            },
+          });
+        }
+      }
     }
     
     teamModal.show();

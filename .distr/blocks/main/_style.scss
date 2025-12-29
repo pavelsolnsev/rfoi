@@ -143,7 +143,7 @@
   }
 
   td {
-    color: #2c3e50;
+    color: #1e293b;
   }
 
   // ===== ТЕЛО ТАБЛИЦЫ =====
@@ -152,12 +152,14 @@
       cursor: pointer;
 
       &:nth-child(even) {
-        background: #fafafa;
+        background: #f8f9fa;
       }
 
-      &:hover {
-        background: #f1f1f1;
-        transition: background 0.2s ease;
+      @media (hover: hover) {
+        &:hover {
+          background: #e9ecef;
+          transition: background 0.2s ease;
+        }
       }
     }
 
@@ -387,15 +389,17 @@
 
   // ===== СТИЛИ ПУСТОЙ СТРОКИ =====
   tbody tr.empty-row {
-    background: #fafafa !important;
+    background: #f0f0f0 !important;
     cursor: default;
 
     td:first-child::after {
       content: none !important;
     }
 
-    &:hover {
-      background: #fafafa !important;
+    @media (hover: hover) {
+      &:hover {
+        background: #f0f0f0 !important;
+      }
     }
   }
 }
@@ -405,7 +409,6 @@
   display: flex;
   align-items: center;
   gap: rem(8);
-
   span {
     font-weight: 500;
   }
@@ -448,6 +451,13 @@
     th:nth-child(2),
     td:nth-child(2) {
       width: rem(144);
+    }
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    th,
+    td {
+      font-size: rem(9);
     }
   }
 }
@@ -503,9 +513,11 @@
     box-shadow: 0 rem(4) rem(10) rgba(59, 130, 246, 0.25);
     transition: transform 0.15s ease, background 0.2s ease;
 
-    &:hover {
-      background: #2563eb;
-      transform: translateY(rem(-1));
+    @media (hover: hover) {
+      &:hover {
+        background: #2563eb;
+        transform: translateY(rem(-1));
+      }
     }
 
     &:active {
@@ -808,8 +820,10 @@ body[data-theme="dark"] {
 
   .caption-link a {
     background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-    &:hover {
-      color: #fff;
+    @media (hover: hover) {
+      &:hover {
+        color: #fff;
+      }
     }
   }
 
@@ -829,9 +843,11 @@ body[data-theme="dark"] {
       background: rgba(255, 255, 255, 0.02);
     }
 
-    &:hover {
-      background: rgba(0, 212, 255, 0.1);
-      transition: background 0.25s ease;
+    @media (hover: hover) {
+      &:hover {
+        background: rgba(0, 212, 255, 0.1);
+        transition: background 0.25s ease;
+      }
     }
   }
 
@@ -972,15 +988,19 @@ body[data-theme="dark"] {
 }
 
 // Эффект наведения для строк
-.players-table tbody tr:hover {
-  background: #f1f1f1;
-  transition: background 0.2s ease;
+@media (hover: hover) {
+  .players-table tbody tr:hover {
+    background: #f1f1f1;
+    transition: background 0.2s ease;
+  }
 }
 
 // В тёмной теме ховер и фон топ-3
 body[data-theme="dark"] {
-  .players-table tbody tr:hover {
-    background: rgba(0, 212, 255, 0.1);
+  @media (hover: hover) {
+    .players-table tbody tr:hover {
+      background: rgba(0, 212, 255, 0.1);
+    }
   }
 
   .players-table tbody tr:nth-child(1) {

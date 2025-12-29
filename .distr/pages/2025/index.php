@@ -85,6 +85,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalDrawsEl = document.getElementById('modal-player-draws');
     const modalLossesEl = document.getElementById('modal-player-losses');
     const modalGoalsEl = document.getElementById('modal-player-goals');
+    const modalAssistsEl = document.getElementById('modal-player-assists');
+    const modalSavesEl = document.getElementById('modal-player-saves');
+    const modalMvpEl = document.getElementById('modal-player-mvp');
     const modalRatingEl = document.getElementById('modal-player-rating');
     
     if (modalNameEl) modalNameEl.textContent = name;
@@ -92,12 +95,54 @@ document.addEventListener('DOMContentLoaded', function() {
       modalPhotoEl.src = `/img/players/${player.photo || 'default.jpg'}?v=1.1.7`;
       modalPhotoEl.alt = name;
     }
+    
+    // Обновляем значения для мобильных (Swiper)
     if (modalGamesEl) modalGamesEl.textContent = player.gamesPlayed || 0;
     if (modalWinsEl) modalWinsEl.textContent = player.wins || 0;
     if (modalDrawsEl) modalDrawsEl.textContent = player.draws || 0;
     if (modalLossesEl) modalLossesEl.textContent = player.losses || 0;
     if (modalGoalsEl) modalGoalsEl.textContent = player.goals || 0;
+    if (modalAssistsEl) modalAssistsEl.textContent = player.assists || 0;
+    if (modalSavesEl) modalSavesEl.textContent = player.saves || 0;
+    if (modalMvpEl) modalMvpEl.textContent = player.mvp || 0;
     if (modalRatingEl) modalRatingEl.textContent = player.rating || 0;
+    
+    // Обновляем значения для десктопа
+    const modalGamesDesktopEl = document.getElementById('modal-player-games-desktop');
+    const modalWinsDesktopEl = document.getElementById('modal-player-wins-desktop');
+    const modalDrawsDesktopEl = document.getElementById('modal-player-draws-desktop');
+    const modalLossesDesktopEl = document.getElementById('modal-player-losses-desktop');
+    const modalGoalsDesktopEl = document.getElementById('modal-player-goals-desktop');
+    const modalAssistsDesktopEl = document.getElementById('modal-player-assists-desktop');
+    const modalSavesDesktopEl = document.getElementById('modal-player-saves-desktop');
+    const modalMvpDesktopEl = document.getElementById('modal-player-mvp-desktop');
+    
+    if (modalGamesDesktopEl) modalGamesDesktopEl.textContent = player.gamesPlayed || 0;
+    if (modalWinsDesktopEl) modalWinsDesktopEl.textContent = player.wins || 0;
+    if (modalDrawsDesktopEl) modalDrawsDesktopEl.textContent = player.draws || 0;
+    if (modalLossesDesktopEl) modalLossesDesktopEl.textContent = player.losses || 0;
+    if (modalGoalsDesktopEl) modalGoalsDesktopEl.textContent = player.goals || 0;
+    if (modalAssistsDesktopEl) modalAssistsDesktopEl.textContent = player.assists || 0;
+    if (modalSavesDesktopEl) modalSavesDesktopEl.textContent = player.saves || 0;
+    if (modalMvpDesktopEl) modalMvpDesktopEl.textContent = player.mvp || 0;
+    
+    // Инициализируем Swiper для статистики на мобильных
+    const statsSwiperEl = document.querySelector('.stats-swiper');
+    if (statsSwiperEl && window.innerWidth < 576 && typeof Swiper !== 'undefined') {
+      // Удаляем старый Swiper, если есть
+      if (statsSwiperEl.swiper) {
+        statsSwiperEl.swiper.destroy(true, true);
+      }
+      
+      new Swiper(statsSwiperEl, {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        pagination: {
+          el: statsSwiperEl.querySelector('.swiper-pagination'),
+          clickable: true,
+        },
+      });
+    }
     
     playerModal.show();
   };

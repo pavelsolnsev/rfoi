@@ -30,12 +30,25 @@ $(function () {
   };
 
   const getMaxNameLength = () => {
-    if (window.innerWidth <= 380) return 8;
-    if (window.innerWidth <= 578) return 13;
-    if (window.innerWidth <= 768) return 15;
-    if (window.innerWidth <= 992) return 22;
-    if (window.innerWidth <= 1200) return 20;
-    return 29;
+    const width = window.innerWidth;
+    const minWidth = 400;
+    const maxWidth = 1200;
+    const minLength = 9;
+    const maxLength = 29;
+    
+    if (width <= minWidth) {
+      return minLength;
+    }
+
+    if (width >= maxWidth) {
+      return maxLength;
+    }
+    
+    const ratio = (width - minWidth) / (maxWidth - minWidth);
+    const length = minLength + (maxLength - minLength) * ratio;
+    
+    // Округляем до целого числа
+    return Math.round(length);
   };
 
   const truncateUnicodeString = (str, maxLength) => {
