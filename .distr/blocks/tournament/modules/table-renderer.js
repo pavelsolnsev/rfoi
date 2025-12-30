@@ -17,6 +17,13 @@ export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) 
   const sortedTeams = sortTeams(teams, sortConfig.key, sortConfig.direction);
 
   sortedTeams.forEach((team, index) => {
+    // Форматируем трофеи: если больше 4, показываем число и одну иконку
+    let trophiesDisplay = team.trophies || '';
+    const trophyCount = (trophiesDisplay.match(/🏆/g) || []).length;
+    if (trophyCount > 4) {
+      trophiesDisplay = `<span class="trophy-count">${trophyCount}</span><span class="trophy-icon-single">🏆</span>`;
+    }
+    
     const row = `
       <tr class="team-row" data-team-index="${index}">
         <td data-label="№">${index + 1}</td>
@@ -28,8 +35,8 @@ export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) 
             <span>${team.name}</span>
           </div>
         </td>
-        <td data-label="Трофеи">${team.trophies}</td>
-        <td data-label="Победы">${team.tournaments}</td>
+        <td data-label="Трофеи">${trophiesDisplay}</td>
+        <td data-label="Турниры">${team.tournaments}</td>
         <td data-label="Очки">${team.points}</td>
       </tr>
     `;

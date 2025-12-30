@@ -17,7 +17,15 @@ export const openTeamModal = (team) => {
   }
 
   modalName.textContent = team.name;
-  modalTrophies.innerHTML = team.trophies;
+  
+  // Форматируем трофеи: если больше 3, показываем число и одну иконку
+  let trophiesDisplay = team.trophies || '';
+  const trophyCount = (trophiesDisplay.match(/🏆/g) || []).length;
+  if (trophyCount > 4) {
+    trophiesDisplay = `<span class="trophy-count">${trophyCount}</span><span class="trophy-icon-single">🏆</span>`;
+  }
+  modalTrophies.innerHTML = trophiesDisplay;
+  
   modalPhoto.src = team.photo;
   
   // Находим контейнеры для Swiper и сетки

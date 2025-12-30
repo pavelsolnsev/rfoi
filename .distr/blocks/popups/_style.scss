@@ -98,8 +98,8 @@
     }
 
     @media (hover: hover) {
-      &:hover {
-        opacity: 1;
+    &:hover {
+      opacity: 1;
       }
     }
   }
@@ -183,9 +183,9 @@
     }
 
     @media (hover: hover) {
-      &:hover {
-        .player-photo-img {
-          transform: scale(1.3);
+    &:hover {
+      .player-photo-img {
+        transform: scale(1.3);
         }
       }
     }
@@ -310,11 +310,11 @@
     }
     
     .stats-slide-grid {
-      display: grid;
+  display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: rem(16);
-      width: 100%;
-      
+  width: 100%;
+
       @media screen and (max-width: rem(576)) {
         gap: rem(12);
       }
@@ -366,7 +366,7 @@
     }
     
     @media screen and (max-width: rem(400)) {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
     }
   }
 }
@@ -410,10 +410,10 @@
   }
 
   @media (hover: hover) {
-    &:hover {
+  &:hover {
       box-shadow: 0 rem(5) rem(15) rgba(0, 0, 0, 0.1);
-      &::before {
-        opacity: 1;
+    &::before {
+      opacity: 1;
       }
     }
   }
@@ -617,9 +617,9 @@
     box-shadow: 0 4px 6px rgba(30, 60, 114, 0.2);
 
     @media (hover: hover) {
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 7px 14px rgba(30, 60, 114, 0.3);
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 14px rgba(30, 60, 114, 0.3);
       }
     }
   }
@@ -719,6 +719,52 @@
   }
 }
 
+#modal-team-trophies {
+  display: inline-block;
+  font-size: rem(20);
+  
+  @media screen and (max-width: rem(576)) {
+    font-size: rem(18);
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    font-size: rem(16);
+  }
+  
+  .trophy-count {
+    font-size: rem(18);
+    
+    @include media(768) {
+      font-size: rem(20);
+    }
+    
+    @media screen and (max-width: rem(576)) {
+      font-size: rem(16);
+    }
+    
+    @media screen and (max-width: rem(360)) {
+      font-size: rem(14);
+      padding: rem(2) rem(5);
+    }
+  }
+  
+  .trophy-icon-single {
+    font-size: rem(20);
+    
+    @include media(768) {
+      font-size: rem(22);
+    }
+    
+    @media screen and (max-width: rem(576)) {
+      font-size: rem(18);
+    }
+    
+    @media screen and (max-width: rem(360)) {
+      font-size: rem(16);
+    }
+  }
+}
+
 /* Обертка для информации о команде */
 .team-info-wrapper {
   display: flex;
@@ -758,7 +804,7 @@
     }
     
     .team-players-slide-grid {
-      display: grid;
+  display: grid;
       gap: rem(12);
       width: 100%;
       grid-template-columns: repeat(1, 1fr);
@@ -806,11 +852,11 @@
   // Сетка для десктопа
   .team-players-grid-desktop {
     display: none;
-    grid-template-columns: 1fr;
-    @include media(576) {
+  grid-template-columns: 1fr;
+  @include media(576) {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
+    grid-template-columns: 1fr 1fr;
+  }
     @include media(992) {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -885,9 +931,9 @@
         @include media(576) {
           top: rem(6);
           left: rem(6);
-        }
-      }
     }
+  }
+}
 
     // Убрали эффект наведения
   }
@@ -910,6 +956,11 @@
   border: rem(2) solid #4f4f7c;
   max-width: 100%;
   display: block;
+
+  @include media(576) { 
+    margin: 0 auto;
+    margin-bottom: rem(8);
+  }
   
   @media screen and (max-width: rem(576)) {
     width: rem(50);
@@ -975,15 +1026,15 @@
 .team-modal-footer .btn-close-modal {
   background-color: #4f4f7c;
   color: #ffffff;
-    border: none;
+  border: none;
     padding: rem(8) rem(16);
     border-radius: rem(8);
   cursor: pointer;
   transition: background 0.2s;
-  
+
   @media (hover: hover) {
     &:hover {
-      background-color: #6868a0;
+  background-color: #6868a0;
     }
   }
 }
@@ -1012,8 +1063,8 @@ body[data-theme="dark"] {
       color: #fff;
       opacity: 0.7;
       @media (hover: hover) {
-        &:hover {
-          opacity: 1;
+      &:hover {
+        opacity: 1;
         }
       }
     }
@@ -1121,8 +1172,8 @@ body[data-theme="dark"] {
       box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
 
       @media (hover: hover) {
-        &:hover {
-          box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
+      &:hover {
+        box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
         }
       }
     }

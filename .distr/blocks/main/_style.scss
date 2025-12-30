@@ -322,6 +322,12 @@
     font-weight: 600;
   }
 
+  // ===== ЦВЕТА ДЛЯ ТУРНИРНОЙ ТАБЛИЦЫ =====
+  td[data-label="Турниры"] {
+    color: #10b981;
+    font-weight: 600;
+  }
+
   // ===== СТИЛИ ТОП-3 ИГРОКОВ =====
   tbody tr:nth-child(1) {
     background: rgba(255, 215, 0, 0.12);
@@ -930,6 +936,11 @@ body[data-theme="dark"] {
   .players-table td[data-label="MVP"] {
     color: #ffd700;
   }
+
+  // Цвет для турниров в темной теме
+  .players-table td[data-label="Турниры"] {
+    color: #34d399;
+  }
 }
 
 // ===== КАСТОМИЗАЦИЯ ТУРНИРНОЙ ТАБЛИЦЫ =====
@@ -943,10 +954,74 @@ body[data-theme="dark"] {
   line-height: 1;
 }
 
+// Стили для цифры количества трофеев
+.trophy-count {
+  display: inline-block;
+  font-weight: 800;
+  font-size: rem(14);
+  color: #1a202c;
+  background: linear-gradient(135deg, #ffd700 0%, #ffb800 100%);
+  padding: rem(2) rem(5);
+  border-radius: rem(5);
+  margin-right: rem(3);
+  line-height: 1.2;
+  text-shadow: none;
+  box-shadow: 0 rem(2) rem(4) rgba(255, 215, 0, 0.3), 0 rem(1) rem(2) rgba(0, 0, 0, 0.1);
+  border: rem(1) solid rgba(255, 184, 0, 0.5);
+  position: relative;
+  
+  @include media(768) {
+    font-size: rem(16);
+    padding: rem(2) rem(6);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+    border-radius: rem(5);
+    pointer-events: none;
+  }
+}
+
+.trophy-icon-single {
+  display: inline-block;
+  font-size: rem(16);
+  filter: drop-shadow(0 rem(2) rem(4) rgba(255, 215, 0, 0.4));
+  
+  @include media(768) {
+    font-size: rem(18);
+  }
+}
+
+// Стили для ячейки с трофеями
+.players-table td[data-label="Трофеи"] {
+  font-weight: 600;
+  
+  .trophy-count {
+    vertical-align: middle;
+  }
+  
+  .trophy-icon-single {
+    vertical-align: middle;
+  }
+}
+
 // Темная тема
 body[data-theme="dark"] {
   .trophy-number {
     color: #4A9EFF;
+  }
+  
+  .trophy-count {
+    color: #0f172a;
+    background: linear-gradient(135deg, #ffd700 0%, #ffb800 100%);
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 rem(2) rem(6) rgba(255, 215, 0, 0.4), 0 rem(1) rem(2) rgba(0, 0, 0, 0.2);
   }
 }
 
