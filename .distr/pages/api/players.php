@@ -69,6 +69,7 @@ while ($row = $result->fetch_assoc()) {
     $row['losses'] = (int)$row['losses'];
     $row['rating'] = (float)$row['rating'];
     $row['photo'] = $row['photo'] ?: 'default.png';
+    
 
     // Check if all stats are zero
     if (!($row['goals'] === 0 &&

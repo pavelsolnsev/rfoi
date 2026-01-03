@@ -927,13 +927,37 @@
         font-size: rem(10);
         padding: rem(3) rem(8);
         border-radius: rem(4);
-        
-        @include media(576) {
-          top: rem(6);
-          left: rem(6);
-    }
+      }
   }
-}
+
+    // Плашка для основного игрока
+    &.is-main-player::after {
+      content: 'Основа';
+      position: absolute;
+      top: rem(10);
+      right: rem(10);
+      background: linear-gradient(135deg, #ff6b6b, #ff4757);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: rem(8);
+      text-transform: uppercase;
+      letter-spacing: rem(0.5);
+      padding: rem(4) rem(10);
+      border-radius: rem(6);
+      box-shadow: 0 rem(2) rem(6) rgba(0, 0, 0, 0.3);
+      z-index: 2;
+      pointer-events: none;
+      @include media(576) {
+        top: rem(10);
+        left: rem(10);
+        right: inherit;
+      }
+
+      @media screen and (max-width: rem(360)) {
+        top: rem(6);
+        right: rem(6);
+      }
+    }
 
     // Убрали эффект наведения
   }
@@ -999,10 +1023,10 @@
   text-overflow: ellipsis;
   white-space: normal;
   text-align: center;
-  
   @media screen and (max-width: rem(576)) {
     font-size: rem(13);
     margin-bottom: rem(3);
+    text-align: left;
   }
   
   @media screen and (max-width: rem(360)) {

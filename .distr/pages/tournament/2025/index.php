@@ -165,8 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
       teamsTableBody.insertAdjacentHTML("beforeend", emptyRow);
       updateSortIndicators();
-      return;
-    }
+    return;
+  }
     
     sortedTeams.forEach((team, index) => {
       const name = team.name || 'Неизвестно';
@@ -255,9 +255,9 @@ document.addEventListener('DOMContentLoaded', function() {
       players.forEach((player, index) => {
         const playerItem = `
           <div class="player-card">
-            <img src="/${player.photo || 'img/players/default.jpg'}" alt="${player.name || ''}" class="player-photo">
-            <div class="player-info">
-              <span class="player-name">${player.name || ''}${player.icon ? ' ' + player.icon : ''}</span>
+          <img src="/${player.photo || 'img/players/default.jpg'}" alt="${player.name || ''}" class="player-photo">
+          <div class="player-info">
+            <span class="player-name">${player.name || ''}${player.icon ? ' ' + player.icon : ''}</span>
             </div>
           </div>
         `;

@@ -83,7 +83,7 @@ try {
     if ($teamId) {
         // Получаем состав конкретной команды
         $query = "SELECT tp.team_id, tp.player_id, tp.team_name, tp.name, tp.username, tp.is_captain,
-                         p.photo, p.rating, p.goals, p.assists, p.saves, p.mvp
+                         p.photo, p.rating, p.goals, p.assists, p.saves, p.mvp, p.yellow_cards
                   FROM team_players tp
                   LEFT JOIN players p ON tp.player_id = p.id
                   WHERE tp.team_id = ?
@@ -96,7 +96,7 @@ try {
         // Получаем весь состав всех команд
         // Включаем is_main_player для определения текущей команды игрока
         $query = "SELECT tp.team_id, tp.player_id, tp.team_name, tp.name, tp.username, tp.tournament_count, tp.is_captain, tp.is_main_player,
-                         p.photo, p.rating, p.goals, p.assists, p.saves, p.mvp
+                         p.photo, p.rating, p.goals, p.assists, p.saves, p.mvp, p.yellow_cards
                   FROM team_players tp
                   LEFT JOIN players p ON tp.player_id = p.id
                   ORDER BY tp.team_id, tp.name";
@@ -120,17 +120,11 @@ try {
         $row['assists'] = (int)($row['assists'] ?? 0);
         $row['saves'] = (int)($row['saves'] ?? 0);
         $row['mvp'] = (int)($row['mvp'] ?? 0);
+        $row['yellow_cards'] = (int)($row['yellow_cards'] ?? 0);
         $row['photo'] = $row['photo'] ?: 'default.png';
-        
-        // Логируем все записи Павла Солнцева
-        if ($row['player_id'] == 312571900) {
-            logError("DEBUG: Запись Павла Солнцева из БД - team_id: {$row['team_id']}, team_name: {$row['team_name']}, is_main_player_raw: " . var_export($row['is_main_player_raw'], true) . ", is_main_player: " . var_export($row['is_main_player'], true));
-        }
         
         $teamPlayers[] = $row;
     }
-    
-    logError("DEBUG: Всего записей из БД: " . count($teamPlayers));
 
     // Если запрашивалась конкретная команда, группируем по командам
     if ($teamId) {
@@ -155,11 +149,8 @@ try {
                 $playersWithMainTeam[$playerId] = true;
                 // Сохраняем данные игрока с is_main_player = 1
                 $playersMainTeamData[$playerId] = $player;
-                logError("DEBUG: Найден игрок с is_main_player=1: ID {$playerId} ({$player['name']}) в команде {$player['team_id']} ({$player['team_name']})");
             }
         }
-        
-        logError("DEBUG: Всего игроков с is_main_player = 1: " . count($playersWithMainTeam));
         
         // Теперь формируем список игроков для отображения
         foreach ($teamPlayers as $player) {
@@ -168,25 +159,17 @@ try {
             // Если у игрока есть is_main_player = 1, пропускаем все его записи
             // (мы добавим только запись с is_main_player = 1 в конце)
             if (isset($playersWithMainTeam[$playerId])) {
-                logError("DEBUG: Пропущена запись игрока ID {$playerId} ({$player['name']}) в команде {$player['team_id']} ({$player['team_name']}) - есть is_main_player=1, текущее значение is_main_player: " . var_export($player['is_main_player'], true));
                 continue;
             } else {
                 // Если у игрока нет is_main_player = 1, показываем все его записи
                 $playersToShow[] = $player;
-                // Логируем для отладки конкретного игрока
-                if ($playerId == 312571900) {
-                    logError("DEBUG: Добавлена запись Павла Солнцева ID {$playerId} в команде {$player['team_id']} ({$player['team_name']}) - нет is_main_player=1, значение: " . var_export($player['is_main_player'], true));
-                }
             }
         }
-        
+
         // Добавляем всех игроков с is_main_player = 1
         foreach ($playersMainTeamData as $player) {
             $playersToShow[] = $player;
-            logError("DEBUG: Добавлен игрок с is_main_player=1: ID {$player['player_id']} ({$player['name']}) в команду {$player['team_id']} ({$player['team_name']})");
         }
-        
-        logError("DEBUG: Всего игроков для отображения: " . count($playersToShow));
         
         // Группируем игроков по командам
         // Используем team_name для группировки, чтобы игроки попадали в правильную команду

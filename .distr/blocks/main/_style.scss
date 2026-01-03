@@ -156,9 +156,9 @@
       }
 
       @media (hover: hover) {
-        &:hover {
+      &:hover {
           background: #e9ecef;
-          transition: background 0.2s ease;
+        transition: background 0.2s ease;
         }
       }
     }
@@ -208,7 +208,7 @@
   th:nth-child(11),
   td:nth-child(11) {
     width: rem(32);
-  }
+    }
 
   // Ширина колонок для десктопа
   @include media(992) {
@@ -443,16 +443,16 @@
 // Используем обратный медиа-запрос для max-width через вложенность
 .players-table {
   @media screen and (max-width: rem(480)) {
-    .table-caption {
+  .table-caption {
       font-size: rem(16);
       padding: rem(10);
-    }
+  }
 
     th,
     td {
       padding: rem(6) rem(3);
       font-size: rem(11.5);
-    }
+  }
 
     th:nth-child(2),
     td:nth-child(2) {
@@ -520,8 +520,8 @@
     transition: transform 0.15s ease, background 0.2s ease;
 
     @media (hover: hover) {
-      &:hover {
-        background: #2563eb;
+    &:hover {
+      background: #2563eb;
         transform: translateY(rem(-1));
       }
     }
@@ -582,7 +582,7 @@
   0%, 100% {
     transform: scale(1) rotate(0deg);
       filter: drop-shadow(0 0 rem(8) rgba(255, 215, 0, 0.8));
-    }
+  }
   25% {
     transform: scale(1.1) rotate(-5deg);
     filter: drop-shadow(0 0 rem(12) rgba(255, 215, 0, 1));
@@ -827,8 +827,8 @@ body[data-theme="dark"] {
   .caption-link a {
     background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
     @media (hover: hover) {
-      &:hover {
-        color: #fff;
+    &:hover {
+      color: #fff;
       }
     }
   }
@@ -850,9 +850,9 @@ body[data-theme="dark"] {
     }
 
     @media (hover: hover) {
-      &:hover {
-        background: rgba(0, 212, 255, 0.1);
-        transition: background 0.25s ease;
+    &:hover {
+      background: rgba(0, 212, 255, 0.1);
+      transition: background 0.25s ease;
       }
     }
   }
@@ -1064,17 +1064,17 @@ body[data-theme="dark"] {
 
 // Эффект наведения для строк
 @media (hover: hover) {
-  .players-table tbody tr:hover {
-    background: #f1f1f1;
-    transition: background 0.2s ease;
+.players-table tbody tr:hover {
+  background: #f1f1f1;
+  transition: background 0.2s ease;
   }
 }
 
 // В тёмной теме ховер и фон топ-3
 body[data-theme="dark"] {
   @media (hover: hover) {
-    .players-table tbody tr:hover {
-      background: rgba(0, 212, 255, 0.1);
+  .players-table tbody tr:hover {
+    background: rgba(0, 212, 255, 0.1);
     }
   }
 

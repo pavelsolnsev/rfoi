@@ -5,6 +5,16 @@
 import { getTeamPhotoPath } from './team-photo-map.js';
 import { formatTrophies } from './format-utils.js';
 
+/**
+ * Преобразует количество желтых карточек в строку с иконками
+ * @param {number} count - количество желтых карточек
+ * @returns {string} строка с иконками карточек или пустая строка
+ */
+const formatYellowCards = (count) => {
+  if (!count || count <= 0) return '';
+  return '🟨'.repeat(count);
+};
+
 const API_BASE_URL = 'https://football.pavelsolntsev.ru/api';
 
 /**
@@ -48,15 +58,6 @@ export const loadTeamsData = async (renderCallback, teamsTableBody) => {
     
     const playersData = await playersResponse.json();
 
-    // Логируем данные для отладки
-    console.log('DEBUG: Данные игроков из API:', playersData);
-    playersData.forEach(teamGroup => {
-      const pavelsRecords = teamGroup.players.filter(p => p.name === 'Павел Солнцев' || p.player_id === 312571900);
-      if (pavelsRecords.length > 0) {
-        console.log(`DEBUG: Павел Солнцев найден в команде ${teamGroup.team_id} (${teamGroup.team_name}):`, pavelsRecords);
-      }
-    });
-
     // Создаем карту игроков по team_name (а не team_id)
     // Это важно, так как team_id может не совпадать с team_name
     const playersByTeam = {};
@@ -66,11 +67,12 @@ export const loadTeamsData = async (renderCallback, teamsTableBody) => {
       playersByTeam[teamNameKey] = teamGroup.players.map(player => ({
         name: player.name || player.username || '',
         photo: player.photo ? `img/players/${player.photo}` : 'img/players/default.jpg',
-        isCaptain: player.is_captain || false
+        isCaptain: player.is_captain || false,
+        isMainPlayer: player.is_main_player || false,
+        yellowCards: player.yellow_cards || 0,
+        icon: formatYellowCards(player.yellow_cards || 0)
       }));
     });
-    
-    console.log('DEBUG: Карта игроков по командам:', playersByTeam);
 
     // Преобразуем данные в нужный формат
     const teams = teamsData.map(team => {

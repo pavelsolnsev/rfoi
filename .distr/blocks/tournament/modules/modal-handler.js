@@ -44,10 +44,16 @@ export const openTeamModal = (team) => {
   const players = team.players || [];
   
   if (players.length > 0) {
-    // Сортируем игроков: капитан первым
+    // Сортируем игроков: капитан первым, затем основной игрок
     const sortedPlayers = [...players].sort((a, b) => {
+      // Капитаны идут первыми
       if (a.isCaptain && !b.isCaptain) return -1;
       if (!a.isCaptain && b.isCaptain) return 1;
+
+      // Если оба капитаны или оба не капитаны, проверяем основных игроков
+      if (a.isMainPlayer && !b.isMainPlayer) return -1;
+      if (!a.isMainPlayer && b.isMainPlayer) return 1;
+
       return 0;
     });
 
@@ -57,8 +63,9 @@ export const openTeamModal = (team) => {
     
     sortedPlayers.forEach((player, index) => {
       const captainClass = player.isCaptain ? ' is-captain' : '';
+      const mainPlayerClass = player.isMainPlayer ? ' is-main-player' : '';
       const playerItem = `
-        <div class="player-card${captainClass}">
+        <div class="player-card${captainClass}${mainPlayerClass}">
           <img src="${player.photo}" alt="${player.name}" class="player-photo">
           <div class="player-info">
             <span class="player-name">${player.name}${player.icon ? ' ' + player.icon : ''}</span>
