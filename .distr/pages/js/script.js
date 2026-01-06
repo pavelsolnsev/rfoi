@@ -107,7 +107,11 @@ $(function () {
 
   const renderTable = () => {
     desktopTableBody.innerHTML = "";
-    const sortedPlayers = sortPlayers(players, sortConfig.key, sortConfig.direction);
+    // Если сортировка по умолчанию (рейтинг по убыванию), используем данные как есть (уже отсортированы сервером)
+    // Иначе применяем клиентскую сортировку
+    const sortedPlayers = (sortConfig.key === 'rating' && sortConfig.direction === 'desc')
+      ? players
+      : sortPlayers(players, sortConfig.key, sortConfig.direction);
     const maxNameLength = getMaxNameLength();
 
     desktopTable.style.display = "table";

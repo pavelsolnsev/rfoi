@@ -45,7 +45,9 @@ logError("Время подключения к базе данных: $connectTi
 
 $mysqli->set_charset("utf8mb4");
 
-$query = "SELECT name, username, goals, assists, saves, mvp, gamesPlayed, wins, draws, losses, rating, photo FROM players";
+$query = "SELECT name, username, goals, assists, saves, mvp, gamesPlayed, wins, draws, losses, rating, photo
+          FROM players
+          ORDER BY rating DESC, wins DESC, goals DESC, assists DESC, saves DESC, mvp DESC";
 $result = $mysqli->query($query);
 
 if (!$result) {

@@ -84,6 +84,12 @@ export const loadTeamsData = async (renderCallback, teamsTableBody) => {
         trophies: formatTrophies(team.trophies || 0),
         tournaments: team.tournament_count || 0,
         points: team.points || 0,
+        wins: team.wins || 0,
+        draws: team.draws || 0,
+        losses: team.losses || 0,
+        goalsScored: team.goals_scored || 0,
+        goalsConceded: team.goals_conceded || 0,
+        goalDifference: team.goal_difference || 0,
         photo: getTeamPhotoPath(team.name),
         players: playersByTeam[teamNameKey] || []
       };

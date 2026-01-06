@@ -2,6 +2,8 @@
  * Модуль для работы с модальным окном команды
  */
 
+import { truncateUnicodeString, getMaxTeamNameLength } from './format-utils.js';
+
 /**
  * Функция открытия модального окна команды
  * @param {Object} team - Объект команды
@@ -16,12 +18,15 @@ export const openTeamModal = (team) => {
     return; // Элементы модального окна не найдены
   }
 
-  modalName.textContent = team.name;
+  // Сокращаем название команды
+  const maxNameLength = getMaxTeamNameLength();
+  const truncatedTeamName = truncateUnicodeString(team.name, maxNameLength);
+  modalName.textContent = truncatedTeamName;
   
   // Форматируем трофеи: если больше 3, показываем число и одну иконку
   let trophiesDisplay = team.trophies || '';
   const trophyCount = (trophiesDisplay.match(/🏆/g) || []).length;
-  if (trophyCount > 4) {
+  if (trophyCount > 3) {
     trophiesDisplay = `<span class="trophy-count">${trophyCount}</span><span class="trophy-icon-single">🏆</span>`;
   }
   modalTrophies.innerHTML = trophiesDisplay;

@@ -322,11 +322,6 @@
     font-weight: 600;
   }
 
-  // ===== ЦВЕТА ДЛЯ ТУРНИРНОЙ ТАБЛИЦЫ =====
-  td[data-label="Турниры"] {
-    color: #10b981;
-    font-weight: 600;
-  }
 
   // ===== СТИЛИ ТОП-3 ИГРОКОВ =====
   tbody tr:nth-child(1) {
@@ -958,7 +953,7 @@ body[data-theme="dark"] {
 .trophy-count {
   display: inline-block;
   font-weight: 800;
-  font-size: rem(14);
+  font-size: rem(7);
   color: #1a202c;
   background: linear-gradient(135deg, #ffd700 0%, #ffb800 100%);
   padding: rem(2) rem(5);
@@ -969,9 +964,15 @@ body[data-theme="dark"] {
   box-shadow: 0 rem(2) rem(4) rgba(255, 215, 0, 0.3), 0 rem(1) rem(2) rgba(0, 0, 0, 0.1);
   border: rem(1) solid rgba(255, 184, 0, 0.5);
   position: relative;
-  
-  @include media(768) {
-    font-size: rem(16);
+
+  @include media(768) { 
+    font-size: rem(10);
+  }
+
+
+  @include media(992) {
+    font-size: rem(13);
+    // @include adaptiv-value(font-size, 7, 16);
     padding: rem(2) rem(6);
   }
   
@@ -990,11 +991,13 @@ body[data-theme="dark"] {
 
 .trophy-icon-single {
   display: inline-block;
-  font-size: rem(16);
+  font-size: rem(9);
   filter: drop-shadow(0 rem(2) rem(4) rgba(255, 215, 0, 0.4));
-  
-  @include media(768) {
-    font-size: rem(18);
+  @include media(768) { 
+    font-size: rem(12);
+  }
+  @include media(992) {
+    font-size: rem(15);
   }
 }
 

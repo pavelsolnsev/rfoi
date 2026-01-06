@@ -4,6 +4,7 @@
 
 import { sortTeams, updateSortIndicators } from './table-sorter.js';
 import { openTeamModal } from './modal-handler.js';
+import { truncateUnicodeString, getMaxTeamNameLength } from './format-utils.js';
 
 /**
  * Рендеринг таблицы команд
@@ -17,10 +18,14 @@ export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) 
   const sortedTeams = sortTeams(teams, sortConfig.key, sortConfig.direction);
 
   sortedTeams.forEach((team, index) => {
+    // Сокращаем название команды
+    const maxNameLength = getMaxTeamNameLength();
+    const truncatedTeamName = truncateUnicodeString(team.name, maxNameLength);
+
     // Форматируем трофеи: если больше 4, показываем число и одну иконку
     let trophiesDisplay = team.trophies || '';
     const trophyCount = (trophiesDisplay.match(/🏆/g) || []).length;
-    if (trophyCount > 4) {
+    if (trophyCount > 3) {
       trophiesDisplay = `<span class="trophy-count">${trophyCount}</span><span class="trophy-icon-single">🏆</span>`;
     }
     
@@ -32,11 +37,17 @@ export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) 
             <div class="player-photo">
               <img src="${team.photo}" alt="${team.name}" onerror="this.src='img/team/logo.jpg'">
             </div>
-            <span>${team.name}</span>
+            <span>${truncatedTeamName}</span>
           </div>
         </td>
         <td data-label="Трофеи">${trophiesDisplay}</td>
         <td data-label="Турниры">${team.tournaments}</td>
+        <td data-label="Победы">${team.wins}</td>
+        <td data-label="Ничьи">${team.draws}</td>
+        <td data-label="Поражения">${team.losses}</td>
+        <td data-label="ЗМ">${team.goalsScored}</td>
+        <td data-label="ПМ" class="goals-conceded-col">${team.goalsConceded}</td>
+        <td data-label="РМ" class="goal-difference-col">${team.goalDifference}</td>
         <td data-label="Очки">${team.points}</td>
       </tr>
     `;

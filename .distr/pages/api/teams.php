@@ -89,13 +89,15 @@ try {
 
     // Формируем запрос в зависимости от наличия поля
     if ($hasTrophiesField) {
-        $query = "SELECT id, name, tournament_count, points, wins, draws, losses, goals_scored, goals_conceded, trophies 
-                  FROM teams 
-                  ORDER BY points DESC, wins DESC, goals_scored DESC";
+        $query = "SELECT id, name, tournament_count, points, wins, draws, losses, goals_scored, goals_conceded, trophies,
+                         (goals_scored - goals_conceded) as goal_difference
+                  FROM teams
+                  ORDER BY points DESC, trophies DESC, (goals_scored - goals_conceded) DESC, wins DESC, tournament_count ASC";
     } else {
-        $query = "SELECT id, name, tournament_count, points, wins, draws, losses, goals_scored, goals_conceded 
-                  FROM teams 
-                  ORDER BY points DESC, wins DESC, goals_scored DESC";
+        $query = "SELECT id, name, tournament_count, points, wins, draws, losses, goals_scored, goals_conceded,
+                         (goals_scored - goals_conceded) as goal_difference
+                  FROM teams
+                  ORDER BY points DESC, (goals_scored - goals_conceded) DESC, wins DESC, tournament_count ASC";
     }
     
     logError("Выполняем запрос: " . $query);
@@ -113,6 +115,7 @@ try {
         $row['losses'] = (int)$row['losses'];
         $row['goals_scored'] = (int)$row['goals_scored'];
         $row['goals_conceded'] = (int)$row['goals_conceded'];
+        $row['goal_difference'] = isset($row['goal_difference']) ? (int)$row['goal_difference'] : ($row['goals_scored'] - $row['goals_conceded']);
         // Если поле trophies отсутствует, устанавливаем 0
         $row['trophies'] = isset($row['trophies']) ? (int)$row['trophies'] : 0;
         

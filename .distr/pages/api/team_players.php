@@ -165,7 +165,7 @@ try {
                 $playersToShow[] = $player;
             }
         }
-
+        
         // Добавляем всех игроков с is_main_player = 1
         foreach ($playersMainTeamData as $player) {
             $playersToShow[] = $player;
