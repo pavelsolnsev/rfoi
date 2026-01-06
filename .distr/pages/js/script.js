@@ -29,7 +29,27 @@ $(function () {
     direction: 'desc'
   };
 
-  const getMaxNameLength = () => (window.innerWidth <= 992 ? 20 : 30);
+  const getMaxNameLength = () => {
+    const width = window.innerWidth;
+    const minWidth = 400;
+    const maxWidth = 1200;
+    const minLength = 9;
+    const maxLength = 29;
+    
+    if (width <= minWidth) {
+      return minLength;
+    }
+
+    if (width >= maxWidth) {
+      return maxLength;
+    }
+    
+    const ratio = (width - minWidth) / (maxWidth - minWidth);
+    const length = minLength + (maxLength - minLength) * ratio;
+    
+    // Округляем до целого числа
+    return Math.round(length);
+  };
 
   const truncateUnicodeString = (str, maxLength) => {
     const chars = [...str];
@@ -87,7 +107,11 @@ $(function () {
 
   const renderTable = () => {
     desktopTableBody.innerHTML = "";
-    const sortedPlayers = sortPlayers(players, sortConfig.key, sortConfig.direction);
+    // Если сортировка по умолчанию (рейтинг по убыванию), используем данные как есть (уже отсортированы сервером)
+    // Иначе применяем клиентскую сортировку
+    const sortedPlayers = (sortConfig.key === 'rating' && sortConfig.direction === 'desc')
+      ? players
+      : sortPlayers(players, sortConfig.key, sortConfig.direction);
     const maxNameLength = getMaxNameLength();
 
     desktopTable.style.display = "table";
@@ -132,11 +156,14 @@ $(function () {
             </div>
           </td>
           <td data-label="Игры">${player.gamesPlayed}</td>
-          <td data-label="Победы">${player.wins}</td>
-          <td data-label="Ничьи">${player.draws}</td>
-          <td data-label="Поражения">${player.losses}</td>
+          <td data-label="Поб">${player.wins}</td>
+          <td data-label="Нич">${player.draws}</td>
+          <td data-label="Пор">${player.losses}</td>
           <td data-label="Голы">${player.goals}</td>
-          <td data-label="Рейтинг">${player.rating}</td>
+          <td data-label="Асс">${player.assists || 0}</td>
+          <td data-label="Сейвы">${player.saves || 0}</td>
+          <td data-label="MVP">${player.mvp || 0}</td>
+          <td data-label="Рейт">${player.rating}</td>
         </tr>
       `;
       desktopTableBody.insertAdjacentHTML("beforeend", desktopRow);
@@ -173,12 +200,46 @@ $(function () {
     document.getElementById("modal-player-name").textContent = name;
     document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.7`;
     document.getElementById("modal-player-photo").alt = name;
+    
+    // Обновляем значения для мобильных (Swiper)
     document.getElementById("modal-player-games").textContent = player.gamesPlayed;
     document.getElementById("modal-player-wins").textContent = player.wins;
     document.getElementById("modal-player-draws").textContent = player.draws;
     document.getElementById("modal-player-losses").textContent = player.losses;
     document.getElementById("modal-player-goals").textContent = player.goals;
+    document.getElementById("modal-player-assists").textContent = player.assists || 0;
+    document.getElementById("modal-player-saves").textContent = player.saves || 0;
+    document.getElementById("modal-player-mvp").textContent = player.mvp || 0;
+    
+    // Обновляем значения для десктопа
+    document.getElementById("modal-player-games-desktop").textContent = player.gamesPlayed;
+    document.getElementById("modal-player-wins-desktop").textContent = player.wins;
+    document.getElementById("modal-player-draws-desktop").textContent = player.draws;
+    document.getElementById("modal-player-losses-desktop").textContent = player.losses;
+    document.getElementById("modal-player-goals-desktop").textContent = player.goals;
+    document.getElementById("modal-player-assists-desktop").textContent = player.assists || 0;
+    document.getElementById("modal-player-saves-desktop").textContent = player.saves || 0;
+    document.getElementById("modal-player-mvp-desktop").textContent = player.mvp || 0;
+    
     document.getElementById("modal-player-rating").textContent = player.rating;
+    
+    // Инициализируем Swiper для статистики на мобильных
+    const statsSwiperContainer = document.querySelector('.stats-swiper');
+    if (statsSwiperContainer && window.innerWidth < 576 && typeof Swiper !== 'undefined') {
+      // Удаляем старый Swiper, если есть
+      if (statsSwiperContainer.swiper) {
+        statsSwiperContainer.swiper.destroy(true, true);
+      }
+      
+      new Swiper(statsSwiperContainer, {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        pagination: {
+          el: statsSwiperContainer.querySelector('.swiper-pagination'),
+          clickable: true,
+        },
+      });
+    }
 
     playerModal.show();
   };

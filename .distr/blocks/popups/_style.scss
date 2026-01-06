@@ -2,7 +2,7 @@
   &.fade {
     .modal-dialog {
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      transform: translateY(20px) scale(0.95);
+      transform: translateY(rem(20)) scale(0.95);
       opacity: 0;
     }
 
@@ -16,47 +16,70 @@
 }
 
 .modal-dialog {
-  max-width: 500px;
-  margin: 1.75rem auto;
+ 
+  @include adaptiv-value(max-width, 700, 900);
+  margin: rem(28) auto;
   border-radius: rem(12);
-  @media (max-width: 576px) {
-    margin: 0.5rem;
-    max-width: calc(100% - 1rem);
+  padding: 0 rem(16);
+  max-width: calc(100% - #{rem(32)});
+  box-sizing: border-box;
+  @media screen and (max-width: rem(576)) {
+    margin: rem(8);
+    max-width: calc(100% - #{rem(16)});
   }
 }
 
 .modal-content {
   border: none;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 rem(10) rem(25) rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: rem(12);
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .modal-header {
   border: none;
-  padding: 1.5rem;
+  padding: rem(24);
   position: relative;
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   color: white;
   border-top-left-radius: rem(12);
   border-top-right-radius: rem(12);
+  
+  @media screen and (max-width: rem(576)) {
+    padding: rem(16) rem(20);
+  }
+  
   .header-content {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: rem(12);
+    
+    @media screen and (max-width: rem(576)) {
+      gap: rem(10);
+    }
 
     .user-icon {
-      font-size: 1.5rem;
+      font-size: rem(24);
       color: rgba(255, 255, 255, 0.8);
+      
+      @media screen and (max-width: rem(576)) {
+        font-size: rem(20);
+      }
     }
 
     .modal-title {
       margin: 0;
       font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: 0.5px;
+      font-size: rem(20);
+      letter-spacing: rem(0.5);
+      
+      @media screen and (max-width: rem(576)) {
+        font-size: rem(18);
+      }
     }
   }
 
@@ -66,20 +89,31 @@
     color: white;
     opacity: 0.8;
     transition: opacity 0.2s ease;
-    padding: 0.5rem;
-    font-size: 1.25rem;
+    padding: rem(8);
+    font-size: rem(20);
+    
+    @media screen and (max-width: rem(576)) {
+      padding: rem(6);
+      font-size: rem(18);
+    }
 
+    @media (hover: hover) {
     &:hover {
       opacity: 1;
+      }
     }
   }
 }
 
 .modal-body {
-  padding: 2rem;
-  background: #fafafa;
+  padding: rem(32);
+  background: #ffffff;
   @media (max-width: 576px) {
-    padding: 1.5rem;
+    padding: rem(16) rem(20);
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    padding: rem(12) rem(16);
   }
 }
 
@@ -90,23 +124,47 @@
 }
 
 .player-photo-container {
-  margin-bottom: 1.5rem;
+  margin-bottom: rem(24);
   position: relative;
+  
+  @media screen and (max-width: rem(576)) {
+    margin-bottom: rem(16);
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    margin-bottom: rem(12);
+  }
 
   .photo-frame {
-    width: 120px;
-    height: 120px;
+    width: rem(120);
+    height: rem(120);
     border-radius: 50%;
     overflow: hidden;
     position: relative;
-    border: 5px solid #f8fafc;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: rem(5) solid #f8fafc;
+    box-shadow: 0 rem(5) rem(15) rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    box-sizing: border-box;
+    
+    @media screen and (max-width: rem(576)) {
+      width: rem(100);
+      height: rem(100);
+      border: rem(4) solid #f8fafc;
+    }
+    
+    @media screen and (max-width: rem(360)) {
+      width: rem(80);
+      height: rem(80);
+      border: rem(3) solid #f8fafc;
+    }
 
     .player-photo-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
+      max-width: 100%;
+      display: block;
     }
 
     .photo-overlay {
@@ -124,85 +182,219 @@
       transition: opacity 0.3s ease;
     }
 
+    @media (hover: hover) {
     &:hover {
       .player-photo-img {
         transform: scale(1.3);
+        }
       }
     }
   }
 }
 
 .player-name {
-  font-size: 1.5rem;
+  font-size: rem(24);
   font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #1a202c;
+  margin-bottom: rem(24);
+  color: #0f172a;
   text-align: center;
   position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  
+  @media screen and (max-width: rem(576)) {
+    font-size: rem(20);
+    margin-bottom: rem(16);
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    font-size: rem(18);
+    margin-bottom: rem(12);
+  }
 
   &::after {
     content: "";
     display: block;
-    width: 50px;
-    height: 3px;
+    width: rem(50);
+    height: rem(3);
     background: linear-gradient(90deg, #1e3c72, #2a5298);
-    margin: 0.75rem auto 0;
-    border-radius: 3px;
+    margin: rem(12) auto 0;
+    border-radius: rem(3);
+    
+    @media screen and (max-width: rem(576)) {
+      width: rem(40);
+      margin: rem(8) auto 0;
+    }
+    
+    @media screen and (max-width: rem(360)) {
+      width: rem(35);
+      margin: rem(6) auto 0;
+    }
   }
 }
 
 .rating-container {
-  margin-bottom: 2rem;
+  margin-bottom: rem(32);
   width: 100%;
   display: flex;
   justify-content: center;
+  
+  @media screen and (max-width: rem(576)) {
+    margin-bottom: rem(20);
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    margin-bottom: rem(14);
+  }
 
   .rating-badge {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    border-radius: 50px;
-    padding: 0.75rem 1.5rem;
+    border-radius: rem(50);
+    padding: rem(12) rem(24);
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    box-shadow: 0 5px 15px rgba(30, 60, 114, 0.3);
+    gap: rem(12);
+    box-shadow: 0 rem(5) rem(15) rgba(30, 60, 114, 0.3);
+    
+    @media screen and (max-width: rem(576)) {
+      padding: rem(10) rem(18);
+      gap: rem(10);
+    }
+    
+    @media screen and (max-width: rem(360)) {
+      padding: rem(8) rem(14);
+      gap: rem(8);
+    }
 
     .rating-label {
       color: rgba(255, 255, 255, 0.9);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: rem(14);
+      
+      @media screen and (max-width: rem(576)) {
+        font-size: rem(12);
+      }
+      
+      @media screen and (max-width: rem(360)) {
+        font-size: rem(11);
+      }
     }
 
     .rating-value {
       color: white;
       font-weight: 700;
-      font-size: 1.25rem;
+      font-size: rem(20);
+      
+      @media screen and (max-width: rem(576)) {
+        font-size: rem(18);
+      }
     }
   }
 }
 
 .stats-grid {
+  position: relative;
+  width: 100%;
+  
+  .stats-swiper {
+    display: block;
+    @include media(576) {
+      display: none;
+    }
+    
+    .swiper-slide {
+      height: auto;
+      flex-shrink: 0;
+    }
+    
+    .stats-slide-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+      grid-template-columns: repeat(1, 1fr);
+      gap: rem(16);
   width: 100%;
 
-  @media (max-width: 400px) {
+      @media screen and (max-width: rem(576)) {
+        gap: rem(12);
+      }
+      
+      @media screen and (max-width: rem(360)) {
+        gap: rem(10);
+      }
+      
+      @media screen and (max-width: rem(360)) {
+        gap: rem(10);
+      }
+    }
+    
+    .swiper-pagination {
+      position: static;
+    }
+    
+    .swiper-pagination-bullet {
+      background: #2c3e50;
+      opacity: 0.5;
+      
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #2c3e50;
+      }
+    }
+    
+    // Для темной темы
+    [data-theme="dark"] & {
+      .swiper-pagination-bullet {
+        background: #fff;
+        opacity: 0.5;
+        
+        &.swiper-pagination-bullet-active {
+          opacity: 1;
+          background: #fff;
+        }
+      }
+    }
+  }
+  
+  // Сетка для десктопа
+  .stats-grid-desktop {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(16);
+    @include media(576) {
+      display: grid;
+    }
+    
+    @media screen and (max-width: rem(400)) {
     grid-template-columns: 1fr;
+    }
   }
 }
 
 .stat-card {
   background: #ffffff;
-  border-radius: 10px;
-  padding: 1rem;
+  border-radius: rem(10);
+  padding: rem(16);
   display: flex;
   align-items: center;
-  gap: 1rem;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  gap: rem(16);
+  box-shadow: 0 rem(3) rem(10) rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  border: 1px solid #f1f5f9;
+  border: 1px solid #e2e8f0;
   position: relative;
   overflow: hidden;
+  
+  @media screen and (max-width: rem(576)) {
+    padding: rem(12) rem(14);
+    gap: rem(12);
+    border-radius: rem(8);
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    padding: rem(10) rem(12);
+    gap: rem(10);
+    border-radius: rem(6);
+  }
 
   &::before {
     content: "";
@@ -217,25 +409,33 @@
     transition: opacity 0.3s ease;
   }
 
+  @media (hover: hover) {
   &:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 rem(5) rem(15) rgba(0, 0, 0, 0.1);
     &::before {
       opacity: 1;
+      }
     }
   }
 
   .stat-icon {
-    width: 40px;
-    height: 40px;
+    width: rem(40);
+    height: rem(40);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: rem(16);
     color: white;
     position: relative;
     z-index: 1;
     flex: 0 0 auto;
+    
+    @media screen and (max-width: rem(576)) {
+      width: rem(32);
+      height: rem(32);
+      font-size: rem(14);
+    }
   }
 
   .stat-info {
@@ -245,17 +445,25 @@
     z-index: 1;
 
     .stat-label {
-      font-size: 0.75rem;
-      color: #64748b;
-      font-weight: 500;
+      font-size: rem(12);
+      color: #475569;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: rem(0.5);
+      
+      @media screen and (max-width: rem(576)) {
+        font-size: rem(10);
+      }
     }
 
     .stat-value {
-      font-size: 1.25rem;
+      font-size: rem(20);
       font-weight: 700;
-      color: #1e293b;
+      color: #0f172a;
+      
+      @media screen and (max-width: rem(576)) {
+        font-size: rem(16);
+      }
     }
   }
 
@@ -337,166 +545,467 @@
       color: #8b5cf6;
     }
   }
+
+  &.assists {
+    background-color: rgba(6, 182, 212, 0.1);
+
+    .stat-icon {
+      background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    }
+
+    &::before {
+      background-color: rgba(6, 182, 212, 0.2);
+    }
+
+    .stat-value {
+      color: #06b6d4;
+    }
+  }
+
+  &.saves {
+    background-color: rgba(236, 72, 153, 0.1);
+
+    .stat-icon {
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+    }
+
+    &::before {
+      background-color: rgba(236, 72, 153, 0.2);
+    }
+
+    .stat-value {
+      color: #ec4899;
+    }
+  }
+
+  &.mvp {
+    background-color: rgba(255, 215, 0, 0.1);
+
+    .stat-icon {
+      background: linear-gradient(135deg, #ffd700 0%, #ffb800 100%);
+    }
+
+    &::before {
+      background-color: rgba(255, 215, 0, 0.2);
+    }
+
+    .stat-value {
+      color: #ffd700;
+    }
+  }
 }
 
 .modal-footer {
   border-top: none;
-  padding: 1.5rem;
+  padding: rem(24);
   display: flex;
   justify-content: center;
-  background: #f8fafc;
+  background: #ffffff;
 
   .btn-close-modal {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     border: none;
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: rem(12) rem(24);
     border-radius: 50px;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: rem(0.5);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: rem(8);
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(30, 60, 114, 0.2);
 
+    @media (hover: hover) {
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 7px 14px rgba(30, 60, 114, 0.3);
+      }
     }
   }
 }
 
-/* Контейнер модала */
+/* Контейнер модального окна */
 .team-modal-content {
-  border-radius: 16px;
+  border-radius: rem(16);
   overflow: hidden;
   background-color: #1e1e2f;
   color: #ffffff;
 }
 
-/* Заголовок */
+/* Заголовок модального окна */
 .team-modal-header {
   background-color: #252536;
-  border-bottom: 1px solid #3a3a4e;
-  padding: 1rem 1.5rem;
+  border-bottom: rem(1) solid #3a3a4e;
+  padding: rem(16) rem(24);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: rem(20);
+  
+  @media screen and (max-width: rem(576)) {
+    padding: rem(12) rem(16);
+    font-size: rem(18);
+  }
 }
 
-/* Тело модала */
+/* Тело модального окна */
 .team-modal-body {
-  padding: 1.5rem;
+  padding: rem(24);
+  
+  @media screen and (max-width: rem(576)) {
+    padding: rem(16) rem(20);
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    padding: rem(12) rem(16);
+  }
 }
 
-/* Хедер команды */
+/* Заголовок команды */
 .team-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: rem(16);
   flex-wrap: wrap;
+  @media screen and (max-width: rem(576)) {
+    gap: rem(12);
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    gap: rem(10);
+  }
 }
 
 .team-photo-wrapper {
-  width: 60px;
-  height: 60px;
+  width: rem(60);
+  height: rem(60);
   border-radius: 50%;
   overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+  
+  @media screen and (max-width: rem(576)) {
+    width: rem(50);
+    height: rem(50);
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    width: rem(40);
+    height: rem(40);
+  }
 }
 
 .team-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  max-width: 100%;
+  display: block;
 }
 
 .team-name {
-  font-size: 1.5rem;
+  font-size: rem(24);
   font-weight: 700;
-  color: #1a202c;
+  color: #0f172a;
+  max-width: rem(300);
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @media screen and (max-width: rem(576)) {
+    font-size: rem(20);
+    max-width: rem(250);
+  }
+
+  @media screen and (max-width: rem(360)) {
+    font-size: rem(18);
+    max-width: rem(200);
+  }
+}
+
+#modal-team-trophies {
+  display: inline-block;
+  font-size: rem(20);
+  
+  @media screen and (max-width: rem(576)) {
+    font-size: rem(18);
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    font-size: rem(16);
+  }
+  
+  .trophy-count {
+    font-size: rem(18);
+    
+    @include media(768) {
+      font-size: rem(20);
+    }
+    
+    @media screen and (max-width: rem(576)) {
+      font-size: rem(16);
+    }
+    
+    @media screen and (max-width: rem(360)) {
+      font-size: rem(14);
+      padding: rem(2) rem(5);
+    }
+  }
+  
+  .trophy-icon-single {
+    font-size: rem(20);
+    
+    @include media(768) {
+      font-size: rem(22);
+    }
+    
+    @media screen and (max-width: rem(576)) {
+      font-size: rem(18);
+    }
+    
+    @media screen and (max-width: rem(360)) {
+      font-size: rem(16);
+    }
+  }
+}
+
+/* Обертка для информации о команде */
+.team-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+  
+  @media screen and (max-width: rem(576)) {
+    gap: rem(16);
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    gap: rem(12);
+  }
+
+  // Убираем отступы, если нет элементов в team-players-grid
+  &:has(.team-players-grid:empty),
+  &:has(.team-players-grid .swiper-wrapper:empty),
+  &:has(.team-players-grid .team-players-grid-desktop:empty) {
+    gap: 0;
+  }
 }
 
 /* Сетка игроков */
 .team-players-grid {
+  position: relative;
+  // Swiper для мобильных
+  .team-players-swiper {
+    display: block;
+    @include media(576) {
+      display: none;
+    }
+    
+    .swiper-slide {
+      width: 100%;
+      height: auto;
+      flex-shrink: 0;
+    }
+    
+    .team-players-slide-grid {
   display: grid;
+      gap: rem(12);
+      width: 100%;
+      grid-template-columns: repeat(1, 1fr);
+      @include media(576) {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      
+      @media screen and (max-width: rem(360)) {
+        gap: rem(10);
+      }
+      
+      .player-card {
+        width: 100%;
+      }
+    }
+    
+    .swiper-pagination {
+      position: static;
+    }
+    
+    .swiper-pagination-bullet {
+      background: #2c3e50;
+      opacity: 0.5;
+      
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #2c3e50;
+      }
+    }
+    
+    // Для темной темы
+    [data-theme="dark"] & {
+      .swiper-pagination-bullet {
+        background: #fff;
+        opacity: 0.5;
+        
+        &.swiper-pagination-bullet-active {
+          opacity: 1;
+          background: #fff;
+        }
+      }
+    }
+  }
+  
+  // Сетка для десктопа
+  .team-players-grid-desktop {
+    display: none;
   grid-template-columns: 1fr;
   @include media(576) {
+      display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  gap: 1rem;
+    @include media(992) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    gap: rem(16);
+  }
 }
 
 /* Карточка игрока */
 .team-players-grid {
-  .player-card {
+  .team-players-swiper .player-card,
+  .team-players-grid-desktop .player-card {
     background-color: #3a4a5c;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 0.5rem;
+    border-radius: rem(12);
+    padding: rem(8);
     text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: none;
     min-width: 0;
     display: flex;
-    gap: 20px;
+    gap: rem(20);
     position: relative; // нужно для позиционирования псевдоэлемента
+    cursor: default;
+    box-sizing: border-box;
+    
+    @media screen and (max-width: rem(576)) {
+      padding: rem(6);
+      gap: rem(12);
+      border-radius: rem(10);
+    }
+    
+    @media screen and (max-width: rem(360)) {
+      padding: rem(5);
+      gap: rem(10);
+      border-radius: rem(8);
+    }
 
     @include media(576) {
       display: block;
     }
 
-    // плашка для первого игрока
-    &:first-child::before {
+    // Плашка для капитана
+    &.is-captain::before {
       content: '🚩';
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: rem(10);
+      right: rem(10);
       background: linear-gradient(135deg, #ffcc33, #ff8800);
       color: #1a1a1a;
       font-weight: 600;
-      font-size: 0.75rem;
+      font-size: rem(12);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      letter-spacing: rem(0.5);
+      padding: rem(4) rem(10);
+      border-radius: rem(6);
+      box-shadow: 0 rem(2) rem(6) rgba(0, 0, 0, 0.3);
       z-index: 2;
       pointer-events: none;
       @include media(576) {
-        top: 10px;
-        left: 10px;
+        top: rem(10);
+        left: rem(10);
         right: inherit;
+      }
+      
+      @media screen and (max-width: rem(360)) {
+        top: rem(6);
+        right: rem(6);
+        font-size: rem(10);
+        padding: rem(3) rem(8);
+        border-radius: rem(4);
+      }
+  }
+
+    // Плашка для основного игрока
+    &.is-main-player::after {
+      content: 'Основа';
+      position: absolute;
+      top: rem(10);
+      right: rem(10);
+      background: linear-gradient(135deg, #ff6b6b, #ff4757);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: rem(8);
+      text-transform: uppercase;
+      letter-spacing: rem(0.5);
+      padding: rem(4) rem(10);
+      border-radius: rem(6);
+      box-shadow: 0 rem(2) rem(6) rgba(0, 0, 0, 0.3);
+      z-index: 2;
+      pointer-events: none;
+      @include media(576) {
+        top: rem(10);
+        left: rem(10);
+        right: inherit;
+      }
+
+      @media screen and (max-width: rem(360)) {
+        top: rem(6);
+        right: rem(6);
       }
     }
 
-    // при наведении слегка приподнимаем карточку
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
+    // Убрали эффект наведения
   }
-}
-
-
-.team-players-grid .player-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .player-card .player-info {
   justify-content: center;
+  padding-right: rem(45);
+  @include media(576) {
+    padding-right: 0;
+  }
 }
 
 .player-card .player-photo {
-  width: 60px;
-  height: 60px;
+  width: rem(60);
+  height: rem(60);
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 0.5rem;
-  border: 2px solid #4f4f7c;
+  margin-bottom: rem(8);
+  border: rem(2) solid #4f4f7c;
+  max-width: 100%;
+  display: block;
+
+  @include media(576) { 
+    margin: 0 auto;
+    margin-bottom: rem(8);
+  }
+  
+  @media screen and (max-width: rem(576)) {
+    width: rem(50);
+    height: rem(50);
+    margin-bottom: rem(6);
+    border: rem(1.5) solid #4f4f7c;
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    width: rem(40);
+    height: rem(40);
+    margin-bottom: rem(4);
+    border: rem(1) solid #4f4f7c;
+  }
 }
 
 .team-row {
@@ -513,14 +1022,25 @@
 .player-card .player-info .player-name {
   display: block;
   font-weight: 600;
-  font-size: 0.95rem;
-  margin-bottom: 0.25rem;
+  font-size: rem(15);
+  margin-bottom: rem(4);
   color: #ffffff;
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
   text-align: center;
+  @media screen and (max-width: rem(576)) {
+    font-size: rem(13);
+    margin-bottom: rem(3);
+    text-align: left;
+  }
+  
+  @media screen and (max-width: rem(360)) {
+    font-size: rem(11);
+    margin-bottom: rem(2);
+  }
+  
   &::after {
     display: none;
   }
@@ -528,8 +1048,8 @@
 
 .team-modal-footer {
   background-color: #252536;
-  border-top: 1px solid #3a3a4e;
-  padding: 1rem 1.5rem;
+  border-top: rem(1) solid #3a3a4e;
+  padding: rem(16) rem(24);
   display: flex;
   justify-content: flex-end;
 }
@@ -538,22 +1058,24 @@
   background-color: #4f4f7c;
   color: #ffffff;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+    padding: rem(8) rem(16);
+    border-radius: rem(8);
   cursor: pointer;
   transition: background 0.2s;
-}
 
-.team-modal-footer .btn-close-modal:hover {
+  @media (hover: hover) {
+    &:hover {
   background-color: #6868a0;
+    }
+  }
 }
 
 
 body[data-theme="dark"] {
   .modal-content {
     background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    border-radius: 12px;
+    box-shadow: 0 rem(10) rem(30) rgba(0, 0, 0, 0.6);
+    border-radius: rem(12);
   }
 
   .modal-header {
@@ -571,8 +1093,10 @@ body[data-theme="dark"] {
     .btn-close {
       color: #fff;
       opacity: 0.7;
+      @media (hover: hover) {
       &:hover {
         opacity: 1;
+        }
       }
     }
   }
@@ -648,6 +1172,27 @@ body[data-theme="dark"] {
         color: #a78bfa;
       }
     }
+
+    &.assists {
+      background-color: rgba(6, 182, 212, 0.15);
+      .stat-value {
+        color: #22d3ee;
+      }
+    }
+
+    &.saves {
+      background-color: rgba(236, 72, 153, 0.15);
+      .stat-value {
+        color: #f472b6;
+      }
+    }
+
+    &.mvp {
+      background-color: rgba(255, 215, 0, 0.15);
+      .stat-value {
+        color: #ffd700;
+      }
+    }
   }
 
   .modal-footer {
@@ -657,8 +1202,10 @@ body[data-theme="dark"] {
       background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
       box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
 
+      @media (hover: hover) {
       &:hover {
         box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
+        }
       }
     }
   }
@@ -671,6 +1218,12 @@ body[data-theme="dark"] {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.15);
   }
+
+}
+
+// Стили для столбцов таблицы
+.players-table {
+
 
 
 }

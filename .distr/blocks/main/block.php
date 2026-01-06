@@ -39,7 +39,7 @@
           </div>
           <div class="caption-link">
             <a id="page-link" href="/tournament">👉 Турнир</a>
-            <a id="season-link" href="/2025" style="margin-left: 10px;">Сезон 2025</a>
+            <a id="season-link" href="/2025">Рейтинг игроков 2025</a>
           </div>
         </caption>
         <thead>
@@ -47,11 +47,14 @@
             <th data-sort="index"><span>№</span><span>№</span></th>
             <th data-sort="name"><span>Игрок</span><span>Игрок</span></th>
             <th data-sort="gamesPlayed"><span>И</span><span>Игры</span></th>
-            <th data-sort="wins"><span>В</span><span>Победы</span></th>
-            <th data-sort="draws"><span>Н</span><span>Ничьи</span></th>
-            <th data-sort="losses"><span>П</span><span>Поражения</span></th>
+            <th data-sort="wins"><span>В</span><span>Поб</span></th>
+            <th data-sort="draws"><span>Н</span><span>Нич</span></th>
+            <th data-sort="losses"><span>П</span><span>Пор</span></th>
             <th data-sort="goals"><span>Г</span><span>Голы</span></th>
-            <th data-sort="rating"><span>Рейт</span><span>Рейтинг</span></th>
+            <th data-sort="assists"><span>А</span><span>Асс</span></th>
+            <th data-sort="saves"><span>С</span><span>Сейвы</span></th>
+            <th data-sort="mvp"><span>M</span><span>MVP</span></th>
+            <th data-sort="rating"><span>Р</span><span>Рейт</span></th>
 
           </tr>
         </thead>

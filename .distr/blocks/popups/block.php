@@ -29,60 +29,176 @@
           </div>
 
           <div class="stats-grid">
-            <div class="stat-card wins">
-              <div class="stat-icon">
-                <i class="fas fa-trophy"></i>
+            <!-- Swiper для мобильных -->
+            <div class="swiper stats-swiper">
+              <div class="swiper-wrapper">
+                <!-- Слайд 1: 3 карточки в ряд -->
+                <div class="swiper-slide">
+                  <div class="stats-slide-grid">
+                    <div class="stat-card wins">
+                      <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                      </div>
+                      <div class="stat-info">
+                        <span class="stat-label">Победы</span>
+                        <span id="modal-player-wins" class="stat-value"></span>
+                      </div>
+                    </div>
+                    <div class="stat-card draws">
+                      <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                      </div>
+                      <div class="stat-info">
+                        <span class="stat-label">Ничьи</span>
+                        <span id="modal-player-draws" class="stat-value"></span>
+                      </div>
+                    </div>
+                    <div class="stat-card losses">
+                      <div class="stat-icon">
+                        <i class="fas fa-times-circle"></i>
+                      </div>
+                      <div class="stat-info">
+                        <span class="stat-label">Поражения</span>
+                        <span id="modal-player-losses" class="stat-value"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Слайд 2: 3 карточки в ряд -->
+                <div class="swiper-slide">
+                  <div class="stats-slide-grid">
+                    <div class="stat-card goals">
+                      <div class="stat-icon">
+                        <i class="fas fa-futbol"></i>
+                      </div>
+                      <div class="stat-info">
+                        <span class="stat-label">Голы</span>
+                        <span id="modal-player-goals" class="stat-value"></span>
+                      </div>
+                    </div>
+                    <div class="stat-card assists">
+                      <div class="stat-icon">
+                        <i class="fas fa-hand-holding"></i>
+                      </div>
+                      <div class="stat-info">
+                        <span class="stat-label">Ассисты</span>
+                        <span id="modal-player-assists" class="stat-value"></span>
+                      </div>
+                    </div>
+                    <div class="stat-card saves">
+                      <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                      </div>
+                      <div class="stat-info">
+                        <span class="stat-label">Сейвы</span>
+                        <span id="modal-player-saves" class="stat-value"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Слайд 3: 2 карточки в ряд -->
+                <div class="swiper-slide">
+                  <div class="stats-slide-grid">
+                    <div class="stat-card mvp">
+                      <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <div class="stat-info">
+                        <span class="stat-label">MVP</span>
+                        <span id="modal-player-mvp" class="stat-value"></span>
+                      </div>
+                    </div>
+                    <div class="stat-card games">
+                      <div class="stat-icon">
+                        <i class="fas fa-running"></i>
+                      </div>
+                      <div class="stat-info">
+                        <span class="stat-label">Игры</span>
+                        <span id="modal-player-games" class="stat-value"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="stat-info">
-                <span class="stat-label">Победы</span>
-                <span id="modal-player-wins" class="stat-value"></span>
-              </div>
+              <div class="swiper-pagination"></div>
             </div>
-
-            <div class="stat-card draws">
-              <div class="stat-icon">
-                <i class="fas fa-handshake"></i>
+            <!-- Сетка для десктопа -->
+            <div class="stats-grid-desktop">
+              <div class="stat-card wins">
+                <div class="stat-icon">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">Победы</span>
+                  <span id="modal-player-wins-desktop" class="stat-value"></span>
+                </div>
               </div>
-              <div class="stat-info">
-                <span class="stat-label">Ничьи</span>
-                <span id="modal-player-draws" class="stat-value"></span>
+              <div class="stat-card draws">
+                <div class="stat-icon">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">Ничьи</span>
+                  <span id="modal-player-draws-desktop" class="stat-value"></span>
+                </div>
               </div>
-            </div>
-
-            <div class="stat-card losses">
-              <div class="stat-icon">
-                <i class="fas fa-times-circle"></i>
+              <div class="stat-card losses">
+                <div class="stat-icon">
+                  <i class="fas fa-times-circle"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">Поражения</span>
+                  <span id="modal-player-losses-desktop" class="stat-value"></span>
+                </div>
               </div>
-              <div class="stat-info">
-                <span class="stat-label">Поражения</span>
-                <span id="modal-player-losses" class="stat-value"></span>
+              <div class="stat-card goals">
+                <div class="stat-icon">
+                  <i class="fas fa-futbol"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">Голы</span>
+                  <span id="modal-player-goals-desktop" class="stat-value"></span>
+                </div>
               </div>
-            </div>
-            <div class="stat-card goals">
-              <div class="stat-icon">
-                <i class="fas fa-futbol"></i> <!-- Иконка мяча для голов -->
+              <div class="stat-card assists">
+                <div class="stat-icon">
+                  <i class="fas fa-hand-holding"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">Ассисты</span>
+                  <span id="modal-player-assists-desktop" class="stat-value"></span>
+                </div>
               </div>
-              <div class="stat-info">
-                <span class="stat-label">Голы</span>
-                <span id="modal-player-goals" class="stat-value"></span>
+              <div class="stat-card saves">
+                <div class="stat-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">Сейвы</span>
+                  <span id="modal-player-saves-desktop" class="stat-value"></span>
+                </div>
               </div>
-            </div>
-            <div class="stat-card games">
-              <div class="stat-icon">
-                <i class="fas fa-running"></i> <!-- Иконка бегущего игрока для игр -->
+              <div class="stat-card mvp">
+                <div class="stat-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">MVP</span>
+                  <span id="modal-player-mvp-desktop" class="stat-value"></span>
+                </div>
               </div>
-              <div class="stat-info">
-                <span class="stat-label">Игры</span>
-                <span id="modal-player-games" class="stat-value"></span>
+              <div class="stat-card games">
+                <div class="stat-icon">
+                  <i class="fas fa-running"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">Игры</span>
+                  <span id="modal-player-games-desktop" class="stat-value"></span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-close-modal" data-bs-dismiss="modal">
-          <i class="fas fa-times"></i> Закрыть
-        </button>
       </div>
     </div>
   </div>
@@ -109,14 +225,19 @@
           </div>
 
           <div id="modal-team-players" class="team-players-grid">
-            <!-- Игроки будут подставлены сюда -->
+            <!-- Swiper для мобильных -->
+            <div class="swiper team-players-swiper">
+              <div class="swiper-wrapper">
+                <!-- Игроки будут подставлены сюда -->
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <!-- Сетка для десктопа (скрыта на мобильных) -->
+            <div class="team-players-grid-desktop">
+              <!-- Игроки будут подставлены сюда -->
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer team-modal-footer">
-        <button type="button" class="btn btn-close-modal" data-bs-dismiss="modal">
-          <i class="fas fa-times"></i> Закрыть
-        </button>
       </div>
     </div>
   </div>
