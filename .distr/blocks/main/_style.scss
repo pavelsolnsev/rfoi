@@ -1092,4 +1092,15 @@ body[data-theme="dark"] {
   .players-table tbody tr:nth-child(3) {
     background: rgba(205, 127, 50, 0.18);
   }
+
+  // Стили для пустой строки в тёмной теме
+  tbody tr.empty-row {
+    background: #1a1a1a !important;
+
+    @media (hover: hover) {
+      &:hover {
+        background: #1a1a1a !important;
+      }
+    }
+  }
 }

@@ -17,6 +17,22 @@ export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) 
   teamsTableBody?.replaceChildren();
   const sortedTeams = sortTeams(teams, sortConfig.key, sortConfig.direction);
 
+  // Проверка на пустой список команд
+  if (sortedTeams.length === 0) {
+    const columnCount = teamsTable.querySelectorAll('thead th').length;
+    const emptyRow = `
+      <tr class="empty-row">
+        <td colspan="${columnCount}" style="text-align: center; padding: 2rem;">
+          <i class="fas fa-exclamation-circle"></i>
+          <span style="margin-left: 0.5rem;">Список команд пуст</span>
+        </td>
+      </tr>
+    `;
+    teamsTableBody?.insertAdjacentHTML("beforeend", emptyRow);
+    updateSortIndicators(teamsTable, sortConfig);
+    return;
+  }
+
   sortedTeams.forEach((team, index) => {
     // Сокращаем название команды
     const maxNameLength = getMaxTeamNameLength();
