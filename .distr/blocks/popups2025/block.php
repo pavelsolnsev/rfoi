@@ -64,7 +64,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- Слайд 2: 1 карточка -->
+                <!-- Слайд 2: 3 карточки в ряд -->
                 <div class="swiper-slide">
                   <div class="stats-slide-grid">
                     <div class="stat-card goals">
@@ -76,12 +76,7 @@
                         <span id="modal-player-goals" class="stat-value"></span>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <!-- Слайд 3: 1 карточка -->
-                <div class="swiper-slide">
-                  <div class="stats-slide-grid">
-                    <div class="stat-card games">
+										<div class="stat-card games">
                       <div class="stat-icon">
                         <i class="fas fa-running"></i>
                       </div>
