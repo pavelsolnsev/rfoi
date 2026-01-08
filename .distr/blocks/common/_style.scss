@@ -16,7 +16,6 @@ html {
   box-sizing: inherit;
 }
 
-/* Современная цветовая система */
 :root {
   --surface: #f0f4f8;
   --surface-elevated: #f8f9fa;
@@ -63,12 +62,6 @@ body {
   min-height: 100vh;
   position: relative;
   z-index: 1;
-  
-  // Для светлой темы делаем wrapper полупрозрачным, чтобы был виден фон
-  body:not([data-theme="dark"]) & {
-    // background: rgba(248, 249, 250, 0.85);
-    // backdrop-filter: blur(1px);
-  }
 }
 
 .container {

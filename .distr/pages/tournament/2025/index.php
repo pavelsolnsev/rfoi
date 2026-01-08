@@ -147,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
   
-  // Функция рендеринга таблицы
   const renderTable = () => {
     teamsTableBody.innerHTML = "";
     const sortedTeams = sortTeams(teams, sortConfig.key, sortConfig.direction);
