@@ -65,7 +65,7 @@ export const loadTeamsData = async (renderCallback, teamsTableBody) => {
       // Используем team_name как ключ для группировки
       const teamNameKey = teamGroup.team_name.toLowerCase();
       playersByTeam[teamNameKey] = teamGroup.players.map(player => ({
-        name: player.name || player.username || '',
+        name: player.username || player.name || '',
         photo: player.photo ? `img/players/${player.photo}` : 'img/players/default.jpg',
         isCaptain: player.is_captain || false,
         isMainPlayer: player.is_main_player || false,
