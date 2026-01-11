@@ -47,7 +47,6 @@ $(function () {
     const ratio = (width - minWidth) / (maxWidth - minWidth);
     const length = minLength + (maxLength - minLength) * ratio;
     
-    // Округляем до целого числа
     return Math.round(length);
   };
 
@@ -304,6 +303,17 @@ $(function () {
         renderTable();
       });
     }
+  });
+
+  // Обработчик resize с debounce для обновления сокращения имен
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      if (players.length > 0) {
+        renderTable();
+      }
+    }, 150); // Debounce 150ms
   });
 
   fetchPlayers();
