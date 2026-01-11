@@ -14,7 +14,6 @@ const changed = require('gulp-changed');
 const rename = require('gulp-rename');
 const os = require('os');
 const clean = require('gulp-clean');
-const { deleteSync } = require('del');
 const autoprefixer = require('gulp-autoprefixer');
 const gulpif = require('gulp-if');
 const fonter = require('gulp-fonter');
@@ -178,12 +177,9 @@ function sync() {
 
 function cleanPublic() {
 	// Очищаем public, но исключаем папку api (она управляется вручную на FTP)
-	deleteSync([
-		'public/**/*',
-		'!public/api',
-		'!public/api/**'
-	]);
-	return Promise.resolve();
+	// Используем src с исключением вместо del, так как del - ES Module
+	return src(['public/**/*', '!public/api', '!public/api/**'], { allowEmpty: true, read: false })
+		.pipe(clean());
 }
 
 // exports.
