@@ -6,3 +6,4 @@ gulpconfig.json
 .env
 .env.local
 .env.*.local
+.distr/pages/api/
