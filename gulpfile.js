@@ -14,6 +14,7 @@ const changed = require('gulp-changed');
 const rename = require('gulp-rename');
 const os = require('os');
 const clean = require('gulp-clean');
+const del = require('del');
 const autoprefixer = require('gulp-autoprefixer');
 const gulpif = require('gulp-if');
 const fonter = require('gulp-fonter');
@@ -176,12 +177,16 @@ function sync() {
 }
 
 function cleanPublic() {
-	return src('public', { allowEmpty: true, read: false })
-		.pipe(clean());
+	// Очищаем public, но исключаем папку api (она управляется вручную на FTP)
+	return del([
+		'public/**/*',
+		'!public/api',
+		'!public/api/**'
+	]);
 }
 
 // exports.
 exports.delete = cleanPublic;
 exports.fonts = fonts;
-exports.public = series(cleanPublic, images, parallel(nunjucks, styles, scripts, pages, api, tournamentModules));
-exports.default = series(cleanPublic, parallel(styles, scripts, pages, images, nunjucks, api, tournamentModules, sync, watching))
+exports.public = series(cleanPublic, images, parallel(nunjucks, styles, scripts, pages, tournamentModules));
+exports.default = series(cleanPublic, parallel(styles, scripts, pages, images, nunjucks, tournamentModules, sync, watching))
