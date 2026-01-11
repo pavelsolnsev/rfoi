@@ -29,34 +29,6 @@ $(function () {
     direction: 'desc'
   };
 
-  const getMaxNameLength = () => {
-    const width = window.innerWidth;
-    const minWidth = 400;
-    const maxWidth = 1200;
-    const minLength = 9;
-    const maxLength = 29;
-    
-    if (width <= minWidth) {
-      return minLength;
-    }
-
-    if (width >= maxWidth) {
-      return maxLength;
-    }
-    
-    const ratio = (width - minWidth) / (maxWidth - minWidth);
-    const length = minLength + (maxLength - minLength) * ratio;
-    
-    return Math.round(length);
-  };
-
-  const truncateUnicodeString = (str, maxLength) => {
-    const chars = [...str];
-    if (chars.length > maxLength) {
-      return chars.slice(0, maxLength).join('') + '...';
-    }
-    return str;
-  };
 
   const sortPlayers = (players, key, direction) => {
     return [...players].sort((a, b) => {
@@ -111,7 +83,6 @@ $(function () {
     const sortedPlayers = (sortConfig.key === 'rating' && sortConfig.direction === 'desc')
       ? players
       : sortPlayers(players, sortConfig.key, sortConfig.direction);
-    const maxNameLength = getMaxNameLength();
 
     desktopTable.style.display = "table";
     emptyMessage.style.display = "none";
@@ -135,11 +106,10 @@ $(function () {
     }
 
     sortedPlayers.forEach((player, index) => {
-      let name =
+      const name =
         player.username === "@unknown"
           ? player.name
           : player.username.replace(/@/g, "");
-      name = truncateUnicodeString(name, maxNameLength);
 
       const desktopRow = `
         <tr class="player-row" data-player-index="${index}">
@@ -190,11 +160,10 @@ $(function () {
   };
 
   const showPlayerModal = (player) => {
-    let name =
+    const name =
       player.username === "@unknown"
         ? player.name
         : player.username.replace(/@/g, "");
-    name = truncateUnicodeString(name, 30);
 
     document.getElementById("modal-player-name").textContent = name;
     document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.7`;
