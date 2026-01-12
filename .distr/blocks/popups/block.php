@@ -21,6 +21,11 @@
           </div>
           <h3 id="modal-player-name" class="player-name"></h3>
 
+          <div class="player-team-info" id="player-modal-team-info">
+            <img id="player-modal-team-logo-img" src="" alt="Team Logo" class="team-logo-small">
+            <span id="player-modal-team-name" class="team-name-small"></span>
+          </div>
+
           <div class="rating-container">
             <div class="rating-badge">
               <span class="rating-label">Рейтинг</span>

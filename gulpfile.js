@@ -13,6 +13,8 @@ const debug = require('gulp-debug');
 const changed = require('gulp-changed');
 const rename = require('gulp-rename');
 const os = require('os');
+const fs = require('fs');
+const path = require('path');
 const clean = require('gulp-clean');
 const autoprefixer = require('gulp-autoprefixer');
 const gulpif = require('gulp-if');
@@ -175,11 +177,45 @@ function sync() {
 	watch(['**/*.*', '!.distr/**'], { cwd: CONFIG.input }).on('change', browserSync.reload);
 }
 
-function cleanPublic() {
+function cleanPublic(callback) {
 	// Очищаем public, но исключаем папку api (она управляется вручную на FTP)
-	// Используем src с исключением вместо del, так как del - ES Module
-	return src(['public/**/*', '!public/api', '!public/api/**'], { allowEmpty: true, read: false })
-		.pipe(clean());
+	const publicPath = path.join(process.cwd(), 'public');
+	
+	// Если директория не существует, просто завершаем задачу
+	if (!fs.existsSync(publicPath)) {
+		callback();
+		return;
+	}
+	
+	// Рекурсивно удаляем файлы и папки, кроме api
+	function removeRecursive(dir) {
+		if (!fs.existsSync(dir)) return;
+		
+		const entries = fs.readdirSync(dir, { withFileTypes: true });
+		
+		for (const entry of entries) {
+			const fullPath = path.join(dir, entry.name);
+			
+			// Пропускаем папку api
+			if (entry.name === 'api' && entry.isDirectory()) {
+				continue;
+			}
+			
+			if (entry.isDirectory()) {
+				removeRecursive(fullPath);
+				fs.rmdirSync(fullPath);
+			} else {
+				fs.unlinkSync(fullPath);
+			}
+		}
+	}
+	
+	try {
+		removeRecursive(publicPath);
+		callback();
+	} catch (error) {
+		callback(error);
+	}
 }
 
 // exports.

@@ -29,6 +29,19 @@ $(function () {
     direction: 'desc'
   };
 
+  // Маппинг названий команд к файлам логотипов (общая переменная)
+  const teamNameMap = {
+    'РФОИ': 'admin.png',
+    'Леон': 'leon.webp',
+    'Ручеёк': 'rych.webp',
+    'Worlds': 'worlds.png',
+    'Volt': 'volt.webp',
+    'California': 'california.webp',
+    'Юность': 'un.webp',
+    'Engelbert': 'Engelbert.png',
+    'Ясность': 'iasnostb.jpg'
+  };
+
 
   const sortPlayers = (players, key, direction) => {
     return [...players].sort((a, b) => {
@@ -169,6 +182,38 @@ $(function () {
     document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.7`;
     document.getElementById("modal-player-photo").alt = name;
     
+    // Обновляем информацию о команде, если есть
+    const teamInfo = document.getElementById("player-modal-team-info");
+    const teamLogoImg = document.getElementById("player-modal-team-logo-img");
+    const teamNameElement = document.getElementById("player-modal-team-name");
+    
+    if (teamInfo && teamLogoImg && teamNameElement) {
+      if (player.teamName) {
+        const teamFileName = teamNameMap[player.teamName] || 
+          player.teamName.toLowerCase()
+            .replace(/\s+/g, '')
+            .replace(/ё/g, 'e')
+            .replace(/й/g, 'i') + '.webp';
+        
+        const teamPhotoPath = `/img/team/${teamFileName}`;
+        teamLogoImg.src = teamPhotoPath;
+        teamLogoImg.alt = player.teamName;
+        teamNameElement.textContent = player.teamName;
+        teamInfo.style.display = "flex";
+        
+        // Добавляем обработчик клика для открытия попапа команды
+        teamInfo.onclick = (e) => {
+          e.stopPropagation();
+          openTeamModalFromPlayer(player.teamName);
+        };
+        teamInfo.style.cursor = "pointer";
+      } else {
+        teamInfo.style.display = "none";
+        teamInfo.onclick = null;
+        teamInfo.style.cursor = "default";
+      }
+    }
+    
     // Обновляем значения для мобильных (Swiper)
     document.getElementById("modal-player-games").textContent = player.gamesPlayed;
     document.getElementById("modal-player-wins").textContent = player.wins;
@@ -210,6 +255,236 @@ $(function () {
     }
 
     playerModal.show();
+  };
+
+  // Функция для открытия попапа команды по названию
+  const openTeamModalFromPlayer = async (teamName) => {
+    try {
+      // Закрываем попап игрока
+      const playerModalElement = document.getElementById("playerModal");
+      if (playerModalElement) {
+        const playerModalInstance = bootstrap.Modal.getInstance(playerModalElement);
+        if (playerModalInstance) {
+          playerModalInstance.hide();
+        }
+      }
+
+      // Загружаем данные команд
+      const teamsResponse = await fetch(`https://football.pavelsolntsev.ru/api/teams.php?t=${Date.now()}`);
+      if (!teamsResponse.ok) {
+        console.error("Ошибка загрузки команд");
+        return;
+      }
+      const teams = await teamsResponse.json();
+      
+      // Находим команду по названию
+      const team = teams.find(t => t.name === teamName);
+      if (!team) {
+        console.error("Команда не найдена");
+        return;
+      }
+
+      // Загружаем игроков команды
+      const playersResponse = await fetch(`https://football.pavelsolntsev.ru/api/team_players.php?team_id=${team.id}&t=${Date.now()}`);
+      if (!playersResponse.ok) {
+        console.error("Ошибка загрузки игроков команды");
+        return;
+      }
+      const teamData = await playersResponse.json();
+      
+      // Формируем путь к фото команды
+      const teamFileName = teamNameMap[team.name] || 
+        team.name.toLowerCase()
+          .replace(/\s+/g, '')
+          .replace(/ё/g, 'e')
+          .replace(/й/g, 'i') + '.webp';
+      const teamPhotoPath = `/img/team/${teamFileName}`;
+
+      // Открываем попап команды
+      const teamModalElement = document.getElementById("teamModal");
+      if (!teamModalElement) return;
+
+      // Формируем данные игроков команды
+      const teamPlayers = teamData.players ? teamData.players.map(p => ({
+        name: p.name,
+        username: p.username || null,
+        photo: `/img/players/${p.photo}`,
+        isCaptain: p.is_captain || false,
+        isMainPlayer: p.is_main_player || false,
+        icon: p.yellow_cards > 0 ? '🟨'.repeat(Math.min(p.yellow_cards, 2)) : ''
+      })) : [];
+
+      // Формируем строку трофеев
+      const trophiesStr = team.trophies ? '🏆'.repeat(team.trophies) : '';
+
+      // Заполняем данные попапа
+      const modalName = document.getElementById("modal-team-name");
+      const modalPhoto = document.getElementById("modal-team-photo");
+      const modalTrophies = document.getElementById("modal-team-trophies");
+      const modalPlayers = document.getElementById("modal-team-players");
+
+      if (modalName) modalName.textContent = team.name;
+      if (modalPhoto) modalPhoto.src = teamPhotoPath;
+      
+      if (modalTrophies) {
+        const trophyCount = team.trophies || 0;
+        if (trophyCount > 3) {
+          modalTrophies.innerHTML = `<span class="trophy-count">${trophyCount}</span><span class="trophy-icon-single">🏆</span>`;
+        } else {
+          modalTrophies.textContent = trophiesStr;
+        }
+      }
+
+      // Очищаем и заполняем игроков
+      const swiperWrapper = modalPlayers?.querySelector('.swiper-wrapper');
+      const gridDesktop = modalPlayers?.querySelector('.team-players-grid-desktop');
+      
+      if (swiperWrapper) swiperWrapper.innerHTML = "";
+      if (gridDesktop) gridDesktop.innerHTML = "";
+
+      if (teamPlayers && teamPlayers.length > 0) {
+        // Сортируем игроков
+        const sortedPlayers = [...teamPlayers].sort((a, b) => {
+          if (a.isCaptain && !b.isCaptain) return -1;
+          if (!a.isCaptain && b.isCaptain) return 1;
+          if (a.isMainPlayer && !b.isMainPlayer) return -1;
+          if (!a.isMainPlayer && b.isMainPlayer) return 1;
+          return 0;
+        });
+
+        // Группируем для Swiper (по 5 игроков на слайд)
+        const playersPerSlide = 5;
+        let currentSlidePlayers = [];
+        
+        sortedPlayers.forEach((player, index) => {
+          const captainClass = player.isCaptain ? ' is-captain' : '';
+          const mainPlayerClass = player.isMainPlayer ? ' is-main-player' : '';
+          
+          // Формируем отображаемое имя так же, как в showPlayerModal
+          const displayName = player.username === "@unknown" || !player.username
+            ? player.name
+            : player.username.replace(/@/g, "");
+          
+          // Экранируем имя и username для использования в data-атрибутах
+          const playerNameEscaped = player.name.replace(/"/g, '&quot;');
+          const playerUsernameEscaped = (player.username || '').replace(/"/g, '&quot;');
+          const displayNameEscaped = displayName.replace(/"/g, '&quot;');
+          const playerItem = `
+            <div class="player-card${captainClass}${mainPlayerClass}" data-player-name="${playerNameEscaped}" data-player-username="${playerUsernameEscaped}" style="cursor: pointer;">
+              <img src="${player.photo}" alt="${displayName}" class="player-photo">
+              <div class="player-info">
+                <span class="player-name">${displayName}${player.icon ? ' ' + player.icon : ''}</span>
+              </div>
+            </div>
+          `;
+          
+          currentSlidePlayers.push(playerItem);
+          
+          if (currentSlidePlayers.length === playersPerSlide || index === sortedPlayers.length - 1) {
+            if (swiperWrapper) {
+              swiperWrapper.insertAdjacentHTML("beforeend", `
+                <div class="swiper-slide">
+                  <div class="team-players-slide-grid">
+                    ${currentSlidePlayers.join('')}
+                  </div>
+                </div>
+              `);
+            }
+            currentSlidePlayers = [];
+          }
+          
+          if (gridDesktop) {
+            gridDesktop.insertAdjacentHTML("beforeend", playerItem);
+          }
+        });
+
+        // Добавляем обработчики клика на карточки игроков
+        const allPlayerCards = modalPlayers.querySelectorAll('.player-card');
+        allPlayerCards.forEach((card) => {
+          card.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const playerName = card.getAttribute('data-player-name');
+            if (!playerName) return;
+
+            // Ищем игрока в массиве players по имени
+            const player = players.find(p => {
+              const playerDisplayName = p.username === "@unknown" ? p.name : p.username.replace(/@/g, "");
+              return playerDisplayName === playerName || p.name === playerName || p.username === playerName;
+            });
+
+            if (player) {
+              // Закрываем попап команды
+              const teamModalInstance = bootstrap.Modal.getInstance(teamModalElement);
+              if (teamModalInstance) {
+                teamModalInstance.hide();
+              }
+
+              // Открываем попап игрока
+              showPlayerModal(player);
+            }
+          });
+        });
+
+        // Инициализируем Swiper
+        const swiperContainer = modalPlayers?.querySelector('.team-players-swiper');
+        if (swiperContainer && typeof Swiper !== 'undefined') {
+          if (swiperContainer.swiper) {
+            swiperContainer.swiper.destroy(true, true);
+          }
+          
+          if (window.innerWidth < 576) {
+            new Swiper(swiperContainer, {
+              slidesPerView: 1,
+              spaceBetween: 16,
+              pagination: {
+                el: swiperContainer.querySelector('.swiper-pagination'),
+                clickable: true,
+              },
+            });
+          }
+        }
+
+        // Добавляем обработчики клика на карточки игроков после инициализации Swiper
+        setTimeout(() => {
+          const allPlayerCards = modalPlayers.querySelectorAll('.player-card');
+          allPlayerCards.forEach((card) => {
+            card.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const playerName = card.getAttribute('data-player-name');
+              const playerUsername = card.getAttribute('data-player-username');
+              if (!playerName) return;
+
+              // Ищем игрока в массиве players по имени или username
+              const player = players.find(p => {
+                const playerDisplayName = p.username === "@unknown" ? p.name : p.username.replace(/@/g, "");
+                // Сравниваем по отображаемому имени, имени или username
+                if (playerDisplayName === playerName || p.name === playerName) return true;
+                if (playerUsername && (p.username === playerUsername || p.username === `@${playerUsername}`)) return true;
+                return false;
+              });
+
+              if (player) {
+                // Закрываем попап команды
+                const teamModalInstance = bootstrap.Modal.getInstance(teamModalElement);
+                if (teamModalInstance) {
+                  teamModalInstance.hide();
+                }
+
+                // Открываем попап игрока
+                showPlayerModal(player);
+              }
+            });
+          });
+        }, 100);
+      }
+
+      // Открываем попап
+      const teamModal = new bootstrap.Modal(teamModalElement);
+      teamModal.show();
+
+    } catch (error) {
+      console.error("Ошибка при открытии попапа команды:", error);
+    }
   };
 
   const fetchPlayers = async () => {
