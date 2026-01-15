@@ -4,7 +4,7 @@
       <table id="teams-table" class="players-table">
         <caption class="table-caption">
           <!-- Новогодние снежинки -->
-          <div class="snowflakes">
+          <!-- <div class="snowflakes">
             <div class="snowflake">❄</div>
             <div class="snowflake">❅</div>
             <div class="snowflake">❆</div>
@@ -17,16 +17,16 @@
             <div class="snowflake">❄</div>
             <div class="snowflake">❅</div>
             <div class="snowflake">❆</div>
-          </div>
+          </div> -->
           <!-- Новогодние огоньки -->
-          <div class="sparkles">
+          <!-- <div class="sparkles">
             <span class="sparkle">✨</span>
             <span class="sparkle">⭐</span>
             <span class="sparkle">✨</span>
             <span class="sparkle">⭐</span>
             <span class="sparkle">✨</span>
             <span class="sparkle">⭐</span>
-          </div>
+          </div> -->
           <div class="caption-content">
             <div class="caption-content-wrap">
               <i class="fas fa-trophy trophy-icon"></i>

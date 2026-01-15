@@ -53,6 +53,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Обработчик resize с debounce для обновления отображения названий команд
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      if (teams.length > 0) {
+        renderTeamsTable(teamsTableBody, teamsTable, teams, teamsSortConfig);
+      }
+    }, 150); // Debounce 150ms
+  });
+
   // Загружаем данные при загрузке страницы
   loadAndRender();
 });

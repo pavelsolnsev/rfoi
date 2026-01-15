@@ -634,203 +634,203 @@
 }
 
 // Анимация падающих снежинок
-@keyframes snowfall {
-  0% {
-    transform: translateY(rem(-50)) translateX(0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(calc(50vh - #{rem(100)})) translateX(rem(20)) rotate(180deg);
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(calc(100vh + #{rem(50)})) translateX(rem(-10)) rotate(360deg);
-    opacity: 0;
-  }
-}
+// @keyframes snowfall {
+//   0% {
+//     transform: translateY(rem(-50)) translateX(0) rotate(0deg);
+//     opacity: 0;
+//   }
+//   10% {
+//     opacity: 1;
+//   }
+//   50% {
+//     transform: translateY(calc(50vh - #{rem(100)})) translateX(rem(20)) rotate(180deg);
+//     opacity: 1;
+//   }
+//   90% {
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: translateY(calc(100vh + #{rem(50)})) translateX(rem(-10)) rotate(360deg);
+//     opacity: 0;
+//   }
+// }
 
 // Анимация мигающих огоньков
-@keyframes sparkle {
-  0%, 100% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+// @keyframes sparkle {
+//   0%, 100% {
+//     opacity: 0;
+//     transform: scale(0);
+//   }
+//   50% {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+// }
 
 // Контейнер для снежинок
-.snowflakes {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
-}
+// .snowflakes {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   pointer-events: none;
+//   overflow: hidden;
+//   z-index: 1;
+// }
 
-.snowflake {
-  position: absolute;
-  top: rem(-30);
-  font-size: rem(16);
-  color: rgba(255, 255, 255, 0.85);
-  animation: snowfall linear infinite;
-  text-shadow: 0 0 rem(6) rgba(255, 255, 255, 0.6);
-  user-select: none;
-  
-  &:nth-child(1) {
-    left: 8%;
-    animation-duration: 7s;
-    animation-delay: 0s;
-    font-size: rem(12);
-  }
-  
-  &:nth-child(2) {
-    left: 18%;
-    animation-duration: 9s;
-    animation-delay: 0.8s;
-    font-size: rem(15);
-  }
-  
-  &:nth-child(3) {
-    left: 28%;
-    animation-duration: 8s;
-    animation-delay: 0.4s;
-    font-size: rem(14);
-  }
-  
-  &:nth-child(4) {
-    left: 38%;
-    animation-duration: 10s;
-    animation-delay: 1.2s;
-    font-size: rem(13);
-  }
-  
-  &:nth-child(5) {
-    left: 48%;
-    animation-duration: 7.5s;
-    animation-delay: 0.2s;
-    font-size: rem(17);
-  }
-  
-  &:nth-child(6) {
-    left: 58%;
-    animation-duration: 8.5s;
-    animation-delay: 1s;
-    font-size: rem(14);
-  }
-  
-  &:nth-child(7) {
-    left: 68%;
-    animation-duration: 9.5s;
-    animation-delay: 0.6s;
-    font-size: rem(14);
-  }
-  
-  &:nth-child(8) {
-    left: 78%;
-    animation-duration: 8.2s;
-    animation-delay: 1.5s;
-    font-size: rem(15);
-  }
-  
-  &:nth-child(9) {
-    left: 88%;
-    animation-duration: 8.8s;
-    animation-delay: 0.3s;
-    font-size: rem(13);
-  }
-  
-  &:nth-child(10) {
-    left: 12%;
-    animation-duration: 9.2s;
-    animation-delay: 1.8s;
-    font-size: rem(16);
-  }
-  
-  &:nth-child(11) {
-    left: 32%;
-    animation-duration: 7.8s;
-    animation-delay: 0.5s;
-    font-size: rem(14);
-  }
-  
-  &:nth-child(12) {
-    left: 62%;
-    animation-duration: 8.9s;
-    animation-delay: 1.1s;
-    font-size: rem(15);
-  }
-}
+// .snowflake {
+//   position: absolute;
+//   top: rem(-30);
+//   font-size: rem(16);
+//   color: rgba(255, 255, 255, 0.85);
+//   animation: snowfall linear infinite;
+//   text-shadow: 0 0 rem(6) rgba(255, 255, 255, 0.6);
+//   user-select: none;
+//   
+//   &:nth-child(1) {
+//     left: 8%;
+//     animation-duration: 7s;
+//     animation-delay: 0s;
+//     font-size: rem(12);
+//   }
+//   
+//   &:nth-child(2) {
+//     left: 18%;
+//     animation-duration: 9s;
+//     animation-delay: 0.8s;
+//     font-size: rem(15);
+//   }
+//   
+//   &:nth-child(3) {
+//     left: 28%;
+//     animation-duration: 8s;
+//     animation-delay: 0.4s;
+//     font-size: rem(14);
+//   }
+//   
+//   &:nth-child(4) {
+//     left: 38%;
+//     animation-duration: 10s;
+//     animation-delay: 1.2s;
+//     font-size: rem(13);
+//   }
+//   
+//   &:nth-child(5) {
+//     left: 48%;
+//     animation-duration: 7.5s;
+//     animation-delay: 0.2s;
+//     font-size: rem(17);
+//   }
+//   
+//   &:nth-child(6) {
+//     left: 58%;
+//     animation-duration: 8.5s;
+//     animation-delay: 1s;
+//     font-size: rem(14);
+//   }
+//   
+//   &:nth-child(7) {
+//     left: 68%;
+//     animation-duration: 9.5s;
+//     animation-delay: 0.6s;
+//     font-size: rem(14);
+//   }
+//   
+//   &:nth-child(8) {
+//     left: 78%;
+//     animation-duration: 8.2s;
+//     animation-delay: 1.5s;
+//     font-size: rem(15);
+//   }
+//   
+//   &:nth-child(9) {
+//     left: 88%;
+//     animation-duration: 8.8s;
+//     animation-delay: 0.3s;
+//     font-size: rem(13);
+//   }
+//   
+//   &:nth-child(10) {
+//     left: 12%;
+//     animation-duration: 9.2s;
+//     animation-delay: 1.8s;
+//     font-size: rem(16);
+//   }
+//   
+//   &:nth-child(11) {
+//     left: 32%;
+//     animation-duration: 7.8s;
+//     animation-delay: 0.5s;
+//     font-size: rem(14);
+//   }
+//   
+//   &:nth-child(12) {
+//     left: 62%;
+//     animation-duration: 8.9s;
+//     animation-delay: 1.1s;
+//     font-size: rem(15);
+//   }
+// }
 
 // Контейнер для мигающих огоньков
-.sparkles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 2;
-}
+// .sparkles {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   pointer-events: none;
+//   overflow: hidden;
+//   z-index: 2;
+// }
 
-.sparkle {
-  position: absolute;
-  font-size: rem(19);
-  animation: sparkle 2s ease-in-out infinite;
-  
-  &:nth-child(1) {
-    top: 10%;
-    left: 5%;
-    animation-delay: 0s;
-  }
-  
-  &:nth-child(2) {
-    top: 20%;
-    right: 10%;
-    animation-delay: 0.5s;
-    font-size: rem(16);
-  }
-  
-  &:nth-child(3) {
-    top: 15%;
-    left: 50%;
-    animation-delay: 1s;
-    font-size: rem(21);
-  }
-  
-  &:nth-child(4) {
-    top: 25%;
-    left: 25%;
-    animation-delay: 1.5s;
-    font-size: rem(14);
-  }
-  
-  &:nth-child(5) {
-    top: 30%;
-    right: 20%;
-    animation-delay: 0.3s;
-    font-size: rem(18);
-  }
-  
-  &:nth-child(6) {
-    top: 12%;
-    right: 5%;
-    animation-delay: 0.8s;
-    font-size: rem(16);
-  }
-}
+// .sparkle {
+//   position: absolute;
+//   font-size: rem(19);
+//   animation: sparkle 2s ease-in-out infinite;
+//   
+//   &:nth-child(1) {
+//     top: 10%;
+//     left: 5%;
+//     animation-delay: 0s;
+//   }
+//   
+//   &:nth-child(2) {
+//     top: 20%;
+//     right: 10%;
+//     animation-delay: 0.5s;
+//     font-size: rem(16);
+//   }
+//   
+//   &:nth-child(3) {
+//     top: 15%;
+//     left: 50%;
+//     animation-delay: 1s;
+//     font-size: rem(21);
+//   }
+//   
+//   &:nth-child(4) {
+//     top: 25%;
+//     left: 25%;
+//     animation-delay: 1.5s;
+//     font-size: rem(14);
+//   }
+//   
+//   &:nth-child(5) {
+//     top: 30%;
+//     right: 20%;
+//     animation-delay: 0.3s;
+//     font-size: rem(18);
+//   }
+//   
+//   &:nth-child(6) {
+//     top: 12%;
+//     right: 5%;
+//     animation-delay: 0.8s;
+//     font-size: rem(16);
+//   }
+// }
 
 // ===== ТЕМНАЯ ТЕМА =====
 body[data-theme="dark"] {
@@ -916,14 +916,14 @@ body[data-theme="dark"] {
     color: #f1f5f9;
     border-color: rgba(59, 130, 246, 0.45);
     
-    .snowflake {
-      color: rgba(255, 255, 255, 0.9);
-      text-shadow: 0 0 rem(8) rgba(255, 255, 255, 0.7);
-    }
+    // .snowflake {
+    //   color: rgba(255, 255, 255, 0.9);
+    //   text-shadow: 0 0 rem(8) rgba(255, 255, 255, 0.7);
+    // }
     
-    .sparkle {
-      filter: drop-shadow(0 0 rem(4) rgba(255, 255, 255, 0.8));
-    }
+    // .sparkle {
+    //   filter: drop-shadow(0 0 rem(4) rgba(255, 255, 255, 0.8));
+    // }
   }
 
   .error-message {

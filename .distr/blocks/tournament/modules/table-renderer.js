@@ -4,7 +4,6 @@
 
 import { sortTeams, updateSortIndicators } from './table-sorter.js';
 import { openTeamModal } from './modal-handler.js';
-import { truncateUnicodeString, getMaxTeamNameLength } from './format-utils.js';
 
 /**
  * Рендеринг таблицы команд
@@ -14,7 +13,9 @@ import { truncateUnicodeString, getMaxTeamNameLength } from './format-utils.js';
  * @param {Object} sortConfig - Конфигурация сортировки {key, direction}
  */
 export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) => {
-  teamsTableBody?.replaceChildren();
+  if (teamsTableBody) {
+    teamsTableBody.innerHTML = "";
+  }
   const sortedTeams = sortTeams(teams, sortConfig.key, sortConfig.direction);
 
   // Проверка на пустой список команд
@@ -34,10 +35,6 @@ export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) 
   }
 
   sortedTeams.forEach((team, index) => {
-    // Сокращаем название команды
-    const maxNameLength = getMaxTeamNameLength();
-    const truncatedTeamName = truncateUnicodeString(team.name, maxNameLength);
-
     // Форматируем трофеи: если больше 4, показываем число и одну иконку
     let trophiesDisplay = team.trophies || '';
     const trophyCount = (trophiesDisplay.match(/🏆/g) || []).length;
@@ -53,18 +50,18 @@ export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) 
             <div class="player-photo">
               <img src="${team.photo}" alt="${team.name}" onerror="this.src='img/team/logo.jpg'">
             </div>
-            <span>${truncatedTeamName}</span>
+            <span>${team.name}</span>
           </div>
         </td>
-        <td data-label="Трофеи">${trophiesDisplay}</td>
-        <td data-label="Турниры">${team.tournaments}</td>
-        <td data-label="Победы">${team.wins}</td>
-        <td data-label="Ничьи">${team.draws}</td>
-        <td data-label="Поражения">${team.losses}</td>
+        <td data-label="Тр">${trophiesDisplay}</td>
+        <td data-label="Тур">${team.tournaments}</td>
+        <td data-label="Поб">${team.wins}</td>
+        <td data-label="Нич">${team.draws}</td>
+        <td data-label="Пор">${team.losses}</td>
         <td data-label="ЗМ">${team.goalsScored}</td>
         <td data-label="ПМ" class="goals-conceded-col">${team.goalsConceded}</td>
         <td data-label="РМ" class="goal-difference-col">${team.goalDifference}</td>
-        <td data-label="Очки">${team.points}</td>
+        <td data-label="О">${team.points}</td>
       </tr>
     `;
     teamsTableBody?.insertAdjacentHTML("beforeend", row);
