@@ -909,6 +909,7 @@ body[data-theme="dark"] {
   .players-table td[data-label="Рейт"] {
     font-weight: bold;
     color: #00d4ff;
+
   }
 
   .table-caption {
@@ -919,13 +920,13 @@ body[data-theme="dark"] {
     // .snowflake {
     //   color: rgba(255, 255, 255, 0.9);
     //   text-shadow: 0 0 rem(8) rgba(255, 255, 255, 0.7);
-    // }
+    // } 
     
     // .sparkle {
     //   filter: drop-shadow(0 0 rem(4) rgba(255, 255, 255, 0.8));
     // }
   }
-
+  
   .error-message {
     background: rgba(120, 0, 0, 0.6);
     color: #ff6b6b;
@@ -993,9 +994,11 @@ body[data-theme="dark"] {
 // Стили для цифры количества трофеев
 .trophy-count {
   display: inline-block;
+
   font-weight: 800;
   font-size: rem(7);
   color: #1a202c;
+
   background: linear-gradient(135deg, #ffd700 0%, #ffb800 100%);
   padding: rem(2) rem(5);
   border-radius: rem(5);

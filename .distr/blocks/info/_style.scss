@@ -1,0 +1,373 @@
+// Стили страницы /info/
+.info-page {
+  // Контентная ширина для читабельности
+  &__content {
+    max-width: 920px;
+  }
+
+  // Чуть “журнальнее” типографика именно в инфо-странице
+  h1 {
+    letter-spacing: -0.02em;
+    font-size: rem(32);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: rem(24);
+    padding: 0 rem(16);
+    
+    @include media(768) {
+      font-size: rem(40);
+      margin-bottom: rem(32);
+      padding: 0;
+    }
+  }
+
+  .lead {
+    line-height: 1.35;
+  }
+
+  // Карточки/списки: плотнее и аккуратнее
+  .card {
+    border-color: var(--border);
+  }
+
+  .list-group-item {
+    border-color: var(--border);
+  }
+
+  // Значения справа не должны “прыгать” по строкам
+  .list-group-item .fw-semibold {
+    white-space: nowrap;
+  }
+
+  &__tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding-bottom: 2px;
+  }
+
+  &__tabs .nav-link {
+    white-space: nowrap;
+  }
+
+  &__main-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: rem(8);
+    padding: rem(16);
+    padding-top: 0;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+    @include media(768) {
+      gap: rem(12);
+      padding: rem(24);
+      padding-top: 0;
+    }
+
+    &::-webkit-scrollbar {
+      height: rem(4);
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: rem(2);
+    }
+
+    .nav-item {
+      flex-shrink: 0;
+      min-width: fit-content;
+    }
+
+    .nav-link {
+      white-space: nowrap;
+      padding: rem(12) rem(20);
+      font-size: rem(15);
+      font-weight: 600;
+      color: var(--text-primary);
+      background: transparent;
+      border: none;
+      border-radius: rem(8) rem(8) 0 0;
+      transition: all 0.2s ease;
+      position: relative;
+      opacity: 0.7;
+      margin-bottom: rem(-1);
+      
+      @include media(768) {
+        padding: rem(14) rem(24);
+        font-size: rem(16);
+      }
+
+      &:hover {
+        opacity: 1;
+        background: rgba(59, 130, 246, 0.08);
+        color: var(--brand-accent);
+      }
+
+      &.active {
+        opacity: 1;
+        color: var(--brand-accent);
+        background: transparent;
+        border-bottom: rem(3) solid var(--brand-accent);
+        padding-bottom: rem(9);
+        
+        @include media(768) {
+          padding-bottom: rem(11);
+        }
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 rem(2) rgba(59, 130, 246, 0.2);
+      }
+    }
+  }
+
+  &__panel {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: rem(12);
+    padding: rem(16);
+    margin: 0 rem(16);
+    
+    @include media(768) {
+      padding: rem(24);
+      margin: 0;
+      border-radius: 0 rem(12) rem(12) rem(12);
+    }
+  }
+
+  // Стили для контента рейтинга
+  .rating-content {
+    h2 {
+      font-size: rem(28);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: rem(20);
+    }
+
+    h3 {
+      font-size: rem(20);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: rem(16);
+    }
+
+    h4 {
+      font-size: rem(16);
+      font-weight: 600;
+      margin-bottom: rem(12);
+    }
+
+    .point-item,
+    .penalty-item,
+    .additional-item {
+      strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+    }
+
+    .points-section {
+      margin-bottom: rem(24);
+    }
+
+    .points-list,
+    .penalties-list {
+      display: flex;
+      flex-direction: column;
+      gap: rem(8);
+    }
+
+    ul {
+      li {
+        margin-bottom: rem(8);
+        line-height: 1.6;
+      }
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: rem(12);
+    }
+
+    .text-muted {
+      font-size: rem(14);
+      font-style: italic;
+    }
+
+    @include media(768) {
+      h2 {
+        font-size: rem(32);
+      }
+
+      h3 {
+        font-size: rem(24);
+      }
+
+      &__panel {
+        padding: rem(24);
+      }
+    }
+  }
+
+  // Стили для контента футбола
+  .football-content {
+    h2 {
+      font-size: rem(28);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: rem(20);
+    }
+
+    h3 {
+      font-size: rem(20);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: rem(16);
+    }
+
+    .lead {
+      font-size: rem(18);
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: rem(20);
+    }
+
+    .command-item,
+    .location-item,
+    .schedule-item,
+    .payment-item,
+    .rating-item,
+    .media-item {
+      strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      a {
+        color: #3b82f6;
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    ul {
+      li {
+        margin-bottom: rem(8);
+        line-height: 1.6;
+      }
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: rem(12);
+    }
+
+    .text-muted {
+      font-size: rem(14);
+      font-style: italic;
+      color: #6b7280;
+    }
+
+    @include media(768) {
+      h2 {
+        font-size: rem(32);
+      }
+
+      h3 {
+        font-size: rem(24);
+      }
+    }
+  }
+
+  // Стили для контента турнира
+  .tournament-content {
+    h2 {
+      font-size: rem(28);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: rem(20);
+    }
+
+    h3 {
+      font-size: rem(20);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: rem(16);
+    }
+
+    .lead {
+      font-size: rem(18);
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: rem(20);
+    }
+
+    .step-item,
+    .card-rule-item {
+      strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+    }
+
+    ul {
+      li {
+        margin-bottom: rem(8);
+        line-height: 1.6;
+      }
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: rem(12);
+    }
+
+    @include media(768) {
+      h2 {
+        font-size: rem(32);
+      }
+
+      h3 {
+        font-size: rem(24);
+      }
+    }
+  }
+
+  // Стили для копирования номера телефона
+  .copy-phone {
+    transition: background 0.2s ease;
+    padding: rem(4) rem(8);
+    border-radius: rem(4);
+    display: inline-flex;
+    align-items: center;
+    gap: rem(6);
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    min-height: fit-content;
+    
+    &:hover {
+      background: rgba(59, 130, 246, 0.1);
+    }
+    
+    i {
+      transition: opacity 0.2s ease;
+    }
+    
+    &:hover i {
+      opacity: 1;
+    }
+  }
+}
+
