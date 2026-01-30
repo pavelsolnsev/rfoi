@@ -55,8 +55,13 @@ $currentPath = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
 $isInfoPage = strpos($currentPath, '/info') !== false;
 $showInfoFab = !$isInfoPage;
 if ($showInfoFab): ?>
-    <a href="/info/" class="info-fab" title="Информация" aria-label="Перейти к информации">
+    <a href="/info/" class="info-fab site-fab" title="Информация" aria-label="Перейти к информации">
       <i class="fas fa-info-circle"></i>
+    </a>
+<?php endif;
+if ($isInfoPage): ?>
+    <a href="/" class="home-fab site-fab" title="На главную" aria-label="На главную">
+      <i class="fas fa-home"></i>
     </a>
 <?php endif; ?>
 

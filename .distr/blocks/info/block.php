@@ -2,7 +2,13 @@
   
   <div class="container">
     <div class="info-page__content">
-      <h1>Информация</h1>
+      <div class="info-page__header">
+        <a href="/" class="info-page__home" title="На главную" aria-label="На главную">
+          <i class="fas fa-home"></i>
+          <span>На главную</span>
+        </a>
+        <h1>Информация</h1>
+      </div>
       
       <!-- Основные табы -->
       <ul class="nav nav-tabs info-page__main-tabs " id="mainTabs" role="tablist">

@@ -17,14 +17,20 @@ html {
 }
 
 :root {
-  --surface: #f0f4f8;
-  --surface-elevated: #f8f9fa;
+  --surface: #f5f7fa;
+  --surface-elevated: #fafbfc;
   --text-primary: #111827;
   --text-inverse: #ffffff;
   --brand: #1e3a8a;
   --brand-accent: #3b82f6;
-  --border: #e5e7eb;
+  --border: #e8eaed;
   --shadow-color: 24, 24, 27;
+  /* Цвета из логотипа РФОИ (футбол для всех, Раменское) */
+  --logo-blue: #205BC8;
+  --logo-white: #ffffff;
+  --logo-green: #4DA94E;
+  --logo-green-dark: #347234;
+  --logo-green-light: #6CCB6B;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,6 +45,10 @@ html {
   }
 }
 
+body[data-theme="dark"] {
+  background: linear-gradient(165deg, #0f172a 0%, #0c1222 40%, #0b1120 100%);
+}
+
 
 body {
   color: var(--text-primary);
@@ -48,7 +58,8 @@ body {
   font-size: rem(16);
   line-height: 1.2;
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  background: var(--surface);
+  background: linear-gradient(160deg, #f8fafc 0%, #f1f5f9 35%, #eef2f7 100%);
+  min-height: 100vh;
 }
 
 .wrapper {
@@ -146,19 +157,19 @@ input::placeholder {
   display: none !important;
 }
 
-/* Мега-иконка «Информация» в правом нижнем углу (главная, рейтинг, турнир) */
-@keyframes info-fab-blink {
+/* Плавающие иконки в правом нижнем углу (мерцающие) */
+@keyframes site-fab-blink {
   0%, 100% {
-    box-shadow: 0 rem(6) rem(20) rgba(var(--shadow-color), 0.3);
+    box-shadow: 0 rem(6) rem(20) rgba(32, 91, 200, 0.35);
     opacity: 1;
   }
   50% {
-    box-shadow: 0 0 rem(28) rem(6) rgba(59, 130, 246, 0.5);
-    opacity: 0.9;
+    box-shadow: 0 0 rem(28) rem(6) rgba(32, 91, 200, 0.55);
+    opacity: 0.95;
   }
 }
 
-.info-fab {
+.site-fab {
   position: fixed;
   right: rem(20);
   bottom: rem(20);
@@ -168,13 +179,14 @@ input::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--brand-accent);
-  color: var(--text-inverse);
+  background: var(--logo-blue);
+  color: var(--logo-white);
   border-radius: 50%;
-  box-shadow: 0 rem(6) rem(20) rgba(var(--shadow-color), 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 rem(6) rem(20) rgba(32, 91, 200, 0.35);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  animation: info-fab-blink 2s ease-in-out infinite;
+  animation: site-fab-blink 2s ease-in-out infinite;
 
   i {
     font-size: rem(28);
@@ -182,8 +194,8 @@ input::placeholder {
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: 0 rem(8) rem(24) rgba(var(--shadow-color), 0.4);
-    color: var(--text-inverse);
+    box-shadow: 0 rem(8) rem(24) rgba(32, 91, 200, 0.45);
+    color: var(--logo-white);
     animation: none;
   }
 
@@ -203,52 +215,145 @@ input::placeholder {
   }
 }
 
-/* Футер сайта (плашка после s-main, иконка при скролле вниз на футере) */
+.info-fab {
+  /* Наследует .site-fab */
+}
+
+.home-fab {
+  /* Наследует .site-fab, иконка fa-home задаётся в разметке */
+}
+
+/* Футер сайта — мягкий фон, цвета по логотипу РФОИ */
 .site-footer {
   width: 100%;
   margin-top: auto;
-  padding: rem(24) rem(16) rem(64);
-  background: var(--surface-elevated);
-  border-top: 1px solid var(--border);
+  padding: rem(32) rem(20) rem(64);
+  background: linear-gradient(165deg, rgba(232, 245, 233, 0.7) 0%, rgba(227, 242, 253, 0.4) 50%, #f4f6f9 100%);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.8) inset, 0 1px 2px rgba(32, 91, 200, 0.06);
 }
 
 .site-footer__inner {
   max-width: rem(1232);
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: rem(16) rem(24);
+  gap: rem(20);
   text-align: center;
 }
 
 .site-footer__brand {
-  font-weight: 700;
-  font-size: rem(18);
-  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: rem(10);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: rem(22);
+  letter-spacing: 0.08em;
+  color: var(--logo-blue);
+  padding: rem(12) rem(24);
+  border-radius: rem(50);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(232, 245, 233, 0.5) 50%, rgba(227, 242, 253, 0.4) 100%);
+  border: rem(2) solid rgba(32, 91, 200, 0.35);
+  box-shadow: 0 2px 8px rgba(32, 91, 200, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 rem(8) rem(20) rgba(32, 91, 200, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.6) 50%, rgba(227, 242, 253, 0.5) 100%);
+    color: var(--logo-blue);
+  }
+}
+
+.site-footer__logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--logo-blue);
+  font-size: rem(20);
+}
+
+.site-footer__logo-text {
+  color: var(--logo-blue);
+  font-weight: 800;
+  letter-spacing: 0.1em;
 }
 
 .site-footer__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: rem(12) rem(20);
+  align-items: center;
+  justify-content: center;
+  gap: rem(8) rem(24);
 
   a {
-    color: var(--brand-accent);
+    color: var(--logo-blue);
     text-decoration: none;
     font-size: rem(14);
-    font-weight: 500;
+    font-weight: 600;
+    padding: rem(6) rem(12);
+    border-radius: rem(8);
+    transition: background 0.2s ease, color 0.2s ease;
 
     &:hover {
-      text-decoration: underline;
+      background: rgba(77, 169, 78, 0.15);
+      color: var(--logo-green-dark);
+    }
+
+    &.site-footer__tg i {
+      margin-right: rem(4);
     }
   }
 }
 
 .site-footer__copy {
   font-size: rem(13);
-  color: var(--text-primary);
-  opacity: 0.7;
+  color: var(--logo-green-dark);
+  opacity: 0.9;
+  padding-top: rem(12);
+  width: 100%;
+  max-width: rem(400);
+}
+
+/* Тёмная тема — подвал: мягкий тёмный градиент */
+body[data-theme="dark"] .site-footer {
+  background: linear-gradient(165deg, rgba(30, 58, 45, 0.5) 0%, rgba(15, 23, 42, 0.6) 40%, #0f172a 100%);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.04) inset;
+}
+
+body[data-theme="dark"] .site-footer__brand {
+  color: #6eb3f7;
+  background: linear-gradient(145deg, rgba(77, 169, 78, 0.2) 0%, rgba(52, 114, 52, 0.15) 100%);
+  border-color: var(--logo-blue);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+
+  &:hover {
+    box-shadow: 0 rem(6) rem(16) rgba(32, 91, 200, 0.35);
+    background: linear-gradient(145deg, rgba(77, 169, 78, 0.25) 0%, rgba(52, 114, 52, 0.2) 100%);
+    color: #93c5fd;
+  }
+}
+
+body[data-theme="dark"] .site-footer__logo-icon {
+  color: #6eb3f7;
+}
+
+body[data-theme="dark"] .site-footer__logo-text {
+  color: #6eb3f7;
+}
+
+body[data-theme="dark"] .site-footer__nav a {
+  color: #6eb3f7;
+
+  &:hover {
+    background: rgba(77, 169, 78, 0.2);
+    color: var(--logo-green-light);
+  }
+}
+
+body[data-theme="dark"] .site-footer__copy {
+  color: #86efac;
+  opacity: 0.85;
 }
 
