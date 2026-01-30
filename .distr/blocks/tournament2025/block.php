@@ -9,6 +9,7 @@ $teams = array(
   0 => array(
     'name' => 'РФОИ',
     'trophies' => '🏆🏆🏆🏆🏆',
+    'trophy_count' => 5,
     'tournaments' => 8,
     'points' => 19,
     'photo' => 'img/team/admin.png',
@@ -26,6 +27,7 @@ $teams = array(
   1 => array(
     'name' => 'Леон',
     'trophies' => '🏆',
+    'trophy_count' => 1,
     'tournaments' => 8,
     'points' => 9,
     'photo' => 'img/team/leon.webp',
@@ -43,6 +45,7 @@ $teams = array(
   2 => array(
     'name' => 'Ручеёк',
     'trophies' => '🏆🏆🏆🏆',
+    'trophy_count' => 4,
     'tournaments' => 7,
     'points' => 16,
     'photo' => 'img/team/rych.webp',
@@ -60,6 +63,7 @@ $teams = array(
   3 => array(
     'name' => 'Брано',
     'trophies' => '⚪️',
+    'trophy_count' => 0,
     'tournaments' => 1,
     'points' => 2,
     'photo' => 'img/team/logo.jpg',
@@ -74,6 +78,7 @@ $teams = array(
   4 => array(
     'name' => 'Worlds',
     'trophies' => '⚪️',
+    'trophy_count' => 0,
     'tournaments' => 5,
     'points' => 5,
     'photo' => 'img/team/worlds.png',
@@ -93,6 +98,7 @@ $teams = array(
   5 => array(
     'name' => 'Volt',
     'trophies' => '⚪️',
+    'trophy_count' => 0,
     'tournaments' => 3,
     'points' => 3,
     'photo' => 'img/team/volt.webp',
@@ -109,6 +115,7 @@ $teams = array(
   6 => array(
     'name' => 'Юность',
     'trophies' => '⚪️',
+    'trophy_count' => 0,
     'tournaments' => 2,
     'points' => 1,
     'photo' => 'img/team/un.webp',
@@ -125,6 +132,7 @@ $teams = array(
   7 => array(
     'name' => 'Engelbert',
     'trophies' => '⚪️',
+    'trophy_count' => 0,
     'tournaments' => 7,
     'points' => 6,
     'photo' => 'img/team/Engelbert.png',
@@ -139,6 +147,7 @@ $teams = array(
   8 => array(
     'name' => 'Форест Тим',
     'trophies' => '⚪️',
+    'trophy_count' => 0,
     'tournaments' => 1,
     'points' => 2,
     'photo' => 'img/team/logo.jpg',
@@ -153,6 +162,7 @@ $teams = array(
   9 => array(
     'name' => 'California',
     'trophies' => '⚪️',
+    'trophy_count' => 0,
     'tournaments' => 1,
     'points' => 0,
     'photo' => 'img/team/california.webp',
@@ -167,6 +177,7 @@ $teams = array(
   10 => array(
     'name' => 'Ясность',
     'trophies' => '🏆',
+    'trophy_count' => 1,
     'tournaments' => 1,
     'points' => 3,
     'photo' => 'img/team/iasnostb.jpg',
@@ -225,7 +236,10 @@ usort($teams, function ($a, $b) {
               <?php
               $name = $team['name'] ?? 'Неизвестно';
               $photo = $team['photo'] ?? 'img/team/default.jpg';
-              $trophies = $team['trophies'] ?? '';
+              $trophyCount = (int)($team['trophy_count'] ?? 0);
+              $trophiesDisplay = $trophyCount > 3
+                ? '<span class="trophy-count">' . $trophyCount . '</span><span class="trophy-icon-single">🏆</span>'
+                : htmlspecialchars($team['trophies'] ?? '');
               $tournaments = $team['tournaments'] ?? 0;
               $points = $team['points'] ?? 0;
               ?>
@@ -239,7 +253,7 @@ usort($teams, function ($a, $b) {
                     <span><?= htmlspecialchars($name) ?></span>
                   </div>
                 </td>
-                <td data-label="Трофеи"><?= htmlspecialchars($trophies) ?></td>
+                <td data-label="Трофеи"><?= $trophiesDisplay ?></td>
                 <td data-label="Турниры"><?= $tournaments ?></td>
                 <td data-label="Очки"><?= $points ?></td>
               </tr>

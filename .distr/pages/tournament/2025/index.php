@@ -106,9 +106,9 @@ document.addEventListener('DOMContentLoaded', function() {
             ? valueA.localeCompare(valueB)
             : valueB.localeCompare(valueA);
         case 'games':
-          // Сортируем по количеству трофеев (эмодзи)
-          valueA = (a.trophies || '').split('🏆').length - 1;
-          valueB = (b.trophies || '').split('🏆').length - 1;
+          // Сортируем по количеству трофеев
+          valueA = a.trophy_count !== undefined ? a.trophy_count : ((a.trophies || '').split('🏆').length - 1);
+          valueB = b.trophy_count !== undefined ? b.trophy_count : ((b.trophies || '').split('🏆').length - 1);
           break;
         default:
           valueA = a[key] || 0;
@@ -170,7 +170,10 @@ document.addEventListener('DOMContentLoaded', function() {
     sortedTeams.forEach((team, index) => {
       const name = team.name || 'Неизвестно';
       const photo = team.photo || 'img/team/default.jpg';
-      const trophies = team.trophies || '';
+      const trophyCount = team.trophy_count !== undefined ? team.trophy_count : ((team.trophies || '').split('🏆').length - 1);
+      const trophiesDisplay = trophyCount > 3
+        ? `<span class="trophy-count">${trophyCount}</span><span class="trophy-icon-single">🏆</span>`
+        : (team.trophies || '');
       const tournaments = team.tournaments || 0;
       const points = team.points || 0;
       
@@ -185,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <span>${name}</span>
             </div>
           </td>
-          <td data-label="Трофеи">${trophies}</td>
+          <td data-label="Трофеи">${trophiesDisplay}</td>
           <td data-label="Турниры">${tournaments}</td>
           <td data-label="Очки">${points}</td>
         </tr>
@@ -228,7 +231,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     modalName.textContent = team.name || 'Неизвестно';
-    modalTrophies.innerHTML = team.trophies || '';
+    const modalTrophyCount = team.trophy_count !== undefined ? team.trophy_count : ((team.trophies || '').split('🏆').length - 1);
+    modalTrophies.innerHTML = modalTrophyCount > 3
+      ? `<span class="trophy-count">${modalTrophyCount}</span><span class="trophy-icon-single">🏆</span>`
+      : (team.trophies || '');
     modalPhoto.src = '/' + (team.photo || 'img/team/default.jpg');
     
     // Находим контейнеры для Swiper и сетки

@@ -200,13 +200,16 @@
               </h3>
               <div class="media-links">
                 <div class="media-item p-2 mb-2 rounded" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
-                  <strong>Список игроков:</strong> <a href="http://football.pavelsolntsev.ru" target="_blank">football.pavelsolntsev.ru</a>
+                  <strong>Список игроков:</strong><br>
+                  <a href="http://football.pavelsolntsev.ru" target="_blank">football.pavelsolntsev.ru</a>
                 </div>
                 <div class="media-item p-2 mb-2 rounded" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
-                  <strong>Список команд:</strong> <a href="http://football.pavelsolntsev.ru/tournament/" target="_blank">football.pavelsolntsev.ru/tournament/</a>
+                  <strong>Список команд:</strong><br>
+                  <a href="http://football.pavelsolntsev.ru/tournament/" target="_blank">football.pavelsolntsev.ru/tournament/</a>
                 </div>
                 <div class="media-item p-2 mb-2 rounded" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
-                  <strong>Фото и видео матчей</strong> смотри в нашей группе ВК: <a href="http://vk.com/ramafootball" target="_blank">vk.com/ramafootball</a>
+                  <strong>Фото и видео матчей</strong> смотри в нашей группе ВК:<br>
+                  <a href="http://vk.com/ramafootball" target="_blank">vk.com/ramafootball</a>
                 </div>
               </div>
             </div>
