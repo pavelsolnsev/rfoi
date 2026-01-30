@@ -42,13 +42,23 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
         {% block blocks %}
         {% include 'main/block.php' %}
         {% endblock %}
+
+        {% include 'footer/block.php' %}
     </div>
 
     {% block popups %}
 	{% include 'popups/block.php' %}
 	{% endblock %}
 
-
+<?php
+$currentPath = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+$isInfoPage = strpos($currentPath, '/info') !== false;
+$showInfoFab = !$isInfoPage;
+if ($showInfoFab): ?>
+    <a href="/info/" class="info-fab" title="Информация" aria-label="Перейти к информации">
+      <i class="fas fa-info-circle"></i>
+    </a>
+<?php endif; ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

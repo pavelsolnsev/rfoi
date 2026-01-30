@@ -146,3 +146,109 @@ input::placeholder {
   display: none !important;
 }
 
+/* Мега-иконка «Информация» в правом нижнем углу (главная, рейтинг, турнир) */
+@keyframes info-fab-blink {
+  0%, 100% {
+    box-shadow: 0 rem(6) rem(20) rgba(var(--shadow-color), 0.3);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 rem(28) rem(6) rgba(59, 130, 246, 0.5);
+    opacity: 0.9;
+  }
+}
+
+.info-fab {
+  position: fixed;
+  right: rem(20);
+  bottom: rem(20);
+  z-index: 9999;
+  width: rem(56);
+  height: rem(56);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-accent);
+  color: var(--text-inverse);
+  border-radius: 50%;
+  box-shadow: 0 rem(6) rem(20) rgba(var(--shadow-color), 0.3);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: info-fab-blink 2s ease-in-out infinite;
+
+  i {
+    font-size: rem(28);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 rem(8) rem(24) rgba(var(--shadow-color), 0.4);
+    color: var(--text-inverse);
+    animation: none;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  @media (max-width: 767px) {
+    right: rem(12);
+    bottom: rem(12);
+    width: rem(40);
+    height: rem(40);
+
+    i {
+      font-size: rem(20);
+    }
+  }
+}
+
+/* Футер сайта (плашка после s-main, иконка при скролле вниз на футере) */
+.site-footer {
+  width: 100%;
+  margin-top: auto;
+  padding: rem(24) rem(16) rem(64);
+  background: var(--surface-elevated);
+  border-top: 1px solid var(--border);
+}
+
+.site-footer__inner {
+  max-width: rem(1232);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: rem(16) rem(24);
+  text-align: center;
+}
+
+.site-footer__brand {
+  font-weight: 700;
+  font-size: rem(18);
+  color: var(--text-primary);
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(12) rem(20);
+
+  a {
+    color: var(--brand-accent);
+    text-decoration: none;
+    font-size: rem(14);
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.site-footer__copy {
+  font-size: rem(13);
+  color: var(--text-primary);
+  opacity: 0.7;
+}
+

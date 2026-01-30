@@ -137,9 +137,9 @@
               </div>
               <div class="payment-methods">
                 <div class="payment-item p-2 mb-2 rounded" style="background: #fef2f2; border-left: 3px solid #ef4444;">
-                  <strong>Оплата переводом на карту Т-Банк:</strong><br>
+                  <strong>Оплата переводом на карту Сбербанк:</strong><br>
                   📲 <span class="copy-phone" data-phone="+79166986185" title="Нажми, чтобы скопировать номер"><strong style="color: #3b82f6;">+7 (916) 698-61-85</strong> <i class="fas fa-copy" style="color: #3b82f6; font-size: 0.9em;"></i> <small style="color: #6b7280; font-size: 0.85em; margin-left: 4px;">(нажми, чтобы скопировать)</small></span><br>
-                  🔗 <a href="https://www.tbank.ru/cf/5jUDsBhRfBT" target="_blank">Оплатить участие</a>
+                  🔗 <a href="https://messenger.online.sberbank.ru/sl/JWnaTcQf0aviSEAxy" target="_blank">Оплатить участие</a>
                 </div>
                 <div class="payment-item p-2 mb-2 rounded" style="background: #fef2f2; border-left: 3px solid #ef4444;">
                   <strong>💵</strong> Либо наличными на месте
