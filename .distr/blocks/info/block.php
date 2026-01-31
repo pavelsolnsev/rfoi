@@ -29,6 +29,11 @@
             Рейтинг
           </button>
         </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="mvp-tab" data-bs-toggle="tab" data-bs-target="#mvp" type="button" role="tab" aria-controls="mvp" aria-selected="false">
+            MVP
+          </button>
+        </li>
       </ul>
 
       <!-- Контент табов -->
@@ -470,6 +475,139 @@
                   <strong>Красная карточка:</strong><br>
                   Если игрок получает красную карточку, он садится до конца текущего матча, далее может выйти на поле.
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Таб MVP -->
+        <div class="tab-pane fade info-page__panel" id="mvp" role="tabpanel" aria-labelledby="mvp-tab">
+          <div class="mvp-content">
+            <div class="mvp-intro mb-4">
+              <h2 class="mb-3 d-flex align-items-center">
+                <span style="font-size: 1.5rem; margin-right: 8px;">⭐</span>
+                <span>Как определяется MVP (лучший игрок)</span>
+              </h2>
+              <div class="mvp-description p-3 rounded mb-4" style="background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%); border-left: 4px solid #f59e0b;">
+                <p class="mb-0">В нашей системе выбираются <strong>MVP турнира</strong> (среди всех участников) и <strong>MVP каждой команды</strong>.</p>
+              </div>
+            </div>
+
+            <div class="mvp-bonuses mb-4">
+              <h3 class="mb-3 d-flex align-items-center">
+                <span style="font-size: 1.5rem; margin-right: 8px;">🎁</span>
+                <span>Бонусы за MVP</span>
+              </h3>
+              <div class="bonuses-list">
+                <div class="bonus-item p-3 mb-2 rounded" style="background: #fffbeb; border-left: 3px solid #f59e0b;">
+                  <strong>MVP турнира</strong> — <span style="color: #f59e0b; font-weight: 600;">+1 очко к рейтингу</span> за турнир
+                </div>
+                <div class="bonus-item p-3 mb-2 rounded" style="background: #fef3c7; border-left: 3px solid #eab308;">
+                  <strong>MVP команды</strong> — <span style="color: #d97706; font-weight: 600;">+0,5 очка к рейтингу</span> (если игрок уже не MVP турнира)
+                </div>
+              </div>
+            </div>
+
+            <div class="mvp-selection mb-4">
+              <h3 class="mb-3 d-flex align-items-center">
+                <span style="font-size: 1.5rem; margin-right: 8px;">📊</span>
+                <span>Порядок выбора MVP</span>
+              </h3>
+              <p class="lead mb-3">Игроки сравниваются по правилам ниже. На каждом шаге выбирается лучший; при равенстве переходим к следующему критерию.</p>
+
+              <!-- Критерий 1 -->
+              <div class="mvp-criterion mb-3">
+                <div class="criterion-header p-3 rounded-top" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white;">
+                  <h4 class="mb-1" style="font-size: 1.1rem; color: white;">
+                    <strong>1. Результативные действия (метки)</strong>
+                  </h4>
+                </div>
+                <div class="criterion-body p-3 rounded-bottom" style="background: #f0fdf4; border: 2px solid #10b981; border-top: none;">
+                  <p class="mb-2">Считается «взвешенная» сумма действий:</p>
+                  <ul class="mb-2 ps-3">
+                    <li><strong>Гол = 1 очко</strong></li>
+                    <li><strong>Ассист = 1 очко</strong></li>
+                    <li><strong>Сейв = 0,75 очка</strong></li>
+                  </ul>
+                  <div class="formula p-2 rounded" style="background: rgba(16, 185, 129, 0.1); font-family: monospace;">
+                    <strong>Формула:</strong> голы + ассисты + сейвы × 0,75
+                  </div>
+                  <p class="mb-0 mt-2"><small class="text-muted">Чем больше эта сумма, тем выше шанс стать MVP. Сейвы учитываются чуть слабее, чем голы и ассисты.</small></p>
+                </div>
+              </div>
+
+              <!-- Критерии 2-4 -->
+              <div class="mvp-criterion mb-3">
+                <div class="criterion-compact p-3 mb-2 rounded" style="background: #eff6ff; border-left: 4px solid #3b82f6;">
+                  <strong>2. При равенстве меток — по голам</strong><br>
+                  <small>При равной сумме меток приоритет у игрока с большим числом голов.</small>
+                </div>
+                <div class="criterion-compact p-3 mb-2 rounded" style="background: #eff6ff; border-left: 4px solid #3b82f6;">
+                  <strong>3. При равенстве голов — по ассистам</strong><br>
+                  <small>Если и голов одинаково, сравниваются ассисты.</small>
+                </div>
+                <div class="criterion-compact p-3 mb-2 rounded" style="background: #eff6ff; border-left: 4px solid #3b82f6;">
+                  <strong>4. При равенстве ассистов — по сейвам</strong><br>
+                  <small>Если и ассистов одинаково, сравниваются сейвы.</small>
+                </div>
+              </div>
+
+              <!-- Критерии 5-6 -->
+              <div class="mvp-criterion mb-3">
+                <div class="criterion-header p-3 rounded-top" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white;">
+                  <h4 class="mb-1" style="font-size: 1.1rem; color: white;">
+                    <strong>5. При равной статистике — очки команды</strong>
+                  </h4>
+                </div>
+                <div class="criterion-body p-3 rounded-bottom" style="background: #faf5ff; border: 2px solid #8b5cf6; border-top: none;">
+                  <p class="mb-0">При равной личной статистике приоритет у игрока, чья команда набрала больше очков (3 очка за победу, 1 за ничью).</p>
+                </div>
+              </div>
+
+              <div class="mvp-criterion mb-3">
+                <div class="criterion-compact p-3 rounded" style="background: #faf5ff; border-left: 4px solid #8b5cf6;">
+                  <strong>6. При равных очках команды — разница мячей</strong><br>
+                  <small>Если очки команды одинаковы, приоритет у игрока из команды с лучшей разницей мячей (забитые минус пропущенные).</small>
+                </div>
+              </div>
+
+              <!-- Критерии 7-11 -->
+              <div class="mvp-criterion mb-3">
+                <div class="criterion-compact p-3 mb-2 rounded" style="background: #ecfeff; border-left: 4px solid #06b6d4;">
+                  <strong>7. Прирост рейтинга за турнир</strong><br>
+                  <small>При равных показателях выше тот, у кого больше прирост рейтинга за турнир.</small>
+                </div>
+                <div class="criterion-compact p-3 mb-2 rounded" style="background: #fefce8; border-left: 4px solid #eab308;">
+                  <strong>8. Дисциплина — меньше жёлтых карточек</strong><br>
+                  <small>При прочих равных приоритет у игрока без жёлтых карточек или с меньшим их числом.</small>
+                </div>
+                <div class="criterion-compact p-3 mb-2 rounded" style="background: #f0fdf4; border-left: 4px solid #10b981;">
+                  <strong>9. Личные победы</strong><br>
+                  <small>При равных условиях выше игрок, чья команда выиграла больше матчей в турнире, в которых он участвовал.</small>
+                </div>
+                <div class="criterion-compact p-3 mb-2 rounded" style="background: #f0f9ff; border-left: 4px solid #0ea5e9;">
+                  <strong>10. Рейтинг на старте турнира</strong><br>
+                  <small>Если всё совпадает, приоритет у игрока с более высоким рейтингом на старте турнира.</small>
+                </div>
+                <div class="criterion-compact p-3 rounded" style="background: #f3f4f6; border-left: 4px solid #6b7280;">
+                  <strong>11. Итоговый выбор</strong><br>
+                  <small>В крайнем случае выбирается один из претендентов по техническому правилу (без случайности).</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="mvp-summary mb-4">
+              <h3 class="mb-3 d-flex align-items-center">
+                <span style="font-size: 1.5rem; margin-right: 8px;">📝</span>
+                <span>Кратко</span>
+              </h3>
+              <div class="summary-info p-4 rounded" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 4px solid #f59e0b;">
+                <ul class="mb-0 ps-3">
+                  <li class="mb-2"><strong>Голы и ассисты важнее сейвов</strong> (сейвы считаются с коэффициентом 0,75).</li>
+                  <li class="mb-2"><strong>Личная статистика</strong> (голы, ассисты, сейвы) важнее всего.</li>
+                  <li class="mb-2">Дополнительно учитываются <strong>успехи команды и дисциплина</strong>.</li>
+                  <li class="mb-0"><strong>MVP турнира</strong> получает +1 к рейтингу, <strong>MVP команды</strong> — +0,5.</li>
+                </ul>
               </div>
             </div>
           </div>
