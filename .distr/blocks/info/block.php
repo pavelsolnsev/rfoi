@@ -172,13 +172,13 @@
                   <strong>Пас:</strong> +0.3
                 </div>
                 <div class="rating-item p-2 mb-2 rounded" style="background: #f0fdf4; border-left: 3px solid #10b981;">
-                  <strong>Сейв:</strong> +0.3
+                  <strong>Сейв:</strong> +0.2
                 </div>
                 <div class="rating-item p-2 mb-2 rounded" style="background: #f0fdf4; border-left: 3px solid #10b981;">
                   <strong>Победа:</strong> +1.8
                 </div>
                 <div class="rating-item p-2 mb-2 rounded" style="background: #f0fdf4; border-left: 3px solid #10b981;">
-                  <strong>Ничья:</strong> +0.3
+                  <strong>Ничья:</strong> +0.5
                 </div>
                 <div class="rating-item p-2 mb-2 rounded" style="background: #fef2f2; border-left: 3px solid #ef4444;">
                   <strong>Поражение:</strong> -1.2
@@ -267,7 +267,7 @@
                     <strong>Ассист:</strong> +0.3 × mod
                   </div>
                   <div class="point-item p-2 mb-2 rounded" style="background: #f0fdf4; border-left: 3px solid #10b981;">
-                    <strong>Сейв:</strong> +0.3 × mod
+                    <strong>Сейв:</strong> +0.2 × mod
                   </div>
                 </div>
               </div>
@@ -279,7 +279,7 @@
                     <strong>Победа:</strong> +1.8 × mod
                   </div>
                   <div class="point-item p-2 mb-2 rounded" style="background: #eff6ff; border-left: 3px solid #3b82f6;">
-                    <strong>Ничья:</strong> +0.3 × mod
+                    <strong>Ничья:</strong> +0.5 × mod
                   </div>
                   <div class="point-item p-2 mb-2 rounded" style="background: #eff6ff; border-left: 3px solid #3b82f6;">
                     <strong>"Сухая победа"</strong> (победа + забили 3+ гола + соперник 0): дополнительно +0.5 × mod
@@ -325,13 +325,13 @@
                   <h5 class="mb-2" style="color: #8b5cf6; font-size: 1rem; font-weight: 600;">🛡️ Сейвы:</h5>
                   <div class="points-list">
                     <div class="point-item p-2 mb-2 rounded" style="background: #faf5ff; border-left: 3px solid #8b5cf6;">
-                      <strong>Стена</strong> (2 сейва): +0.3 × mod
+                      <strong>Стена</strong> (2 сейва): +0.2 × mod
                     </div>
                     <div class="point-item p-2 mb-2 rounded" style="background: #faf5ff; border-left: 3px solid #8b5cf6;">
-                      <strong>Защитник</strong> (3 сейва): +0.4 × mod
+                      <strong>Защитник</strong> (3 сейва): +0.3 × mod
                     </div>
                     <div class="point-item p-2 mb-2 rounded" style="background: #faf5ff; border-left: 3px solid #8b5cf6;">
-                      <strong>Супер-вратарь</strong> (4+ сейва): +0.7 × mod
+                      <strong>Супер-вратарь</strong> (4+ сейва): +0.5 × mod
                     </div>
                   </div>
                 </div>
@@ -458,6 +458,17 @@
                   <li>Всем участникам команд нужно будет записаться на матч через кнопку <strong>"Играть"</strong>.</li>
                   <li>Если игрок ещё не состоит в нашей группе, он должен сначала вступить в неё, а затем записаться на игру.</li>
                 </ul>
+              </div>
+            </div>
+
+            <div class="tournament-champion mb-4">
+              <h3 class="mb-3 d-flex align-items-center">
+                <span style="font-size: 1.5rem; margin-right: 8px;">👑</span>
+                <span>Привилегии чемпиона</span>
+              </h3>
+              <div class="champion-info p-3 rounded mb-3" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 4px solid #f59e0b;">
+                <p class="mb-2"><strong>Чемпион турнира</strong> получает возможность <strong>вне очереди забронировать место</strong> на следующий турнир.</p>
+                <p class="mb-0"><strong>⚠️ Важно:</strong> Капитан команды должен подтвердить участие до момента анонса. Если подтверждение не получено, команда сможет записаться только после 12:00, как и все остальные.</p>
               </div>
             </div>
 
