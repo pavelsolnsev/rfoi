@@ -249,21 +249,28 @@ document.addEventListener('DOMContentLoaded', function() {
       gridDesktop.innerHTML = '';
     }
     
-    // Проверяем наличие игроков
     const players = team.players || [];
     
     if (players.length > 0) {
-      // Группируем игроков по 5 для Swiper
+      const sortedPlayers = [...players].sort((a, b) => {
+        const aCap = a.is_captain || false;
+        const bCap = b.is_captain || false;
+        if (aCap && !bCap) return -1;
+        if (!aCap && bCap) return 1;
+        return 0;
+      });
+      
       const playersPerSlide = 5;
       let currentSlidePlayers = [];
       
-      players.forEach((player, index) => {
+      sortedPlayers.forEach((player, index) => {
+        const captainClass = (player.is_captain) ? ' is-captain' : '';
         const playerItem = `
-          <div class="player-card">
+          <div class="player-card${captainClass}">
           <img src="/${player.photo || 'img/players/default.jpg'}" alt="${player.name || ''}" class="player-photo">
           <div class="player-info">
             <span class="player-name">${player.name || ''}${player.icon ? ' ' + player.icon : ''}</span>
-            </div>
+          </div>
           </div>
         `;
         
@@ -271,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentSlidePlayers.push(playerItem);
         
         // Если набралось 5 игроков или это последний игрок, создаем слайд
-        if (currentSlidePlayers.length === playersPerSlide || index === players.length - 1) {
+        if (currentSlidePlayers.length === playersPerSlide || index === sortedPlayers.length - 1) {
           const slideContent = currentSlidePlayers.join('');
           if (swiperWrapper) {
             swiperWrapper.insertAdjacentHTML('beforeend', `

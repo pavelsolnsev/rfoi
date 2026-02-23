@@ -30,9 +30,14 @@ export const openTeamModal = (team) => {
     trophiesDisplay = `<span class="trophy-count">${trophyCount}</span><span class="trophy-icon-single">🏆</span>`;
   }
   modalTrophies.innerHTML = trophiesDisplay;
-  
+
+  const fallbackTeamLogoPath = '/img/team/logo.jpg';
+  modalPhoto.onerror = function () {
+    modalPhoto.onerror = null;
+    modalPhoto.src = fallbackTeamLogoPath;
+  };
   modalPhoto.src = team.photo;
-  
+
   // Находим контейнеры для Swiper и сетки
   const swiperWrapper = modalPlayers.querySelector('.swiper-wrapper');
   const gridDesktop = modalPlayers.querySelector('.team-players-grid-desktop');
@@ -160,8 +165,8 @@ export const openTeamModal = (team) => {
           const playerUsername = card.getAttribute('data-player-username');
           if (!playerName) return;
 
-          // Загружаем данные игроков и открываем попап
-          loadAndShowPlayerModal(playerName, playerUsername, teamModalElement);
+          // Загружаем данные игроков и открываем попап (team.name — для отображения лого команды и fallback logo.jpg)
+          loadAndShowPlayerModal(playerName, playerUsername, teamModalElement, team.name);
         });
       });
     }, 100);
@@ -177,9 +182,8 @@ export const openTeamModal = (team) => {
 /**
  * Функция для загрузки данных игрока и открытия его попапа
  */
-const loadAndShowPlayerModal = async (playerName, playerUsername, teamModalElement) => {
+const loadAndShowPlayerModal = async (playerName, playerUsername, teamModalElement, teamNameFromContext) => {
   try {
-    // Закрываем попап команды
     if (teamModalElement) {
       const teamModalInstance = bootstrap.Modal.getInstance(teamModalElement);
       if (teamModalInstance) {
@@ -187,7 +191,6 @@ const loadAndShowPlayerModal = async (playerName, playerUsername, teamModalEleme
       }
     }
 
-    // Загружаем данные игроков
     const response = await fetch(`https://football.pavelsolntsev.ru/api/players.php?t=${Date.now()}`);
     if (!response.ok) {
       console.error("Ошибка загрузки игроков");
@@ -195,7 +198,6 @@ const loadAndShowPlayerModal = async (playerName, playerUsername, teamModalEleme
     }
     const players = await response.json();
 
-    // Ищем игрока по имени или username
     const player = players.find(p => {
       const playerDisplayName = p.username === "@unknown" ? p.name : p.username.replace(/@/g, "");
       if (playerDisplayName === playerName || p.name === playerName) return true;
@@ -204,8 +206,7 @@ const loadAndShowPlayerModal = async (playerName, playerUsername, teamModalEleme
     });
 
     if (player) {
-      // Открываем попап игрока
-      showPlayerModalInTournament(player);
+      showPlayerModalInTournament(player, teamNameFromContext);
     }
   } catch (error) {
     console.error("Ошибка при загрузке игрока:", error);
@@ -215,7 +216,7 @@ const loadAndShowPlayerModal = async (playerName, playerUsername, teamModalEleme
 /**
  * Функция для открытия попапа игрока на странице турнира
  */
-const showPlayerModalInTournament = (player) => {
+const showPlayerModalInTournament = (player, teamNameFromContext) => {
   const playerModalElement = document.getElementById("playerModal");
   if (!playerModalElement) return;
 
@@ -225,7 +226,8 @@ const showPlayerModalInTournament = (player) => {
   document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.7`;
   document.getElementById("modal-player-photo").alt = name;
 
-  // Маппинг названий команд к файлам логотипов
+  const displayTeamName = teamNameFromContext || player.teamName;
+
   const teamNameMap = {
     'РФОИ': 'admin.png',
     'Леон': 'leon.webp',
@@ -238,35 +240,36 @@ const showPlayerModalInTournament = (player) => {
     'Ясность': 'iasnostb.jpg'
   };
 
-  // Обновляем информацию о команде, если есть
   const teamInfo = document.getElementById("player-modal-team-info");
   const teamLogoImg = document.getElementById("player-modal-team-logo-img");
   const teamNameElement = document.getElementById("player-modal-team-name");
-  
+
   if (teamInfo && teamLogoImg && teamNameElement) {
-    if (player.teamName) {
-      const teamFileName = teamNameMap[player.teamName] || 
-        player.teamName.toLowerCase()
+    if (displayTeamName) {
+      const teamFileName = teamNameMap[displayTeamName] ||
+        displayTeamName.toLowerCase()
           .replace(/\s+/g, '')
           .replace(/ё/g, 'e')
           .replace(/й/g, 'i') + '.webp';
-      
+
       const teamPhotoPath = `/img/team/${teamFileName}`;
+      const fallbackLogoPath = '/img/team/logo.jpg';
+      teamLogoImg.onerror = function () {
+        teamLogoImg.onerror = null;
+        teamLogoImg.src = fallbackLogoPath;
+      };
       teamLogoImg.src = teamPhotoPath;
-      teamLogoImg.alt = player.teamName;
-      teamNameElement.textContent = player.teamName;
+      teamLogoImg.alt = displayTeamName;
+      teamNameElement.textContent = displayTeamName;
       teamInfo.style.display = "flex";
-      
-      // Добавляем обработчик клика для открытия попапа команды
+
       teamInfo.onclick = (e) => {
         e.stopPropagation();
-        // Закрываем попап игрока и открываем попап команды
         const playerModalInstance = bootstrap.Modal.getInstance(playerModalElement);
         if (playerModalInstance) {
           playerModalInstance.hide();
         }
-        // Загружаем команду и открываем её попап
-        loadAndOpenTeamModal(player.teamName);
+        loadAndOpenTeamModal(displayTeamName);
       };
       teamInfo.style.cursor = "pointer";
     } else {

@@ -172,7 +172,7 @@ $(function () {
     }, 100);
   };
 
-  const showPlayerModal = (player) => {
+  const showPlayerModal = (player, teamNameFromContext) => {
     const name =
       player.username === "@unknown"
         ? player.name
@@ -181,30 +181,36 @@ $(function () {
     document.getElementById("modal-player-name").textContent = name;
     document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.7`;
     document.getElementById("modal-player-photo").alt = name;
-    
-    // Обновляем информацию о команде, если есть
+
+    const displayTeamName = teamNameFromContext || player.teamName;
+
+    // Обновляем информацию о команде, если есть (в т.ч. при переходе из попапа команды)
     const teamInfo = document.getElementById("player-modal-team-info");
     const teamLogoImg = document.getElementById("player-modal-team-logo-img");
     const teamNameElement = document.getElementById("player-modal-team-name");
-    
+
     if (teamInfo && teamLogoImg && teamNameElement) {
-      if (player.teamName) {
-        const teamFileName = teamNameMap[player.teamName] || 
-          player.teamName.toLowerCase()
+      if (displayTeamName) {
+        const teamFileName = teamNameMap[displayTeamName] ||
+          displayTeamName.toLowerCase()
             .replace(/\s+/g, '')
             .replace(/ё/g, 'e')
             .replace(/й/g, 'i') + '.webp';
-        
+
         const teamPhotoPath = `/img/team/${teamFileName}`;
+        const fallbackLogoPath = '/img/team/logo.jpg';
+        teamLogoImg.onerror = function () {
+          teamLogoImg.onerror = null;
+          teamLogoImg.src = fallbackLogoPath;
+        };
         teamLogoImg.src = teamPhotoPath;
-        teamLogoImg.alt = player.teamName;
-        teamNameElement.textContent = player.teamName;
+        teamLogoImg.alt = displayTeamName;
+        teamNameElement.textContent = displayTeamName;
         teamInfo.style.display = "flex";
-        
-        // Добавляем обработчик клика для открытия попапа команды
+
         teamInfo.onclick = (e) => {
           e.stopPropagation();
-          openTeamModalFromPlayer(player.teamName);
+          openTeamModalFromPlayer(displayTeamName);
         };
         teamInfo.style.cursor = "pointer";
       } else {
@@ -324,8 +330,15 @@ $(function () {
       const modalPlayers = document.getElementById("modal-team-players");
 
       if (modalName) modalName.textContent = team.name;
-      if (modalPhoto) modalPhoto.src = teamPhotoPath;
-      
+      if (modalPhoto) {
+        const fallbackTeamLogoPath = '/img/team/logo.jpg';
+        modalPhoto.onerror = function () {
+          modalPhoto.onerror = null;
+          modalPhoto.src = fallbackTeamLogoPath;
+        };
+        modalPhoto.src = teamPhotoPath;
+      }
+
       if (modalTrophies) {
         const trophyCount = team.trophies || 0;
         if (trophyCount > 3) {
@@ -413,14 +426,11 @@ $(function () {
             });
 
             if (player) {
-              // Закрываем попап команды
               const teamModalInstance = bootstrap.Modal.getInstance(teamModalElement);
               if (teamModalInstance) {
                 teamModalInstance.hide();
               }
-
-              // Открываем попап игрока
-              showPlayerModal(player);
+              showPlayerModal(player, team.name);
             }
           });
         });
@@ -464,14 +474,11 @@ $(function () {
               });
 
               if (player) {
-                // Закрываем попап команды
                 const teamModalInstance = bootstrap.Modal.getInstance(teamModalElement);
                 if (teamModalInstance) {
                   teamModalInstance.hide();
                 }
-
-                // Открываем попап игрока
-                showPlayerModal(player);
+                showPlayerModal(player, team.name);
               }
             });
           });
