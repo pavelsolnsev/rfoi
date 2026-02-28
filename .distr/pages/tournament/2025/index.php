@@ -171,8 +171,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const name = team.name || 'Неизвестно';
       const photo = team.photo || 'img/team/default.jpg';
       const trophyCount = team.trophy_count !== undefined ? team.trophy_count : ((team.trophies || '').split('🏆').length - 1);
-      const trophiesDisplay = trophyCount > 3
-        ? `<span class="trophy-count">${trophyCount}</span><span class="trophy-icon-single">🏆</span>`
+      const trophiesDisplay = trophyCount >= 2
+        ? `<span class="trophy-count">${trophyCount}</span>`
         : (team.trophies || '');
       const tournaments = team.tournaments || 0;
       const points = team.points || 0;
@@ -232,8 +232,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     modalName.textContent = team.name || 'Неизвестно';
     const modalTrophyCount = team.trophy_count !== undefined ? team.trophy_count : ((team.trophies || '').split('🏆').length - 1);
-    modalTrophies.innerHTML = modalTrophyCount > 3
-      ? `<span class="trophy-count">${modalTrophyCount}</span><span class="trophy-icon-single">🏆</span>`
+    modalTrophies.innerHTML = modalTrophyCount >= 2
+      ? `<span class="trophy-count"><span class="trophy-count-cup">🏆</span><span class="trophy-count-num">${modalTrophyCount}</span></span>`
       : (team.trophies || '');
     modalPhoto.src = '/' + (team.photo || 'img/team/default.jpg');
     

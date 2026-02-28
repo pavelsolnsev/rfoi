@@ -38,8 +38,8 @@ export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) 
     // Форматируем трофеи: если больше 4, показываем число и одну иконку
     let trophiesDisplay = team.trophies || '';
     const trophyCount = (trophiesDisplay.match(/🏆/g) || []).length;
-    if (trophyCount > 3) {
-      trophiesDisplay = `<span class="trophy-count">${trophyCount}</span><span class="trophy-icon-single">🏆</span>`;
+    if (trophyCount >= 2) {
+      trophiesDisplay = `<span class="trophy-count"><span class="trophy-count-cup">🏆</span><span class="trophy-count-num">${trophyCount}</span></span>`;
     }
     
     const row = `

@@ -996,7 +996,7 @@ body[data-theme="dark"] {
   display: inline-block;
 
   font-weight: 800;
-  font-size: rem(7);
+  font-size: rem(9);
   color: #1a202c;
 
   background: linear-gradient(135deg, #ffd700 0%, #ffb800 100%);
@@ -1010,7 +1010,7 @@ body[data-theme="dark"] {
   position: relative;
 
   @include media(768) { 
-    font-size: rem(10);
+    font-size: rem(12);
   }
 
 
