@@ -238,7 +238,7 @@ usort($teams, function ($a, $b) {
               $photo = $team['photo'] ?? 'img/team/default.jpg';
               $trophyCount = (int)($team['trophy_count'] ?? 0);
               $trophiesDisplay = $trophyCount >= 2
-                ? '<span class="trophy-count"><span class="trophy-count-cup">🏆</span><span class="trophy-count-num">' . $trophyCount . '</span></span>'
+                ? '<span class="trophy-count"><span class="trophy-count-num">' . $trophyCount . '</span></span>'
                 : htmlspecialchars($team['trophies'] ?? '');
               $tournaments = $team['tournaments'] ?? 0;
               $points = $team['points'] ?? 0;

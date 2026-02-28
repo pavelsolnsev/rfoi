@@ -27,7 +27,7 @@ export const openTeamModal = (team) => {
   let trophiesDisplay = team.trophies || '';
   const trophyCount = (trophiesDisplay.match(/🏆/g) || []).length;
   if (trophyCount >= 2) {
-    trophiesDisplay = `<span class="trophy-count"><span class="trophy-count-cup">🏆</span><span class="trophy-count-num">${trophyCount}</span></span>`;
+    trophiesDisplay = `<span class="trophy-count"><span class="trophy-count-num">${trophyCount}</span></span>`;
   }
   modalTrophies.innerHTML = trophiesDisplay;
 

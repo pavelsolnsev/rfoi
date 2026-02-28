@@ -342,7 +342,7 @@ $(function () {
       if (modalTrophies) {
         const trophyCount = team.trophies || 0;
         if (trophyCount >= 2) {
-          modalTrophies.innerHTML = `<span class="trophy-count"><span class="trophy-count-cup">🏆</span><span class="trophy-count-num">${trophyCount}</span></span>`;
+          modalTrophies.innerHTML = `<span class="trophy-count"><span class="trophy-count-num">${trophyCount}</span></span>`;
         } else {
           modalTrophies.textContent = trophiesStr;
         }

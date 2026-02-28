@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
     modalName.textContent = team.name || 'Неизвестно';
     const modalTrophyCount = team.trophy_count !== undefined ? team.trophy_count : ((team.trophies || '').split('🏆').length - 1);
     modalTrophies.innerHTML = modalTrophyCount >= 2
-      ? `<span class="trophy-count"><span class="trophy-count-cup">🏆</span><span class="trophy-count-num">${modalTrophyCount}</span></span>`
+      ? `<span class="trophy-count"><span class="trophy-count-num">${modalTrophyCount}</span></span>`
       : (team.trophies || '');
     modalPhoto.src = '/' + (team.photo || 'img/team/default.jpg');
     
