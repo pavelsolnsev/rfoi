@@ -301,7 +301,8 @@ input::placeholder {
       color: var(--logo-green-dark);
     }
 
-    &.site-footer__tg i {
+    &.site-footer__tg i,
+    &.site-footer__vk i {
       margin-right: rem(4);
     }
   }

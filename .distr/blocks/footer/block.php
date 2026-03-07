@@ -9,6 +9,7 @@
       <a href="/">Главная</a>
       <a href="/tournament/">Турнир</a>
       <a href="https://t.me/RmsFootball" target="_blank" rel="noopener noreferrer" class="site-footer__tg" title="Telegram"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer" class="site-footer__vk" title="ВКонтакте"><i class="fab fa-vk"></i> ВКонтакте</a>
     </nav>
     <div class="site-footer__copy">© <?= date('Y') ?> Раменское футбол</div>
   </div>

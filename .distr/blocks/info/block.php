@@ -213,8 +213,12 @@
                   <a href="http://football.pavelsolntsev.ru/tournament/" target="_blank">football.pavelsolntsev.ru/tournament/</a>
                 </div>
                 <div class="media-item p-2 mb-2 rounded" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
-                  <strong>Фото и видео матчей</strong> смотри в нашей группе ВК:<br>
-                  <a href="http://vk.com/ramafootball" target="_blank">vk.com/ramafootball</a>
+                  <strong>Группа ВКонтакте:</strong><br>
+                  <a href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer">vk.com/rmsfootball</a>
+                </div>
+                <div class="media-item p-2 mb-2 rounded" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
+                  <strong>Telegram:</strong><br>
+                  <a href="https://t.me/RmsFootball" target="_blank" rel="noopener noreferrer">t.me/RmsFootball</a>
                 </div>
               </div>
             </div>

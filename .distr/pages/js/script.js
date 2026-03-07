@@ -132,7 +132,7 @@ $(function () {
               <div class="player-photo"> 
                 <img src="/img/players/${
                   player.photo
-                }?v=1.1.7" alt="${name}" class="">
+                }?v=1.1.8" alt="${name}" class="">
               </div>
               <span>${name}</span>
             </div>
@@ -179,7 +179,7 @@ $(function () {
         : player.username.replace(/@/g, "");
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.7`;
+    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.8`;
     document.getElementById("modal-player-photo").alt = name;
 
     const displayTeamName = teamNameFromContext || player.teamName;
@@ -342,7 +342,7 @@ $(function () {
       if (modalTrophies) {
         const trophyCount = team.trophies || 0;
         if (trophyCount >= 2) {
-          modalTrophies.innerHTML = `<span class="trophy-count"><span class="trophy-count-num">${trophyCount}</span></span>`;
+          modalTrophies.innerHTML = `<span class="trophy-count">${trophyCount}</span>`;
         } else {
           modalTrophies.textContent = trophiesStr;
         }
