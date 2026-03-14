@@ -14,6 +14,8 @@ export const teamPhotoMap = {
   'California': 'img/team/california.webp',
   'Engelbert': 'img/team/Engelbert.png',
   'Ясность': 'img/team/iasnostb.jpg',
+  'Анжи': 'img/team/anji.png',
+  'Титан': 'img/team/titan.png',
 };
 
 /**
