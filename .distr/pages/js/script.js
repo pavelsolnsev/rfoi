@@ -132,7 +132,7 @@ $(function () {
               <div class="player-photo"> 
                 <img src="/img/players/${
                   player.photo
-                }?v=1.1.9" alt="${name}" class="">
+                }?v=1.1.1" alt="${name}" class="">
               </div>
               <span>${name}</span>
             </div>
@@ -179,7 +179,7 @@ $(function () {
         : player.username.replace(/@/g, "");
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.9`;
+    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.1`;
     document.getElementById("modal-player-photo").alt = name;
 
     const displayTeamName = teamNameFromContext || player.teamName;
