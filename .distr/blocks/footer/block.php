@@ -8,8 +8,8 @@
       <a href="/info/">Информация</a>
       <a href="/">Главная</a>
       <a href="/tournament/">Турнир</a>
-      <a href="https://t.me/RmsFootball" target="_blank" rel="noopener noreferrer" class="site-footer__tg" title="Telegram"><i class="fab fa-telegram"></i> Telegram</a>
-      <a href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer" class="site-footer__vk" title="ВКонтакте"><i class="fab fa-vk"></i> ВКонтакте</a>
+      <a href="https://t.me/RmsFootball" target="_blank" rel="noopener noreferrer" class="site-footer__tg" title="РФОИ в Telegram"><i class="fab fa-telegram" aria-hidden="true"></i><span> Telegram · РФОИ</span></a>
+      <a href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer" class="site-footer__vk" title="РФОИ ВКонтакте"><i class="fab fa-vk" aria-hidden="true"></i><span> ВКонтакте · РФОИ</span></a>
     </nav>
     <div class="site-footer__copy">© <?= date('Y') ?> Раменское футбол</div>
   </div>

@@ -48,6 +48,33 @@
               <p class="lead">Организуем матчи в Раменском — записывайся и играй!</p>
             </div>
 
+            <div class="football-vk-cta mb-4" role="region" aria-label="Сообщество ВКонтакте">
+              <h3 class="mb-3 d-flex align-items-center flex-wrap gap-2">
+                <i class="fab fa-vk" style="font-size: 1.35rem; color: #2787F5;" aria-hidden="true"></i>
+                <span>ВКонтакте: подписка и чат</span>
+              </h3>
+              <div class="p-3 p-md-4 rounded shadow-sm" style="background: linear-gradient(135deg, #e8f4ff 0%, #dbeafe 45%, #eff6ff 100%); border: 1px solid rgba(39, 135, 245, 0.35); border-left: 5px solid #2787F5;">
+                <p class="mb-3 fw-semibold mb-md-4" style="color: #1e3a5f;">Подпишись на сообщество и вступи в чат — там анонсы игр и турниров, запись и общение участников.</p>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="h-100 p-3 rounded" style="background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(39, 135, 245, 0.22);">
+                      <div class="text-muted small mb-1">Шаг 1</div>
+                      <strong class="d-block mb-2">Сообщество</strong>
+                      <a class="btn btn-primary w-100 d-inline-flex align-items-center justify-content-center gap-2" style="background: #2787F5; border-color: #2787F5;" href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" aria-hidden="true"></i><span>Подписаться — РФОИ</span></a>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="h-100 p-3 rounded" style="background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(39, 135, 245, 0.22);">
+                      <div class="text-muted small mb-1">Шаг 2</div>
+                      <strong class="d-block mb-2">Чат сообщества</strong>
+                      <a class="btn w-100 d-inline-flex align-items-center justify-content-center gap-2" style="border: 2px solid #2787F5; color: #1856a8; background: #fff;" href="https://vk.me/join/D/st103iIqXvHn2Y2tU1H1mHa2tomwwydbw=" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" style="color: #2787F5;" aria-hidden="true"></i><span>Вступить в чат</span></a>
+                    </div>
+                  </div>
+                </div>
+                <p class="mb-0 mt-3 small text-muted">Ссылки: <a class="d-inline-flex align-items-center gap-1" href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" style="color: #2787F5;" aria-hidden="true"></i><span>vk.com/rmsfootball</span></a> · <a class="d-inline-flex align-items-center gap-1" href="https://vk.me/join/D/st103iIqXvHn2Y2tU1H1mHa2tomwwydbw=" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" style="color: #2787F5;" aria-hidden="true"></i><span>приглашение в чат</span></a></p>
+              </div>
+            </div>
+
             <div class="football-signup mb-4">
               <h3 class="mb-3 d-flex align-items-center">
                 <span style="font-size: 1.5rem; margin-right: 8px;">🏃</span>
@@ -66,17 +93,18 @@
               </div>
             </div>
 
-            <div class="football-bot mb-4">
-              <h3 class="mb-3">☑️ Полезные команды бота:</h3>
+            <div class="football-bot mb-4 d-none" aria-hidden="true">
+              <h3 class="mb-3">☑️ Полезные команды бота</h3>
+              <div class="p-3 mb-3 rounded shadow-sm" style="background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%); border: 1px solid rgba(34, 158, 217, 0.3); border-left: 5px solid #229ed9;">
+                <p class="small text-muted mb-2 mb-md-3">Команды отправляй в личные сообщения боту:</p>
+                <a class="btn text-white w-100 d-inline-flex align-items-center justify-content-center gap-2" style="background: #229ed9; border-color: #229ed9;" href="https://t.me/football_ramen_bot" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram" aria-hidden="true"></i><span>Открыть @football_ramen_bot</span></a>
+              </div>
               <div class="bot-commands">
-                <div class="command-item p-2 mb-2 rounded" style="background: #eff6ff; border-left: 3px solid #3b82f6;">
-                  Чтобы увидеть текущий список участников, напиши <strong>"список"</strong> в ЛС боту <a href="http://t.me/football_ramen_bot" target="_blank">http://t.me/football_ramen_bot</a> до старта игры
+                <div class="command-item p-3 mb-2 rounded shadow-sm" style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #229ed9;">
+                  До старта игры напиши боту <strong>«список»</strong> — текущие участники.
                 </div>
-                <div class="command-item p-2 mb-2 rounded" style="background: #eff6ff; border-left: 3px solid #3b82f6;">
-                  Чтобы увидеть составы команд, напиши <strong>"таблица"</strong> в ЛС боту <a href="http://t.me/football_ramen_bot" target="_blank">http://t.me/football_ramen_bot</a> после старта игры
-                </div>
-                <div class="command-item p-2 mb-2 rounded" style="background: #eff6ff; border-left: 3px solid #3b82f6;">
-                  Чтобы увидеть результаты матчей, напиши <strong>"результаты"</strong> в ЛС боту <a href="http://t.me/football_ramen_bot" target="_blank">http://t.me/football_ramen_bot</a> после старта игры
+                <div class="command-item p-3 mb-2 rounded shadow-sm" style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #229ed9;">
+                  После старта — <strong>«таблица»</strong> (составы команд) или <strong>«результаты»</strong>.
                 </div>
               </div>
             </div>
@@ -87,15 +115,17 @@
                 <span>ГДЕ ПРОХОДИТ ИГРА?</span>
               </h3>
               <div class="location-list">
-                <div class="location-item p-3 mb-2 rounded" style="background: #fef3c7; border-left: 3px solid #f59e0b;">
-                  <strong>Поле "Профилакторий"</strong><br>
-                  <a href="https://yandex.ru/maps/?text=Раменское, ул. Махова, д. 18" target="_blank">ул. Махова, д. 18</a><br>
-                  <small class="text-muted">(зимой закрыт)</small>
+                <div class="location-item p-3 mb-3 rounded shadow-sm" style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1px solid rgba(245, 158, 11, 0.35); border-left: 5px solid #f59e0b;">
+                  <strong class="d-block" style="color: #92400e;">Поле «Профилакторий»</strong> <small class="text-muted">(для всех желающих)</small>
+                  <p class="mt-2 mb-0 fw-medium" style="color: #78350f;">ул. Махова, д. 18, Раменское</p>
+                  <small class="text-muted d-block mb-3">(зимой закрыт)</small>
+                  <a class="btn btn-sm text-white" style="background: #fc3f1d; border-color: #fc3f1d;" href="https://yandex.ru/maps/?text=Раменское, ул. Махова, д. 18" target="_blank" rel="noopener noreferrer">Открыть в Яндекс.Картах</a>
                 </div>
-                <div class="location-item p-3 mb-2 rounded" style="background: #fef3c7; border-left: 3px solid #f59e0b;">
-                  <strong>"Красное Знамя"</strong><br>
-                  <a href="https://yandex.ru/maps/?text=Раменское, ул. Воровского, 4Б" target="_blank">ул. Воровского, 4Б</a><br>
-                  <small class="text-muted">(зимой зал, летом поле)</small>
+                <div class="location-item p-3 mb-2 rounded shadow-sm" style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1px solid rgba(245, 158, 11, 0.35); border-left: 5px solid #f59e0b;">
+                  <strong class="d-block" style="color: #92400e;">«Красное Знамя»</strong> <small class="text-muted">(турнир)</small>
+                  <p class="mt-2 mb-0 fw-medium" style="color: #78350f;">ул. Воровского, 4Б, Раменское</p>
+                  <small class="text-muted d-block mb-3">(зимой зал, летом поле)</small>
+                  <a class="btn btn-sm text-white" style="background: #fc3f1d; border-color: #fc3f1d;" href="https://yandex.ru/maps/?text=Раменское, ул. Воровского, 4Б" target="_blank" rel="noopener noreferrer">Открыть в Яндекс.Картах</a>
                 </div>
               </div>
             </div>
@@ -107,10 +137,10 @@
               </h3>
               <div class="schedule-list">
                 <div class="schedule-item p-2 mb-2 rounded" style="background: #f0f9ff; border-left: 3px solid #0ea5e9;">
-                  <strong>Профилакторий:</strong> Каждый понедельник в 20:30 (1.5ч) <small class="text-muted">(зимой не доступно)</small>
+                  <strong>Профилакторий</strong> <small class="text-muted">(для всех желающих)</small>: Каждый понедельник в 20:30 (1.5ч) <small class="text-muted">(зимой не доступно)</small>
                 </div>
                 <div class="schedule-item p-2 mb-2 rounded" style="background: #f0f9ff; border-left: 3px solid #0ea5e9;">
-                  <strong>Красное Знамя:</strong> Каждую пятницу в 20:00 (2ч) <small class="text-muted">(зимой зал, летом поле)</small>
+                  <strong>Красное Знамя</strong> <small class="text-muted">(турнир)</small>: Каждую пятницу в 20:00 (2ч) <small class="text-muted">(зимой зал, летом поле)</small>
                 </div>
               </div>
             </div>
@@ -122,8 +152,8 @@
               </h3>
               <div class="format-info p-3 rounded mb-3" style="background: #faf5ff; border-left: 4px solid #8b5cf6;">
                 <ul class="mb-2 ps-3">
-                  <li><strong>Профилакторий:</strong> 5x5</li>
-                  <li><strong>Красное Знамя:</strong> летом поле 8x8, зимой зал 5x5</li>
+                  <li><strong>Профилакторий</strong> <small class="text-muted">(для всех желающих)</small>: 5x5</li>
+                  <li><strong>Красное Знамя</strong> <small class="text-muted">(турнир)</small>: летом поле 8x8, зимой зал 5x5</li>
                   <li>От <strong>2 до 4 команд</strong></li>
                   <li>Длительность: <strong>6 минут</strong> или <strong>3 забитых мяча</strong></li>
                   <li>Играем <strong>каждый с каждым</strong> (несколько кругов)</li>
@@ -147,13 +177,21 @@
                 </ul>
               </div>
               <div class="payment-methods">
-                <div class="payment-item p-2 mb-2 rounded" style="background: #fef2f2; border-left: 3px solid #ef4444;">
-                  <strong>Оплата переводом на карту Сбербанк:</strong><br>
-                  📲 <span class="copy-phone" data-phone="+79166986185" title="Нажми, чтобы скопировать номер"><strong style="color: #3b82f6;">+7 (916) 698-61-85</strong> <i class="fas fa-copy" style="color: #3b82f6; font-size: 0.9em;"></i> <small style="color: #6b7280; font-size: 0.85em; margin-left: 4px;">(нажми, чтобы скопировать)</small></span><br>
-                  🔗 <a href="https://messenger.online.sberbank.ru/sl/JWnaTcQf0aviSEAxy" target="_blank">Оплатить участие</a>
+                <div class="payment-item p-3 p-md-4 mb-3 rounded shadow-sm" style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfccb 45%, #f7fee7 100%); border: 1px solid rgba(33, 160, 56, 0.28); border-left: 5px solid #21a038;">
+                  <strong class="d-block mb-1" style="color: #14532d;">Оплата переводом (Сбербанк)</strong>
+                  <p class="small text-muted mb-3 mb-md-3">Номер для перевода или быстрая оплата по ссылке</p>
+                  <div class="p-3 rounded mb-3" style="background: rgba(255, 255, 255, 0.92); border: 1px solid rgba(33, 160, 56, 0.2);">
+                    <span class="text-muted small d-block mb-1">Телефон (нажми, чтобы скопировать)</span>
+                    <span class="copy-phone d-inline-flex align-items-center flex-wrap gap-1" data-phone="+79166986185" title="Нажми, чтобы скопировать номер" role="button" tabindex="0">
+                      <strong style="color: #15803d; font-size: 1.05rem;">+7 (916) 698-61-85</strong>
+                      <i class="fas fa-copy" style="color: #21a038; font-size: 0.9em;" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <a class="btn text-white w-100" style="background: #21a038; border-color: #21a038;" href="https://messenger.online.sberbank.ru/sl/JWnaTcQf0aviSEAxy" target="_blank" rel="noopener noreferrer">Оплатить участие — Сбер</a>
                 </div>
-                <div class="payment-item p-2 mb-2 rounded" style="background: #fef2f2; border-left: 3px solid #ef4444;">
-                  <strong>💵</strong> Либо наличными на месте
+                <div class="payment-item p-3 mb-2 rounded shadow-sm" style="background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border: 1px solid rgba(234, 88, 12, 0.25); border-left: 4px solid #ea580c;">
+                  <strong style="color: #9a3412;">💵 Наличными</strong>
+                  <span class="d-block small mt-1 text-muted">Можно оплатить на месте перед игрой</span>
                 </div>
               </div>
             </div>
@@ -163,25 +201,25 @@
                 <span style="font-size: 1.5rem; margin-right: 8px;">🏆</span>
                 <span>Рейтинг</span>
               </h3>
-              <p class="mb-3">После каждой игры формируется личный рейтинг игрока:</p>
+              <p class="mb-3">После каждой игры формируется личный рейтинг игрока. Плюсы за гол, пас, сейв, победу и ничью умножаются на <strong>mod</strong> (см. вкладку «Рейтинг»); штрафы за поражение и жёлтую — без mod.</p>
               <div class="rating-list mb-3">
                 <div class="rating-item p-2 mb-2 rounded" style="background: #f0fdf4; border-left: 3px solid #10b981;">
-                  <strong>Гол:</strong> +0.3
+                  <strong>Гол:</strong> +0.3 × mod
                 </div>
                 <div class="rating-item p-2 mb-2 rounded" style="background: #f0fdf4; border-left: 3px solid #10b981;">
-                  <strong>Пас:</strong> +0.3
+                  <strong>Пас:</strong> +0.3 × mod
                 </div>
                 <div class="rating-item p-2 mb-2 rounded" style="background: #f0fdf4; border-left: 3px solid #10b981;">
-                  <strong>Сейв:</strong> +0.2
+                  <strong>Сейв:</strong> +0.2 × mod
                 </div>
                 <div class="rating-item p-2 mb-2 rounded" style="background: #f0fdf4; border-left: 3px solid #10b981;">
-                  <strong>Победа:</strong> +1.8
+                  <strong>Победа:</strong> +1.8 × mod
                 </div>
                 <div class="rating-item p-2 mb-2 rounded" style="background: #f0fdf4; border-left: 3px solid #10b981;">
-                  <strong>Ничья:</strong> +0.5
+                  <strong>Ничья:</strong> +0.5 × mod
                 </div>
                 <div class="rating-item p-2 mb-2 rounded" style="background: #fef2f2; border-left: 3px solid #ef4444;">
-                  <strong>Поражение:</strong> -1.2
+                  <strong>Поражение:</strong> −1.3 <small class="text-muted">(«сухое» −1.8; без mod)</small>
                 </div>
               </div>
               <p class="mb-3">Чем выше рейтинг, тем меньше очков будет начисляться.</p>
@@ -204,21 +242,32 @@
                 <span>Медиа</span>
               </h3>
               <div class="media-links">
-                <div class="media-item p-2 mb-2 rounded" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
-                  <strong>Список игроков:</strong><br>
-                  <a href="http://football.pavelsolntsev.ru" target="_blank">football.pavelsolntsev.ru</a>
+                <div class="media-item p-3 p-md-4 mb-3 rounded shadow-sm" style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 40%, #f0fdf4 100%); border: 1px solid rgba(5, 150, 105, 0.3); border-left: 5px solid #059669;">
+                  <strong class="d-block mb-1" style="color: #064e3b;">Сайт учёта матчей</strong>
+                  <p class="small text-muted mb-3">Рейтинги игроков, турниры и команды</p>
+                  <div class="d-grid gap-2">
+                    <a class="btn text-white" style="background: #059669; border-color: #059669;" href="https://football.pavelsolntsev.ru" target="_blank" rel="noopener noreferrer">Игроки и таблица рейтинга</a>
+                    <a class="btn" style="border: 2px solid #059669; color: #047857; background: #fff;" href="https://football.pavelsolntsev.ru/tournament/" target="_blank" rel="noopener noreferrer">Турниры и команды</a>
+                  </div>
+                  <p class="mb-0 mt-3 small text-muted text-center">football.pavelsolntsev.ru</p>
                 </div>
-                <div class="media-item p-2 mb-2 rounded" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
-                  <strong>Список команд:</strong><br>
-                  <a href="http://football.pavelsolntsev.ru/tournament/" target="_blank">football.pavelsolntsev.ru/tournament/</a>
+                <div class="media-item p-3 p-md-4 mb-3 rounded shadow-sm" style="background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 40%, #faf5ff 100%); border: 1px solid rgba(99, 102, 241, 0.3); border-left: 5px solid #6366f1;">
+                  <strong class="d-block mb-1" style="color: #312e81;">Онлайн-турнир</strong>
+                  <p class="small text-muted mb-3">Ход игры, итоги, архив</p>
+                  <a class="btn w-100 text-white" style="background: #4f46e5; border-color: #4f46e5;" href="https://tournament.pavelsolntsev.ru/" target="_blank" rel="noopener noreferrer">Открыть</a>
                 </div>
-                <div class="media-item p-2 mb-2 rounded" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
-                  <strong>Группа ВКонтакте:</strong><br>
-                  <a href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer">vk.com/rmsfootball</a>
+                <div class="media-item p-3 mb-3 rounded shadow-sm" style="background: linear-gradient(135deg, #e8f4ff 0%, #f0f9ff 100%); border: 1px solid rgba(39, 135, 245, 0.35); border-left: 5px solid #2787F5;">
+                  <strong class="d-flex align-items-center gap-2 mb-2" style="color: #1e3a5f;"><i class="fab fa-vk" style="color: #2787F5; font-size: 1.25rem;" aria-hidden="true"></i>ВКонтакте</strong>
+                  <div class="d-grid gap-2">
+                    <a class="btn btn-primary d-inline-flex align-items-center justify-content-center gap-2" style="background: #2787F5; border-color: #2787F5;" href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" aria-hidden="true"></i><span>Сообщество РФОИ</span></a>
+                    <a class="btn d-inline-flex align-items-center justify-content-center gap-2" style="border: 2px solid #2787F5; color: #1856a8; background: #fff;" href="https://vk.me/join/D/st103iIqXvHn2Y2tU1H1mHa2tomwwydbw=" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" style="color: #2787F5;" aria-hidden="true"></i><span>Чат сообщества</span></a>
+                  </div>
                 </div>
-                <div class="media-item p-2 mb-2 rounded" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
-                  <strong>Telegram:</strong><br>
-                  <a href="https://t.me/RmsFootball" target="_blank" rel="noopener noreferrer">t.me/RmsFootball</a>
+                <div class="media-item p-3 p-md-4 mb-2 rounded shadow-sm" style="background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 50%, #eff6ff 100%); border: 1px solid rgba(34, 158, 217, 0.35); border-left: 5px solid #229ed9;">
+                  <strong class="d-flex align-items-center gap-2 mb-1" style="color: #0c4a6e;"><i class="fab fa-telegram" style="color: #229ed9; font-size: 1.25rem;" aria-hidden="true"></i>Telegram</strong>
+                  <p class="small text-muted mb-3">Новости и обсуждения</p>
+                  <a class="btn w-100 text-white d-inline-flex align-items-center justify-content-center gap-2" style="background: #229ed9; border-color: #229ed9;" href="https://t.me/RmsFootball" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram" aria-hidden="true"></i><span>Канал РФОИ</span></a>
+                  <p class="mb-0 mt-2 small text-muted text-center d-flex align-items-center justify-content-center gap-1 flex-wrap"><i class="fab fa-telegram" style="color: #229ed9;" aria-hidden="true"></i><span>Новости и анонсы РФОИ в Telegram</span></p>
                 </div>
               </div>
             </div>
@@ -232,7 +281,7 @@
               <h2 class="mb-3">Система рейтинга</h2>
               <div class="rating-description p-3 rounded mb-4" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 4px solid #3b82f6;">
                 <p class="mb-2"><strong>Рейтинг</strong> — это число, которое показывает твой вклад в игры.</p>
-                <p class="mb-0">Максимум рейтинга — <strong>200</strong> (выше не поднимется). Итоговый рейтинг округляется до 1 знака после запятой.</p>
+                <p class="mb-0">Максимум рейтинга — <strong>200</strong> (при сохранении в базу значение ограничивается сверху, ниже нуля не опускается). Итоговый рейтинг округляется до 1 знака после запятой.</p>
               </div>
             </div>
 
@@ -344,7 +393,7 @@
                   <h5 class="mb-2" style="color: #f59e0b; font-size: 1rem; font-weight: 600;">🏆 Специальные:</h5>
                   <div class="points-list">
                     <div class="point-item p-2 mb-2 rounded" style="background: #fffbeb; border-left: 3px solid #f59e0b;">
-                      <strong>"Сухарь"</strong> (есть сейвы и команда не пропустила): +0.3 × mod
+                      <strong>"Сухарь"</strong> (есть сейвы и соперник не забил): +0.2 × mod
                     </div>
                   </div>
                 </div>
@@ -419,6 +468,24 @@
               <p class="lead">Регулярные турниры с участием команд. Турниры проходят с судьями.</p>
             </div>
 
+            <div class="tournament-online mb-4 p-3 p-md-4 rounded shadow-sm" role="region" aria-labelledby="tournament-online-heading" style="background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 45%, #faf5ff 100%); border: 1px solid rgba(99, 102, 241, 0.35); border-left: 5px solid #6366f1;">
+              <h3 class="mb-2 d-flex align-items-center flex-wrap gap-2" id="tournament-online-heading" style="font-size: 1.1rem; font-weight: 700; color: #312e81;">
+                <span style="font-size: 1.25rem;" aria-hidden="true">📡</span>
+                <span>Онлайн и итоги</span>
+              </h3>
+              <p class="mb-3 small mb-md-3" style="color: #3730a3;"><strong>tournament.pavelsolntsev.ru</strong> — ход турнира онлайн, итоги и архив.</p>
+              <a class="btn text-white" style="background: #4f46e5; border-color: #4f46e5;" href="https://tournament.pavelsolntsev.ru/" target="_blank" rel="noopener noreferrer">Открыть</a>
+            </div>
+
+            <div class="tournament-vk-hint mb-4 p-3 p-md-4 rounded shadow-sm" role="region" aria-label="ВКонтакте для турниров" style="background: linear-gradient(135deg, #e8f4ff 0%, #dbeafe 100%); border: 1px solid rgba(39, 135, 245, 0.3); border-left: 5px solid #2787F5;">
+              <strong class="d-flex align-items-center gap-2 mb-2" style="color: #1e3a5f;"><i class="fab fa-vk" style="color: #2787F5; font-size: 1.2rem;" aria-hidden="true"></i>ВКонтакте — анонсы и общение</strong>
+              <p class="mb-3 small mb-md-3" style="color: #334155;">Подпишись на сообщество и зайди в чат: там объявляют турниры и договариваются команды.</p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-primary btn-sm d-inline-flex align-items-center gap-2" style="background: #2787F5; border-color: #2787F5;" href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" aria-hidden="true"></i>Сообщество</a>
+                <a class="btn btn-sm d-inline-flex align-items-center gap-2" style="border: 2px solid #2787F5; color: #1856a8; background: #fff;" href="https://vk.me/join/D/st103iIqXvHn2Y2tU1H1mHa2tomwwydbw=" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" style="color: #2787F5;" aria-hidden="true"></i>Чат</a>
+              </div>
+            </div>
+
             <div class="tournament-format mb-4">
               <h3 class="mb-3">📋 Формат турнира:</h3>
               <div class="format-info p-3 rounded mb-3" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 4px solid #3b82f6;">
@@ -439,11 +506,11 @@
               <div class="participation-steps">
                 <div class="step-item p-3 mb-2 rounded" style="background: #f0fdf4; border-left: 3px solid #10b981;">
                   <strong>1. Регистрация команды:</strong><br>
-                  Капитан команды должен написать в группу после анонса турнира, указав название команды.
+                  Капитан команды должен написать в <a class="d-inline-flex align-items-center gap-1" href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" style="color: #2787F5;" aria-hidden="true"></i><span>сообщество ВКонтакте</span></a> или <a class="d-inline-flex align-items-center gap-1" href="https://vk.me/join/D/st103iIqXvHn2Y2tU1H1mHa2tomwwydbw=" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" style="color: #2787F5;" aria-hidden="true"></i><span>чат</span></a> после анонса турнира, указав название команды.
                 </div>
                 <div class="step-item p-3 mb-2 rounded" style="background: #f0fdf4; border-left: 3px solid #10b981;">
                   <strong>2. Бронирование слота:</strong><br>
-                  Чтобы забронировать слот, необходимо внести взнос — <strong>3250 ₽ с команды</strong>.
+                  Чтобы забронировать слот, необходимо внести взнос — <strong>5200 ₽ с команды</strong>.
                 </div>
                 <div class="step-item p-3 mb-2 rounded" style="background: #fef2f2; border-left: 3px solid #ef4444;">
                   <strong>⚠️ Важно:</strong> Если все места будут заняты, а команда не оплатила слот, её место может занять другая команда, внёсшая оплату, даже если она пока не в списке.
@@ -458,9 +525,9 @@
               </h3>
               <div class="registration-info p-3 rounded mb-3" style="background: #fffbeb; border-left: 4px solid #f59e0b;">
                 <ul class="mb-0 ps-3">
-                  <li>В четверг перед турниром через бота будет открыта запись на турнир.</li>
+                  <li><i class="fab fa-telegram me-1" style="color: #229ed9;" aria-hidden="true"></i>В четверг перед турниром через бота будет открыта запись на турнир.</li>
                   <li>Всем участникам команд нужно будет записаться на матч через кнопку <strong>"Играть"</strong>.</li>
-                  <li>Если игрок ещё не состоит в нашей группе, он должен сначала вступить в неё, а затем записаться на игру.</li>
+                  <li>Если игрок ещё не в сообществе, сначала <a class="d-inline-flex align-items-center gap-1" href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" style="color: #2787F5;" aria-hidden="true"></i><span>подпишись</span></a> и при необходимости <a class="d-inline-flex align-items-center gap-1" href="https://vk.me/join/D/st103iIqXvHn2Y2tU1H1mHa2tomwwydbw=" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk" style="color: #2787F5;" aria-hidden="true"></i><span>вступи в чат</span></a>, затем запишись на игру.</li>
                 </ul>
               </div>
             </div>
@@ -503,8 +570,9 @@
                 <span style="font-size: 1.5rem; margin-right: 8px;">⭐</span>
                 <span>Как определяется MVP (лучший игрок)</span>
               </h2>
-              <div class="mvp-description p-3 rounded mb-4" style="background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%); border-left: 4px solid #f59e0b;">
-                <p class="mb-0">В нашей системе выбираются <strong>MVP турнира</strong> (среди всех участников) и <strong>MVP каждой команды</strong>.</p>
+                <div class="mvp-description p-3 rounded mb-4" style="background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%); border-left: 4px solid #f59e0b;">
+                <p class="mb-2">В нашей системе выбираются <strong>MVP турнира</strong> (среди всех участников) и <strong>MVP каждой команды</strong>.</p>
+                <p class="mb-0"><small class="text-muted">Учёт места команды в таблице (очки и разница мячей) используется только при выборе <strong>MVP турнира</strong>. Для <strong>MVP команды</strong> сравниваются только игроки одной команды, поэтому дальше сразу идут прирост рейтинга за турнир, карточки и остальные шаги.</small></p>
               </div>
             </div>
 
@@ -520,6 +588,7 @@
                 <div class="bonus-item p-3 mb-2 rounded" style="background: #fef3c7; border-left: 3px solid #eab308;">
                   <strong>MVP команды</strong> — <span style="color: #d97706; font-weight: 600;">+0,5 очка к рейтингу</span> (если игрок уже не MVP турнира)
                 </div>
+                <p class="mb-0 mt-2"><small class="text-muted">В колонке «MVP» в таблице игроков накапливается только число званий <strong>MVP турнира</strong> (по +1 за каждый такой турнир). Звание MVP команды даёт только прибавку к рейтингу.</small></p>
               </div>
             </div>
 
@@ -575,14 +644,14 @@
                   </h4>
                 </div>
                 <div class="criterion-body p-3 rounded-bottom" style="background: #faf5ff; border: 2px solid #8b5cf6; border-top: none;">
-                  <p class="mb-0">При равной личной статистике приоритет у игрока, чья команда набрала больше очков (3 очка за победу, 1 за ничью).</p>
+                  <p class="mb-0">При равной личной статистике приоритет у игрока, чья команда набрала больше очков (3 очка за победу, 1 за ничью). <small class="text-muted">Только для MVP турнира.</small></p>
                 </div>
               </div>
 
               <div class="mvp-criterion mb-3">
                 <div class="criterion-compact p-3 rounded" style="background: #faf5ff; border-left: 4px solid #8b5cf6;">
                   <strong>6. При равных очках команды — разница мячей</strong><br>
-                  <small>Если очки команды одинаковы, приоритет у игрока из команды с лучшей разницей мячей (забитые минус пропущенные).</small>
+                  <small>Если очки команды одинаковы, приоритет у игрока из команды с лучшей разницей мячей (забитые минус пропущенные). Только для MVP турнира.</small>
                 </div>
               </div>
 
@@ -590,7 +659,7 @@
               <div class="mvp-criterion mb-3">
                 <div class="criterion-compact p-3 mb-2 rounded" style="background: #ecfeff; border-left: 4px solid #06b6d4;">
                   <strong>7. Прирост рейтинга за турнир</strong><br>
-                  <small>При равных показателях выше тот, у кого больше прирост рейтинга за турнир.</small>
+                  <small>При равных показателях выше тот, у кого больше суммарная дельта рейтинга за турнир <strong>до</strong> бонусов MVP (+1 / +0,5).</small>
                 </div>
                 <div class="criterion-compact p-3 mb-2 rounded" style="background: #fefce8; border-left: 4px solid #eab308;">
                   <strong>8. Дисциплина — меньше жёлтых карточек</strong><br>
@@ -606,7 +675,7 @@
                 </div>
                 <div class="criterion-compact p-3 rounded" style="background: #f3f4f6; border-left: 4px solid #6b7280;">
                   <strong>11. Итоговый выбор</strong><br>
-                  <small>В крайнем случае выбирается один из претендентов по техническому правилу (без случайности).</small>
+                  <small>Если показатели полностью совпали — побеждает игрок с <strong>меньшим числовым id</strong> (детерминированно, без случайности).</small>
                 </div>
               </div>
             </div>

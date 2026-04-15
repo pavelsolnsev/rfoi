@@ -318,7 +318,8 @@
         font-weight: 600;
       }
 
-      a {
+      // Не трогаем .btn — иначе перебивается color у Bootstrap и инлайнов (синий текст на синей кнопке ВК).
+      a:not(.btn) {
         color: #3b82f6;
         text-decoration: none;
 
@@ -427,6 +428,7 @@
 
   // Стили для копирования номера телефона
   .copy-phone {
+    cursor: pointer;
     transition: background 0.2s ease;
     padding: rem(4) rem(8);
     border-radius: rem(4);
