@@ -39,7 +39,11 @@ $(function () {
     'California': 'california.webp',
     'Юность': 'un.webp',
     'Engelbert': 'Engelbert.png',
-    'Ясность': 'iasnostb.jpg'
+    'Ясность': 'iasnostb.jpg',
+    'Анжи': 'anji.png',
+    'Титан': 'titan.png',
+    'FC Chelsea': 'chelsea.jpg',
+
   };
 
 
@@ -132,7 +136,7 @@ $(function () {
               <div class="player-photo"> 
                 <img src="/img/players/${
                   player.photo
-                }?v=1.1.3" alt="${name}" class="">
+                }?v=1.1.4" alt="${name}" class="">
               </div>
               <span>${name}</span>
             </div>
@@ -179,7 +183,7 @@ $(function () {
         : player.username.replace(/@/g, "");
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.3`;
+    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.4`;
     document.getElementById("modal-player-photo").alt = name;
 
     const displayTeamName = teamNameFromContext || player.teamName;

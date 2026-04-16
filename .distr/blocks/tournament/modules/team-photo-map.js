@@ -12,10 +12,12 @@ export const teamPhotoMap = {
   'Volt': 'img/team/volt.webp',
   'Юность': 'img/team/un.webp',
   'California': 'img/team/california.webp',
+  'Юность': 'img/team/un.webp',
   'Engelbert': 'img/team/Engelbert.png',
   'Ясность': 'img/team/iasnostb.jpg',
   'Анжи': 'img/team/anji.png',
   'Титан': 'img/team/titan.png',
+  'FC Chelsea': 'img/team/chelsea.jpg',
 };
 
 /**

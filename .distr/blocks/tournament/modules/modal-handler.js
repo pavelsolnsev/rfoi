@@ -237,7 +237,10 @@ const showPlayerModalInTournament = (player, teamNameFromContext) => {
     'California': 'california.webp',
     'Юность': 'un.webp',
     'Engelbert': 'Engelbert.png',
-    'Ясность': 'iasnostb.jpg'
+    'Ясность': 'iasnostb.jpg',
+    'Анжи': 'anji.png',
+    'Титан': 'titan.png',
+    'FC Chelsea': 'chelsea.jpg',
   };
 
   const teamInfo = document.getElementById("player-modal-team-info");
@@ -368,7 +371,10 @@ const loadAndOpenTeamModal = async (teamName) => {
       'California': 'california.webp',
       'Un': 'un.webp',
       'Engelbert': 'Engelbert.png',
-      'Ясность': 'iasnostb.jpg'
+      'Ясность': 'iasnostb.jpg',
+      'Анжи': 'anji.png',
+      'Титан': 'titan.png',
+      'FC Chelsea': 'chelsea.jpg',
     };
 
     // Формируем путь к фото команды
