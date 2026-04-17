@@ -79,6 +79,35 @@ document.addEventListener('DOMContentLoaded', function() {
     key: 'rating',
     direction: 'desc'
   };
+
+  const normalizeCandidateString = (value) => {
+    if (value === null || value === undefined) return '';
+    if (typeof value !== 'string') return String(value);
+    return value;
+  };
+  const isBlankString = (value) => {
+    const str = normalizeCandidateString(value).trim();
+    if (!str) return true;
+    const lowered = str.toLowerCase();
+    return lowered === 'null' || lowered === 'undefined' || lowered === 'nan';
+  };
+  const normalizeUsername = (username) => {
+    const str = normalizeCandidateString(username).trim();
+    if (!str) return '';
+    return str.replace(/@/g, '').trim();
+  };
+  const getPlayerDisplayName = (player, fallback = 'Неизвестно') => {
+    const usernameRaw = player?.username;
+    const usernameNormalized = normalizeUsername(usernameRaw);
+    const usernameIsUnknown =
+      normalizeCandidateString(usernameRaw).trim().toLowerCase() === '@unknown';
+    if (!usernameIsUnknown && !isBlankString(usernameNormalized)) {
+      return usernameNormalized;
+    }
+    const name = normalizeCandidateString(player?.name).trim();
+    if (!isBlankString(name)) return name;
+    return fallback;
+  };
   
   const truncateUnicodeString = (str, maxLength) => {
     const chars = [...str];
@@ -99,8 +128,8 @@ document.addEventListener('DOMContentLoaded', function() {
           valueB = players.indexOf(b) + 1;
           break;
         case 'name':
-          valueA = a.username === "@unknown" ? a.name : a.username.replace(/@/g, "");
-          valueB = b.username === "@unknown" ? b.name : b.username.replace(/@/g, "");
+          valueA = getPlayerDisplayName(a);
+          valueB = getPlayerDisplayName(b);
           return direction === 'asc' 
             ? valueA.localeCompare(valueB)
             : valueB.localeCompare(valueA);
@@ -160,9 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     sortedPlayers.forEach((player, index) => {
-      let name = (player.username === "@unknown" || !player.username)
-        ? (player.name || 'Неизвестно')
-        : player.username.replace(/@/g, "");
+      const name = getPlayerDisplayName(player);
       
       const desktopRow = `
         <tr class="player-row" data-player-index="${index}">
@@ -211,10 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const showPlayerModal = (player) => {
     if (!player) return;
     
-    let name = (player.username === '@unknown' || !player.username)
-      ? (player.name || 'Неизвестно')
-      : player.username.replace(/@/g, '');
-    name = truncateUnicodeString(name, 30);
+    let name = truncateUnicodeString(getPlayerDisplayName(player), 30);
     
     const modalNameEl = document.getElementById('modal-player-name');
     const modalPhotoEl = document.getElementById('modal-player-photo');

@@ -54,3 +54,37 @@ export const getMaxTeamNameLength = () => {
   return Math.round(length);
 };
 
+const normalizeCandidateString = (value) => {
+  if (value === null || value === undefined) return '';
+  if (typeof value !== 'string') return String(value);
+  return value;
+};
+
+export const isBlankString = (value) => {
+  const str = normalizeCandidateString(value).trim();
+  if (!str) return true;
+  const lowered = str.toLowerCase();
+  return lowered === 'null' || lowered === 'undefined' || lowered === 'nan';
+};
+
+export const normalizeUsername = (username) => {
+  const str = normalizeCandidateString(username).trim();
+  if (!str) return '';
+  return str.replace(/@/g, '').trim();
+};
+
+export const getPlayerDisplayName = (player, fallback = 'Неизвестно') => {
+  const usernameRaw = player?.username;
+  const usernameNormalized = normalizeUsername(usernameRaw);
+  const usernameIsUnknown = normalizeCandidateString(usernameRaw).trim().toLowerCase() === '@unknown';
+
+  if (!usernameIsUnknown && !isBlankString(usernameNormalized)) {
+    return usernameNormalized;
+  }
+
+  const name = normalizeCandidateString(player?.name).trim();
+  if (!isBlankString(name)) return name;
+
+  return fallback;
+};
+

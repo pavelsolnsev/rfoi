@@ -1654,6 +1654,42 @@ $players =
 usort($players, function ($a, $b) {
   return ($b['rating'] ?? 0) - ($a['rating'] ?? 0);
 });
+
+if (!function_exists('rfoi_player_display_name')) {
+  /**
+   * Отображаемое имя игрока (логика как в JS getPlayerDisplayName / format-utils).
+   */
+  function rfoi_player_display_name(array $player, $fallback = 'Неизвестно')
+  {
+    $usernameRaw = $player['username'] ?? null;
+    $usernameStr = is_string($usernameRaw)
+      ? $usernameRaw
+      : (is_scalar($usernameRaw) ? (string) $usernameRaw : '');
+    $usernameTrim = trim($usernameStr);
+    $isUnknown = strtolower($usernameTrim) === '@unknown';
+    $usernameNorm = trim(str_replace('@', '', $usernameTrim));
+
+    $blankish = function ($s) {
+      $t = trim((string) $s);
+      if ($t === '') {
+        return true;
+      }
+      $l = strtolower($t);
+      return in_array($l, ['null', 'undefined', 'nan'], true);
+    };
+
+    if (!$isUnknown && !$blankish($usernameNorm)) {
+      return $usernameNorm;
+    }
+
+    $n = trim((string) ($player['name'] ?? ''));
+    if (!$blankish($n)) {
+      return $n;
+    }
+
+    return $fallback;
+  }
+}
 ?>
 
 <section class="s-main">
@@ -1697,9 +1733,7 @@ usort($players, function ($a, $b) {
           <?php else: ?>
             <?php foreach ($players as $index => $player): ?>
               <?php
-              $name = ($player['username'] ?? '@unknown') === '@unknown'
-                ? ($player['name'] ?? 'Неизвестно')
-                : str_replace('@', '', $player['username'] ?? 'Неизвестно');
+              $name = rfoi_player_display_name($player);
               $photo = $player['photo'] ?? 'default.jpg';
               $gamesPlayed = $player['gamesPlayed'] ?? 0;
               $wins = $player['wins'] ?? 0;

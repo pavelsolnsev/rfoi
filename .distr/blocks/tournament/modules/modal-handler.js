@@ -2,7 +2,12 @@
  * Модуль для работы с модальным окном команды
  */
 
-import { truncateUnicodeString, getMaxTeamNameLength } from './format-utils.js';
+import {
+  truncateUnicodeString,
+  getMaxTeamNameLength,
+  getPlayerDisplayName,
+  normalizeUsername,
+} from './format-utils.js';
 
 /**
  * Функция открытия модального окна команды
@@ -83,12 +88,7 @@ export const openTeamModal = (team) => {
         playerPhoto = `/${playerPhoto}`;
       }
       
-      // Формируем отображаемое имя так же, как в showPlayerModal
-      // Если у игрока есть username и он не "@unknown", используем username без @, иначе name
-      // Но здесь player.name уже может быть username из api-loader, поэтому нужно проверить
-      const displayName = player.username && player.username !== "@unknown" 
-        ? player.username.replace(/@/g, "")
-        : (player.name || '');
+      const displayName = getPlayerDisplayName(player);
       
       // Для data-атрибутов используем оригинальное имя из базы (для поиска)
       // Но в api-loader name уже формируется как username || name, поэтому нужно сохранить оба
@@ -198,10 +198,17 @@ const loadAndShowPlayerModal = async (playerName, playerUsername, teamModalEleme
     }
     const players = await response.json();
 
-    const player = players.find(p => {
-      const playerDisplayName = p.username === "@unknown" ? p.name : p.username.replace(/@/g, "");
+    const player = players.find((p) => {
+      const playerDisplayName = getPlayerDisplayName(p);
       if (playerDisplayName === playerName || p.name === playerName) return true;
-      if (playerUsername && (p.username === playerUsername || p.username === `@${playerUsername}`)) return true;
+      if (
+        playerUsername &&
+        (normalizeUsername(p.username) === normalizeUsername(playerUsername) ||
+          p.username === playerUsername ||
+          p.username === `@${normalizeUsername(playerUsername)}`)
+      ) {
+        return true;
+      }
       return false;
     });
 
@@ -220,7 +227,7 @@ const showPlayerModalInTournament = (player, teamNameFromContext) => {
   const playerModalElement = document.getElementById("playerModal");
   if (!playerModalElement) return;
 
-  const name = player.username === "@unknown" ? player.name : player.username.replace(/@/g, "");
+  const name = getPlayerDisplayName(player);
 
   document.getElementById("modal-player-name").textContent = name;
   document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.7`;

@@ -1,5 +1,6 @@
 $(function () {
 
+  //=require common/player-name-utils.js
 
   //=require main/script.js
   //=require popups/script.js
@@ -43,7 +44,6 @@ $(function () {
     'Анжи': 'anji.png',
     'Титан': 'titan.png',
     'FC Chelsea': 'chelsea.jpg',
-
   };
 
 
@@ -57,8 +57,8 @@ $(function () {
           valueB = players.indexOf(b) + 1;
           break;
         case 'name':
-          valueA = a.username === "@unknown" ? a.name : a.username.replace(/@/g, "");
-          valueB = b.username === "@unknown" ? b.name : b.username.replace(/@/g, "");
+          valueA = getPlayerDisplayName(a);
+          valueB = getPlayerDisplayName(b);
           return direction === 'asc' 
             ? valueA.localeCompare(valueB)
             : valueB.localeCompare(valueA);
@@ -123,10 +123,7 @@ $(function () {
     }
 
     sortedPlayers.forEach((player, index) => {
-      const name =
-        player.username === "@unknown"
-          ? player.name
-          : player.username.replace(/@/g, "");
+      const name = getPlayerDisplayName(player);
 
       const desktopRow = `
         <tr class="player-row" data-player-index="${index}">
@@ -136,7 +133,7 @@ $(function () {
               <div class="player-photo"> 
                 <img src="/img/players/${
                   player.photo
-                }?v=1.1.4" alt="${name}" class="">
+                }?v=1.1.5" alt="${name}" class="">
               </div>
               <span>${name}</span>
             </div>
@@ -177,13 +174,10 @@ $(function () {
   };
 
   const showPlayerModal = (player, teamNameFromContext) => {
-    const name =
-      player.username === "@unknown"
-        ? player.name
-        : player.username.replace(/@/g, "");
+    const name = getPlayerDisplayName(player);
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.4`;
+    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.5`;
     document.getElementById("modal-player-photo").alt = name;
 
     const displayTeamName = teamNameFromContext || player.teamName;
@@ -378,9 +372,7 @@ $(function () {
           const mainPlayerClass = player.isMainPlayer ? ' is-main-player' : '';
           
           // Формируем отображаемое имя так же, как в showPlayerModal
-          const displayName = player.username === "@unknown" || !player.username
-            ? player.name
-            : player.username.replace(/@/g, "");
+          const displayName = getPlayerDisplayName(player);
           
           // Экранируем имя и username для использования в data-атрибутах
           const playerNameEscaped = player.name.replace(/"/g, '&quot;');
@@ -424,9 +416,13 @@ $(function () {
             if (!playerName) return;
 
             // Ищем игрока в массиве players по имени
-            const player = players.find(p => {
-              const playerDisplayName = p.username === "@unknown" ? p.name : p.username.replace(/@/g, "");
-              return playerDisplayName === playerName || p.name === playerName || p.username === playerName;
+            const player = players.find((p) => {
+              const playerDisplayName = getPlayerDisplayName(p);
+              return (
+                playerDisplayName === playerName ||
+                p.name === playerName ||
+                p.username === playerName
+              );
             });
 
             if (player) {
@@ -469,11 +465,17 @@ $(function () {
               if (!playerName) return;
 
               // Ищем игрока в массиве players по имени или username
-              const player = players.find(p => {
-                const playerDisplayName = p.username === "@unknown" ? p.name : p.username.replace(/@/g, "");
-                // Сравниваем по отображаемому имени, имени или username
+              const player = players.find((p) => {
+                const playerDisplayName = getPlayerDisplayName(p);
                 if (playerDisplayName === playerName || p.name === playerName) return true;
-                if (playerUsername && (p.username === playerUsername || p.username === `@${playerUsername}`)) return true;
+                if (
+                  playerUsername &&
+                  (normalizeUsername(p.username) === normalizeUsername(playerUsername) ||
+                    p.username === playerUsername ||
+                    p.username === `@${normalizeUsername(playerUsername)}`)
+                ) {
+                  return true;
+                }
                 return false;
               });
 
