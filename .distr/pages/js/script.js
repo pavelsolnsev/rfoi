@@ -43,7 +43,7 @@ $(function () {
     'Ясность': 'iasnostb.jpg',
     'Анжи': 'anji.png',
     'Титан': 'titan.png',
-    'FC Chelsea': 'chelsea.jpg',
+    'FC Chelsea': '\u0441helsea.jpg',
   };
 
 
@@ -133,7 +133,7 @@ $(function () {
               <div class="player-photo"> 
                 <img src="/img/players/${
                   player.photo
-                }?v=1.1.5" alt="${name}" class="">
+                }?v=1.1.6" alt="${name}" class="">
               </div>
               <span>${name}</span>
             </div>
@@ -177,7 +177,7 @@ $(function () {
     const name = getPlayerDisplayName(player);
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.5`;
+    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.6`;
     document.getElementById("modal-player-photo").alt = name;
 
     const displayTeamName = teamNameFromContext || player.teamName;

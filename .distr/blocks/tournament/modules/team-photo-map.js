@@ -17,7 +17,7 @@ export const teamPhotoMap = {
   'Ясность': 'img/team/iasnostb.jpg',
   'Анжи': 'img/team/anji.png',
   'Титан': 'img/team/titan.png',
-  'FC Chelsea': 'img/team/chelsea.jpg',
+  'FC Chelsea': 'img/team/\u0441helsea.jpg',
 };
 
 /**

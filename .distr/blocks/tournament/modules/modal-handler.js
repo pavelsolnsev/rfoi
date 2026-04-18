@@ -247,7 +247,7 @@ const showPlayerModalInTournament = (player, teamNameFromContext) => {
     'Ясность': 'iasnostb.jpg',
     'Анжи': 'anji.png',
     'Титан': 'titan.png',
-    'FC Chelsea': 'chelsea.jpg',
+    'FC Chelsea': '\u0441helsea.jpg',
   };
 
   const teamInfo = document.getElementById("player-modal-team-info");
@@ -381,7 +381,7 @@ const loadAndOpenTeamModal = async (teamName) => {
       'Ясность': 'iasnostb.jpg',
       'Анжи': 'anji.png',
       'Титан': 'titan.png',
-      'FC Chelsea': 'chelsea.jpg',
+      'FC Chelsea': '\u0441helsea.jpg',
     };
 
     // Формируем путь к фото команды
