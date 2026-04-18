@@ -133,7 +133,7 @@ $(function () {
               <div class="player-photo"> 
                 <img src="/img/players/${
                   player.photo
-                }?v=1.1.6" alt="${name}" class="">
+                }?v=1.1.7" alt="${name}" class="">
               </div>
               <span>${name}</span>
             </div>
@@ -177,7 +177,7 @@ $(function () {
     const name = getPlayerDisplayName(player);
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.6`;
+    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.7`;
     document.getElementById("modal-player-photo").alt = name;
 
     const displayTeamName = teamNameFromContext || player.teamName;
