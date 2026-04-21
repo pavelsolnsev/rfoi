@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp public"
+    "build": "gulp public",
+    "img:webp": "node scripts/convert-player-team-images-to-webp.mjs"
   },
   "author": "",
   "license": "ISC",
@@ -34,7 +35,8 @@
     "gulp-uglify-es": "^3.0.0",
     "gulp-webp": "^4.0.1",
     "os": "^0.1.2",
-    "sass": "^1.64.2"
+    "sass": "^1.64.2",
+    "sharp": "^0.34.5"
   },
   "dependencies": {
     "cors": "^2.8.5",

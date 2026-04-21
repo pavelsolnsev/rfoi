@@ -9,36 +9,36 @@ const TEAMS_DATA = [
     trophies: '🏆🏆🏆🏆🏆',
     tournaments: 8,
     points: 19,
-    photo: "img/team/admin.png",
+    photo: "img/team/admin.webp",
     players: [
 
       {
         name: "Gavrilovram",
-        photo: "img/players/Gavrilov.png",
+        photo: "img/players/Gavrilov.webp",
       },
       {
         name: "delay_kpacubo",
-        photo: "img/players/kpacubo.png",
+        photo: "img/players/kpacubo.webp",
       },
       {
         name: "Perunov_Vladislav",
-        photo: "img/players/Perunov_Vladislav.png",
+        photo: "img/players/Perunov_Vladislav.webp",
       },
       {
         name: "dergaev94",
-        photo: "img/players/dergaev.png",
+        photo: "img/players/dergaev.webp",
       },
       {
         name: "filipps1",
-        photo: "img/players/filipps1.png",
+        photo: "img/players/filipps1.webp",
       },
       {
         name: "Иван",
-        photo: "img/players/ivan.png",
+        photo: "img/players/ivan.webp",
       },
       {
         name: "Михаил",
-        photo: "img/players/mixail.png",
+        photo: "img/players/mixail.webp",
       },
     ],
   },
@@ -51,36 +51,36 @@ const TEAMS_DATA = [
     players: [
       {
         name: "nikita_a1exandrovich",
-        photo: "img/players/nikita.png",
+        photo: "img/players/nikita.webp",
         icon: "🟨",
       },
       {
         name: "Vadik_69_11",
-        photo: "img/players/Vadik.png",
+        photo: "img/players/Vadik.webp",
       },
       {
         name: "al11114",
-        photo: "img/players/al11114.png",
+        photo: "img/players/al11114.webp",
       },
       {
         name: "toxa1392777",
-        photo: "img/players/toxa1392777.png",
+        photo: "img/players/toxa1392777.webp",
       },
       {
         name: "toshnotik666",
-        photo: "img/players/toshnotik666.png",
+        photo: "img/players/toshnotik666.webp",
       },
       {
         name: "vehrbrvk50",
-        photo: "img/players/vehrbrvk50.png",
+        photo: "img/players/vehrbrvk50.webp",
       },
       {
         name: "alexdugar59",
-        photo: "img/players/alexdugar59.png",
+        photo: "img/players/alexdugar59.webp",
       },
       {
         name: "TimRamen",
-        photo: "img/players/TimRamen.png",
+        photo: "img/players/TimRamen.webp",
       },
     ],
   },
@@ -93,36 +93,36 @@ const TEAMS_DATA = [
     players: [
       {
         name: "Ислам Халиков",
-        photo: "img/players/islam.png",
+        photo: "img/players/islam.webp",
         icon: "🟨",
       },
       {
         name: "seivrtd",
-        photo: "img/players/seivrtd.png",
+        photo: "img/players/seivrtd.webp",
       },
       {
         name: "Mirinian",
-        photo: "img/players/mirinian.png",
+        photo: "img/players/mirinian.webp",
       },
       {
         name: "AlexeiD2025",
-        photo: "img/players/AlexeiD2025.png",
+        photo: "img/players/AlexeiD2025.webp",
       },
       {
         name: "svyatoslavspirin",
-        photo: "img/players/svyatoslavspirin.png",
+        photo: "img/players/svyatoslavspirin.webp",
       },
       {
         name: "Ravil'",
-        photo: "img/players/Ravil.png",
+        photo: "img/players/Ravil.webp",
       },
       {
         name: "IkRoMchIk_75",
-        photo: "img/players/IkRoMchIk_75.png",
+        photo: "img/players/IkRoMchIk_75.webp",
       },
       {
         name: "gos_it_tech",
-        photo: "img/players/gos_it_tech.png",
+        photo: "img/players/gos_it_tech.webp",
       },
     ],
   },
@@ -131,28 +131,28 @@ const TEAMS_DATA = [
     trophies: "⚪️",
     tournaments: 1,
     points: 2,
-    photo: "img/team/logo.jpg",
+    photo: "img/team/logo.webp",
     players: [
       {
         name: "filipps1",
-        photo: "img/players/filipps1.png",
+        photo: "img/players/filipps1.webp",
       },
       {
         name: "vl_l24",
-        photo: "img/players/vl_l24.png",
+        photo: "img/players/vl_l24.webp",
       },
       {
         name: "ZhekaFootball",
-        photo: "img/players/Evgenkozl.png",
+        photo: "img/players/Evgenkozl.webp",
         icon: "🟨🟨",
       },
       {
         name: "SenyaAvgan",
-        photo: "img/players/SenyaAvgan.png",
+        photo: "img/players/SenyaAvgan.webp",
       },
       {
         name: "mr_snak4",
-        photo: "img/players/mr_snak4.png",
+        photo: "img/players/mr_snak4.webp",
       },
     ],
   },
@@ -161,49 +161,49 @@ const TEAMS_DATA = [
     trophies: "⚪️",
     tournaments: 5,
     points: 5,
-    photo: "img/team/worlds.png",
+    photo: "img/team/worlds.webp",
     players: [
       {
         name: "Jorik",
-        photo: "img/players/jorik.png",
+        photo: "img/players/jorik.webp",
       },
       {
         name: "evgeniyshvetsov",
-        photo: "img/players/evgeniyshvetsov.png",
+        photo: "img/players/evgeniyshvetsov.webp",
         icon: "🟨",
       },
       {
         name: "Дмитрий З",
-        photo: "img/players/dmitri.png",
+        photo: "img/players/dmitri.webp",
       },
       {
         name: "ZhekaFootball",
-        photo: "img/players/Evgenkozl.png",
+        photo: "img/players/Evgenkozl.webp",
         icon: "🟨",
       },
       {
         name: "Александр",
-        photo: "img/players/aleksandr.png",
+        photo: "img/players/aleksandr.webp",
       },
       {
         name: "Даниил Турланов",
-        photo: "img/players/tyrlanov.png",
+        photo: "img/players/tyrlanov.webp",
       },
       {
         name: "Vyacheslav Batrakov",
-        photo: "img/players/vacheslav.png",
+        photo: "img/players/vacheslav.webp",
       },
       {
         name: "seivrtd",
-        photo: "img/players/seivrtd.png",
+        photo: "img/players/seivrtd.webp",
       },
       {
         name: "Артём",
-        photo: "img/players/artem.png",
+        photo: "img/players/artem.webp",
       },
       {
         name: "Abdulatip44",
-        photo: "img/players/Abdulatip44.png",
+        photo: "img/players/Abdulatip44.webp",
         icon: "🟨",
       },
     ],
@@ -217,33 +217,33 @@ const TEAMS_DATA = [
     players: [
       {
         name: "t1ma27",
-        photo: "img/players/t1ma27.png",
+        photo: "img/players/t1ma27.webp",
       },
       {
         name: "y0ung_m0on",
-        photo: "img/players/igor_oru.png",
+        photo: "img/players/igor_oru.webp",
         icon: "🟨",
       },
       {
         name: "Abdulatip44",
-        photo: "img/players/Abdulatip44.png",
+        photo: "img/players/Abdulatip44.webp",
         icon: "🟨",
       },
       {
         name: "KroxaAn",
-        photo: "img/players/KroxaAn.png",
+        photo: "img/players/KroxaAn.webp",
       },
       {
         name: "deltaivan",
-        photo: "img/players/deltaivan.png",
+        photo: "img/players/deltaivan.webp",
       },
       {
         name: "seivrtd",
-        photo: "img/players/seivrtd.png",
+        photo: "img/players/seivrtd.webp",
       },
       {
         name: "Артем",
-        photo: "img/players/artem.png",
+        photo: "img/players/artem.webp",
       },
     ],
   }

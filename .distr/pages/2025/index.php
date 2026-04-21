@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <td data-label="Игрок">
             <div class="player-info">
               <div class="player-photo"> 
-                <img src="/img/players/${player.photo || 'default.jpg'}?v=1.1.7" alt="${name}" class="">
+                <img src="/img/players/${player.photo || 'default.webp'}?v=1.1.7" alt="${name}" class="" loading="lazy" decoding="async">
               </div>
               <span>${name}</span>
             </div>
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (modalNameEl) modalNameEl.textContent = name;
     if (modalPhotoEl) {
-      modalPhotoEl.src = `/img/players/${player.photo || 'default.jpg'}?v=1.1.7`;
+      modalPhotoEl.src = `/img/players/${player.photo || 'default.webp'}?v=1.1.7`;
       modalPhotoEl.alt = name;
     }
     

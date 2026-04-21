@@ -1,6 +1,7 @@
 $(function () {
 
   //=require common/player-name-utils.js
+  //=require common/image-path-utils.js
 
   //=require main/script.js
   //=require popups/script.js
@@ -32,18 +33,18 @@ $(function () {
 
   // Маппинг названий команд к файлам логотипов (общая переменная)
   const teamNameMap = {
-    'РФОИ': 'admin.png',
+    'РФОИ': 'admin.webp',
     'Леон': 'leon.webp',
     'Ручеёк': 'rych.webp',
-    'Worlds': 'worlds.png',
+    'Worlds': 'worlds.webp',
     'Volt': 'volt.webp',
     'California': 'california.webp',
     'Юность': 'un.webp',
-    'Engelbert': 'Engelbert.png',
-    'Ясность': 'iasnostb.jpg',
-    'Анжи': 'anji.png',
-    'Титан': 'titan.png',
-    'FC Chelsea': '\u0441helsea.jpg',
+    'Engelbert': 'Engelbert.webp',
+    'Ясность': 'iasnostb.webp',
+    'Анжи': 'anji.webp',
+    'Титан': 'titan.webp',
+    'FC Chelsea': '\u0441helsea.webp',
   };
 
 
@@ -131,9 +132,7 @@ $(function () {
           <td data-label="Игрок">
             <div class="player-info">
               <div class="player-photo"> 
-                <img src="/img/players/${
-                  player.photo
-                }?v=1.1.7" alt="${name}" class="">
+                <img src="${resolvePlayerPhotoSrc(player.photo)}?v=1.1.7" alt="${name}" class="" loading="lazy" decoding="async">
               </div>
               <span>${name}</span>
             </div>
@@ -177,7 +176,7 @@ $(function () {
     const name = getPlayerDisplayName(player);
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.7`;
+    document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=1.1.7`;
     document.getElementById("modal-player-photo").alt = name;
 
     const displayTeamName = teamNameFromContext || player.teamName;
@@ -196,7 +195,7 @@ $(function () {
             .replace(/й/g, 'i') + '.webp';
 
         const teamPhotoPath = `/img/team/${teamFileName}`;
-        const fallbackLogoPath = '/img/team/logo.jpg';
+        const fallbackLogoPath = '/img/team/logo.webp';
         teamLogoImg.onerror = function () {
           teamLogoImg.onerror = null;
           teamLogoImg.src = fallbackLogoPath;
@@ -312,7 +311,7 @@ $(function () {
       const teamPlayers = teamData.players ? teamData.players.map(p => ({
         name: p.name,
         username: p.username || null,
-        photo: `/img/players/${p.photo}`,
+        photo: resolvePlayerPhotoSrc(p.photo),
         isCaptain: p.is_captain || false,
         isMainPlayer: p.is_main_player || false,
         icon: p.yellow_cards > 0 ? '🟨'.repeat(Math.min(p.yellow_cards, 2)) : ''
@@ -329,7 +328,7 @@ $(function () {
 
       if (modalName) modalName.textContent = team.name;
       if (modalPhoto) {
-        const fallbackTeamLogoPath = '/img/team/logo.jpg';
+        const fallbackTeamLogoPath = '/img/team/logo.webp';
         modalPhoto.onerror = function () {
           modalPhoto.onerror = null;
           modalPhoto.src = fallbackTeamLogoPath;
@@ -380,7 +379,7 @@ $(function () {
           const displayNameEscaped = displayName.replace(/"/g, '&quot;');
           const playerItem = `
             <div class="player-card${captainClass}${mainPlayerClass}" data-player-name="${playerNameEscaped}" data-player-username="${playerUsernameEscaped}" style="cursor: pointer;">
-              <img src="${player.photo}" alt="${displayName}" class="player-photo">
+              <img src="${player.photo}" alt="${displayName}" class="player-photo" loading="lazy" decoding="async">
               <div class="player-info">
                 <span class="player-name">${displayName}${player.icon ? ' ' + player.icon : ''}</span>
               </div>

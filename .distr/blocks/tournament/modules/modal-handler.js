@@ -8,6 +8,7 @@ import {
   getPlayerDisplayName,
   normalizeUsername,
 } from './format-utils.js';
+import { resolvePlayerPhotoSrc } from './image-path-utils.js';
 
 /**
  * Функция открытия модального окна команды
@@ -36,7 +37,7 @@ export const openTeamModal = (team) => {
   }
   modalTrophies.innerHTML = trophiesDisplay;
 
-  const fallbackTeamLogoPath = '/img/team/logo.jpg';
+  const fallbackTeamLogoPath = '/img/team/logo.webp';
   modalPhoto.onerror = function () {
     modalPhoto.onerror = null;
     modalPhoto.src = fallbackTeamLogoPath;
@@ -81,12 +82,7 @@ export const openTeamModal = (team) => {
       const mainPlayerClass = player.isMainPlayer ? ' is-main-player' : '';
       
       // Формируем путь к фото игрока (нормализуем путь)
-      let playerPhoto = player.photo || 'default.jpg';
-      if (!playerPhoto.startsWith('/') && !playerPhoto.startsWith('img/') && !playerPhoto.startsWith('http')) {
-        playerPhoto = `/img/players/${playerPhoto}`;
-      } else if (playerPhoto.startsWith('img/')) {
-        playerPhoto = `/${playerPhoto}`;
-      }
+      const playerPhoto = resolvePlayerPhotoSrc(player.photo);
       
       const displayName = getPlayerDisplayName(player);
       
@@ -101,7 +97,7 @@ export const openTeamModal = (team) => {
       const displayNameEscaped = displayName.replace(/"/g, '&quot;');
       const playerItem = `
         <div class="player-card${captainClass}${mainPlayerClass}" data-player-name="${playerNameEscaped}" data-player-username="${playerUsernameEscaped}" style="cursor: pointer;">
-          <img src="${playerPhoto}" alt="${displayName}" class="player-photo">
+          <img src="${playerPhoto}" alt="${displayName}" class="player-photo" loading="lazy" decoding="async">
           <div class="player-info">
             <span class="player-name">${displayName}${player.icon ? ' ' + player.icon : ''}</span>
           </div>
@@ -165,7 +161,7 @@ export const openTeamModal = (team) => {
           const playerUsername = card.getAttribute('data-player-username');
           if (!playerName) return;
 
-          // Загружаем данные игроков и открываем попап (team.name — для отображения лого команды и fallback logo.jpg)
+          // Загружаем данные игроков и открываем попап (team.name — для отображения лого команды и fallback logo.webp)
           loadAndShowPlayerModal(playerName, playerUsername, teamModalElement, team.name);
         });
       });
@@ -230,24 +226,24 @@ const showPlayerModalInTournament = (player, teamNameFromContext) => {
   const name = getPlayerDisplayName(player);
 
   document.getElementById("modal-player-name").textContent = name;
-  document.getElementById("modal-player-photo").src = `/img/players/${player.photo}?v=1.1.7`;
+  document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=1.1.7`;
   document.getElementById("modal-player-photo").alt = name;
 
   const displayTeamName = teamNameFromContext || player.teamName;
 
   const teamNameMap = {
-    'РФОИ': 'admin.png',
+    'РФОИ': 'admin.webp',
     'Леон': 'leon.webp',
     'Ручеёк': 'rych.webp',
-    'Worlds': 'worlds.png',
+    'Worlds': 'worlds.webp',
     'Volt': 'volt.webp',
     'California': 'california.webp',
     'Юность': 'un.webp',
-    'Engelbert': 'Engelbert.png',
-    'Ясность': 'iasnostb.jpg',
-    'Анжи': 'anji.png',
-    'Титан': 'titan.png',
-    'FC Chelsea': '\u0441helsea.jpg',
+    'Engelbert': 'Engelbert.webp',
+    'Ясность': 'iasnostb.webp',
+    'Анжи': 'anji.webp',
+    'Титан': 'titan.webp',
+    'FC Chelsea': '\u0441helsea.webp',
   };
 
   const teamInfo = document.getElementById("player-modal-team-info");
@@ -263,7 +259,7 @@ const showPlayerModalInTournament = (player, teamNameFromContext) => {
           .replace(/й/g, 'i') + '.webp';
 
       const teamPhotoPath = `/img/team/${teamFileName}`;
-      const fallbackLogoPath = '/img/team/logo.jpg';
+      const fallbackLogoPath = '/img/team/logo.webp';
       teamLogoImg.onerror = function () {
         teamLogoImg.onerror = null;
         teamLogoImg.src = fallbackLogoPath;
@@ -370,18 +366,18 @@ const loadAndOpenTeamModal = async (teamName) => {
 
     // Маппинг названий команд к файлам логотипов
     const teamNameMap = {
-      'РФОИ': 'admin.png',
+      'РФОИ': 'admin.webp',
       'Леон': 'leon.webp',
       'Ручеёк': 'rych.webp',
-      'Worlds': 'worlds.png',
+      'Worlds': 'worlds.webp',
       'Volt': 'volt.webp',
       'California': 'california.webp',
       'Un': 'un.webp',
-      'Engelbert': 'Engelbert.png',
-      'Ясность': 'iasnostb.jpg',
-      'Анжи': 'anji.png',
-      'Титан': 'titan.png',
-      'FC Chelsea': '\u0441helsea.jpg',
+      'Engelbert': 'Engelbert.webp',
+      'Ясность': 'iasnostb.webp',
+      'Анжи': 'anji.webp',
+      'Титан': 'titan.webp',
+      'FC Chelsea': '\u0441helsea.webp',
     };
 
     // Формируем путь к фото команды
@@ -399,12 +395,7 @@ const loadAndOpenTeamModal = async (teamName) => {
       trophies: team.trophies ? '🏆'.repeat(team.trophies) : '',
       players: teamData.players ? teamData.players.map(p => {
         // Нормализуем путь к фото игрока
-        let photo = p.photo || 'default.jpg';
-        if (!photo.startsWith('/') && !photo.startsWith('img/') && !photo.startsWith('http')) {
-          photo = `/img/players/${photo}`;
-        } else if (photo.startsWith('img/')) {
-          photo = `/${photo}`;
-        }
+        const photo = resolvePlayerPhotoSrc(p.photo);
         
         return {
           name: p.name,

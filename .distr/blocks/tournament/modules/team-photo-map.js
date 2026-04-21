@@ -5,19 +5,19 @@
 
 // Маппинг названий команд на пути к фото
 export const teamPhotoMap = {
-  'РФОИ': 'img/team/admin.png',
+  'РФОИ': 'img/team/admin.webp',
   'Леон': 'img/team/leon.webp',
   'Ручеёк': 'img/team/rych.webp',
-  'Worlds': 'img/team/worlds.png',
+  'Worlds': 'img/team/worlds.webp',
   'Volt': 'img/team/volt.webp',
   'Юность': 'img/team/un.webp',
   'California': 'img/team/california.webp',
   'Юность': 'img/team/un.webp',
-  'Engelbert': 'img/team/Engelbert.png',
-  'Ясность': 'img/team/iasnostb.jpg',
-  'Анжи': 'img/team/anji.png',
-  'Титан': 'img/team/titan.png',
-  'FC Chelsea': 'img/team/\u0441helsea.jpg',
+  'Engelbert': 'img/team/Engelbert.webp',
+  'Ясность': 'img/team/iasnostb.webp',
+  'Анжи': 'img/team/anji.webp',
+  'Титан': 'img/team/titan.webp',
+  'FC Chelsea': 'img/team/\u0441helsea.webp',
 };
 
 /**
@@ -32,6 +32,6 @@ export const getTeamPhotoPath = (teamName) => {
   }
   
   // Если команды нет в маппинге, возвращаем дефолтное изображение
-  return 'img/team/logo.jpg';
+  return 'img/team/logo.webp';
 };
 

@@ -12,7 +12,7 @@ $players =
       'draws' => 65,
       'losses' => 73,
       'rating' => 131.2,
-      'photo' => 'islam.png',
+      'photo' => 'islam.webp',
     ),
     1 =>
     array(
@@ -24,7 +24,7 @@ $players =
       'draws' => 53,
       'losses' => 41,
       'rating' => 121.3,
-      'photo' => 'seivrtd.png',
+      'photo' => 'seivrtd.webp',
     ),
     2 =>
     array(
@@ -36,7 +36,7 @@ $players =
       'draws' => 72,
       'losses' => 71,
       'rating' => 120.1,
-      'photo' => 'pavelsolnsev.png',
+      'photo' => 'pavelsolnsev.webp',
     ),
     3 =>
     array(
@@ -48,7 +48,7 @@ $players =
       'draws' => 31,
       'losses' => 29,
       'rating' => 101.4,
-      'photo' => 'tyrlanov.png',
+      'photo' => 'tyrlanov.webp',
     ),
     4 =>
     array(
@@ -60,7 +60,7 @@ $players =
       'draws' => 44,
       'losses' => 51,
       'rating' => 88.5,
-      'photo' => 'iamnotnikita.png',
+      'photo' => 'iamnotnikita.webp',
     ),
     5 =>
     array(
@@ -72,7 +72,7 @@ $players =
       'draws' => 66,
       'losses' => 81,
       'rating' => 83.2,
-      'photo' => 'deltaivan.png',
+      'photo' => 'deltaivan.webp',
     ),
     6 =>
     array(
@@ -84,7 +84,7 @@ $players =
       'draws' => 33,
       'losses' => 29,
       'rating' => 74.2,
-      'photo' => 'mixail.png',
+      'photo' => 'mixail.webp',
     ),
     7 =>
     array(
@@ -96,7 +96,7 @@ $players =
       'draws' => 17,
       'losses' => 9,
       'rating' => 73.2,
-      'photo' => 'AlexeiD2025.png',
+      'photo' => 'AlexeiD2025.webp',
     ),
     8 =>
     array(
@@ -108,7 +108,7 @@ $players =
       'draws' => 48,
       'losses' => 53,
       'rating' => 73.1,
-      'photo' => 'shmel.png',
+      'photo' => 'shmel.webp',
     ),
     9 =>
     array(
@@ -120,7 +120,7 @@ $players =
       'draws' => 42,
       'losses' => 30,
       'rating' => 73.8,
-      'photo' => 'mr_snak4.png',
+      'photo' => 'mr_snak4.webp',
     ),
     10 =>
     array(
@@ -132,7 +132,7 @@ $players =
       'draws' => 78,
       'losses' => 95,
       'rating' => 70.8,
-      'photo' => 'CyJlTaH1117.png',
+      'photo' => 'CyJlTaH1117.webp',
     ),
     11 =>
     array(
@@ -144,7 +144,7 @@ $players =
       'draws' => 42,
       'losses' => 50,
       'rating' => 68.3,
-      'photo' => 'toshnotik666.png',
+      'photo' => 'toshnotik666.webp',
     ),
     12 =>
     array(
@@ -156,7 +156,7 @@ $players =
       'draws' => 30,
       'losses' => 17,
       'rating' => 69,
-      'photo' => 'SenyaAvgan.png',
+      'photo' => 'SenyaAvgan.webp',
     ),
     13 =>
     array(
@@ -168,7 +168,7 @@ $players =
       'draws' => 27,
       'losses' => 32,
       'rating' => 67.3,
-      'photo' => 'igor_oru.png',
+      'photo' => 'igor_oru.webp',
     ),
     14 =>
     array(
@@ -180,7 +180,7 @@ $players =
       'draws' => 33,
       'losses' => 28,
       'rating' => 65.6,
-      'photo' => 'artem.png',
+      'photo' => 'artem.webp',
     ),
     15 =>
     array(
@@ -192,7 +192,7 @@ $players =
       'draws' => 23,
       'losses' => 27,
       'rating' => 64.5,
-      'photo' => 'Ravil.png',
+      'photo' => 'Ravil.webp',
     ),
     16 =>
     array(
@@ -204,7 +204,7 @@ $players =
       'draws' => 21,
       'losses' => 23,
       'rating' => 64.5,
-      'photo' => 'svyatoslavspirin.png',
+      'photo' => 'svyatoslavspirin.webp',
     ),
     17 =>
     array(
@@ -216,7 +216,7 @@ $players =
       'draws' => 12,
       'losses' => 9,
       'rating' => 60.5,
-      'photo' => 'kpacubo.png',
+      'photo' => 'kpacubo.webp',
     ),
     18 =>
     array(
@@ -228,7 +228,7 @@ $players =
       'draws' => 54,
       'losses' => 69,
       'rating' => 60.5,
-      'photo' => 'mirinian.png',
+      'photo' => 'mirinian.webp',
     ),
     19 =>
     array(
@@ -240,7 +240,7 @@ $players =
       'draws' => 46,
       'losses' => 36,
       'rating' => 59.3,
-      'photo' => 'ArtemTrafimov.png',
+      'photo' => 'ArtemTrafimov.webp',
     ),
     20 =>
     array(
@@ -252,7 +252,7 @@ $players =
       'draws' => 9,
       'losses' => 15,
       'rating' => 59.5,
-      'photo' => 'gos_it_tech.png',
+      'photo' => 'gos_it_tech.webp',
     ),
     21 =>
     array(
@@ -264,7 +264,7 @@ $players =
       'draws' => 23,
       'losses' => 35,
       'rating' => 57.9,
-      'photo' => 'aleksandr.png',
+      'photo' => 'aleksandr.webp',
     ),
     22 =>
     array(
@@ -276,7 +276,7 @@ $players =
       'draws' => 39,
       'losses' => 31,
       'rating' => 56.9,
-      'photo' => 'vl_l24.png',
+      'photo' => 'vl_l24.webp',
     ),
     23 =>
     array(
@@ -288,7 +288,7 @@ $players =
       'draws' => 37,
       'losses' => 24,
       'rating' => 56.8,
-      'photo' => 'filipps1.png',
+      'photo' => 'filipps1.webp',
     ),
     24 =>
     array(
@@ -300,7 +300,7 @@ $players =
       'draws' => 31,
       'losses' => 39,
       'rating' => 55.8,
-      'photo' => 'al11114.png',
+      'photo' => 'al11114.webp',
     ),
     25 =>
     array(
@@ -312,7 +312,7 @@ $players =
       'draws' => 49,
       'losses' => 63,
       'rating' => 54.1,
-      'photo' => 'vacheslav.png',
+      'photo' => 'vacheslav.webp',
     ),
     26 =>
     array(
@@ -324,7 +324,7 @@ $players =
       'draws' => 30,
       'losses' => 36,
       'rating' => 52.7,
-      'photo' => 'Abdulatip44.png',
+      'photo' => 'Abdulatip44.webp',
     ),
     27 =>
     array(
@@ -336,7 +336,7 @@ $players =
       'draws' => 31,
       'losses' => 39,
       'rating' => 53.3,
-      'photo' => 'sashok.png',
+      'photo' => 'sashok.webp',
     ),
     28 =>
     array(
@@ -348,7 +348,7 @@ $players =
       'draws' => 34,
       'losses' => 24,
       'rating' => 51.9,
-      'photo' => 'akylov.png',
+      'photo' => 'akylov.webp',
     ),
     29 =>
     array(
@@ -360,7 +360,7 @@ $players =
       'draws' => 29,
       'losses' => 16,
       'rating' => 49.2,
-      'photo' => 'romanov.png',
+      'photo' => 'romanov.webp',
     ),
     30 =>
     array(
@@ -372,7 +372,7 @@ $players =
       'draws' => 26,
       'losses' => 45,
       'rating' => 50,
-      'photo' => 'evgeniyshvetsov.png',
+      'photo' => 'evgeniyshvetsov.webp',
     ),
     31 =>
     array(
@@ -384,7 +384,7 @@ $players =
       'draws' => 9,
       'losses' => 6,
       'rating' => 50,
-      'photo' => 'Gavrilov.png',
+      'photo' => 'Gavrilov.webp',
     ),
     32 =>
     array(
@@ -396,7 +396,7 @@ $players =
       'draws' => 32,
       'losses' => 20,
       'rating' => 48.9,
-      'photo' => 'izi0895.png',
+      'photo' => 'izi0895.webp',
     ),
     33 =>
     array(
@@ -408,7 +408,7 @@ $players =
       'draws' => 12,
       'losses' => 9,
       'rating' => 46.7,
-      'photo' => 'dergaev.png',
+      'photo' => 'dergaev.webp',
     ),
     34 =>
     array(
@@ -420,7 +420,7 @@ $players =
       'draws' => 19,
       'losses' => 20,
       'rating' => 41.6,
-      'photo' => 'Mikhail.png',
+      'photo' => 'Mikhail.webp',
     ),
     35 =>
     array(
@@ -432,7 +432,7 @@ $players =
       'draws' => 4,
       'losses' => 6,
       'rating' => 42.5,
-      'photo' => 'alexdugar59.png',
+      'photo' => 'alexdugar59.webp',
     ),
     36 =>
     array(
@@ -444,7 +444,7 @@ $players =
       'draws' => 21,
       'losses' => 22,
       'rating' => 41.1,
-      'photo' => 'IIpets.png',
+      'photo' => 'IIpets.webp',
     ),
     37 =>
     array(
@@ -456,7 +456,7 @@ $players =
       'draws' => 39,
       'losses' => 62,
       'rating' => 40.9,
-      'photo' => 't1ma27.png',
+      'photo' => 't1ma27.webp',
     ),
     38 =>
     array(
@@ -468,7 +468,7 @@ $players =
       'draws' => 16,
       'losses' => 29,
       'rating' => 37.8,
-      'photo' => 'jorik.png',
+      'photo' => 'jorik.webp',
     ),
     39 =>
     array(
@@ -480,7 +480,7 @@ $players =
       'draws' => 40,
       'losses' => 68,
       'rating' => 38.5,
-      'photo' => 'Evgenkozl.png',
+      'photo' => 'Evgenkozl.webp',
     ),
     40 =>
     array(
@@ -492,7 +492,7 @@ $players =
       'draws' => 25,
       'losses' => 27,
       'rating' => 33.9,
-      'photo' => 'KhroSe.png',
+      'photo' => 'KhroSe.webp',
     ),
     41 =>
     array(
@@ -504,7 +504,7 @@ $players =
       'draws' => 26,
       'losses' => 29,
       'rating' => 32.2,
-      'photo' => 'Vadimka_brrrr.png',
+      'photo' => 'Vadimka_brrrr.webp',
     ),
     42 =>
     array(
@@ -516,7 +516,7 @@ $players =
       'draws' => 18,
       'losses' => 17,
       'rating' => 30,
-      'photo' => 'vpapalame.png',
+      'photo' => 'vpapalame.webp',
     ),
     43 =>
     array(
@@ -528,7 +528,7 @@ $players =
       'draws' => 9,
       'losses' => 13,
       'rating' => 28.7,
-      'photo' => 'sergey.png',
+      'photo' => 'sergey.webp',
     ),
     44 =>
     array(
@@ -540,7 +540,7 @@ $players =
       'draws' => 23,
       'losses' => 29,
       'rating' => 28.6,
-      'photo' => 'dmitri.png',
+      'photo' => 'dmitri.webp',
     ),
     45 =>
     array(
@@ -552,7 +552,7 @@ $players =
       'draws' => 8,
       'losses' => 3,
       'rating' => 27,
-      'photo' => 'Alexey_1803.png',
+      'photo' => 'Alexey_1803.webp',
     ),
     46 =>
     array(
@@ -564,7 +564,7 @@ $players =
       'draws' => 6,
       'losses' => 5,
       'rating' => 27.9,
-      'photo' => 'Perunov_Vladislav.png',
+      'photo' => 'Perunov_Vladislav.webp',
     ),
     47 =>
     array(
@@ -576,7 +576,7 @@ $players =
       'draws' => 6,
       'losses' => 6,
       'rating' => 25.9,
-      'photo' => 'kodirjon.png',
+      'photo' => 'kodirjon.webp',
     ),
     48 =>
     array(
@@ -588,7 +588,7 @@ $players =
       'draws' => 13,
       'losses' => 11,
       'rating' => 26,
-      'photo' => 'legor62.png',
+      'photo' => 'legor62.webp',
     ),
     49 =>
     array(
@@ -600,7 +600,7 @@ $players =
       'draws' => 26,
       'losses' => 60,
       'rating' => 24.8,
-      'photo' => 'KroxaAn.png',
+      'photo' => 'KroxaAn.webp',
     ),
     50 =>
     array(
@@ -612,7 +612,7 @@ $players =
       'draws' => 13,
       'losses' => 20,
       'rating' => 25.6,
-      'photo' => 'Aleksey_AS_NR.png',
+      'photo' => 'Aleksey_AS_NR.webp',
     ),
     51 =>
     array(
@@ -624,7 +624,7 @@ $players =
       'draws' => 30,
       'losses' => 60,
       'rating' => 23.8,
-      'photo' => 'nikita.png',
+      'photo' => 'nikita.webp',
     ),
     52 =>
     array(
@@ -636,7 +636,7 @@ $players =
       'draws' => 20,
       'losses' => 22,
       'rating' => 23,
-      'photo' => 'KonstantinChekanov.png',
+      'photo' => 'KonstantinChekanov.webp',
     ),
     53 =>
     array(
@@ -648,7 +648,7 @@ $players =
       'draws' => 4,
       'losses' => 4,
       'rating' => 22,
-      'photo' => 'ArtemiiTikhonov.png',
+      'photo' => 'ArtemiiTikhonov.webp',
     ),
     54 =>
     array(
@@ -660,7 +660,7 @@ $players =
       'draws' => 2,
       'losses' => 3,
       'rating' => 21.5,
-      'photo' => 'ryakhovskyp.png',
+      'photo' => 'ryakhovskyp.webp',
     ),
     55 =>
     array(
@@ -672,7 +672,7 @@ $players =
       'draws' => 5,
       'losses' => 7,
       'rating' => 21.3,
-      'photo' => 'Vadik.png',
+      'photo' => 'Vadik.webp',
     ),
     56 =>
     array(
@@ -684,7 +684,7 @@ $players =
       'draws' => 10,
       'losses' => 7,
       'rating' => 20.2,
-      'photo' => 'niki.png',
+      'photo' => 'niki.webp',
     ),
     57 =>
     array(
@@ -696,7 +696,7 @@ $players =
       'draws' => 5,
       'losses' => 7,
       'rating' => 20.2,
-      'photo' => 'toxa1392777.png',
+      'photo' => 'toxa1392777.webp',
     ),
     58 =>
     array(
@@ -708,7 +708,7 @@ $players =
       'draws' => 10,
       'losses' => 12,
       'rating' => 19.5,
-      'photo' => 'ridestreet.png',
+      'photo' => 'ridestreet.webp',
     ),
     59 =>
     array(
@@ -720,7 +720,7 @@ $players =
       'draws' => 5,
       'losses' => 7,
       'rating' => 18,
-      'photo' => 'gdemoi17let.png',
+      'photo' => 'gdemoi17let.webp',
     ),
     60 =>
     array(
@@ -732,7 +732,7 @@ $players =
       'draws' => 14,
       'losses' => 12,
       'rating' => 17.3,
-      'photo' => 'SMGGETT.png',
+      'photo' => 'SMGGETT.webp',
     ),
     61 =>
     array(
@@ -744,7 +744,7 @@ $players =
       'draws' => 7,
       'losses' => 1,
       'rating' => 18.1,
-      'photo' => 'ArsenAr89.png',
+      'photo' => 'ArsenAr89.webp',
     ),
     62 =>
     array(
@@ -756,7 +756,7 @@ $players =
       'draws' => 13,
       'losses' => 9,
       'rating' => 17.9,
-      'photo' => 'AndrewDfyf2.png',
+      'photo' => 'AndrewDfyf2.webp',
     ),
     63 =>
     array(
@@ -768,7 +768,7 @@ $players =
       'draws' => 9,
       'losses' => 15,
       'rating' => 16.6,
-      'photo' => 'Lonshchakov.png',
+      'photo' => 'Lonshchakov.webp',
     ),
     64 =>
     array(
@@ -780,7 +780,7 @@ $players =
       'draws' => 3,
       'losses' => 6,
       'rating' => 16.8,
-      'photo' => 'PChizhov87.png',
+      'photo' => 'PChizhov87.webp',
     ),
     65 =>
     array(
@@ -792,7 +792,7 @@ $players =
       'draws' => 6,
       'losses' => 5,
       'rating' => 16.3,
-      'photo' => 'Verhobanov1983.png',
+      'photo' => 'Verhobanov1983.webp',
     ),
     66 =>
     array(
@@ -804,7 +804,7 @@ $players =
       'draws' => 2,
       'losses' => 0,
       'rating' => 14,
-      'photo' => 'NizHgaN.png',
+      'photo' => 'NizHgaN.webp',
     ),
     67 =>
     array(
@@ -816,7 +816,7 @@ $players =
       'draws' => 5,
       'losses' => 7,
       'rating' => 14.5,
-      'photo' => 'Tatarinov.png',
+      'photo' => 'Tatarinov.webp',
     ),
     68 =>
     array(
@@ -828,7 +828,7 @@ $players =
       'draws' => 10,
       'losses' => 12,
       'rating' => 14.8,
-      'photo' => 'Cosmoc52.png',
+      'photo' => 'Cosmoc52.webp',
     ),
     69 =>
     array(
@@ -840,7 +840,7 @@ $players =
       'draws' => 2,
       'losses' => 1,
       'rating' => 13,
-      'photo' => 'gdi.png',
+      'photo' => 'gdi.webp',
     ),
     70 =>
     array(
@@ -852,7 +852,7 @@ $players =
       'draws' => 11,
       'losses' => 13,
       'rating' => 13.2,
-      'photo' => 'Pedro_Barb0sa.png',
+      'photo' => 'Pedro_Barb0sa.webp',
     ),
     71 =>
     array(
@@ -864,7 +864,7 @@ $players =
       'draws' => 11,
       'losses' => 13,
       'rating' => 13.5,
-      'photo' => 'JustahumanMy.png',
+      'photo' => 'JustahumanMy.webp',
     ),
     72 =>
     array(
@@ -876,7 +876,7 @@ $players =
       'draws' => 11,
       'losses' => 11,
       'rating' => 12,
-      'photo' => 'kozzzlov.png',
+      'photo' => 'kozzzlov.webp',
     ),
     73 =>
     array(
@@ -888,7 +888,7 @@ $players =
       'draws' => 6,
       'losses' => 8,
       'rating' => 11,
-      'photo' => 'BarDblga.png',
+      'photo' => 'BarDblga.webp',
     ),
     74 =>
     array(
@@ -900,7 +900,7 @@ $players =
       'draws' => 14,
       'losses' => 7,
       'rating' => 11.9,
-      'photo' => 'silkin_handr.png',
+      'photo' => 'silkin_handr.webp',
     ),
     75 =>
     array(
@@ -912,7 +912,7 @@ $players =
       'draws' => 1,
       'losses' => 1,
       'rating' => 11.5,
-      'photo' => 'Lazio.png',
+      'photo' => 'Lazio.webp',
     ),
     76 =>
     array(
@@ -924,7 +924,7 @@ $players =
       'draws' => 10,
       'losses' => 6,
       'rating' => 12.2,
-      'photo' => 'AndSaf.png',
+      'photo' => 'AndSaf.webp',
     ),
     77 =>
     array(
@@ -936,7 +936,7 @@ $players =
       'draws' => 1,
       'losses' => 1,
       'rating' => 11.5,
-      'photo' => 'alexe19m.png',
+      'photo' => 'alexe19m.webp',
     ),
     78 =>
     array(
@@ -948,7 +948,7 @@ $players =
       'draws' => 2,
       'losses' => 4,
       'rating' => 11.4,
-      'photo' => 'Vlades.png',
+      'photo' => 'Vlades.webp',
     ),
     79 =>
     array(
@@ -960,7 +960,7 @@ $players =
       'draws' => 9,
       'losses' => 3,
       'rating' => 11.1,
-      'photo' => 'matveev.png',
+      'photo' => 'matveev.webp',
     ),
     80 =>
     array(
@@ -972,7 +972,7 @@ $players =
       'draws' => 0,
       'losses' => 0,
       'rating' => 10,
-      'photo' => 'ivan.png',
+      'photo' => 'ivan.webp',
     ),
     81 =>
     array(
@@ -984,7 +984,7 @@ $players =
       'draws' => 4,
       'losses' => 0,
       'rating' => 10,
-      'photo' => 'frankie_dux.png',
+      'photo' => 'frankie_dux.webp',
     ),
     82 =>
     array(
@@ -996,7 +996,7 @@ $players =
       'draws' => 6,
       'losses' => 13,
       'rating' => 10.5,
-      'photo' => 'KV-19.png',
+      'photo' => 'KV-19.webp',
     ),
     83 =>
     array(
@@ -1008,7 +1008,7 @@ $players =
       'draws' => 5,
       'losses' => 1,
       'rating' => 9.5,
-      'photo' => 'DMITRIY_MSK_V.png',
+      'photo' => 'DMITRIY_MSK_V.webp',
     ),
     84 =>
     array(
@@ -1020,7 +1020,7 @@ $players =
       'draws' => 1,
       'losses' => 1,
       'rating' => 8.5,
-      'photo' => 'rysholda13.png',
+      'photo' => 'rysholda13.webp',
     ),
     85 =>
     array(
@@ -1032,7 +1032,7 @@ $players =
       'draws' => 2,
       'losses' => 2,
       'rating' => 8.5,
-      'photo' => 'Aleksandr_bannik.png',
+      'photo' => 'Aleksandr_bannik.webp',
     ),
     86 =>
     array(
@@ -1044,7 +1044,7 @@ $players =
       'draws' => 0,
       'losses' => 2,
       'rating' => 7.5,
-      'photo' => 'vehrbrvk50.png',
+      'photo' => 'vehrbrvk50.webp',
     ),
     87 =>
     array(
@@ -1056,7 +1056,7 @@ $players =
       'draws' => 4,
       'losses' => 2,
       'rating' => 8.3,
-      'photo' => 'desantiiago.png',
+      'photo' => 'desantiiago.webp',
     ),
     88 =>
     array(
@@ -1068,7 +1068,7 @@ $players =
       'draws' => 6,
       'losses' => 19,
       'rating' => 7.7,
-      'photo' => 'iLikeTP.png',
+      'photo' => 'iLikeTP.webp',
     ),
     89 =>
     array(
@@ -1080,7 +1080,7 @@ $players =
       'draws' => 6,
       'losses' => 10,
       'rating' => 7.7,
-      'photo' => 'RodnoyAR.png',
+      'photo' => 'RodnoyAR.webp',
     ),
     90 =>
     array(
@@ -1092,7 +1092,7 @@ $players =
       'draws' => 1,
       'losses' => 3,
       'rating' => 6,
-      'photo' => 'anatoli.png',
+      'photo' => 'anatoli.webp',
     ),
     91 =>
     array(
@@ -1104,7 +1104,7 @@ $players =
       'draws' => 4,
       'losses' => 0,
       'rating' => 6,
-      'photo' => 'Xpycts.png',
+      'photo' => 'Xpycts.webp',
     ),
     92 =>
     array(
@@ -1116,7 +1116,7 @@ $players =
       'draws' => 4,
       'losses' => 0,
       'rating' => 6.5,
-      'photo' => 'freza01.png',
+      'photo' => 'freza01.webp',
     ),
     93 =>
     array(
@@ -1128,7 +1128,7 @@ $players =
       'draws' => 10,
       'losses' => 12,
       'rating' => 6.5,
-      'photo' => 'aleks.png',
+      'photo' => 'aleks.webp',
     ),
     94 =>
     array(
@@ -1140,7 +1140,7 @@ $players =
       'draws' => 2,
       'losses' => 3,
       'rating' => 6,
-      'photo' => 'R_kirpichik.png',
+      'photo' => 'R_kirpichik.webp',
     ),
     95 =>
     array(
@@ -1152,7 +1152,7 @@ $players =
       'draws' => 10,
       'losses' => 6,
       'rating' => 6,
-      'photo' => 'game_on_manneger.png',
+      'photo' => 'game_on_manneger.webp',
     ),
     96 =>
     array(
@@ -1164,7 +1164,7 @@ $players =
       'draws' => 1,
       'losses' => 6,
       'rating' => 6,
-      'photo' => 'fucking1986.png',
+      'photo' => 'fucking1986.webp',
     ),
     97 =>
     array(
@@ -1176,7 +1176,7 @@ $players =
       'draws' => 3,
       'losses' => 1,
       'rating' => 6.5,
-      'photo' => 'Crespo199319993.png',
+      'photo' => 'Crespo199319993.webp',
     ),
     98 =>
     array(
@@ -1188,7 +1188,7 @@ $players =
       'draws' => 2,
       'losses' => 2,
       'rating' => 5.5,
-      'photo' => 'Ruslan444ikk.png',
+      'photo' => 'Ruslan444ikk.webp',
     ),
     99 =>
     array(
@@ -1200,7 +1200,7 @@ $players =
       'draws' => 3,
       'losses' => 9,
       'rating' => 5,
-      'photo' => 'andr.png',
+      'photo' => 'andr.webp',
     ),
     100 =>
     array(
@@ -1212,7 +1212,7 @@ $players =
       'draws' => 5,
       'losses' => 9,
       'rating' => 5.5,
-      'photo' => 'N_Trimonov.png',
+      'photo' => 'N_Trimonov.webp',
     ),
     101 =>
     array(
@@ -1224,7 +1224,7 @@ $players =
       'draws' => 4,
       'losses' => 4,
       'rating' => 4,
-      'photo' => 'default.jpg',
+      'photo' => 'default.webp',
     ),
     102 =>
     array(
@@ -1236,7 +1236,7 @@ $players =
       'draws' => 5,
       'losses' => 9,
       'rating' => 4,
-      'photo' => 'umeprel.png',
+      'photo' => 'umeprel.webp',
     ),
     103 =>
     array(
@@ -1248,7 +1248,7 @@ $players =
       'draws' => 5,
       'losses' => 16,
       'rating' => 3.5,
-      'photo' => 'igosh.png',
+      'photo' => 'igosh.webp',
     ),
     104 =>
     array(
@@ -1260,7 +1260,7 @@ $players =
       'draws' => 2,
       'losses' => 7,
       'rating' => 3.6,
-      'photo' => 'TimRamen.png',
+      'photo' => 'TimRamen.webp',
     ),
     105 =>
     array(
@@ -1272,7 +1272,7 @@ $players =
       'draws' => 0,
       'losses' => 3,
       'rating' => 4,
-      'photo' => 'IkRoMchIk_75.png',
+      'photo' => 'IkRoMchIk_75.webp',
     ),
     106 =>
     array(
@@ -1284,7 +1284,7 @@ $players =
       'draws' => 6,
       'losses' => 1,
       'rating' => 4.5,
-      'photo' => 'Sirgey_zizy.png',
+      'photo' => 'Sirgey_zizy.webp',
     ),
     107 =>
     array(
@@ -1296,7 +1296,7 @@ $players =
       'draws' => 1,
       'losses' => 4,
       'rating' => 4,
-      'photo' => 'zakat.png',
+      'photo' => 'zakat.webp',
     ),
     108 =>
     array(
@@ -1308,7 +1308,7 @@ $players =
       'draws' => 3,
       'losses' => 2,
       'rating' => 3,
-      'photo' => 'Solomin.png',
+      'photo' => 'Solomin.webp',
     ),
     109 =>
     array(
@@ -1320,7 +1320,7 @@ $players =
       'draws' => 3,
       'losses' => 6,
       'rating' => 2.9,
-      'photo' => 'Paxan4.png',
+      'photo' => 'Paxan4.webp',
     ),
     110 =>
     array(
@@ -1332,7 +1332,7 @@ $players =
       'draws' => 1,
       'losses' => 3,
       'rating' => 3.5,
-      'photo' => 'galanovfitness.png',
+      'photo' => 'galanovfitness.webp',
     ),
     111 =>
     array(
@@ -1344,7 +1344,7 @@ $players =
       'draws' => 0,
       'losses' => 3,
       'rating' => 3.3,
-      'photo' => 'Spasatel_1731.png',
+      'photo' => 'Spasatel_1731.webp',
     ),
     112 =>
     array(
@@ -1356,7 +1356,7 @@ $players =
       'draws' => 1,
       'losses' => 3,
       'rating' => 3.5,
-      'photo' => 'Artibai.png',
+      'photo' => 'Artibai.webp',
     ),
     113 =>
     array(
@@ -1368,7 +1368,7 @@ $players =
       'draws' => 1,
       'losses' => 3,
       'rating' => 3,
-      'photo' => 'taltskov.png',
+      'photo' => 'taltskov.webp',
     ),
     114 =>
     array(
@@ -1380,7 +1380,7 @@ $players =
       'draws' => 4,
       'losses' => 8,
       'rating' => 1.8,
-      'photo' => 'HUNTER100983.png',
+      'photo' => 'HUNTER100983.webp',
     ),
     115 =>
     array(
@@ -1392,7 +1392,7 @@ $players =
       'draws' => 4,
       'losses' => 6,
       'rating' => 1.5,
-      'photo' => 'mi28nm.png',
+      'photo' => 'mi28nm.webp',
     ),
     116 =>
     array(
@@ -1404,7 +1404,7 @@ $players =
       'draws' => 9,
       'losses' => 6,
       'rating' => 1.5,
-      'photo' => 'germanitto.png',
+      'photo' => 'germanitto.webp',
     ),
     117 =>
     array(
@@ -1416,7 +1416,7 @@ $players =
       'draws' => 0,
       'losses' => 0,
       'rating' => 2.3,
-      'photo' => 'mbodunov.png',
+      'photo' => 'mbodunov.webp',
     ),
     118 =>
     array(
@@ -1428,7 +1428,7 @@ $players =
       'draws' => 2,
       'losses' => 4,
       'rating' => 2,
-      'photo' => 'Jony8603.png',
+      'photo' => 'Jony8603.webp',
     ),
     119 =>
     array(
@@ -1440,7 +1440,7 @@ $players =
       'draws' => 3,
       'losses' => 8,
       'rating' => 2,
-      'photo' => 'Iatinose.png',
+      'photo' => 'Iatinose.webp',
     ),
     120 =>
     array(
@@ -1452,7 +1452,7 @@ $players =
       'draws' => 2,
       'losses' => 3,
       'rating' => 1.5,
-      'photo' => 'ankorn1694.png',
+      'photo' => 'ankorn1694.webp',
     ),
     121 =>
     array(
@@ -1464,7 +1464,7 @@ $players =
       'draws' => 6,
       'losses' => 10,
       'rating' => 0,
-      'photo' => 'danchik284.png',
+      'photo' => 'danchik284.webp',
     ),
     122 =>
     array(
@@ -1476,7 +1476,7 @@ $players =
       'draws' => 3,
       'losses' => 3,
       'rating' => 0,
-      'photo' => 'default.jpg',
+      'photo' => 'default.webp',
     ),
     123 =>
     array(
@@ -1488,7 +1488,7 @@ $players =
       'draws' => 3,
       'losses' => 12,
       'rating' => 0,
-      'photo' => 'VynLavanda.png',
+      'photo' => 'VynLavanda.webp',
     ),
     124 =>
     array(
@@ -1500,7 +1500,7 @@ $players =
       'draws' => 5,
       'losses' => 3,
       'rating' => 0,
-      'photo' => 'roman.png',
+      'photo' => 'roman.webp',
     ),
     125 =>
     array(
@@ -1512,7 +1512,7 @@ $players =
       'draws' => 2,
       'losses' => 3,
       'rating' => 0,
-      'photo' => 'BezrukovViktor.png',
+      'photo' => 'BezrukovViktor.webp',
     ),
     126 =>
     array(
@@ -1524,7 +1524,7 @@ $players =
       'draws' => 2,
       'losses' => 8,
       'rating' => 0,
-      'photo' => 'Never.png',
+      'photo' => 'Never.webp',
     ),
     127 =>
     array(
@@ -1536,8 +1536,7 @@ $players =
       'draws' => 1,
       'losses' => 4,
       'rating' => 0,
-      'photo' => 'MS_Leon17.png
-',
+      'photo' => 'MS_Leon17.webp',
     ),
     128 =>
     array(
@@ -1549,7 +1548,7 @@ $players =
       'draws' => 2,
       'losses' => 10,
       'rating' => 0,
-      'photo' => 'faserq.png',
+      'photo' => 'faserq.webp',
     ),
     129 =>
     array(
@@ -1561,7 +1560,7 @@ $players =
       'draws' => 3,
       'losses' => 12,
       'rating' => 0,
-      'photo' => 'Nikcha228.png',
+      'photo' => 'Nikcha228.webp',
     ),
     130 =>
     array(
@@ -1573,7 +1572,7 @@ $players =
       'draws' => 4,
       'losses' => 6,
       'rating' => 0,
-      'photo' => 'valenokkk09.png',
+      'photo' => 'valenokkk09.webp',
     ),
     131 =>
     array(
@@ -1585,7 +1584,7 @@ $players =
       'draws' => 1,
       'losses' => 6,
       'rating' => 0,
-      'photo' => 'danil.png',
+      'photo' => 'danil.webp',
     ),
     132 =>
     array(
@@ -1597,7 +1596,7 @@ $players =
       'draws' => 3,
       'losses' => 8,
       'rating' => 0,
-      'photo' => 'GoshaSc.png',
+      'photo' => 'GoshaSc.webp',
     ),
     133 =>
     array(
@@ -1609,7 +1608,7 @@ $players =
       'draws' => 4,
       'losses' => 7,
       'rating' => 0,
-      'photo' => 'Aleksandr93.png',
+      'photo' => 'Aleksandr93.webp',
     ),
     134 =>
     array(
@@ -1621,7 +1620,7 @@ $players =
       'draws' => 2,
       'losses' => 3,
       'rating' => 0.5,
-      'photo' => 'gerop_il.png',
+      'photo' => 'gerop_il.webp',
     ),
     135 =>
     array(
@@ -1633,7 +1632,7 @@ $players =
       'draws' => 0,
       'losses' => 4,
       'rating' => 0,
-      'photo' => 'default.jpg',
+      'photo' => 'default.webp',
     ),
     136 =>
     array(
@@ -1645,7 +1644,7 @@ $players =
       'draws' => 6,
       'losses' => 16,
       'rating' => 0,
-      'photo' => 'denis.png',
+      'photo' => 'denis.webp',
     ),
   );
 
@@ -1734,7 +1733,7 @@ if (!function_exists('rfoi_player_display_name')) {
             <?php foreach ($players as $index => $player): ?>
               <?php
               $name = rfoi_player_display_name($player);
-              $photo = $player['photo'] ?? 'default.jpg';
+              $photo = $player['photo'] ?? 'default.webp';
               $gamesPlayed = $player['gamesPlayed'] ?? 0;
               $wins = $player['wins'] ?? 0;
               $draws = $player['draws'] ?? 0;
@@ -1747,7 +1746,7 @@ if (!function_exists('rfoi_player_display_name')) {
                 <td data-label="Игрок">
                   <div class="player-info">
                     <div class="player-photo">
-                      <img src="/img/players/<?= htmlspecialchars($photo) ?>?v=1.1.3" alt="<?= htmlspecialchars($name) ?>" class="">
+                      <img src="/img/players/<?= htmlspecialchars($photo) ?>?v=1.1.3" alt="<?= htmlspecialchars($name) ?>" class="" loading="lazy" decoding="async">
                     </div>
                     <span><?= htmlspecialchars($name) ?></span>
                   </div>

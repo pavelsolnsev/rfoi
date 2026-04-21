@@ -4,6 +4,7 @@
 
 import { getTeamPhotoPath } from './team-photo-map.js';
 import { formatTrophies } from './format-utils.js';
+import { playerImgPlayersPath } from './image-path-utils.js';
 
 /**
  * Преобразует количество желтых карточек в строку с иконками
@@ -67,7 +68,7 @@ export const loadTeamsData = async (renderCallback, teamsTableBody) => {
       playersByTeam[teamNameKey] = teamGroup.players.map(player => ({
         name: player.name || '', // Оригинальное имя из базы
         username: player.username || null, // Username для правильного отображения
-        photo: player.photo ? `img/players/${player.photo}` : 'img/players/default.jpg',
+        photo: player.photo ? playerImgPlayersPath(player.photo) : 'img/players/default.webp',
         isCaptain: player.is_captain || false,
         isMainPlayer: player.is_main_player || false,
         yellowCards: player.yellow_cards || 0,

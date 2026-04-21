@@ -15,14 +15,14 @@
           
           <div class="player-photo-container">
             <div class="photo-frame">
-              <img id="modal-player-photo" src="" alt="Player Photo" class="player-photo-img">
+              <img id="modal-player-photo" src="" alt="Player Photo" class="player-photo-img" loading="eager" decoding="async">
               <div class="photo-overlay"></div>
             </div>
           </div>
           <h3 id="modal-player-name" class="player-name"></h3>
 
           <div class="player-team-info" id="player-modal-team-info">
-            <img id="player-modal-team-logo-img" src="" alt="Team Logo" class="team-logo-small">
+            <img id="player-modal-team-logo-img" src="" alt="Team Logo" class="team-logo-small" loading="eager" decoding="async">
             <span id="player-modal-team-name" class="team-name-small"></span>
           </div>
 
@@ -222,7 +222,7 @@
         <div class="team-info-wrapper">
           <div class="team-header">
             <div class="team-photo-wrapper">
-              <img id="modal-team-photo" src="" alt="Team Photo" class="team-photo">
+              <img id="modal-team-photo" src="" alt="Team Photo" class="team-photo" loading="eager" decoding="async">
             </div>
             <h3 id="modal-team-name" class="team-name"></h3>
             <span id="modal-team-trophies"></span>

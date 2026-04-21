@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     sortedTeams.forEach((team, index) => {
       const name = team.name || 'Неизвестно';
-      const photo = team.photo || 'img/team/default.jpg';
+      const photo = team.photo || 'img/team/default.webp';
       const trophyCount = team.trophy_count !== undefined ? team.trophy_count : ((team.trophies || '').split('🏆').length - 1);
       const trophiesDisplay = trophyCount >= 2
         ? `<span class="trophy-count">${trophyCount}</span>`
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <td data-label="Команда">
             <div class="player-info">
               <div class="player-photo">
-                <img src="/${photo}" alt="${name}" onerror="this.src='img/team/logo.jpg'">
+                <img src="/${photo}" alt="${name}" loading="lazy" decoding="async" onerror="this.src='img/team/logo.webp'">
               </div>
               <span>${name}</span>
             </div>
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
     modalTrophies.innerHTML = modalTrophyCount >= 2
       ? `<span class="trophy-count"><span class="trophy-count-num">${modalTrophyCount}</span></span>`
       : (team.trophies || '');
-    modalPhoto.src = '/' + (team.photo || 'img/team/default.jpg');
+    modalPhoto.src = '/' + (team.photo || 'img/team/default.webp');
     
     // Находим контейнеры для Swiper и сетки
     const swiperWrapper = modalPlayers.querySelector('.swiper-wrapper');
@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const captainClass = (player.is_captain) ? ' is-captain' : '';
         const playerItem = `
           <div class="player-card${captainClass}">
-          <img src="/${player.photo || 'img/players/default.jpg'}" alt="${player.name || ''}" class="player-photo">
+          <img src="/${player.photo || 'img/players/default.webp'}" alt="${player.name || ''}" class="player-photo" loading="lazy" decoding="async">
           <div class="player-info">
             <span class="player-name">${player.name || ''}${player.icon ? ' ' + player.icon : ''}</span>
           </div>

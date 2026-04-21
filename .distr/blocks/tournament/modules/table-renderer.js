@@ -48,7 +48,7 @@ export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) 
         <td data-label="Команда">
           <div class="player-info">
             <div class="player-photo">
-              <img src="${team.photo}" alt="${team.name}" onerror="this.src='img/team/logo.jpg'">
+              <img src="${team.photo}" alt="${team.name}" loading="lazy" decoding="async" onerror="this.src='img/team/logo.webp'">
             </div>
             <span>${team.name}</span>
           </div>
