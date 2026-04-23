@@ -1,4 +1,4 @@
-$(function () {
+document.addEventListener('DOMContentLoaded', function () {
 
   //=require common/player-name-utils.js
   //=require common/image-path-utils.js
@@ -11,7 +11,7 @@ $(function () {
   const errorMessage = document.getElementById("error-message");
   const emptyMessage = document.getElementById("empty-message");
   const loader = document.getElementById("loader");
-  const playerModal = new bootstrap.Modal(document.getElementById("playerModal"));
+  const playerModalEl = document.getElementById("playerModal");
 
   if (
     !desktopTable ||
@@ -19,11 +19,13 @@ $(function () {
     !errorMessage ||
     !emptyMessage ||
     !loader ||
-    !playerModal
+    !playerModalEl
   ) {
     // console.error("Ошибка: Один или несколько элементов DOM не найдены");
     return;
   }
+
+  const playerModal = new bootstrap.Modal(playerModalEl);
 
   let players = [];
   let sortConfig = {
@@ -573,4 +575,4 @@ $(function () {
   });
 
   fetchPlayers();
-});
+}, false);
