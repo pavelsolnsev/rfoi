@@ -242,6 +242,7 @@ const showPlayerModalInTournament = (player, teamNameFromContext) => {
     'Engelbert': 'Engelbert.webp',
     'Ясность': 'iasnostb.webp',
     'Анжи': 'anji.webp',
+    'Артемида': 'artemida.webp',
     'Титан': 'titan.webp',
     'FC Chelsea': '\u0441helsea.webp',
   };
@@ -376,6 +377,7 @@ const loadAndOpenTeamModal = async (teamName) => {
       'Engelbert': 'Engelbert.webp',
       'Ясность': 'iasnostb.webp',
       'Анжи': 'anji.webp',
+      'Артемида': 'artemida.webp',
       'Титан': 'titan.webp',
       'FC Chelsea': '\u0441helsea.webp',
     };
