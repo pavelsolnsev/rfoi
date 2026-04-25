@@ -17,10 +17,6 @@ if (strpos($currentPath, '/tournament') !== false && strpos($currentPath, '/2025
 ?>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const rfoiImgV = String(
-    (typeof window !== 'undefined' && window.RFOI_IMAGES_V != null) ? window.RFOI_IMAGES_V : '0'
-  );
-
   // Модуль переключения темы (темная/светлая)
   (function() {
     'use strict';
@@ -187,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <td data-label="Команда">
             <div class="player-info">
               <div class="player-photo">
-                <img src="/${photo}?v=${rfoiImgV}" alt="${name}" loading="lazy" decoding="async" onerror="this.src='img/team/logo.webp?v=${rfoiImgV}'">
+                <img src="/${photo}" alt="${name}" loading="lazy" decoding="async" onerror="this.src='img/team/logo.webp'">
               </div>
               <span>${name}</span>
             </div>
@@ -239,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
     modalTrophies.innerHTML = modalTrophyCount >= 2
       ? `<span class="trophy-count"><span class="trophy-count-num">${modalTrophyCount}</span></span>`
       : (team.trophies || '');
-    modalPhoto.src = '/' + (team.photo || 'img/team/default.webp') + '?v=' + rfoiImgV;
+    modalPhoto.src = '/' + (team.photo || 'img/team/default.webp');
     
     // Находим контейнеры для Swiper и сетки
     const swiperWrapper = modalPlayers.querySelector('.swiper-wrapper');
@@ -271,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const captainClass = (player.is_captain) ? ' is-captain' : '';
         const playerItem = `
           <div class="player-card${captainClass}">
-          <img src="/${player.photo || 'img/players/default.webp'}?v=${rfoiImgV}" alt="${player.name || ''}" class="player-photo" loading="lazy" decoding="async">
+          <img src="/${player.photo || 'img/players/default.webp'}" alt="${player.name || ''}" class="player-photo" loading="lazy" decoding="async">
           <div class="player-info">
             <span class="player-name">${player.name || ''}${player.icon ? ' ' + player.icon : ''}</span>
           </div>

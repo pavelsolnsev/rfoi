@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <?php
-if (!headers_sent()) {
-    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0', true);
-    header('Pragma: no-cache', true);
-    header('Expires: 0', true);
-}
-
 $ROOT = $_SERVER['DOCUMENT_ROOT'] . '/';
 $BASE_HREF = '//' . $_SERVER['HTTP_HOST'] . (!empty($_SERVER['DOCUMENT_URI']) ? str_replace(substr(str_replace('index.php', '', $_SERVER['DOCUMENT_URI']), 1), '', $_SERVER['REQUEST_URI']) : '');
 $URL = '//' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -17,31 +11,6 @@ function isMobile()
 }
 $cssVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/css/style.css');
 $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
-
-$docRoot = rtrim((string)($_SERVER['DOCUMENT_ROOT'] ?? ''), "/\\");
-$rfoiImageSignatures = [];
-if ($docRoot !== '') {
-    foreach (['img/players', 'img/team'] as $sub) {
-        $dir = $docRoot . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $sub);
-        if (!is_dir($dir)) {
-            continue;
-        }
-        $list = @scandir($dir) ?: [];
-        foreach ($list as $name) {
-            if ($name === '.' || $name === '..' || (is_string($name) && $name !== '' && $name[0] === '.')) {
-                continue;
-            }
-            $f = $dir . DIRECTORY_SEPARATOR . $name;
-            if (is_file($f)) {
-                $rfoiImageSignatures[] = $sub . '/' . $name . ':' . filemtime($f) . ':' . filesize($f);
-            }
-        }
-    }
-}
-sort($rfoiImageSignatures, SORT_STRING);
-$rfoiImagesVersion = $rfoiImageSignatures
-    ? (int) sprintf('%u', crc32(implode("\0", $rfoiImageSignatures)))
-    : (int) time();
 ?>
 
 <head>
@@ -65,7 +34,6 @@ $rfoiImagesVersion = $rfoiImageSignatures
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
     <link rel="stylesheet" href="css/style.css?v=<?= $cssVersion ?>">
-    <script>window.RFOI_IMAGES_V=<?= (int)$rfoiImagesVersion ?>;</script>
 </head>
 
 <body class="{{ PAGE_CLASS }}">
