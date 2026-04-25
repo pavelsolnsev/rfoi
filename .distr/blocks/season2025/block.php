@@ -1746,7 +1746,7 @@ if (!function_exists('rfoi_player_display_name')) {
                 <td data-label="Игрок">
                   <div class="player-info">
                     <div class="player-photo">
-                      <img src="/img/players/<?= htmlspecialchars($photo) ?>?v=1.1.3" alt="<?= htmlspecialchars($name) ?>" class="" loading="lazy" decoding="async">
+                      <img src="/img/players/<?= htmlspecialchars($photo) ?>?v=<?= (int)($rfoiImagesVersion ?? time()) ?>" alt="<?= htmlspecialchars($name) ?>" class="" loading="lazy" decoding="async">
                     </div>
                     <span><?= htmlspecialchars($name) ?></span>
                   </div>

@@ -21,6 +21,10 @@ if (strpos($currentPath, '/tournament') !== false) {
 ?>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  const rfoiImgV = String(
+    (typeof window !== 'undefined' && window.RFOI_IMAGES_V != null) ? window.RFOI_IMAGES_V : '0'
+  );
+
   // Модуль переключения темы (темная/светлая)
   (function() {
     'use strict';
@@ -197,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <td data-label="Игрок">
             <div class="player-info">
               <div class="player-photo"> 
-                <img src="/img/players/${player.photo || 'default.webp'}?v=1.1.7" alt="${name}" class="" loading="lazy" decoding="async">
+                <img src="/img/players/${player.photo || 'default.webp'}?v=${rfoiImgV}" alt="${name}" class="" loading="lazy" decoding="async">
               </div>
               <span>${name}</span>
             </div>
@@ -251,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (modalNameEl) modalNameEl.textContent = name;
     if (modalPhotoEl) {
-      modalPhotoEl.src = `/img/players/${player.photo || 'default.webp'}?v=1.1.7`;
+      modalPhotoEl.src = `/img/players/${player.photo || 'default.webp'}?v=${rfoiImgV}`;
       modalPhotoEl.alt = name;
     }
     

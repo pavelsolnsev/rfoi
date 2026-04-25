@@ -27,6 +27,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const playerModal = new bootstrap.Modal(playerModalEl);
 
+  const rfoiImgV =
+    typeof window !== "undefined" && window.RFOI_IMAGES_V != null
+      ? String(window.RFOI_IMAGES_V)
+      : "0";
+
   let players = [];
   let sortConfig = {
     key: 'rating',
@@ -135,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <td data-label="Игрок">
             <div class="player-info">
               <div class="player-photo"> 
-                <img src="${resolvePlayerPhotoSrc(player.photo)}?v=1.2.9" alt="${name}" class="" loading="lazy" decoding="async">
+                <img src="${resolvePlayerPhotoSrc(player.photo)}?v=${rfoiImgV}" alt="${name}" class="" loading="lazy" decoding="async">
               </div>
               <span>${name}</span>
             </div>
@@ -179,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const name = getPlayerDisplayName(player);
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=1.2.9`;
+    document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=${rfoiImgV}`;
     document.getElementById("modal-player-photo").alt = name;
 
     const displayTeamName = teamNameFromContext || player.teamName;
@@ -314,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const teamPlayers = teamData.players ? teamData.players.map(p => ({
         name: p.name,
         username: p.username || null,
-        photo: resolvePlayerPhotoSrc(p.photo),
+        photo: `${resolvePlayerPhotoSrc(p.photo)}?v=${rfoiImgV}`,
         isCaptain: p.is_captain || false,
         isMainPlayer: p.is_main_player || false,
         icon: p.yellow_cards > 0 ? '🟨'.repeat(Math.min(p.yellow_cards, 2)) : ''

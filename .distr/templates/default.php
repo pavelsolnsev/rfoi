@@ -11,6 +11,28 @@ function isMobile()
 }
 $cssVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/css/style.css');
 $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
+
+$docRoot = rtrim((string)($_SERVER['DOCUMENT_ROOT'] ?? ''), "/\\");
+$rfoiImagesMtimes = [];
+if ($docRoot !== '') {
+    foreach (['img/players', 'img/team'] as $sub) {
+        $dir = $docRoot . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $sub);
+        if (!is_dir($dir)) {
+            continue;
+        }
+        $list = @scandir($dir) ?: [];
+        foreach ($list as $name) {
+            if ($name === '.' || $name === '..' || (is_string($name) && $name !== '' && $name[0] === '.')) {
+                continue;
+            }
+            $f = $dir . DIRECTORY_SEPARATOR . $name;
+            if (is_file($f)) {
+                $rfoiImagesMtimes[] = filemtime($f);
+            }
+        }
+    }
+}
+$rfoiImagesVersion = $rfoiImagesMtimes ? max($rfoiImagesMtimes) : time();
 ?>
 
 <head>
@@ -34,6 +56,7 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
     <link rel="stylesheet" href="css/style.css?v=<?= $cssVersion ?>">
+    <script>window.RFOI_IMAGES_V=<?= (int)$rfoiImagesVersion ?>;</script>
 </head>
 
 <body class="{{ PAGE_CLASS }}">

@@ -16,7 +16,7 @@ export const teamPhotoMap = {
   'Engelbert': 'img/team/Engelbert.webp',
   'Ясность': 'img/team/iasnostb.webp',
   'Анжи': 'img/team/anji.webp',
-  'Артемида': 'artemida.webp',
+  'Артемида': 'img/team/artemida.webp',
   'Титан': 'img/team/titan.webp',
   'FC Chelsea': 'img/team/\u0441helsea.webp',
 };

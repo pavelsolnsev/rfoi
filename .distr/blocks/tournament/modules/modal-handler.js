@@ -226,7 +226,11 @@ const showPlayerModalInTournament = (player, teamNameFromContext) => {
   const name = getPlayerDisplayName(player);
 
   document.getElementById("modal-player-name").textContent = name;
-  document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=1.1.7`;
+  const rfoiImgV =
+    typeof window !== "undefined" && window.RFOI_IMAGES_V != null
+      ? String(window.RFOI_IMAGES_V)
+      : "0";
+  document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=${rfoiImgV}`;
   document.getElementById("modal-player-photo").alt = name;
 
   const displayTeamName = teamNameFromContext || player.teamName;
