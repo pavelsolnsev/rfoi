@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <td data-label="Игрок">
             <div class="player-info">
               <div class="player-photo"> 
-                <img src="${resolvePlayerPhotoSrc(player.photo)}?v=1.2.9" alt="${name}" class="" loading="lazy" decoding="async">
+                <img src="${resolvePlayerPhotoSrc(player.photo)}?v=1.3.9" alt="${name}" class="" loading="lazy" decoding="async">
               </div>
               <span>${name}</span>
             </div>
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const name = getPlayerDisplayName(player);
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=1.2.9`;
+    document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=1.3.9`;
     document.getElementById("modal-player-photo").alt = name;
 
     const displayTeamName = teamNameFromContext || player.teamName;
