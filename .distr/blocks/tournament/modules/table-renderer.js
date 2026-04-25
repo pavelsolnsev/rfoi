@@ -4,6 +4,7 @@
 
 import { sortTeams, updateSortIndicators } from './table-sorter.js';
 import { openTeamModal } from './modal-handler.js';
+import { withImageCacheQuery } from './image-path-utils.js';
 
 /**
  * Рендеринг таблицы команд
@@ -48,7 +49,7 @@ export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) 
         <td data-label="Команда">
           <div class="player-info">
             <div class="player-photo">
-              <img src="${team.photo}" alt="${team.name}" loading="lazy" decoding="async" onerror="this.src='img/team/logo.webp'">
+              <img src="${withImageCacheQuery(team.photo)}" alt="${team.name}" loading="lazy" decoding="async" onerror="this.src='img/team/logo.webp'">
             </div>
             <span>${team.name}</span>
           </div>

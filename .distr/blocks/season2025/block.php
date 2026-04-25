@@ -1734,6 +1734,9 @@ if (!function_exists('rfoi_player_display_name')) {
               <?php
               $name = rfoi_player_display_name($player);
               $photo = $player['photo'] ?? 'default.webp';
+              $__r = isset($docRoot) ? $docRoot : rtrim((string)($_SERVER['DOCUMENT_ROOT'] ?? ''), "/\\");
+              $__pf = $__r . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'players' . DIRECTORY_SEPARATOR . basename($photo);
+              $__photoV = is_file($__pf) ? filemtime($__pf) : (int)($rfoiImagesVersion ?? time());
               $gamesPlayed = $player['gamesPlayed'] ?? 0;
               $wins = $player['wins'] ?? 0;
               $draws = $player['draws'] ?? 0;
@@ -1746,7 +1749,7 @@ if (!function_exists('rfoi_player_display_name')) {
                 <td data-label="Игрок">
                   <div class="player-info">
                     <div class="player-photo">
-                      <img src="/img/players/<?= htmlspecialchars($photo) ?>?v=<?= (int)($rfoiImagesVersion ?? time()) ?>" alt="<?= htmlspecialchars($name) ?>" class="" loading="lazy" decoding="async">
+                      <img src="/img/players/<?= htmlspecialchars($photo) ?>?v=<?= (int)$__photoV ?>" alt="<?= htmlspecialchars($name) ?>" class="" loading="lazy" decoding="async">
                     </div>
                     <span><?= htmlspecialchars($name) ?></span>
                   </div>

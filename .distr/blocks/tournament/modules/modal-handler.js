@@ -8,7 +8,7 @@ import {
   getPlayerDisplayName,
   normalizeUsername,
 } from './format-utils.js';
-import { resolvePlayerPhotoSrc } from './image-path-utils.js';
+import { resolvePlayerPhotoSrc, withImageCacheQuery } from './image-path-utils.js';
 
 /**
  * Функция открытия модального окна команды
@@ -37,12 +37,14 @@ export const openTeamModal = (team) => {
   }
   modalTrophies.innerHTML = trophiesDisplay;
 
-  const fallbackTeamLogoPath = '/img/team/logo.webp';
+  const fallbackTeamLogoPath = withImageCacheQuery('/img/team/logo.webp');
   modalPhoto.onerror = function () {
     modalPhoto.onerror = null;
     modalPhoto.src = fallbackTeamLogoPath;
   };
-  modalPhoto.src = team.photo;
+  modalPhoto.src = withImageCacheQuery(
+    /^(https?:|\/)/.test(team.photo) ? team.photo : `/${String(team.photo).replace(/^\//, '')}`,
+  );
 
   // Находим контейнеры для Swiper и сетки
   const swiperWrapper = modalPlayers.querySelector('.swiper-wrapper');
@@ -82,7 +84,7 @@ export const openTeamModal = (team) => {
       const mainPlayerClass = player.isMainPlayer ? ' is-main-player' : '';
       
       // Формируем путь к фото игрока (нормализуем путь)
-      const playerPhoto = resolvePlayerPhotoSrc(player.photo);
+      const playerPhoto = withImageCacheQuery(resolvePlayerPhotoSrc(player.photo));
       
       const displayName = getPlayerDisplayName(player);
       
@@ -263,8 +265,8 @@ const showPlayerModalInTournament = (player, teamNameFromContext) => {
           .replace(/ё/g, 'e')
           .replace(/й/g, 'i') + '.webp';
 
-      const teamPhotoPath = `/img/team/${teamFileName}`;
-      const fallbackLogoPath = '/img/team/logo.webp';
+      const teamPhotoPath = withImageCacheQuery(`/img/team/${teamFileName}`);
+      const fallbackLogoPath = withImageCacheQuery('/img/team/logo.webp');
       teamLogoImg.onerror = function () {
         teamLogoImg.onerror = null;
         teamLogoImg.src = fallbackLogoPath;
@@ -397,7 +399,7 @@ const loadAndOpenTeamModal = async (teamName) => {
     // Открываем попап команды используя существующую функцию
     const teamForModal = {
       name: team.name,
-      photo: teamPhotoPath,
+      photo: withImageCacheQuery(teamPhotoPath),
       trophies: team.trophies ? '🏆'.repeat(team.trophies) : '',
       players: teamData.players ? teamData.players.map(p => {
         // Нормализуем путь к фото игрока

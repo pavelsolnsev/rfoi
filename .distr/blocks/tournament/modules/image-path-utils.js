@@ -30,3 +30,16 @@ export function teamRasterPathToWebp(imgPath) {
   if (!imgPath) return 'img/team/logo.webp';
   return imgPath.replace(/\.(png|jpe?g)(?=\?|$)/i, '.webp');
 }
+
+/**
+ * Добавляет ?v=… из window.RFOI_IMAGES_V (default.php) — новый URL, браузер не отдаёт старый кэш.
+ */
+export function withImageCacheQuery(url) {
+  if (!url || typeof url !== 'string') return url;
+  const v =
+    typeof window !== 'undefined' && window.RFOI_IMAGES_V != null
+      ? String(window.RFOI_IMAGES_V)
+      : '';
+  if (v === '') return url;
+  return `${url}${url.includes('?') ? '&' : '?'}v=${encodeURIComponent(v)}`;
+}

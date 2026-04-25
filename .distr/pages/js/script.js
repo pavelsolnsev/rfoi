@@ -202,8 +202,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace(/ё/g, 'e')
             .replace(/й/g, 'i') + '.webp';
 
-        const teamPhotoPath = `/img/team/${teamFileName}`;
-        const fallbackLogoPath = '/img/team/logo.webp';
+        const teamPhotoPath = `/img/team/${teamFileName}?v=${rfoiImgV}`;
+        const fallbackLogoPath = `/img/team/logo.webp?v=${rfoiImgV}`;
         teamLogoImg.onerror = function () {
           teamLogoImg.onerror = null;
           teamLogoImg.src = fallbackLogoPath;
@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
           .replace(/\s+/g, '')
           .replace(/ё/g, 'e')
           .replace(/й/g, 'i') + '.webp';
-      const teamPhotoPath = `/img/team/${teamFileName}`;
+      const teamPhotoPath = `/img/team/${teamFileName}?v=${rfoiImgV}`;
 
       // Открываем попап команды
       const teamModalElement = document.getElementById("teamModal");
@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (modalName) modalName.textContent = team.name;
       if (modalPhoto) {
-        const fallbackTeamLogoPath = '/img/team/logo.webp';
+        const fallbackTeamLogoPath = `/img/team/logo.webp?v=${rfoiImgV}`;
         modalPhoto.onerror = function () {
           modalPhoto.onerror = null;
           modalPhoto.src = fallbackTeamLogoPath;

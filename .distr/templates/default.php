@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <?php
+if (!headers_sent()) {
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0', true);
+    header('Pragma: no-cache', true);
+    header('Expires: 0', true);
+}
+
 $ROOT = $_SERVER['DOCUMENT_ROOT'] . '/';
 $BASE_HREF = '//' . $_SERVER['HTTP_HOST'] . (!empty($_SERVER['DOCUMENT_URI']) ? str_replace(substr(str_replace('index.php', '', $_SERVER['DOCUMENT_URI']), 1), '', $_SERVER['REQUEST_URI']) : '');
 $URL = '//' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -13,7 +19,7 @@ $cssVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/css/style.css');
 $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
 
 $docRoot = rtrim((string)($_SERVER['DOCUMENT_ROOT'] ?? ''), "/\\");
-$rfoiImagesMtimes = [];
+$rfoiImageSignatures = [];
 if ($docRoot !== '') {
     foreach (['img/players', 'img/team'] as $sub) {
         $dir = $docRoot . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $sub);
@@ -27,12 +33,15 @@ if ($docRoot !== '') {
             }
             $f = $dir . DIRECTORY_SEPARATOR . $name;
             if (is_file($f)) {
-                $rfoiImagesMtimes[] = filemtime($f);
+                $rfoiImageSignatures[] = $sub . '/' . $name . ':' . filemtime($f) . ':' . filesize($f);
             }
         }
     }
 }
-$rfoiImagesVersion = $rfoiImagesMtimes ? max($rfoiImagesMtimes) : time();
+sort($rfoiImageSignatures, SORT_STRING);
+$rfoiImagesVersion = $rfoiImageSignatures
+    ? (int) sprintf('%u', crc32(implode("\0", $rfoiImageSignatures)))
+    : (int) time();
 ?>
 
 <head>
