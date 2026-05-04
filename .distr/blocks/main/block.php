@@ -1,5 +1,6 @@
 <section class="s-main">
   <div class="container">
+
     <!-- Десктопная таблица -->
     <div class="table-wrapper">
       <table id="desktop-table" class="players-table">

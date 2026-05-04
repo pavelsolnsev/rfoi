@@ -24,7 +24,7 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <meta http-equiv="Expires" content="0">
 
     <title>РФОИ — Раменское Футбол | Открытые Игры</title>
-    <meta name="description" content="РФОИ — любительский футбол в Раменском. Рейтинги игроков, составы команд, результаты турниров. Раменское Футбол Открытые Игры, Московская область.">
+    <meta name="description" content="Рейтинг игроков любительского футбола в Раменском — голы, ассисты, победы, MVP. Составы команд и статистика каждого игрока РФОИ. Раменское, Московская область.">
     <meta name="keywords" content="футбол Раменское, любительский футбол Раменское, РФОИ, Раменское Футбол Открытые Игры, турнир по футболу Раменское, футбольные команды Раменское, рейтинг игроков футбол">
     <meta name="robots" content="index, follow">
     <meta name="author" content="РФОИ — Раменское Футбол Открытые Игры">
@@ -40,11 +40,26 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <meta name="twitter:title" content="РФОИ — Раменское Футбол | Открытые Игры">
     <meta name="twitter:description" content="Любительский футбол в Раменском — рейтинги, команды, турниры.">
     <link rel="image_src" href="https://football.pavelsolntsev.ru/img/main/logo.svg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Preconnect: браузер заранее открывает соединение с CDN, не тратя время при загрузке -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+    <!-- Основной CSS сайта — критичный, грузим первым синхронно -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
     <link rel="stylesheet" href="css/style.css?v=<?= $cssVersion ?>">
+
+    <!-- Bootstrap: preload + неблокирующая загрузка через onload -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"></noscript>
+
+    <!-- FontAwesome: иконки — некритичны, грузим асинхронно -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css"></noscript>
+
+    <!-- Swiper: только на странице турнира, но грузим везде асинхронно -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
 </head>
 
 <body class="{{ PAGE_CLASS }}">
@@ -99,9 +114,10 @@ if ($isInfoPage): ?>
       ]
     }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- JS: defer — не блокируют парсинг HTML, выполняются после загрузки DOM -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     {% block scripts %}
     <?php
     $currentPath = $_SERVER['REQUEST_URI'];
