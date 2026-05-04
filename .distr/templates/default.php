@@ -41,25 +41,24 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <meta name="twitter:description" content="Любительский футбол в Раменском — рейтинги, команды, турниры.">
     <link rel="image_src" href="https://football.pavelsolntsev.ru/img/main/logo.svg">
 
-    <!-- Preconnect: браузер заранее открывает соединение с CDN, не тратя время при загрузке -->
+    <!-- Preconnect: браузер заранее открывает соединение с CDN -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
-    <!-- Основной CSS сайта — критичный, грузим первым синхронно -->
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
-    <link rel="stylesheet" href="css/style.css?v=<?= $cssVersion ?>">
+    <!-- Bootstrap: синхронно — используется в вёрстке шапки и таблиц -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <!-- Bootstrap: preload + неблокирующая загрузка через onload -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"></noscript>
-
-    <!-- FontAwesome: иконки — некритичны, грузим асинхронно -->
+    <!-- FontAwesome: иконки — асинхронно, не блокируют рендер -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css"></noscript>
 
-    <!-- Swiper: только на странице турнира, но грузим везде асинхронно -->
+    <!-- Swiper: асинхронно -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
+
+    <!-- Основной CSS сайта -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="stylesheet" href="css/style.css?v=<?= $cssVersion ?>">
 </head>
 
 <body class="{{ PAGE_CLASS }}">
