@@ -23,12 +23,23 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <title>РФОИ</title>
-    <meta property="og:title" content="РФОИ">
-    <meta property="og:description" content="">
-    <meta property="og:url" content="//<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
-    <meta property="og:image" content="//<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>img/common/share.jpg?v=1.0.1">
-    <link rel="image_src" href="//<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>img/common/share.jpg?v=1.0.1">
+    <title>РФОИ — Раменское Футбол | Открытые Игры</title>
+    <meta name="description" content="РФОИ — любительский футбол в Раменском. Рейтинги игроков, составы команд, результаты турниров. Раменское Футбол Открытые Игры, Московская область.">
+    <meta name="keywords" content="футбол Раменское, любительский футбол Раменское, РФОИ, Раменское Футбол Открытые Игры, турнир по футболу Раменское, футбольные команды Раменское, рейтинг игроков футбол">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="РФОИ — Раменское Футбол Открытые Игры">
+    <link rel="canonical" href="https://football.pavelsolntsev.ru<?= strtok($_SERVER['REQUEST_URI'], '?') ?>">
+    <meta property="og:title" content="РФОИ — Раменское Футбол | Открытые Игры">
+    <meta property="og:description" content="Любительский футбол в Раменском — рейтинги игроков, составы команд, результаты турниров. Раменское Футбол Открытые Игры.">
+    <meta property="og:url" content="https://football.pavelsolntsev.ru<?= strtok($_SERVER['REQUEST_URI'], '?') ?>">
+    <meta property="og:image" content="https://football.pavelsolntsev.ru/img/main/logo.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="РФОИ — Раменское Футбол Открытые Игры">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="РФОИ — Раменское Футбол | Открытые Игры">
+    <meta name="twitter:description" content="Любительский футбол в Раменском — рейтинги, команды, турниры.">
+    <link rel="image_src" href="https://football.pavelsolntsev.ru/img/main/logo.svg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
