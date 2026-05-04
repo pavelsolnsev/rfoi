@@ -76,6 +76,29 @@ if ($isInfoPage): ?>
     </a>
 <?php endif; ?>
 
+    <!-- Schema.org: спортивная организация для поисковиков -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsOrganization",
+      "name": "РФОИ — Раменское Футбол Открытые Игры",
+      "alternateName": "РФОИ",
+      "description": "Любительский футбол в Раменском — открытые игры, турниры, рейтинги игроков. Раменское, Московская область.",
+      "url": "https://football.pavelsolntsev.ru",
+      "sport": "Футбол",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Раменское",
+        "addressRegion": "Московская область",
+        "addressCountry": "RU"
+      },
+      "sameAs": [
+        "https://vk.com/rmsfootball",
+        "https://t.me/RmsFootball",
+        "https://tournament.pavelsolntsev.ru"
+      ]
+    }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
