@@ -194,14 +194,18 @@ const loadAndShowPlayerModal = async (playerName, playerUsername, teamModalEleme
     }
     const players = await response.json();
 
+    const normalizedPlayerUsername = normalizeUsername(playerUsername);
+    const isUnknownUsername = normalizedPlayerUsername === 'unknown';
+
     const player = players.find((p) => {
       const playerDisplayName = getPlayerDisplayName(p);
       if (playerDisplayName === playerName || p.name === playerName) return true;
       if (
         playerUsername &&
-        (normalizeUsername(p.username) === normalizeUsername(playerUsername) ||
+        !isUnknownUsername &&
+        (normalizeUsername(p.username) === normalizedPlayerUsername ||
           p.username === playerUsername ||
-          p.username === `@${normalizeUsername(playerUsername)}`)
+          p.username === `@${normalizedPlayerUsername}`)
       ) {
         return true;
       }

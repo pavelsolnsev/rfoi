@@ -29,7 +29,7 @@
   "editor.minimap.enabled": false,
   "editor.glyphMargin": false,
   "editor.parameterHints.enabled": false,
-  "editor.hover.enabled": false,
+  "editor.hover.enabled": "off",
   "terminal.integrated.fontSize": 15,
   "editor.renderWhitespace": "none",
   "editor.formatOnSave": false,
