@@ -169,6 +169,7 @@ function sync() {
 		browserSync.init({
 			ui: false,
 			proxy: '127.0.0.1:8000',
+			host: '192.168.0.161',
 			open: false,
 			reloadOnRestart: true,
 			injectChanges: true
