@@ -1,4 +1,5 @@
 <section class="s-main">
+  <h1 class="visually-hidden">Турнирная таблица РФОИ — команды любительского футбола Раменское</h1>
   <div class="container">
     <div class="table-wrapper">
       <table id="teams-table" class="players-table">

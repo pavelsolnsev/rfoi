@@ -1,4 +1,5 @@
 <section class="s-main">
+  <h1 class="visually-hidden">Рейтинг игроков РФОИ — любительский футбол Раменское</h1>
   <div class="container">
 
     <!-- Десктопная таблица -->

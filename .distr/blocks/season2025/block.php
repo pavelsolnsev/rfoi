@@ -1692,6 +1692,7 @@ if (!function_exists('rfoi_player_display_name')) {
 ?>
 
 <section class="s-main">
+  <h1 class="visually-hidden">Рейтинг игроков РФОИ — сезон 2025, любительский футбол Раменское</h1>
   <div class="container">
     <!-- Десктопная таблица -->
     <div class="table-wrapper">

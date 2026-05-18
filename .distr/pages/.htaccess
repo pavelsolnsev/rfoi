@@ -1,0 +1,51 @@
+# Сжатие gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml application/xml
+</IfModule>
+
+# Кеширование статики
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Изображения — год
+    ExpiresByType image/webp        "access plus 1 year"
+    ExpiresByType image/png         "access plus 1 year"
+    ExpiresByType image/jpeg        "access plus 1 year"
+    ExpiresByType image/svg+xml     "access plus 1 year"
+    ExpiresByType image/x-icon      "access plus 1 year"
+
+    # CSS и JS — месяц (версии через ?v= в коде)
+    ExpiresByType text/css          "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+
+    # Шрифты — год
+    ExpiresByType font/woff2        "access plus 1 year"
+    ExpiresByType font/woff         "access plus 1 year"
+
+    # HTML и JSON — не кешировать
+    ExpiresByType text/html         "access plus 0 seconds"
+    ExpiresByType application/json  "access plus 0 seconds"
+</IfModule>
+
+# Cache-Control заголовки
+<IfModule mod_headers.c>
+    # Статика — долгий кеш
+    <FilesMatch "\.(webp|png|jpg|jpeg|svg|ico|woff2|woff)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # CSS и JS
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+
+    # PHP страницы — не кешировать
+    <FilesMatch "\.php$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# Безопасность — скрыть версию сервера
+ServerSignature Off

@@ -1,5 +1,7 @@
 {% extends 'default.php' %}
 {% set PAGE_CLASS = 'page-static' %}
+{% set PAGE_TITLE = 'Турнир РФОИ 2025 — таблица и результаты команд | Раменское' %}
+{% set PAGE_DESC = 'Турнирная таблица РФОИ сезона 2025: место команд, трофеи, очки, голы. Любительский футбол в Раменском, Московская область.' %}
 
 {% block blocks %}
 {% include 'tournament2025/block.php' %}
@@ -362,3 +364,43 @@ document.addEventListener('DOMContentLoaded', function() {
 ?>
 {% endblock %}
 
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://football.pavelsolntsev.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Турнир", "item": "https://football.pavelsolntsev.ru/tournament/"},
+    {"@type": "ListItem", "position": 3, "name": "Турнир 2025", "item": "https://football.pavelsolntsev.ru/tournament/2025/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "РФОИ — Турнир 2025 по любительскому футболу в Раменском",
+  "description": "Турнирная таблица сезона 2025 РФОИ. Команды, очки, трофеи. Любительский футбол в Раменском.",
+  "sport": "Футбол",
+  "startDate": "2025-01-01",
+  "endDate": "2025-12-31",
+  "organizer": {
+    "@type": "SportsOrganization",
+    "name": "РФОИ — Раменское Футбол Открытые Игры",
+    "url": "https://football.pavelsolntsev.ru"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "Раменское",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Раменское",
+      "addressRegion": "Московская область",
+      "addressCountry": "RU"
+    }
+  },
+  "url": "https://football.pavelsolntsev.ru/tournament/2025/"
+}
+</script>
+{% endblock %}

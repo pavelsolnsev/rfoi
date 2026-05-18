@@ -198,6 +198,7 @@ usort($teams, function ($a, $b) {
 ?>
 
 <section class="s-main">
+  <h1 class="visually-hidden">Турнир РФОИ 2025 — таблица команд, любительский футбол Раменское</h1>
   <div class="container">
     <div class="table-wrapper">
       <table id="teams-table" class="players-table">

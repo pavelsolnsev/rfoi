@@ -1,5 +1,7 @@
 {% extends 'default.php' %}
 {% set PAGE_CLASS = 'page-static' %}
+{% set PAGE_TITLE = 'Рейтинг игроков РФОИ — сезон 2025 | Любительский футбол Раменское' %}
+{% set PAGE_DESC = 'Рейтинг игроков РФОИ за сезон 2025 — голы, победы, поражения, ничьи. Статистика любительского футбола в Раменском.' %}
 
 {% block blocks %}
 {% include 'season2025/block.php' %}
@@ -7,6 +9,19 @@
 
 {% block popups %}
 {% include 'popups2025/block.php' %}
+{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://football.pavelsolntsev.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Рейтинг 2025", "item": "https://football.pavelsolntsev.ru/2025/"}
+  ]
+}
+</script>
 {% endblock %}
 
 {% block scripts %}

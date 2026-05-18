@@ -18,28 +18,28 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+    <meta name="theme-color" content="#0e2c2c">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
 
-    <title>РФОИ — Раменское Футбол | Открытые Игры</title>
-    <meta name="description" content="Рейтинг игроков любительского футбола в Раменском — голы, ассисты, победы, MVP. Составы команд и статистика каждого игрока РФОИ. Раменское, Московская область.">
-    <meta name="keywords" content="футбол Раменское, любительский футбол Раменское, РФОИ, Раменское Футбол Открытые Игры, турнир по футболу Раменское, футбольные команды Раменское, рейтинг игроков футбол">
+
+    <title>{{ PAGE_TITLE|default('РФОИ — Раменское Футбол | Открытые Игры') }}</title>
+    <meta name="description" content="{{ PAGE_DESC|default('Рейтинг игроков любительского футбола в Раменском — голы, ассисты, победы, MVP. Составы команд и статистика каждого игрока РФОИ. Раменское, Московская область.') }}">
+    <meta name="keywords" content="{{ PAGE_KEYWORDS|default('футбол Раменское, любительский футбол Раменское, РФОИ, Раменское Футбол Открытые Игры, турнир по футболу Раменское, футбольные команды Раменское, рейтинг игроков футбол') }}">
     <meta name="robots" content="index, follow">
     <meta name="author" content="РФОИ — Раменское Футбол Открытые Игры">
     <link rel="canonical" href="https://football.pavelsolntsev.ru<?= strtok($_SERVER['REQUEST_URI'], '?') ?>">
-    <meta property="og:title" content="РФОИ — Раменское Футбол | Открытые Игры">
-    <meta property="og:description" content="Любительский футбол в Раменском — рейтинги игроков, составы команд, результаты турниров. Раменское Футбол Открытые Игры.">
+    <meta property="og:title" content="{{ PAGE_OG_TITLE|default(PAGE_TITLE)|default('РФОИ — Раменское Футбол | Открытые Игры') }}">
+    <meta property="og:description" content="{{ PAGE_OG_DESC|default(PAGE_DESC)|default('Любительский футбол в Раменском — рейтинги игроков, составы команд, результаты турниров. Раменское Футбол Открытые Игры.') }}">
     <meta property="og:url" content="https://football.pavelsolntsev.ru<?= strtok($_SERVER['REQUEST_URI'], '?') ?>">
-    <meta property="og:image" content="https://football.pavelsolntsev.ru/img/main/logo.svg">
-    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://football.pavelsolntsev.ru/img/main/logorfoi.webp">
+    <meta property="og:type" content="{{ PAGE_OG_TYPE|default('website') }}">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="РФОИ — Раменское Футбол Открытые Игры">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="РФОИ — Раменское Футбол | Открытые Игры">
-    <meta name="twitter:description" content="Любительский футбол в Раменском — рейтинги, команды, турниры.">
-    <link rel="image_src" href="https://football.pavelsolntsev.ru/img/main/logo.svg">
+    <meta name="twitter:title" content="{{ PAGE_OG_TITLE|default(PAGE_TITLE)|default('РФОИ — Раменское Футбол | Открытые Игры') }}">
+    <meta name="twitter:description" content="{{ PAGE_DESC|default('Любительский футбол в Раменском — рейтинги, команды, турниры.') }}">
+    <meta name="twitter:image" content="https://football.pavelsolntsev.ru/img/main/logorfoi.webp">
+    <link rel="image_src" href="https://football.pavelsolntsev.ru/img/main/logorfoi.webp">
 
     <!-- Preconnect: браузер заранее открывает соединение с CDN -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -59,7 +59,9 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <!-- Основной CSS сайта -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="css/style.css?v=<?= $cssVersion ?>">
 </head>
 
@@ -92,29 +94,55 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <noscript><div><img src="https://mc.yandex.ru/watch/109049463" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
-    <!-- Schema.org: спортивная организация для поисковиков -->
+    <!-- Schema.org: организация + локальный бизнес -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SportsOrganization",
-      "name": "РФОИ — Раменское Футбол Открытые Игры",
-      "alternateName": "РФОИ",
-      "description": "Любительский футбол в Раменском — открытые игры, турниры, рейтинги игроков. Раменское, Московская область.",
-      "url": "https://football.pavelsolntsev.ru",
-      "sport": "Футбол",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Раменское",
-        "addressRegion": "Московская область",
-        "addressCountry": "RU"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsOrganization",
+        "name": "РФОИ — Раменское Футбол Открытые Игры",
+        "alternateName": "РФОИ",
+        "description": "Любительский футбол в Раменском — открытые игры, турниры, рейтинги игроков. Раменское, Московская область.",
+        "url": "https://football.pavelsolntsev.ru",
+        "sport": "Футбол",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Раменское",
+          "addressRegion": "Московская область",
+          "addressCountry": "RU"
+        },
+        "sameAs": [
+          "https://vk.com/rmsfootball",
+          "https://t.me/RmsFootball",
+          "https://tournament.pavelsolntsev.ru"
+        ]
       },
-      "sameAs": [
-        "https://vk.com/rmsfootball",
-        "https://t.me/RmsFootball",
-        "https://tournament.pavelsolntsev.ru"
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "РФОИ — Раменское Футбол Открытые Игры",
+        "description": "Любительский футбол в Раменском — открытые игры для всех, турниры, рейтинги игроков.",
+        "url": "https://football.pavelsolntsev.ru",
+        "image": "https://football.pavelsolntsev.ru/img/main/logorfoi.webp",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Раменское",
+          "addressRegion": "Московская область",
+          "addressCountry": "RU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 55.5652,
+          "longitude": 38.2286
+        },
+        "sameAs": [
+          "https://vk.com/rmsfootball",
+          "https://t.me/RmsFootball"
+        ]
+      }
+    ]
     </script>
+    {% block schema %}{% endblock %}
     <!-- JS: defer — не блокируют парсинг HTML, выполняются после загрузки DOM -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>

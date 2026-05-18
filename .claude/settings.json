@@ -42,7 +42,18 @@
       "PowerShell($ffmpeg = \"C:\\\\Users\\\\spas\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\ffmpeg-8.1.1-full_build\\\\bin\\\\ffmpeg.exe\"; & $ffmpeg -y -i \"d:\\\\web\\\\rfoi\\\\public\\\\vkclips_20260518101538.mp4\" -t 33.9 -vf scale=854:480 -c:v libx264 -b:v 500k -an -movflags +faststart \"d:\\\\web\\\\rfoi\\\\bg-video.mp4\" 2>&1 | Select-String -Pattern \"frame=|Lsize|error|Error\" | Select-Object -Last 5)",
       "PowerShell($ffmpeg = \"C:\\\\Users\\\\spas\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\ffmpeg-8.1.1-full_build\\\\bin\\\\ffmpeg.exe\"; & $ffmpeg -y -i \"d:\\\\web\\\\rfoi\\\\public\\\\vkclips_20260518101538.mp4\" -t 32.2 -vf scale=854:480 -c:v libx264 -b:v 500k -an -movflags +faststart \"d:\\\\web\\\\rfoi\\\\.distr\\\\pages\\\\bg-video.mp4\" 2>&1 | Select-String -Pattern \"Lsize|error\" | Select-Object -Last 3)",
       "PowerShell($ffmpeg = \"C:\\\\Users\\\\spas\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\ffmpeg-8.1.1-full_build\\\\bin\\\\ffmpeg.exe\"; & $ffmpeg -y -i \"d:\\\\web\\\\rfoi\\\\public\\\\vkclips_20260518101538.mp4\" -t 30.2 -vf scale=854:480 -c:v libx264 -b:v 500k -an -movflags +faststart \"d:\\\\web\\\\rfoi\\\\.distr\\\\pages\\\\bg-video.mp4\" 2>&1 | Select-String -Pattern \"Lsize|error\" | Select-Object -Last 3)",
-      "Bash(xargs grep -l \"tournament\\\\|team.*point\\\\|pts\")"
+      "Bash(xargs grep -l \"tournament\\\\|team.*point\\\\|pts\")",
+      "Read(//d/web/football/**)",
+      "Bash(Get-ChildItem -Path \"d:\\\\web\\\\rfoi\" -Force)",
+      "Bash(Select-Object Name, Mode)",
+      "Bash(xargs grep -l \"<img\")",
+      "Bash(xargs grep -l \"lastmod\\\\|changefreq\\\\|priority\")",
+      "Bash(npm list *)",
+      "Bash(npx --yes sharp --version)",
+      "Bash(npm install *)",
+      "Read(//tmp/**)",
+      "Bash(Get-ChildItem -Path \"d:\\\\web\\\\rfoi\\\\.distr\\\\pages\\\\api\\\\\" -ErrorAction SilentlyContinue | Select-Object Name)",
+      "Bash(xargs grep -l \"404\\\\|error.*page\\\\|not.found\")"
     ],
     "additionalDirectories": [
       "d:\\web\\rfoi\\.distr\\blocks\\players\\img"
