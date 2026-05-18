@@ -1697,10 +1697,13 @@ if (!function_exists('rfoi_player_display_name')) {
     <div class="table-wrapper">
       <table id="desktop-table" class="players-table">
         <caption class="table-caption">
-          <div class="caption-content">
-            <div class="caption-content-wrap">
-              <i class="fas fa-trophy trophy-icon"></i>
-              <span>Статистика игроков - Сезон 2025</span>
+          <div class="caption-header">
+            <div class="caption-brand">
+              <a href="/" class="caption-brand-logo-link"><img src="img/main/logorfoi.webp" alt="РФОИ" class="caption-brand-logo" loading="lazy"></a>
+              <span class="caption-brand-title">
+                <i class="fas fa-futbol ball-icon"></i>
+                Статистика игроков · Сезон 2025
+              </span>
             </div>
             <div class="caption-content-icon">
               <img src="img/main/dark.svg" loading="lazy" alt="">
@@ -1719,7 +1722,7 @@ if (!function_exists('rfoi_player_display_name')) {
             <th data-sort="draws"><span>Н</span><span>Ничьи</span></th>
             <th data-sort="losses"><span>П</span><span>Поражения</span></th>
             <th data-sort="goals"><span>Г</span><span>Голы</span></th>
-            <th data-sort="rating"><span>Рейт</span><span>Рейтинг</span></th>
+            <th data-sort="rating"><span>Р</span><span>Рейтинг</span></th>
           </tr>
         </thead>
         <tbody id="desktop-table-body">

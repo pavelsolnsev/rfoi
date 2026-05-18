@@ -57,7 +57,9 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
 
     <!-- Основной CSS сайта -->
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css?v=<?= $cssVersion ?>">
 </head>
 
@@ -75,20 +77,6 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
 	{% include 'popups/block.php' %}
 	{% endblock %}
 
-<?php
-$currentPath = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
-$isInfoPage = strpos($currentPath, '/info') !== false;
-$showInfoFab = !$isInfoPage;
-if ($showInfoFab): ?>
-    <a href="/info/" class="info-fab site-fab" title="Информация" aria-label="Перейти к информации">
-      <i class="fas fa-info-circle"></i>
-    </a>
-<?php endif;
-if ($isInfoPage): ?>
-    <a href="/" class="home-fab site-fab" title="На главную" aria-label="На главную">
-      <i class="fas fa-home"></i>
-    </a>
-<?php endif; ?>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">

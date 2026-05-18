@@ -46,7 +46,7 @@ function fonts() {
 function pages() {
 	console.log('* Копирование остальных файлов *');
 
-	return src(['**/**', '!**/*.{php,scss,js}', '!{~**/**,**/~**}', '!**/~*.*'], { cwd: CONFIG.pages, dot: true })
+	return src(['**/**', '!**/*.{php,scss,js,mp4}', '!{~**/**,**/~**}', '!**/~*.*'], { cwd: CONFIG.pages, dot: true })
 		.pipe(dest(CONFIG.output))
 		;
 };
@@ -206,6 +206,8 @@ function cleanPublic(callback) {
 				removeRecursive(fullPath);
 				fs.rmdirSync(fullPath);
 			} else {
+				// Пропускаем большие медиафайлы (видео)
+				if (fullPath.endsWith('.mp4')) continue;
 				fs.unlinkSync(fullPath);
 			}
 		}

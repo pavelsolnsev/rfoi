@@ -29,18 +29,24 @@
             <span class="sparkle">✨</span>
             <span class="sparkle">⭐</span>
           </div> -->
-          <div class="caption-content">
-            <div class="caption-content-wrap">
-              <i class="fas fa-trophy trophy-icon"></i>
-              <span>Статистика игроков</span>
+          <video class="caption-bg-video" autoplay muted loop playsinline>
+            <source src="/bg-video.mp4" type="video/mp4">
+          </video>
+          <div class="caption-header">
+            <div class="caption-brand">
+              <img src="img/main/logorfoi.webp" alt="РФОИ" class="caption-brand-logo" loading="lazy">
+              <span class="caption-brand-title">
+                <i class="fas fa-futbol ball-icon"></i>
+                Статистика игроков
+              </span>
             </div>
             <div class="caption-content-icon">
               <img src="img/main/dark.svg" loading="lazy" alt="">
             </div>
           </div>
           <div class="caption-link">
-            <a id="page-link" href="/tournament">👉 Турнир</a>
-            <a id="season-link" href="/2025">Рейтинг игроков 2025</a>
+            <a id="page-link" href="/tournament">Турнир</a>
+            <a id="season-link" href="/2025">Рейтинг 2025</a>
           </div>
         </caption>
         <thead>

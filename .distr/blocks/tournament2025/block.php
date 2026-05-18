@@ -202,17 +202,20 @@ usort($teams, function ($a, $b) {
     <div class="table-wrapper">
       <table id="teams-table" class="players-table">
         <caption class="table-caption">
-          <div class="caption-content">
-            <div class="caption-content-wrap">
-              <i class="fas fa-trophy trophy-icon"></i>
-              <span>Турнирная таблица РФОИ - Сезон 2025</span>
+          <div class="caption-header">
+            <div class="caption-brand">
+              <a href="/" class="caption-brand-logo-link"><img src="img/main/logorfoi.webp" alt="РФОИ" class="caption-brand-logo" loading="lazy"></a>
+              <span class="caption-brand-title">
+                <i class="fas fa-trophy trophy-icon"></i>
+                Турнирная таблица · Сезон 2025
+              </span>
             </div>
             <div class="caption-content-icon">
               <img src="img/main/dark.svg" loading="lazy" alt="">
             </div>
           </div>
           <div class="caption-link">
-            <a id="season-link" href="/tournament">👉 Текущий турнир</a>
+            <a id="season-link" href="/tournament">Текущий турнир</a>
           </div>
         </caption>
         <thead>
