@@ -53,7 +53,11 @@
       "Bash(npm install *)",
       "Read(//tmp/**)",
       "Bash(Get-ChildItem -Path \"d:\\\\web\\\\rfoi\\\\.distr\\\\pages\\\\api\\\\\" -ErrorAction SilentlyContinue | Select-Object Name)",
-      "Bash(xargs grep -l \"404\\\\|error.*page\\\\|not.found\")"
+      "Bash(xargs grep -l \"404\\\\|error.*page\\\\|not.found\")",
+      "PowerShell($files = @\\(\"d:\\\\web\\\\rfoi\\\\public\\\\favicon.ico\", \"d:\\\\web\\\\rfoi\\\\.distr\\\\pages\\\\favicon.ico\"\\); foreach \\($f in $files\\) { $size = \\(Get-Item $f\\).Length; Write-Host \"$f — $size bytes\" })",
+      "PowerShell($files = @\\(\"d:\\\\web\\\\rfoi\\\\public\\\\favicon.png\", \"d:\\\\web\\\\rfoi\\\\.distr\\\\pages\\\\favicon.png\"\\); foreach \\($f in $files\\) { $size = \\(Get-Item $f\\).Length; $img = [System.Drawing.Image]::FromFile\\($f\\); Write-Host \"$f — $\\($img.Width\\)x$\\($img.Height\\), $size bytes\"; $img.Dispose\\(\\) })",
+      "PowerShell(node -e \"require\\('to-ico'\\); console.log\\('to-ico ok'\\)\" 2>$null)",
+      "PowerShell(node -e \"require\\('png-to-ico'\\); console.log\\('png-to-ico ok'\\)\" 2>$null)"
     ],
     "additionalDirectories": [
       "d:\\web\\rfoi\\.distr\\blocks\\players\\img"
