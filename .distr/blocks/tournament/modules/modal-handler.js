@@ -14,28 +14,37 @@ import { resolvePlayerPhotoSrc } from './image-path-utils.js';
  * Функция открытия модального окна команды
  * @param {Object} team - Объект команды
  */
-export const openTeamModal = (team) => {
+export const openTeamModal = (team, rank) => {
   const modalName = document.getElementById("modal-team-name");
   const modalPhoto = document.getElementById("modal-team-photo");
   const modalPlayers = document.getElementById("modal-team-players");
   const modalTrophies = document.getElementById("modal-team-trophies");
 
   if (!modalName || !modalPhoto || !modalPlayers || !modalTrophies) {
-    return; // Элементы модального окна не найдены
+    return;
   }
 
-  // Сокращаем название команды
-  const maxNameLength = getMaxTeamNameLength();
-  const truncatedTeamName = truncateUnicodeString(team.name, maxNameLength);
-  modalName.textContent = truncatedTeamName;
-  
-  // Форматируем трофеи: если больше 3, показываем число и одну иконку
-  let trophiesDisplay = team.trophies || '';
-  const trophyCount = (trophiesDisplay.match(/🏆/g) || []).length;
-  if (trophyCount >= 2) {
-    trophiesDisplay = `<span class="trophy-count"><span class="trophy-count-num">${trophyCount}</span></span>`;
+  modalName.textContent = team.name;
+
+  const rankEl = document.getElementById("modal-team-rank");
+  if (rankEl) {
+    if (rank) {
+      rankEl.textContent = rank;
+      rankEl.style.display = "";
+    } else {
+      rankEl.style.display = "none";
+    }
   }
-  modalTrophies.innerHTML = trophiesDisplay;
+  
+  const trophiesRaw = String(team.trophies || '');
+  const trophyCount = (trophiesRaw.match(/🏆/g) || []).length;
+  if (trophyCount >= 2) {
+    modalTrophies.innerHTML = `<i class="fas fa-trophy"></i><span class="trophy-count-num">${trophyCount}</span>`;
+  } else if (trophyCount === 1) {
+    modalTrophies.innerHTML = `<i class="fas fa-trophy"></i>`;
+  } else {
+    modalTrophies.textContent = trophiesRaw || '⚪️';
+  }
 
   const fallbackTeamLogoPath = '/img/team/logo.webp';
   modalPhoto.onerror = function () {
@@ -73,8 +82,8 @@ export const openTeamModal = (team) => {
       return 0;
     });
 
-    // Группируем игроков по 5 для Swiper
-    const playersPerSlide = 5;
+    // Группируем игроков по 6 для Swiper (2×3 на десктопе, 1×6 на мобиле)
+    const playersPerSlide = 4;
     let currentSlidePlayers = [];
     
     sortedPlayers.forEach((player, index) => {
@@ -138,8 +147,7 @@ export const openTeamModal = (team) => {
         swiperContainer.swiper.destroy(true, true);
       }
       
-      // Инициализируем новый Swiper только на мобильных
-      if (window.innerWidth < 576 && typeof Swiper !== 'undefined') {
+      if (typeof Swiper !== 'undefined') {
         new Swiper(swiperContainer, {
           slidesPerView: 1,
           spaceBetween: 16,
@@ -213,7 +221,9 @@ const loadAndShowPlayerModal = async (playerName, playerUsername, teamModalEleme
     });
 
     if (player) {
-      showPlayerModalInTournament(player, teamNameFromContext);
+      const sortedByRating = [...players].sort((a, b) => (b.rating || 0) - (a.rating || 0));
+      const rank = sortedByRating.indexOf(player) + 1;
+      showPlayerModalInTournament(player, teamNameFromContext, rank > 0 ? rank : undefined);
     }
   } catch (error) {
     console.error("Ошибка при загрузке игрока:", error);
@@ -223,13 +233,23 @@ const loadAndShowPlayerModal = async (playerName, playerUsername, teamModalEleme
 /**
  * Функция для открытия попапа игрока на странице турнира
  */
-const showPlayerModalInTournament = (player, teamNameFromContext) => {
+const showPlayerModalInTournament = (player, teamNameFromContext, rank) => {
   const playerModalElement = document.getElementById("playerModal");
   if (!playerModalElement) return;
 
   const name = getPlayerDisplayName(player);
 
   document.getElementById("modal-player-name").textContent = name;
+
+  const rankEl = document.getElementById("modal-player-rank");
+  if (rankEl) {
+    if (rank) {
+      rankEl.textContent = rank;
+      rankEl.style.display = "";
+    } else {
+      rankEl.style.display = "none";
+    }
+  }
   document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=1.1.7`;
   document.getElementById("modal-player-photo").alt = name;
 
@@ -354,7 +374,9 @@ const loadAndOpenTeamModal = async (teamName) => {
     }
     const teams = await teamsResponse.json();
     
-    // Находим команду по названию
+    // Находим команду по названию и её позицию в таблице
+    const sortedByPoints = [...teams].sort((a, b) => (b.points || 0) - (a.points || 0));
+    const teamRank = sortedByPoints.findIndex(t => t.name === teamName) + 1;
     const team = teams.find(t => t.name === teamName);
     if (!team) {
       console.error("Команда не найдена");
@@ -409,12 +431,12 @@ const loadAndOpenTeamModal = async (teamName) => {
           photo: photo,
           isCaptain: p.is_captain || false,
           isMainPlayer: p.is_main_player || false,
-          icon: p.yellow_cards > 0 ? '🟨'.repeat(Math.min(p.yellow_cards, 2)) : ''
+          icon: p.yellow_cards > 0 ? `<span class="yc-wrap">${p.yellow_cards > 1 ? `<span class="yc-num">${p.yellow_cards}</span>` : ''}<span class="yc-card"></span></span>` : ''
         };
       }) : []
     };
 
-    openTeamModal(teamForModal);
+    openTeamModal(teamForModal, teamRank > 0 ? teamRank : undefined);
   } catch (error) {
     console.error("Ошибка при загрузке команды:", error);
   }

@@ -52,7 +52,7 @@ const TEAMS_DATA = [
       {
         name: "nikita_a1exandrovich",
         photo: "img/players/nikita.webp",
-        icon: "🟨",
+        icon: '<span class="yc-wrap"><span class="yc-card"></span></span>',
       },
       {
         name: "Vadik_69_11",
@@ -94,7 +94,7 @@ const TEAMS_DATA = [
       {
         name: "Ислам Халиков",
         photo: "img/players/islam.webp",
-        icon: "🟨",
+        icon: '<span class="yc-wrap"><span class="yc-card"></span></span>',
       },
       {
         name: "seivrtd",
@@ -144,7 +144,7 @@ const TEAMS_DATA = [
       {
         name: "ZhekaFootball",
         photo: "img/players/Evgenkozl.webp",
-        icon: "🟨🟨",
+        icon: '<span class="yc-wrap"><span class="yc-num">2</span><span class="yc-card"></span></span>',
       },
       {
         name: "SenyaAvgan",
@@ -170,7 +170,7 @@ const TEAMS_DATA = [
       {
         name: "evgeniyshvetsov",
         photo: "img/players/evgeniyshvetsov.webp",
-        icon: "🟨",
+        icon: '<span class="yc-wrap"><span class="yc-card"></span></span>',
       },
       {
         name: "Дмитрий З",
@@ -179,7 +179,7 @@ const TEAMS_DATA = [
       {
         name: "ZhekaFootball",
         photo: "img/players/Evgenkozl.webp",
-        icon: "🟨",
+        icon: '<span class="yc-wrap"><span class="yc-card"></span></span>',
       },
       {
         name: "Александр",
@@ -204,7 +204,7 @@ const TEAMS_DATA = [
       {
         name: "Abdulatip44",
         photo: "img/players/Abdulatip44.webp",
-        icon: "🟨",
+        icon: '<span class="yc-wrap"><span class="yc-card"></span></span>',
       },
     ],
   },
@@ -222,12 +222,12 @@ const TEAMS_DATA = [
       {
         name: "y0ung_m0on",
         photo: "img/players/igor_oru.webp",
-        icon: "🟨",
+        icon: '<span class="yc-wrap"><span class="yc-card"></span></span>',
       },
       {
         name: "Abdulatip44",
         photo: "img/players/Abdulatip44.webp",
-        icon: "🟨",
+        icon: '<span class="yc-wrap"><span class="yc-card"></span></span>',
       },
       {
         name: "KroxaAn",

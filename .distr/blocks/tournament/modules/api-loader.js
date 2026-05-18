@@ -13,7 +13,8 @@ import { playerImgPlayersPath } from './image-path-utils.js';
  */
 const formatYellowCards = (count) => {
   if (!count || count <= 0) return '';
-  return '🟨'.repeat(count);
+  const num = count > 1 ? `<span class="yc-num">${count}</span>` : '';
+  return `<span class="yc-wrap">${num}<span class="yc-card"></span></span>`;
 };
 
 const API_BASE_URL = 'https://football.pavelsolntsev.ru/api';

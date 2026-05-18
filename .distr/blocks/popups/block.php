@@ -12,6 +12,7 @@
           <img id="modal-player-photo" src="" alt="Фото игрока" class="pm-photo" loading="eager" decoding="async">
         </div>
         <h3 id="modal-player-name" class="pm-name"></h3>
+        <div id="modal-player-rank" class="pm-rank"></div>
         <div class="pm-team" id="player-modal-team-info">
           <img id="player-modal-team-logo-img" src="" alt="" class="pm-team-logo" loading="eager" decoding="async">
           <span id="player-modal-team-name" class="pm-team-name"></span>
@@ -92,15 +93,21 @@
         <button class="pm-close" type="button" data-bs-dismiss="modal" aria-label="Закрыть">
           <i class="fas fa-times"></i>
         </button>
-        <div class="tm-logo-wrap">
-          <img id="modal-team-photo" src="" alt="Логотип команды" class="tm-logo" loading="eager" decoding="async">
+        <div class="tm-hero-content">
+          <div class="tm-logo-wrap">
+            <img id="modal-team-photo" src="" alt="Логотип команды" class="tm-logo" loading="eager" decoding="async">
+          </div>
+          <div class="tm-hero-info">
+            <h3 id="modal-team-name" class="tm-name"></h3>
+            <div id="modal-team-rank" class="tm-rank"></div>
+            <div id="modal-team-trophies" class="tm-trophies"></div>
+          </div>
         </div>
-        <h3 id="modal-team-name" class="tm-name"></h3>
-        <div id="modal-team-trophies" class="tm-trophies"></div>
       </div>
 
       <!-- Состав -->
       <div class="tm-body">
+        <div class="tm-section-label">Состав</div>
         <div id="modal-team-players" class="team-players-grid">
           <!-- Swiper для мобильных -->
           <div class="swiper team-players-swiper">

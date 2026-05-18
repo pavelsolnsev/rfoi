@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
       row.addEventListener("click", () => {
         const playerIndex = row.getAttribute("data-player-index");
         const player = sortedPlayers[playerIndex];
-        showPlayerModal(player);
+        showPlayerModal(player, parseInt(playerIndex) + 1);
       });
     });
     
@@ -235,12 +235,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 100);
   };
   
-  const showPlayerModal = (player) => {
+  const showPlayerModal = (player, rank) => {
     if (!player) return;
-    
+
     let name = truncateUnicodeString(getPlayerDisplayName(player), 30);
-    
+
     const modalNameEl = document.getElementById('modal-player-name');
+    const rankEl = document.getElementById('modal-player-rank');
+    if (rankEl) {
+      if (rank) {
+        rankEl.textContent = rank;
+        rankEl.style.display = "";
+      } else {
+        rankEl.style.display = "none";
+      }
+    }
     const modalPhotoEl = document.getElementById('modal-player-photo');
     const modalGamesEl = document.getElementById('modal-player-games');
     const modalWinsEl = document.getElementById('modal-player-wins');

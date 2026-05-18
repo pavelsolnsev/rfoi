@@ -12,6 +12,7 @@
           <img id="modal-player-photo" src="" alt="Фото игрока" class="pm-photo" loading="eager" decoding="async">
         </div>
         <h3 id="modal-player-name" class="pm-name"></h3>
+        <div id="modal-player-rank" class="pm-rank"></div>
         <div class="pm-team" id="player-modal-team-info">
           <img id="player-modal-team-logo-img" src="" alt="" class="pm-team-logo" loading="eager" decoding="async">
           <span id="player-modal-team-name" class="pm-team-name"></span>
@@ -96,6 +97,7 @@
           <img id="modal-team-photo" src="" alt="Логотип команды" class="tm-logo" loading="eager" decoding="async">
         </div>
         <h3 id="modal-team-name" class="tm-name"></h3>
+        <div id="modal-team-rank" class="tm-rank"></div>
         <div id="modal-team-trophies" class="tm-trophies"></div>
       </div>
 

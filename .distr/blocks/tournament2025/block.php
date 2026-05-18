@@ -32,7 +32,7 @@ $teams = array(
     'points' => 9,
     'photo' => 'img/team/leon.webp',
     'players' => array(
-      0 => array('name' => 'nikita_a1exandrovich', 'photo' => 'img/players/nikita.webp', 'icon' => '🟨', 'is_captain' => true),
+      0 => array('name' => 'nikita_a1exandrovich', 'photo' => 'img/players/nikita.webp', 'icon' => '<span class="yc-wrap"><span class="yc-card"></span></span>', 'is_captain' => true),
       1 => array('name' => 'Vadik_69_11', 'photo' => 'img/players/Vadik.webp'),
       2 => array('name' => 'al11114', 'photo' => 'img/players/al11114.webp'),
       3 => array('name' => 'toxa1392777', 'photo' => 'img/players/toxa1392777.webp'),
@@ -50,7 +50,7 @@ $teams = array(
     'points' => 16,
     'photo' => 'img/team/rych.webp',
     'players' => array(
-      0 => array('name' => 'Ислам Халиков', 'photo' => 'img/players/islam.webp', 'icon' => '🟨', 'is_captain' => true),
+      0 => array('name' => 'Ислам Халиков', 'photo' => 'img/players/islam.webp', 'icon' => '<span class="yc-wrap"><span class="yc-card"></span></span>', 'is_captain' => true),
       1 => array('name' => 'seivrtd', 'photo' => 'img/players/seivrtd.webp'),
       2 => array('name' => 'Mirinian', 'photo' => 'img/players/mirinian.webp'),
       3 => array('name' => 'AlexeiD2025', 'photo' => 'img/players/AlexeiD2025.webp'),
@@ -70,7 +70,7 @@ $teams = array(
     'players' => array(
       0 => array('name' => 'filipps1', 'photo' => 'img/players/filipps1.webp', 'is_captain' => true),
       1 => array('name' => 'vl_l24', 'photo' => 'img/players/vl_l24.webp'),
-      2 => array('name' => 'ZhekaFootball', 'photo' => 'img/players/Evgenkozl.webp', 'icon' => '🟨🟨'),
+      2 => array('name' => 'ZhekaFootball', 'photo' => 'img/players/Evgenkozl.webp', 'icon' => '2🟨'),
       3 => array('name' => 'SenyaAvgan', 'photo' => 'img/players/SenyaAvgan.webp'),
       4 => array('name' => 'mr_snak4', 'photo' => 'img/players/mr_snak4.webp'),
     ),
@@ -84,15 +84,15 @@ $teams = array(
     'photo' => 'img/team/worlds.webp',
     'players' => array(
       0 => array('name' => 'Jorik', 'photo' => 'img/players/jorik.webp', 'is_captain' => true),
-      1 => array('name' => 'evgeniyshvetsov', 'photo' => 'img/players/evgeniyshvetsov.webp', 'icon' => '🟨'),
+      1 => array('name' => 'evgeniyshvetsov', 'photo' => 'img/players/evgeniyshvetsov.webp', 'icon' => '<span class="yc-wrap"><span class="yc-card"></span></span>'),
       2 => array('name' => 'Дмитрий З', 'photo' => 'img/players/dmitri.webp'),
-      3 => array('name' => 'ZhekaFootball', 'photo' => 'img/players/Evgenkozl.webp', 'icon' => '🟨'),
+      3 => array('name' => 'ZhekaFootball', 'photo' => 'img/players/Evgenkozl.webp', 'icon' => '<span class="yc-wrap"><span class="yc-card"></span></span>'),
       4 => array('name' => 'Александр', 'photo' => 'img/players/aleksandr.webp'),
       5 => array('name' => 'Даниил Турланов', 'photo' => 'img/players/tyrlanov.webp'),
       6 => array('name' => 'Vyacheslav Batrakov', 'photo' => 'img/players/vacheslav.webp'),
       7 => array('name' => 'seivrtd', 'photo' => 'img/players/seivrtd.webp'),
       8 => array('name' => 'Артём', 'photo' => 'img/players/artem.webp'),
-      9 => array('name' => 'Abdulatip44', 'photo' => 'img/players/Abdulatip44.webp', 'icon' => '🟨'),
+      9 => array('name' => 'Abdulatip44', 'photo' => 'img/players/Abdulatip44.webp', 'icon' => '<span class="yc-wrap"><span class="yc-card"></span></span>'),
     ),
   ),
   5 => array(
@@ -104,8 +104,8 @@ $teams = array(
     'photo' => 'img/team/volt.webp',
     'players' => array(
       0 => array('name' => 't1ma27', 'photo' => 'img/players/t1ma27.webp', 'is_captain' => true),
-      1 => array('name' => 'y0ung_m0on', 'photo' => 'img/players/igor_oru.webp', 'icon' => '🟨'),
-      2 => array('name' => 'Abdulatip44', 'photo' => 'img/players/Abdulatip44.webp', 'icon' => '🟨'),
+      1 => array('name' => 'y0ung_m0on', 'photo' => 'img/players/igor_oru.webp', 'icon' => '<span class="yc-wrap"><span class="yc-card"></span></span>'),
+      2 => array('name' => 'Abdulatip44', 'photo' => 'img/players/Abdulatip44.webp', 'icon' => '<span class="yc-wrap"><span class="yc-card"></span></span>'),
       3 => array('name' => 'KroxaAn', 'photo' => 'img/players/KroxaAn.webp'),
       4 => array('name' => 'deltaivan', 'photo' => 'img/players/deltaivan.webp'),
       5 => array('name' => 'seivrtd', 'photo' => 'img/players/seivrtd.webp'),
@@ -182,7 +182,7 @@ $teams = array(
     'points' => 3,
     'photo' => 'img/team/iasnostb.webp',
     'players' => array(
-      0 => array('name' => 'evgeniyshvetsov', 'photo' => 'img/players/evgeniyshvetsov.webp', 'icon' => '🟨', 'is_captain' => true),
+      0 => array('name' => 'evgeniyshvetsov', 'photo' => 'img/players/evgeniyshvetsov.webp', 'icon' => '<span class="yc-wrap"><span class="yc-card"></span></span>', 'is_captain' => true),
       1 => array('name' => 'deltaivan', 'photo' => 'img/players/deltaivan.webp'),
       2 => array('name' => 'Кодиржон', 'photo' => 'img/players/kodirjon.webp'),
       3 => array('name' => 'Aleksandr_bannik', 'photo' => 'img/players/Aleksandr_bannik.webp'),
@@ -202,6 +202,9 @@ usort($teams, function ($a, $b) {
     <div class="table-wrapper">
       <table id="teams-table" class="players-table">
         <caption class="table-caption">
+          <video class="caption-bg-video" autoplay muted loop playsinline>
+            <source src="/bg-video.mp4" type="video/mp4">
+          </video>
           <div class="caption-header">
             <div class="caption-brand">
               <a href="/" class="caption-brand-logo-link"><img src="img/main/logorfoi.webp" alt="РФОИ" class="caption-brand-logo" loading="lazy"></a>

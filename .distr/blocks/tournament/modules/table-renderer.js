@@ -71,7 +71,7 @@ export const renderTeamsTable = (teamsTableBody, teamsTable, teams, sortConfig) 
   document.querySelectorAll(".team-row").forEach((row) => {
     row.addEventListener("click", () => {
       const teamIndex = row.getAttribute("data-team-index");
-      openTeamModal(sortedTeams[teamIndex]);
+      openTeamModal(sortedTeams[teamIndex], parseInt(teamIndex) + 1);
     });
   });
 

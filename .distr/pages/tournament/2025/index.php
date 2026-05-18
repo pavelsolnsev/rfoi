@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
       row.addEventListener("click", () => {
         const teamIndex = row.getAttribute("data-team-index");
         const team = sortedTeams[teamIndex];
-        openTeamModal(team);
+        openTeamModal(team, parseInt(teamIndex) + 1);
       });
     });
     
@@ -218,23 +218,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 100);
   };
   
-  const openTeamModal = (team) => {
+  const openTeamModal = (team, rank) => {
     if (!team) return;
-    
+
     const modalName = document.getElementById('modal-team-name');
     const modalPhoto = document.getElementById('modal-team-photo');
     const modalPlayers = document.getElementById('modal-team-players');
     const modalTrophies = document.getElementById('modal-team-trophies');
-    
+
     if (!modalName || !modalPhoto || !modalPlayers || !modalTrophies) {
       return;
     }
-    
+
     modalName.textContent = team.name || 'Неизвестно';
+    const rankEl = document.getElementById('modal-team-rank');
+    if (rankEl) {
+      if (rank) { rankEl.textContent = rank; rankEl.style.display = ''; }
+      else { rankEl.style.display = 'none'; }
+    }
     const modalTrophyCount = team.trophy_count !== undefined ? team.trophy_count : ((team.trophies || '').split('🏆').length - 1);
-    modalTrophies.innerHTML = modalTrophyCount >= 2
-      ? `<span class="trophy-count"><span class="trophy-count-num">${modalTrophyCount}</span></span>`
-      : (team.trophies || '');
+    if (modalTrophyCount >= 2) {
+      modalTrophies.innerHTML = `<i class="fas fa-trophy"></i><span class="trophy-count-num">${modalTrophyCount}</span>`;
+    } else if (modalTrophyCount === 1) {
+      modalTrophies.innerHTML = `<i class="fas fa-trophy"></i>`;
+    } else {
+      modalTrophies.textContent = team.trophies || '';
+    }
     modalPhoto.src = '/' + (team.photo || 'img/team/default.webp');
     
     // Находим контейнеры для Swiper и сетки
@@ -260,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return 0;
       });
       
-      const playersPerSlide = 5;
+      const playersPerSlide = 4;
       let currentSlidePlayers = [];
       
       sortedPlayers.forEach((player, index) => {

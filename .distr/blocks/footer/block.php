@@ -1,25 +1,40 @@
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <a href="/" class="site-footer__brand" title="На главную">
-      <span class="site-footer__logo-icon"><i class="fas fa-futbol"></i></span>
-      <span class="site-footer__logo-text">РФОИ</span>
-    </a>
+
+    <?php $isHome = (strtok($_SERVER['REQUEST_URI'], '?') === '/'); ?>
+    <?php if (!$isHome): ?><a href="/" class="site-footer__brand"><?php else: ?><div class="site-footer__brand"><?php endif; ?>
+      <img src="img/main/logorfoi.webp" alt="РФОИ" class="site-footer__brand-logo">
+      <span class="site-footer__brand-text">РФОИ</span>
+    <?php if (!$isHome): ?></a><?php else: ?></div><?php endif; ?>
+
     <nav class="site-footer__nav">
-      <a href="/info/">Информация</a>
       <a href="/">Главная</a>
       <?php if (strpos($_SERVER['REQUEST_URI'], '/tournament') !== false): ?>
         <a href="/">Игроки</a>
       <?php else: ?>
         <a href="/tournament/">Команды</a>
       <?php endif; ?>
-      <a href="https://tournament.pavelsolntsev.ru" target="_blank" rel="noopener noreferrer" title="Турниры РФОИ — управление и результаты"><i class="fas fa-trophy" aria-hidden="true"></i><span> Турниры онлайн</span></a>
-      <a href="https://t.me/RmsFootball" target="_blank" rel="noopener noreferrer" class="site-footer__tg" title="РФОИ в Telegram"><i class="fab fa-telegram" aria-hidden="true"></i><span> Telegram · РФОИ</span></a>
-      <a href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer" class="site-footer__vk" title="РФОИ ВКонтакте"><i class="fab fa-vk" aria-hidden="true"></i><span> ВКонтакте · РФОИ</span></a>
+      <a href="/2025/">Сезон 2025</a>
+      <a href="/info/">Информация</a>
+      <a href="https://tournament.pavelsolntsev.ru" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-trophy" aria-hidden="true"></i> Турниры онлайн
+      </a>
     </nav>
-    <div class="site-footer__seo">
-      <h2 class="site-footer__seo-title">РФОИ — Раменское Футбол | Открытые Игры</h2>
-      <p class="site-footer__seo-text">Любительский футбол в Раменском (Московская область) — статистика игроков, результаты турниров, составы команд. Открытые игры для всех желающих каждый понедельник на Профилактории и турниры каждую пятницу на Красном Знамя.</p>
+
+    <div class="site-footer__social">
+      <a href="https://t.me/RmsFootball" target="_blank" rel="noopener noreferrer" title="Telegram РФОИ">
+        <i class="fab fa-telegram" aria-hidden="true"></i> Telegram
+      </a>
+      <a href="https://vk.com/rmsfootball" target="_blank" rel="noopener noreferrer" title="ВКонтакте РФОИ">
+        <i class="fab fa-vk" aria-hidden="true"></i> ВКонтакте
+      </a>
     </div>
-    <div class="site-footer__copy">© <?= date('Y') ?> Раменское футбол</div>
+
+    <div class="site-footer__seo">
+      <p class="site-footer__seo-text">Любительский футбол в Раменском — статистика игроков, результаты турниров, составы команд. Открытые игры каждый понедельник на Профилактории и турниры по пятницам на Красном Знамя.</p>
+    </div>
+
+    <div class="site-footer__copy">© <?= date('Y') ?> РФОИ — Раменское Футбол Открытые Игры</div>
+
   </div>
 </footer>

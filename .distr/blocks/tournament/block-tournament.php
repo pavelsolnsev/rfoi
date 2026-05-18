@@ -27,6 +27,9 @@
             <span class="sparkle">✨</span>
             <span class="sparkle">⭐</span>
           </div> -->
+          <video class="caption-bg-video" autoplay muted loop playsinline>
+            <source src="/bg-video.mp4" type="video/mp4">
+          </video>
           <div class="caption-header">
             <div class="caption-brand">
               <a href="/" class="caption-brand-logo-link"><img src="img/main/logorfoi.webp" alt="РФОИ" class="caption-brand-logo" loading="lazy"></a>

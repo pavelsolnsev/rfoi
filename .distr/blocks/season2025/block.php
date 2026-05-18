@@ -1697,6 +1697,9 @@ if (!function_exists('rfoi_player_display_name')) {
     <div class="table-wrapper">
       <table id="desktop-table" class="players-table">
         <caption class="table-caption">
+          <video class="caption-bg-video" autoplay muted loop playsinline>
+            <source src="/bg-video.mp4" type="video/mp4">
+          </video>
           <div class="caption-header">
             <div class="caption-brand">
               <a href="/" class="caption-brand-logo-link"><img src="img/main/logorfoi.webp" alt="РФОИ" class="caption-brand-logo" loading="lazy"></a>

@@ -2,7 +2,50 @@
   "permissions": {
     "allow": [
       "Bash(Get-ChildItem -Path \"d:\\\\web\\\\rfoi\" -Directory)",
-      "Bash(Select-Object Name)"
+      "Bash(Select-Object Name)",
+      "Bash(npx gulp *)",
+      "Bash(cd /d d:\\\\web\\\\rfoi)",
+      "Bash(node node_modules/.bin/gulp default)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(npx --no-install gulp public)",
+      "Bash(python -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(magick --version)",
+      "Bash(convert --version)",
+      "Bash(node -e \"require\\('sharp'\\); console.log\\('sharp ok'\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(Get-ChildItem d:\\\\web\\\\rfoi\\\\.distr -Recurse -Filter \"*.json\")",
+      "Bash(Select-Object FullName)",
+      "Bash(Head -10)",
+      "PowerShell(Get-ChildItem \"d:\\\\web\\\\rfoi\\\\.distr\\\\blocks\\\\season2025\\\\block.php\",\"d:\\\\web\\\\rfoi\\\\.distr\\\\blocks\\\\tournament2025\\\\block.php\",\"d:\\\\web\\\\rfoi\\\\.distr\\\\blocks\\\\tournament\\\\block-tournament.php\",\"d:\\\\web\\\\rfoi\\\\.distr\\\\blocks\\\\footer\\\\block.php\",\"d:\\\\web\\\\rfoi\\\\.distr\\\\blocks\\\\main\\\\block.php\" | ForEach-Object { \\(Get-Content $_.FullName -Raw\\) -replace 'logorfoi\\\\.png','logorfoi.webp' | Set-Content $_.FullName -Encoding utf8 })",
+      "Bash(git stash *)",
+      "Bash(python3)",
+      "Bash(python3 -c ' *)",
+      "Bash(ffmpeg -version)",
+      "Bash(where ffmpeg *)",
+      "Bash(where ffprobe *)",
+      "Bash(winget --version)",
+      "Bash(winget install *)",
+      "Bash(ffprobe -v quiet -print_format json -show_streams d:/web/rfoi/.distr/pages/vkclips_20260518101538.mp4)",
+      "Bash(Read C:\\\\Users\\\\spas\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--web-rfoi\\\\16af5f9f-9542-43a2-aba4-90982f18f77d\\\\tasks\\\\bjqxt61n3.output)",
+      "PowerShell(ffmpeg -version 2>&1)",
+      "PowerShell(Get-Command ffmpeg -ErrorAction SilentlyContinue; \\(Get-ChildItem \"C:\\\\Program Files\\\\ffmpeg\" -Recurse -Filter \"ffmpeg.exe\" -ErrorAction SilentlyContinue\\).FullName)",
+      "Read(//c/Users/spas/AppData/Local/Microsoft/WinGet/Packages/**)",
+      "Read(//c/Users/spas/**)",
+      "Read(//c//**)",
+      "PowerShell($env:Path = [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"User\"\\); Get-Command ffmpeg -ErrorAction SilentlyContinue | Select-Object Source)",
+      "PowerShell(winget list ffmpeg 2>&1)",
+      "PowerShell($ffmpeg = \"C:\\\\Users\\\\spas\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\ffmpeg-8.1.1-full_build\\\\bin\\\\ffmpeg.exe\"; & $ffmpeg -i \"d:\\\\web\\\\rfoi\\\\public\\\\vkclips_20260518101538.mp4\" -vf scale=854:480 -c:v libx264 -b:v 500k -an -movflags +faststart \"d:\\\\web\\\\rfoi\\\\public\\\\bg-video.mp4\" 2>&1)",
+      "PowerShell(Get-Item \"d:\\\\web\\\\rfoi\\\\public\\\\bg-video.mp4\", \"d:\\\\web\\\\rfoi\\\\public\\\\vkclips_20260518101538.mp4\" | Select-Object Name, @{N=\"Size MB\";E={[math]::Round\\($_.Length/1MB,1\\)}})",
+      "PowerShell($ffmpeg = \"C:\\\\Users\\\\spas\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\ffmpeg-8.1.1-full_build\\\\bin\\\\ffmpeg.exe\"; & $ffmpeg -i \"d:\\\\web\\\\rfoi\\\\public\\\\bg-video.mp4\" -t 33.9 -c:v libx264 -b:v 300k -an -movflags +faststart \"d:\\\\web\\\\rfoi\\\\public\\\\bg-video2.mp4\" 2>&1 | Select-String -Pattern \"frame=|Lsize|error|Error\" | Select-Object -Last 5)",
+      "PowerShell($ffmpeg = \"C:\\\\Users\\\\spas\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\ffmpeg-8.1.1-full_build\\\\bin\\\\ffmpeg.exe\"; & $ffmpeg -y -i \"d:\\\\web\\\\rfoi\\\\public\\\\vkclips_20260518101538.mp4\" -t 33.9 -vf scale=854:480 -c:v libx264 -b:v 500k -an -movflags +faststart \"d:\\\\web\\\\rfoi\\\\bg-video.mp4\" 2>&1 | Select-String -Pattern \"frame=|Lsize|error|Error\" | Select-Object -Last 5)",
+      "PowerShell($ffmpeg = \"C:\\\\Users\\\\spas\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\ffmpeg-8.1.1-full_build\\\\bin\\\\ffmpeg.exe\"; & $ffmpeg -y -i \"d:\\\\web\\\\rfoi\\\\public\\\\vkclips_20260518101538.mp4\" -t 32.2 -vf scale=854:480 -c:v libx264 -b:v 500k -an -movflags +faststart \"d:\\\\web\\\\rfoi\\\\.distr\\\\pages\\\\bg-video.mp4\" 2>&1 | Select-String -Pattern \"Lsize|error\" | Select-Object -Last 3)",
+      "PowerShell($ffmpeg = \"C:\\\\Users\\\\spas\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\ffmpeg-8.1.1-full_build\\\\bin\\\\ffmpeg.exe\"; & $ffmpeg -y -i \"d:\\\\web\\\\rfoi\\\\public\\\\vkclips_20260518101538.mp4\" -t 30.2 -vf scale=854:480 -c:v libx264 -b:v 500k -an -movflags +faststart \"d:\\\\web\\\\rfoi\\\\.distr\\\\pages\\\\bg-video.mp4\" 2>&1 | Select-String -Pattern \"Lsize|error\" | Select-Object -Last 3)",
+      "Bash(xargs grep -l \"tournament\\\\|team.*point\\\\|pts\")"
+    ],
+    "additionalDirectories": [
+      "d:\\web\\rfoi\\.distr\\blocks\\players\\img"
     ]
   }
 }

@@ -134,8 +134,8 @@ document.addEventListener('DOMContentLoaded', function () {
           <td data-label="№">${index + 1}</td>
           <td data-label="Игрок">
             <div class="player-info">
-              <div class="player-photo"> 
-                <img src="${resolvePlayerPhotoSrc(player.photo)}?v=1.4.9" alt="${name} — игрок РФОИ, Раменское" class="" loading="lazy" decoding="async">
+              <div class="player-photo">
+                <img src="${resolvePlayerPhotoSrc(player.photo)}?v=1.5.9" alt="${name} — игрок РФОИ, Раменское" class="" loading="lazy" decoding="async">
               </div>
               <span>${name}</span>
             </div>
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
       row.addEventListener("click", () => {
         const playerIndex = row.getAttribute("data-player-index");
         const player = sortedPlayers[playerIndex];
-        showPlayerModal(player);
+        showPlayerModal(player, null, parseInt(playerIndex) + 1);
       });
     });
 
@@ -175,11 +175,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 100);
   };
 
-  const showPlayerModal = (player, teamNameFromContext) => {
+  const showPlayerModal = (player, teamNameFromContext, rank) => {
     const name = getPlayerDisplayName(player);
 
     document.getElementById("modal-player-name").textContent = name;
-    document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=1.4.9`;
+
+    const rankEl = document.getElementById("modal-player-rank");
+    if (rankEl) {
+      if (rank) {
+        rankEl.textContent = rank;
+        rankEl.style.display = "";
+      } else {
+        rankEl.style.display = "none";
+      }
+    }
+    document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=1.5.9`;
     document.getElementById("modal-player-photo").alt = `${name} — игрок РФОИ, Раменское`;
 
     const displayTeamName = teamNameFromContext || player.teamName;
@@ -283,7 +293,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       const teams = await teamsResponse.json();
       
-      // Находим команду по названию
+      // Находим команду по названию и её позицию в таблице
+      const sortedByPoints = [...teams].sort((a, b) => (b.points || 0) - (a.points || 0));
+      const teamRank = sortedByPoints.findIndex(t => t.name === teamName) + 1;
       const team = teams.find(t => t.name === teamName);
       if (!team) {
         console.error("Команда не найдена");
@@ -317,11 +329,12 @@ document.addEventListener('DOMContentLoaded', function () {
         photo: resolvePlayerPhotoSrc(p.photo),
         isCaptain: p.is_captain || false,
         isMainPlayer: p.is_main_player || false,
-        icon: p.yellow_cards > 0 ? '🟨'.repeat(Math.min(p.yellow_cards, 2)) : ''
+        icon: p.yellow_cards > 0 ? `<span class="yc-wrap">${p.yellow_cards > 1 ? `<span class="yc-num">${p.yellow_cards}</span>` : ''}<span class="yc-card"></span></span>` : ''
       })) : [];
 
       // Формируем строку трофеев
       const trophiesStr = team.trophies ? '🏆'.repeat(team.trophies) : '';
+      const trophyCount = (trophiesStr.match(/🏆/g) || []).length;
 
       // Заполняем данные попапа
       const modalName = document.getElementById("modal-team-name");
@@ -330,6 +343,15 @@ document.addEventListener('DOMContentLoaded', function () {
       const modalPlayers = document.getElementById("modal-team-players");
 
       if (modalName) modalName.textContent = team.name;
+      const teamRankEl = document.getElementById("modal-team-rank");
+      if (teamRankEl) {
+        if (teamRank > 0) {
+          teamRankEl.textContent = teamRank;
+          teamRankEl.style.display = "";
+        } else {
+          teamRankEl.style.display = "none";
+        }
+      }
       if (modalPhoto) {
         const fallbackTeamLogoPath = '/img/team/logo.webp';
         modalPhoto.onerror = function () {
@@ -340,11 +362,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       if (modalTrophies) {
-        const trophyCount = team.trophies || 0;
         if (trophyCount >= 2) {
-          modalTrophies.innerHTML = `<span class="trophy-count">${trophyCount}</span>`;
+          modalTrophies.innerHTML = `<i class="fas fa-trophy"></i><span class="trophy-count-num">${trophyCount}</span>`;
+        } else if (trophyCount === 1) {
+          modalTrophies.innerHTML = `<i class="fas fa-trophy"></i>`;
         } else {
-          modalTrophies.textContent = trophiesStr;
+          modalTrophies.textContent = trophiesStr || '⚪️';
         }
       }
 
@@ -365,8 +388,8 @@ document.addEventListener('DOMContentLoaded', function () {
           return 0;
         });
 
-        // Группируем для Swiper (по 5 игроков на слайд)
-        const playersPerSlide = 5;
+        // Группируем для Swiper (по 6 игроков на слайд)
+        const playersPerSlide = 4;
         let currentSlidePlayers = [];
         
         sortedPlayers.forEach((player, index) => {
@@ -409,51 +432,20 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         });
 
-        // Добавляем обработчики клика на карточки игроков
-        const allPlayerCards = modalPlayers.querySelectorAll('.player-card');
-        allPlayerCards.forEach((card) => {
-          card.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const playerName = card.getAttribute('data-player-name');
-            if (!playerName) return;
-
-            // Ищем игрока в массиве players по имени
-            const player = players.find((p) => {
-              const playerDisplayName = getPlayerDisplayName(p);
-              return (
-                playerDisplayName === playerName ||
-                p.name === playerName ||
-                p.username === playerName
-              );
-            });
-
-            if (player) {
-              const teamModalInstance = bootstrap.Modal.getInstance(teamModalElement);
-              if (teamModalInstance) {
-                teamModalInstance.hide();
-              }
-              showPlayerModal(player, team.name);
-            }
-          });
-        });
-
         // Инициализируем Swiper
         const swiperContainer = modalPlayers?.querySelector('.team-players-swiper');
         if (swiperContainer && typeof Swiper !== 'undefined') {
           if (swiperContainer.swiper) {
             swiperContainer.swiper.destroy(true, true);
           }
-          
-          if (window.innerWidth < 576) {
-            new Swiper(swiperContainer, {
-              slidesPerView: 1,
-              spaceBetween: 16,
-              pagination: {
-                el: swiperContainer.querySelector('.swiper-pagination'),
-                clickable: true,
-              },
-            });
-          }
+          new Swiper(swiperContainer, {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            pagination: {
+              el: swiperContainer.querySelector('.swiper-pagination'),
+              clickable: true,
+            },
+          });
         }
 
         // Добавляем обработчики клика на карточки игроков после инициализации Swiper
@@ -466,7 +458,6 @@ document.addEventListener('DOMContentLoaded', function () {
               const playerUsername = card.getAttribute('data-player-username');
               if (!playerName) return;
 
-              // Ищем игрока в массиве players по имени или username
               const player = players.find((p) => {
                 const playerDisplayName = getPlayerDisplayName(p);
                 if (playerDisplayName === playerName || p.name === playerName) return true;
@@ -486,7 +477,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (teamModalInstance) {
                   teamModalInstance.hide();
                 }
-                showPlayerModal(player, team.name);
+                const rank = players.indexOf(player) + 1;
+                showPlayerModal(player, team.name, rank > 0 ? rank : undefined);
               }
             });
           });
