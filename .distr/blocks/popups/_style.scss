@@ -489,6 +489,10 @@
       grid-template-columns: 1fr;
 
       @include media(576) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @include media(768) {
         grid-template-columns: 1fr 1fr 1fr;
       }
     }

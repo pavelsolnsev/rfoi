@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Группируем для Swiper (по 6 игроков на слайд)
-        const playersPerSlide = 4;
+        const playersPerSlide = 6;
         let currentSlidePlayers = [];
         
         sortedPlayers.forEach((player, index) => {

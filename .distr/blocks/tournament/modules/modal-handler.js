@@ -83,7 +83,7 @@ export const openTeamModal = (team, rank) => {
     });
 
     // Группируем игроков по 6 для Swiper (2×3 на десктопе, 1×6 на мобиле)
-    const playersPerSlide = 4;
+    const playersPerSlide = 6;
     let currentSlidePlayers = [];
     
     sortedPlayers.forEach((player, index) => {

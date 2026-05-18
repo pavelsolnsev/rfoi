@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return 0;
       });
       
-      const playersPerSlide = 4;
+      const playersPerSlide = 6;
       let currentSlidePlayers = [];
       
       sortedPlayers.forEach((player, index) => {
