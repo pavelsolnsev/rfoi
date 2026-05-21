@@ -11,6 +11,19 @@ import {
 import { resolvePlayerPhotoSrc } from './image-path-utils.js';
 
 /**
+ * Считает сколько карточек игроков (1 колонка) влезает в экран без скролла
+ */
+const getMobilePlayersPerSlide = () => {
+  // hero (~107px) + body padding (24px) + section label (40px) + pagination (34px)
+  const overhead = 205;
+  const cardHeight = 80; // фото 32 + padding 14 + gap 4 + имя ~24 + border ~2
+  const cardGap = 6;
+  const available = window.innerHeight * 0.9 - overhead;
+  const count = Math.floor((available + cardGap) / (cardHeight + cardGap));
+  return Math.max(2, Math.min(count, 6));
+};
+
+/**
  * Функция открытия модального окна команды
  * @param {Object} team - Объект команды
  */
@@ -82,8 +95,8 @@ export const openTeamModal = (team, rank) => {
       return 0;
     });
 
-    // Группируем игроков по 6 для Swiper (2×3 на десктопе, 1×6 на мобиле)
-    const playersPerSlide = 6;
+    // На мобиле считаем сколько карточек влезает по высоте экрана
+    const playersPerSlide = window.innerWidth < 576 ? getMobilePlayersPerSlide() : 6;
     let currentSlidePlayers = [];
     
     sortedPlayers.forEach((player, index) => {
