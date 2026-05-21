@@ -29,7 +29,7 @@
             <span class="sparkle">⭐</span>
           </div> -->
           <video class="caption-bg-video" autoplay muted loop playsinline>
-            <source src="/bg-video.mp4" type="video/mp4">
+            <source src="/bgkz.mp4" type="video/mp4">
           </video>
           <div class="caption-header">
             <div class="caption-brand">

@@ -1699,7 +1699,7 @@ if (!function_exists('rfoi_player_display_name')) {
       <table id="desktop-table" class="players-table">
         <caption class="table-caption">
           <video class="caption-bg-video" autoplay muted loop playsinline>
-            <source src="/bg-video.mp4" type="video/mp4">
+            <source src="/bgkz.mp4" type="video/mp4">
           </video>
           <div class="caption-header">
             <div class="caption-brand">
