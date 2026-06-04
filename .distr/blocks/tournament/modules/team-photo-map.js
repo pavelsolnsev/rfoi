@@ -19,6 +19,7 @@ export const teamPhotoMap = {
   'Артемида': 'img/team/artemida.webp',
   'Титан': 'img/team/titan.webp',
   'FC Chelsea': 'img/team/\u0441helsea.webp',
+  'mixTeam': 'img/team/mixteam.webp',
 };
 
 /**
