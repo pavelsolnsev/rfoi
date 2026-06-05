@@ -282,6 +282,7 @@ const showPlayerModalInTournament = (player, teamNameFromContext, rank) => {
     'Артемида': 'artemida.webp',
     'Титан': 'titan.webp',
     'FC Chelsea': '\u0441helsea.webp',
+    'mixTeam': 'img/team/mixteam.webp',
   };
 
   const teamInfo = document.getElementById("player-modal-team-info");
@@ -419,6 +420,7 @@ const loadAndOpenTeamModal = async (teamName) => {
       'Артемида': 'artemida.webp',
       'Титан': 'titan.webp',
       'FC Chelsea': '\u0441helsea.webp',
+      'mixTeam': 'img/team/mixteam.webp',
     };
 
     // Формируем путь к фото команды

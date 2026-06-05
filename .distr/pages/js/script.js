@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Артемида': 'artemida.webp',
     'Титан': 'titan.webp',
     'FC Chelsea': '\u0441helsea.webp',
+    'mixTeam': 'img/team/mixteam.webp',
   };
 
 
