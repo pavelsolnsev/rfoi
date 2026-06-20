@@ -422,7 +422,7 @@ const loadAndOpenTeamModal = async (teamName) => {
       'Титан': 'titan.webp',
       'FC Chelsea': '\u0441helsea.webp',
       'mixTeam': 'img/team/mixteam.webp',
-      'ФК.1956.ПАХТАКОР': 'paxtakor.webp',
+      'UZB.ФК.1956.Пахтакор': 'paxtakor.webp',
     };
 
     // Формируем путь к фото команды
