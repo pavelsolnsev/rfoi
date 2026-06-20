@@ -20,6 +20,7 @@ export const teamPhotoMap = {
   'Титан': 'img/team/titan.webp',
   'FC Chelsea': 'img/team/\u0441helsea.webp',
   'mixTeam': 'img/team/mixteam.webp',
+  'ФК.1956.ПАХТАКОР': 'img/team/paxtakor.webp',
 };
 
 /**
