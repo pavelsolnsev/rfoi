@@ -283,7 +283,7 @@ const showPlayerModalInTournament = (player, teamNameFromContext, rank) => {
     'Титан': 'titan.webp',
     'FC Chelsea': '\u0441helsea.webp',
     'mixTeam': 'img/team/mixteam.webp',
-    '\u0424\u041a.1956.\u041f\u0410\u0425\u0422\u0410\u041a\u041e\u0420': 'paxtakor.webp',
+    'UZB.ФК.1956.Пахтакор': 'paxtakor.webp',
   };
 
   const teamInfo = document.getElementById("player-modal-team-info");
