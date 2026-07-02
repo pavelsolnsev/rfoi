@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Титан': 'titan.webp',
     'FC Chelsea': '\u0441helsea.webp',
     'mixTeam': 'mixteam.webp',
-    'UZB.ФК.1956.Пахтакор': 'paxtakor.webp',
+    'Бронницы': 'bronnitsy.webp',
   };
 
 
