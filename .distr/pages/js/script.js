@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <td data-label="Игрок">
             <div class="player-info">
               <div class="player-photo">
-                <img src="${resolvePlayerPhotoSrc(player.photo)}?v=1.8.9" alt="${name} — игрок РФОИ, Раменское" class="" loading="lazy" decoding="async">
+                <img src="${resolvePlayerPhotoSrc(player.photo)}?v=1.9.9" alt="${name} — игрок РФОИ, Раменское" class="" loading="lazy" decoding="async">
               </div>
               <span>${name}</span>
             </div>
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
         rankEl.style.display = "none";
       }
     }
-    document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=1.8.9`;
+    document.getElementById("modal-player-photo").src = `${resolvePlayerPhotoSrc(player.photo)}?v=1.9.9`;
     document.getElementById("modal-player-photo").alt = `${name} — игрок РФОИ, Раменское`;
 
     const displayTeamName = teamNameFromContext || player.teamName;
