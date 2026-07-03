@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'FC Chelsea': '\u0441helsea.webp',
     'mixTeam': 'mixteam.webp',
     'Бронницы': 'bronnitsy.webp',
+    'Lamoda': 'lamoda.webp',
   };
 
 

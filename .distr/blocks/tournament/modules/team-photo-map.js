@@ -21,6 +21,7 @@ export const teamPhotoMap = {
   'FC Chelsea': 'img/team/\u0441helsea.webp',
   'mixTeam': 'img/team/mixteam.webp',
   'Бронницы': 'img/team/bronnitsy.webp',
+  'Lamoda': 'img/team/lamoda.webp',
 };
 
 /**

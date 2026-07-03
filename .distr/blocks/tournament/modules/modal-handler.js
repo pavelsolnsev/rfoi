@@ -284,6 +284,7 @@ const showPlayerModalInTournament = (player, teamNameFromContext, rank) => {
     'FC Chelsea': '\u0441helsea.webp',
     'mixTeam': 'mixteam.webp',
     'Бронницы': 'bronnitsy.webp',
+    'Lamoda': 'lamoda.webp',
   };
 
   const teamInfo = document.getElementById("player-modal-team-info");
@@ -423,6 +424,7 @@ const loadAndOpenTeamModal = async (teamName) => {
       'FC Chelsea': '\u0441helsea.webp',
       'mixTeam': 'mixteam.webp',
       'Бронницы': 'bronnitsy.webp',
+      'Lamoda': 'lamoda.webp',
     };
 
     // Формируем путь к фото команды
