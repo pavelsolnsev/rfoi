@@ -461,17 +461,15 @@ document.addEventListener('DOMContentLoaded', function () {
               const playerUsername = card.getAttribute('data-player-username');
               if (!playerName) return;
 
+              const normalizedPlayerUsername = normalizeUsername(playerUsername);
+              // Матчим по username только если это реальный username, а не пустой/@unknown —
+              // иначе find вернёт первого игрока с пустым username (совсем не того)
+              const hasRealUsername =
+                normalizedPlayerUsername !== '' && normalizedPlayerUsername !== 'unknown';
+
               const player = players.find((p) => {
-                const playerDisplayName = getPlayerDisplayName(p);
-                if (playerDisplayName === playerName || p.name === playerName) return true;
-                if (
-                  playerUsername &&
-                  (normalizeUsername(p.username) === normalizeUsername(playerUsername) ||
-                    p.username === playerUsername ||
-                    p.username === `@${normalizeUsername(playerUsername)}`)
-                ) {
-                  return true;
-                }
+                if (playerName && (p.name === playerName || getPlayerDisplayName(p) === playerName)) return true;
+                if (hasRealUsername && normalizeUsername(p.username) === normalizedPlayerUsername) return true;
                 return false;
               });
 
