@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'mixTeam': 'mixteam.webp',
     'Бронницы': 'bronnitsy.webp',
     'Lamoda': 'lamoda.webp',
+    'АСБИ': 'acbi.webp',
   };
 
 

@@ -279,6 +279,7 @@ const showPlayerModalInTournament = (player, teamNameFromContext, rank) => {
     'mixTeam': 'mixteam.webp',
     'Бронницы': 'bronnitsy.webp',
     'Lamoda': 'lamoda.webp',
+    'АСБИ': 'acbi.webp',
   };
 
   const teamInfo = document.getElementById("player-modal-team-info");
@@ -419,6 +420,7 @@ const loadAndOpenTeamModal = async (teamName) => {
       'mixTeam': 'mixteam.webp',
       'Бронницы': 'bronnitsy.webp',
       'Lamoda': 'lamoda.webp',
+      'АСБИ': 'acbi.webp',
     };
 
     // Формируем путь к фото команды
