@@ -130,8 +130,26 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
+    // ratingTrend приходит из API: 1 — вырос, -1 — упал, 0 — без изменений
+    const getRatingTrend = (player) => {
+      if (player.ratingTrend > 0) return "up";
+      if (player.ratingTrend < 0) return "down";
+      return null;
+    };
+
+    const renderRatingTrend = (trend) => {
+      if (trend === "up") {
+        return `<i class="fas fa-caret-up rating-trend rating-trend--up" title="Рейтинг вырос"></i>`;
+      }
+      if (trend === "down") {
+        return `<i class="fas fa-caret-down rating-trend rating-trend--down" title="Рейтинг упал"></i>`;
+      }
+      return "";
+    };
+
     sortedPlayers.forEach((player, index) => {
       const name = getPlayerDisplayName(player);
+      const ratingTrend = renderRatingTrend(getRatingTrend(player));
 
       const desktopRow = `
         <tr class="player-row" data-player-index="${index}">
@@ -152,7 +170,9 @@ document.addEventListener('DOMContentLoaded', function () {
           <td data-label="Асс">${player.assists || 0}</td>
           <td data-label="Сейвы">${player.saves || 0}</td>
           <td data-label="MVP">${player.mvp || 0}</td>
-          <td data-label="Рейт">${player.rating}</td>
+          <td data-label="Рейт">
+            <span class="rating-cell">${player.rating}${ratingTrend}</span>
+          </td>
         </tr>
       `;
       desktopTableBody.insertAdjacentHTML("beforeend", desktopRow);

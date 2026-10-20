@@ -333,14 +333,16 @@
 
   th:nth-child(1),
   td:nth-child(1) {
-    width: rem(20);
-    min-width: rem(20);
-    max-width: rem(20);
+    // Ширина рассчитана на трёхзначный номер, чтобы он не наезжал на фото игрока
+    width: rem(26);
+    min-width: rem(26);
+    max-width: rem(26);
     padding: rem(8) rem(2) rem(8) rem(6);
+    font-variant-numeric: tabular-nums;
     @include media(992) {
-      width: rem(30);
-      min-width: rem(30);
-      max-width: rem(30);
+      width: rem(38);
+      min-width: rem(38);
+      max-width: rem(38);
       padding: rem(8) rem(4) rem(8) rem(8);
     }
   }
@@ -447,6 +449,33 @@
   td[data-label="Рейт"] {
     color: #00bcd4;
     font-weight: 700;
+  }
+
+  .rating-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(2);
+
+    @include media(992) {
+      gap: rem(4);
+    }
+  }
+
+  .rating-trend {
+    font-size: rem(10);
+    line-height: 1;
+
+    @include media(992) {
+      font-size: rem(14);
+    }
+
+    &--up {
+      color: #10b981;
+    }
+
+    &--down {
+      color: #ef4444;
+    }
   }
 
   // ===== ЦВЕТА СТАТИСТИКИ (только ключевые) =====
