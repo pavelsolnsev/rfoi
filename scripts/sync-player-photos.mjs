@@ -18,6 +18,8 @@
  *   node scripts/sync-player-photos.mjs                         — только отчёт по новым файлам, в базу не пишет
  *   node scripts/sync-player-photos.mjs --apply                  — обновляет photo у новых файлов с однозначным совпадением
  *   node scripts/sync-player-photos.mjs --apply --only=file.webp  — только для указанного файла (можно повторять флаг)
+ *   node scripts/sync-player-photos.mjs --apply --confirm=file.webp — применить файл, который не прошёл авто-пороги,
+ *     но пользователь вручную подтвердил, что топ-кандидат верный (тоже можно повторять флаг)
  *   node scripts/sync-player-photos.mjs --all                    — расширить анализ на ВСЮ папку (старый бэклог), не пишет без --apply
  */
 import fs from 'fs';
@@ -37,6 +39,13 @@ const ONLY = new Set(
   process.argv
     .filter((a) => a.startsWith('--only='))
     .map((a) => a.slice('--only='.length).toLowerCase()),
+);
+// Файлы, которые пользователь явно подтвердил вручную — применяем топ-кандидата, даже если
+// он не прошёл автоматические пороги (слабый score / неоднозначность).
+const CONFIRM = new Set(
+  process.argv
+    .filter((a) => a.startsWith('--confirm='))
+    .map((a) => a.slice('--confirm='.length).toLowerCase()),
 );
 
 /** Файлы в players/img, которых еще нет в git (новые, незакоммиченные) — это и есть "добавленные мной". */
@@ -209,12 +218,17 @@ async function main() {
 
       const top = scored[0];
       const second = scored[1];
+      const forced = CONFIRM.has(file.toLowerCase());
 
-      if (!top || top.score < STRONG_THRESHOLD) {
-        skipped.push({ file, reason: 'нет уверенного совпадения', top: top ? `${top.player.name} (${top.score.toFixed(2)})` : '—' });
+      if (!top) {
+        skipped.push({ file, reason: 'нет кандидатов (все игроки уже с фото?)', top: '—' });
         continue;
       }
-      if (second && top.score - second.score < MIN_MARGIN_OVER_SECOND) {
+      if (!forced && top.score < STRONG_THRESHOLD) {
+        skipped.push({ file, reason: 'нет уверенного совпадения', top: `${top.player.name} (${top.score.toFixed(2)})` });
+        continue;
+      }
+      if (!forced && second && top.score - second.score < MIN_MARGIN_OVER_SECOND) {
         skipped.push({
           file,
           reason: 'неоднозначно',
@@ -224,7 +238,7 @@ async function main() {
         continue;
       }
 
-      toApply.push({ file, player: top.player, score: top.score });
+      toApply.push({ file, player: top.player, score: top.score, forced });
     }
 
     console.log(`Файлов найдено: ${files.length}`);
@@ -234,7 +248,7 @@ async function main() {
     if (toApply.length) {
       console.log(APPLY ? 'Применяю:' : 'Будет применено (запусти с --apply, чтобы записать в базу):');
       for (const a of toApply) {
-        console.log(`  ${a.file} -> ${a.player.name} [id=${a.player.id}] (score ${a.score.toFixed(2)})`);
+        console.log(`  ${a.file} -> ${a.player.name} [id=${a.player.id}] (score ${a.score.toFixed(2)}${a.forced ? ', подтверждено вручную' : ''})`);
       }
     } else {
       console.log('Нечего применять.');
