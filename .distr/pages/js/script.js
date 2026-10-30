@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'РФОИ': 'admin.webp',
     'Леон': 'leon.webp',
     'Ручеёк': 'rych.webp',
+    'Ручеёк-2': 'rych.webp',
     'Worlds': 'worlds.webp',
     'Volt': 'volt.webp',
     'California': 'california.webp',

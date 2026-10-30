@@ -8,6 +8,7 @@ export const teamPhotoMap = {
   'РФОИ': 'img/team/admin.webp',
   'Леон': 'img/team/leon.webp',
   'Ручеёк': 'img/team/rych.webp',
+  'Ручеёк-2': 'img/team/rych.webp',
   'Worlds': 'img/team/worlds.webp',
   'Volt': 'img/team/volt.webp',
   'Юность': 'img/team/un.webp',
