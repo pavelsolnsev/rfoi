@@ -8,6 +8,8 @@
   flex: 1;
   overflow-x: hidden;
 
+  .text-muted { color: var(--text-muted) !important; }
+
   // Контент по центру страницы, читаемая ширина
   &__content {
     width: 100%;
@@ -36,7 +38,7 @@
     display: inline-flex;
     align-items: center;
     gap: rem(8);
-    color: var(--logo-blue);
+    color: var(--brand-accent);
     text-decoration: none;
     font-size: rem(14);
     font-weight: 600;
@@ -50,17 +52,8 @@
     }
 
     &:hover {
-      background: rgba(32, 91, 200, 0.1);
-      color: var(--logo-blue);
-    }
-  }
-
-  body[data-theme="dark"] &__home {
-    color: #6eb3f7;
-
-    &:hover {
-      background: rgba(32, 91, 200, 0.2);
-      color: #93c5fd;
+      background: var(--accent-soft);
+      color: var(--brand-accent);
     }
   }
 
@@ -162,32 +155,26 @@
 
       &:hover {
         opacity: 1;
-        background: rgba(255, 255, 255, 0.5);
+        background: var(--surface);
         color: var(--text-primary);
       }
 
       &.active {
         opacity: 1;
         color: var(--brand-accent);
-        background: var(--surface-elevated);
+        background: var(--accent-soft);
         box-shadow: 0 rem(1) rem(3) rgba(0, 0, 0, 0.08);
       }
 
       &:focus {
         outline: none;
-        box-shadow: 0 0 0 rem(2) rgba(59, 130, 246, 0.35);
+        box-shadow: 0 0 0 rem(2) var(--brand-accent);
       }
     }
   }
 
-  body[data-theme="dark"] &__main-tabs {
-    .nav-link:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .nav-link.active {
-      box-shadow: 0 rem(1) rem(4) rgba(0, 0, 0, 0.3);
-    }
+  body[data-theme="dark"] &__main-tabs .nav-link.active {
+    box-shadow: 0 rem(1) rem(4) rgba(0, 0, 0, 0.3);
   }
 
   &__panel {
@@ -320,7 +307,7 @@
 
       // Не трогаем .btn — иначе перебивается color у Bootstrap и инлайнов (синий текст на синей кнопке ВК).
       a:not(.btn) {
-        color: #3b82f6;
+        color: var(--brand-accent);
         text-decoration: none;
 
         &:hover {
@@ -348,7 +335,7 @@
     .text-muted {
       font-size: rem(13);
       font-style: italic;
-      color: #6b7280;
+      color: var(--text-muted);
     }
 
     @include media(768) {
@@ -442,7 +429,7 @@
     max-width: 100%;
 
     &:hover {
-      background: rgba(59, 130, 246, 0.1);
+      background: var(--accent-soft);
     }
 
     i {

@@ -38,14 +38,14 @@
 .table-caption {
   padding: 0;
   text-align: left;
-  color: #fff;
+  color: var(--text-primary);
   position: relative;
   z-index: 20;
   overflow: hidden;
-  background: linear-gradient(to right, #0e2c2c 0%, #1a5c3a 60%, #2d8a50 100%);
+  background: linear-gradient(to right, var(--surface-elevated) 0%, var(--surface-elevated) 60%, var(--surface) 100%);
   border: none;
-  border-bottom: rem(2) solid rgba(45, 106, 79, 0.7);
-  box-shadow: 0 rem(4) rem(20) rgba(0, 0, 0, 0.4);
+  border-bottom: rem(2) solid var(--border);
+  box-shadow: 0 rem(4) rem(20) rgba(15, 23, 42, 0.08);
 
   @media screen and (max-width: rem(767)) {
     min-height: 59vw;
@@ -55,17 +55,17 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(14,44,44,0.6) 0%, rgba(26,92,58,0.4) 60%, rgba(45,138,80,0.3) 100%);
+    background: linear-gradient(to right, rgba(15, 23, 42, 0.08) 0%, rgba(15, 23, 42, 0.04) 60%, transparent 100%);
     z-index: 1;
     pointer-events: none;
 
     @media screen and (max-width: rem(767)) {
-      background: linear-gradient(to top,
-        rgba(10, 30, 20, 0.92) 0%,
-        rgba(14, 44, 44, 0.55) 45%,
-        rgba(14, 44, 44, 0.1) 100%
-      );
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.55) 45%, rgba(15, 23, 42, 0.65) 100%);
     }
+  }
+
+  @media screen and (max-width: rem(767)) {
+    .caption-brand .caption-brand-title { color: #fff; }
   }
 
   .caption-header,
@@ -101,7 +101,7 @@
       height: rem(40);
       object-fit: contain;
       flex-shrink: 0;
-      filter: drop-shadow(0 rem(1) rem(6) rgba(0, 0, 0, 0.4));
+      filter: drop-shadow(0 rem(1) rem(2) rgba(15, 23, 42, 0.12));
 
       @include media(768) {
         width: rem(48);
@@ -114,11 +114,8 @@
       align-items: center;
       gap: rem(8);
       font-size: rem(15);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: #fff;
-      text-shadow: 0 rem(1) rem(4) rgba(0, 0, 0, 0.5);
-      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--text-primary);
 
       @include media(768) {
         font-size: rem(17);
@@ -134,15 +131,13 @@
   .trophy-icon {
     font-size: rem(16);
     color: #ffd700;
-    filter: drop-shadow(0 0 rem(8) rgba(255, 215, 0, 0.8));
     animation: trophySparkle 2.4s ease-in-out infinite;
     display: inline-block;
   }
 
   .ball-icon {
     font-size: rem(16);
-    color: #8df390;
-    filter: drop-shadow(0 0 rem(6) rgba(141, 243, 144, 0.7));
+    color: #10b981;
     animation: ballSpin 2.8s ease-in-out infinite;
     display: inline-block;
   }
@@ -173,14 +168,12 @@
       gap: rem(5);
       padding: rem(7) rem(14) rem(7) rem(12);
       border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      font-weight: 600;
+      background: var(--surface);
+      color: var(--text-primary);
+      font-weight: 400;
       font-size: rem(12);
-      border: rem(1) solid rgba(255, 255, 255, 0.45);
-      backdrop-filter: blur(rem(6));
-      box-shadow: 0 rem(2) rem(8) rgba(0, 0, 0, 0.25), inset 0 rem(1) 0 rgba(255, 255, 255, 0.12);
-      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+      border: rem(1) solid var(--border);
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
       white-space: nowrap;
       text-decoration: none;
 
@@ -198,9 +191,9 @@
 
       @media (hover: hover) {
         &:hover {
-          background: rgba(255, 255, 255, 0.28);
-          border-color: rgba(255, 255, 255, 0.7);
-          box-shadow: 0 rem(4) rem(14) rgba(0, 0, 0, 0.3), inset 0 rem(1) 0 rgba(255, 255, 255, 0.2);
+          background: var(--accent-soft);
+          border-color: var(--brand-accent);
+          color: var(--brand-accent);
           transform: translateY(rem(-1));
 
           &::after {
@@ -219,29 +212,32 @@
     width: rem(36);
     height: rem(36);
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    border: rem(1) solid rgba(255, 255, 255, 0.25);
+    background: var(--surface);
+    border: rem(1) solid var(--border);
     cursor: pointer;
     flex-shrink: 0;
     transition: background 0.2s ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.25);
+      background: var(--accent-soft);
     }
 
     img {
       width: rem(18);
       height: rem(18);
       opacity: 1;
+      filter: var(--theme-icon-filter, invert(1));
     }
   }
 }
+
+body[data-theme="dark"] { --theme-icon-filter: none; }
 
 // ===== ОСНОВНЫЕ СТИЛИ ТАБЛИЦЫ =====
 .players-table {
   width: 100%;
   border-collapse: collapse;
-  background: #fff;
+  background: var(--surface-elevated);
   box-shadow: 0 rem(2) rem(8) rgba(0, 0, 0, 0.1);
   border-radius: rem(8);
   overflow-x: auto;
@@ -253,7 +249,7 @@
 
   // ===== ЗАГОЛОВОК ТАБЛИЦЫ =====
   thead {
-    background: #0e2016;
+    background: var(--surface);
 
     th {
       span {
@@ -284,7 +280,7 @@
   td {
     padding: rem(8) rem(4);
     text-align: left;
-    border-bottom: rem(1) solid #e0e0e0;
+    border-bottom: rem(1) solid var(--border);
     font-size: rem(12);
     white-space: nowrap;
 
@@ -296,17 +292,17 @@
   }
 
   th {
-    background: #0e2016;
-    color: #d4f5e0;
+    background: var(--surface);
+    color: var(--text-muted);
     font-weight: 600;
     position: sticky;
     top: 0;
     z-index: 10;
-    border-bottom: rem(2) solid rgba(45, 106, 79, 0.6);
+    border-bottom: rem(2) solid var(--border);
   }
 
   td {
-    color: #1e293b;
+    color: var(--text-primary);
   }
 
   // ===== ТЕЛО ТАБЛИЦЫ =====
@@ -315,12 +311,12 @@
       cursor: pointer;
 
       &:nth-child(even) {
-        background: #f8f9fa;
+        background: var(--surface);
       }
 
       @media (hover: hover) {
       &:hover {
-          background: #e9ecef;
+          background: var(--accent-soft);
         transition: background 0.2s ease;
         }
       }
@@ -329,6 +325,21 @@
     td[data-label="№"] {
       white-space: nowrap;
     }
+  }
+
+  &:not(.table-asc) tbody tr:nth-child(1) > td[data-label="№"],
+  &.table-asc tbody tr:nth-last-child(1) > td[data-label="№"] {
+    box-shadow: inset 4px 0 0 #ffd700;
+  }
+
+  &:not(.table-asc) tbody tr:nth-child(2) > td[data-label="№"],
+  &.table-asc tbody tr:nth-last-child(2) > td[data-label="№"] {
+    box-shadow: inset 4px 0 0 #c0c0c0;
+  }
+
+  &:not(.table-asc) tbody tr:nth-child(3) > td[data-label="№"],
+  &.table-asc tbody tr:nth-last-child(3) > td[data-label="№"] {
+    box-shadow: inset 4px 0 0 #cd7f32;
   }
 
   th:nth-child(1),
@@ -470,35 +481,35 @@
     }
 
     &--up {
-      color: #10b981;
+      color: var(--stat-win);
     }
 
     &--down {
-      color: #ef4444;
+      color: var(--stat-loss);
     }
   }
 
   // ===== ЦВЕТА СТАТИСТИКИ (только ключевые) =====
   td[data-label="Победы"],
   td[data-label="Поб"] {
-    color: #10b981;
+    color: var(--stat-win);
     font-weight: 700;
   }
 
   td[data-label="Ничьи"],
   td[data-label="Нич"] {
-    color: #f59e0b;
+    color: var(--stat-draw);
     font-weight: 700;
   }
 
   td[data-label="Поражения"],
   td[data-label="Пор"] {
-    color: #ef4444;
+    color: var(--stat-loss);
     font-weight: 700;
   }
 
   td[data-label="MVP"] {
-    color: #ffd700;
+    color: var(--stat-mvp);
     font-weight: 700;
   }
 
@@ -507,74 +518,9 @@
     white-space: nowrap;
   }
 
-  // ===== СТИЛИ ТОП-3 ИГРОКОВ =====
-  tbody tr:nth-child(1) {
-    background: rgba(255, 215, 0, 0.10);
-
-    td:first-child {
-      box-shadow: inset 4px 0 0 #FFD700;
-    }
-  }
-
-  tbody tr:nth-child(2) {
-    background: rgba(192, 192, 192, 0.12);
-
-    td:first-child {
-      box-shadow: inset 4px 0 0 #C0C0C0;
-    }
-  }
-
-  tbody tr:nth-child(3) {
-    background: rgba(205, 127, 50, 0.10);
-
-    td:first-child {
-      box-shadow: inset 4px 0 0 #CD7F32;
-    }
-  }
-
-  // ===== СТИЛИ ДЛЯ ВОЗРАСТАЮЩЕГО ПОРЯДКА =====
-  &.table-asc {
-    tbody {
-      tr:last-child {
-        background: rgba(255, 215, 0, 0.08);
-
-        td:first-child {
-          box-shadow: inset 4px 0 0 #f59e0b;
-        }
-      }
-
-      tr:nth-last-child(2) {
-        background: rgba(192, 192, 192, 0.10);
-
-        td:first-child {
-          box-shadow: inset 4px 0 0 #94a3b8;
-        }
-      }
-
-      tr:nth-last-child(3) {
-        background: rgba(205, 127, 50, 0.08);
-
-        td:first-child {
-          box-shadow: inset 4px 0 0 #b45309;
-        }
-      }
-
-      // Сброс стилей для первых трех строк при возрастающем порядке
-      tr:nth-child(1),
-      tr:nth-child(2),
-      tr:nth-child(3) {
-        background: none;
-
-        td:first-child {
-          box-shadow: none;
-        }
-      }
-    }
-  }
-
   // ===== СТИЛИ ПУСТОЙ СТРОКИ =====
   tbody tr.empty-row {
-    background: #f0f0f0 !important;
+    background: var(--surface) !important;
     cursor: default;
 
     td:first-child::after {
@@ -583,7 +529,7 @@
 
     @media (hover: hover) {
       &:hover {
-        background: #f0f0f0 !important;
+        background: var(--surface) !important;
       }
     }
   }
@@ -700,7 +646,7 @@ body.page-static .players-table {
 // ===== ЗАГРУЗЧИК И СООБЩЕНИЯ =====
 .loader {
   display: none;
-  background: #fff;
+  background: var(--surface-elevated);
   text-align: center;
 
   .loader-content {
@@ -714,7 +660,7 @@ body.page-static .players-table {
   p {
     margin-top: rem(8);
     font-size: rem(16);
-    color: #2c3e50;
+    color: var(--text-muted);
   }
 }
 
@@ -722,8 +668,8 @@ body.page-static .players-table {
 .spinner {
   width: rem(40);
   height: rem(40);
-  border: rem(4) solid #f3f3f3;
-  border-top: rem(4) solid #1abc9c;
+  border: rem(4) solid var(--border);
+  border-top: rem(4) solid var(--brand-accent);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -738,13 +684,13 @@ body.page-static .players-table {
 }
 
 .error-message {
-  color: #e74c3c;
-  background: #f8d7da;
+  color: var(--danger);
+  background: var(--danger-soft);
 }
 
 .empty-message {
-  color: #2c3e50;
-  background: #f8f9fa;
+  color: var(--text-muted);
+  background: var(--surface);
 }
 
 // ===== АНИМАЦИИ =====
@@ -763,15 +709,12 @@ body.page-static .players-table {
 @keyframes ballSpin {
   0%, 100% {
     transform: rotate(0deg) scale(1);
-    filter: drop-shadow(0 0 rem(6) rgba(141, 243, 144, 0.7));
   }
   30% {
     transform: rotate(20deg) scale(1.12);
-    filter: drop-shadow(0 0 rem(10) rgba(141, 243, 144, 1));
   }
   60% {
     transform: rotate(-10deg) scale(1.08);
-    filter: drop-shadow(0 0 rem(8) rgba(141, 243, 144, 0.9));
   }
 }
 
@@ -779,19 +722,15 @@ body.page-static .players-table {
 @keyframes trophySparkle {
   0%, 100% {
     transform: scale(1) rotate(0deg);
-      filter: drop-shadow(0 0 rem(8) rgba(255, 215, 0, 0.8));
   }
   25% {
     transform: scale(1.1) rotate(-5deg);
-    filter: drop-shadow(0 0 rem(12) rgba(255, 215, 0, 1));
   }
   50% {
     transform: scale(1.15) rotate(5deg);
-    filter: drop-shadow(0 0 rem(15) rgba(255, 215, 0, 1));
   }
   75% {
     transform: scale(1.1) rotate(-3deg);
-    filter: drop-shadow(0 0 rem(12) rgba(255, 215, 0, 0.9));
   }
 }
 
@@ -994,112 +933,24 @@ body.page-static .players-table {
 //   }
 // }
 
-// ===== ТЕМНАЯ ТЕМА =====
 body[data-theme="dark"] {
-  // [отменено] удалены стили обертки aura по запросу
-
   .wrapper {
-    background: radial-gradient(
-        120% 160% at 10% 0%,
-        rgba(14, 44, 44, 0.5) 0%,
-        rgba(14, 44, 44, 0.15) 40%,
-        transparent 65%
-      ),
-      linear-gradient(180deg, #030905 0%, #06100a 100%);
-    color: #e0e0e0;
+    background: radial-gradient(120% 160% at 10% 0%, rgba(51, 65, 85, 0.5) 0%, rgba(51, 65, 85, 0.15) 40%, transparent 65%),
+      linear-gradient(180deg, var(--canvas) 0%, var(--canvas) 100%);
     transition: background 0.3s ease, color 0.3s ease;
   }
 
   .players-table {
-    background: #111a13;
     box-shadow: 0 rem(4) rem(12) rgba(0, 0, 0, 0.8);
-    border-radius: rem(8);
   }
 
-  .caption-link a {
-    background: rgba(137, 241, 142, 0.15);
-    border-color: rgba(137, 241, 142, 0.3);
-    @media (hover: hover) {
-      &:hover {
-        background: rgba(137, 241, 142, 0.25);
-        color: #fff;
-      }
-    }
+  @media (hover: hover) {
+    .players-table tbody tr:hover { transition: background 0.25s ease; }
   }
 
-  .players-table th {
-    background: #0a1f12;
-    color: #c8f0cc;
-    border-bottom: rem(2) solid rgba(45, 106, 79, 0.5);
+  .trophy-count {
+    box-shadow: 0 rem(2) rem(6) rgba(255, 215, 0, 0.4), 0 rem(1) rem(2) rgba(0, 0, 0, 0.2);
   }
-
-  .players-table td {
-    color: #d8ead9;
-    border-bottom: rem(1) solid rgba(255, 255, 255, 0.04);
-
-    &[data-label="Победы"],
-    &[data-label="Поб"] { color: #10b981; font-weight: 700; }
-
-    &[data-label="Ничьи"],
-    &[data-label="Нич"] { color: #f59e0b; font-weight: 700; }
-
-    &[data-label="Поражения"],
-    &[data-label="Пор"] { color: #ef4444; font-weight: 700; }
-
-    &[data-label="MVP"] { color: #ffd700; font-weight: 700; }
-
-    &[data-label="Рейтинг"],
-    &[data-label="Рейт"] { color: #00bcd4; font-weight: 700; }
-
-    &[data-label="О"],
-    &[data-label="Очки"] { color: #00bcd4; font-weight: 700; }
-  }
-
-  .players-table tbody tr {
-    &:nth-child(even) {
-      background: rgba(137, 241, 142, 0.03);
-    }
-
-    @media (hover: hover) {
-      &:hover {
-        background: rgba(137, 241, 142, 0.08);
-        transition: background 0.25s ease;
-      }
-    }
-  }
-
-  .players-table tbody tr:nth-child(1) {
-    background: rgba(255, 215, 0, 0.18);
-  }
-
-  .players-table tbody tr:nth-child(2) {
-    background: rgba(192, 192, 192, 0.12);
-  }
-
-  .players-table tbody tr:nth-child(3) {
-    background: rgba(205, 127, 50, 0.18);
-  }
-
-  .table-caption {
-    color: #f0fff2;
-    border-color: rgba(137, 241, 142, 0.3);
-    background: linear-gradient(to right, #020704 0%, #071a0d 60%, #0d3a1a 100%);
-
-    .caption-brand-title {
-      color: rgba(137, 241, 142, 0.65);
-    }
-  }
-  
-  .error-message {
-    background: rgba(120, 0, 0, 0.6);
-    color: #ff6b6b;
-  }
-
-  .empty-message {
-    background: #1e1e1e;
-    color: #aaaaaa;
-  }
-
 }
 
 // ===== КАСТОМИЗАЦИЯ ТУРНИРНОЙ ТАБЛИЦЫ =====
@@ -1108,7 +959,7 @@ body[data-theme="dark"] {
 .trophy-number {
   font-weight: 900;
   font-size: 1.2em;
-  color: #0066FF;
+  color: var(--brand-accent);
   display: inline-block;
   line-height: 1;
 }
@@ -1180,20 +1031,6 @@ body[data-theme="dark"] {
   }
 }
 
-// Темная тема
-body[data-theme="dark"] {
-  .trophy-number {
-    color: #4A9EFF;
-  }
-  
-  .trophy-count {
-    color: #0f172a;
-    background: linear-gradient(135deg, #ffd700 0%, #ffb800 100%);
-    border-color: rgba(255, 215, 0, 0.6);
-    box-shadow: 0 rem(2) rem(6) rgba(255, 215, 0, 0.4), 0 rem(1) rem(2) rgba(0, 0, 0, 0.2);
-  }
-}
-
 // Цвет очков (О)
 .players-table td[data-label="О"],
 .players-table td[data-label="Очки"] {
@@ -1202,64 +1039,10 @@ body[data-theme="dark"] {
 }
 
 
-// Топ-3 команд — те же стили, что у игроков
-.players-table tbody tr:nth-child(1) {
-  background: rgba(255, 215, 0, 0.10);
-  td:first-child {
-    box-shadow: inset 4px 0 0 #FFD700;
-  }
-}
-
-.players-table tbody tr:nth-child(2) {
-  background: rgba(192, 192, 192, 0.12);
-  td:first-child {
-    box-shadow: inset 4px 0 0 #C0C0C0;
-  }
-}
-
-.players-table tbody tr:nth-child(3) {
-  background: rgba(205, 127, 50, 0.10);
-  td:first-child {
-    box-shadow: inset 4px 0 0 #CD7F32;
-  }
-}
-
 // Эффект наведения для строк
 @media (hover: hover) {
 .players-table tbody tr:hover {
-  background: #f1f1f1;
+  background: var(--accent-soft);
   transition: background 0.2s ease;
-  }
-}
-
-// В тёмной теме ховер и фон топ-3
-body[data-theme="dark"] {
-  @media (hover: hover) {
-    .players-table tbody tr:hover {
-      background: rgba(137, 241, 142, 0.08);
-    }
-  }
-
-  .players-table tbody tr:nth-child(1) {
-    background: rgba(255, 215, 0, 0.18);
-  }
-
-  .players-table tbody tr:nth-child(2) {
-    background: rgba(192, 192, 192, 0.12);
-  }
-
-  .players-table tbody tr:nth-child(3) {
-    background: rgba(205, 127, 50, 0.18);
-  }
-
-  // Стили для пустой строки в тёмной теме
-  tbody tr.empty-row {
-    background: #1a1a1a !important;
-
-    @media (hover: hover) {
-      &:hover {
-        background: #1a1a1a !important;
-      }
-    }
   }
 }

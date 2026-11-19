@@ -38,8 +38,8 @@
   height: rem(32);
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.9);
+  background: var(--surface-elevated);
+  color: var(--text-muted);
   font-size: rem(14);
   display: flex;
   align-items: center;
@@ -49,8 +49,8 @@
   backdrop-filter: blur(rem(4));
 
   &:hover {
-    background: rgba(255, 255, 255, 0.28);
-    color: #fff;
+    background: var(--accent-soft);
+    color: var(--text-primary);
   }
 }
 
@@ -62,14 +62,14 @@
   border-radius: rem(20);
   overflow: hidden;
   box-shadow: 0 rem(24) rem(60) rgba(0, 0, 0, 0.25), 0 rem(4) rem(12) rgba(0, 0, 0, 0.1);
-  background: #0a1f12;
+  background: var(--surface-elevated);
   position: relative;
 }
 
 // Hero-блок
 .pm-hero {
   position: relative;
-  background: linear-gradient(160deg, #0a1f12 0%, #0e2c2c 40%, #1a5c3a 80%, #2d8a50 100%);
+  background: linear-gradient(160deg, var(--surface) 0%, var(--surface) 40%, var(--surface-elevated) 80%, var(--surface-elevated) 100%);
   padding: rem(40) rem(24) rem(32);
   display: flex;
   flex-direction: column;
@@ -88,8 +88,8 @@
   height: rem(100);
   border-radius: 50%;
   padding: rem(3);
-  background: linear-gradient(135deg, #8df390, #2d8a50);
-  box-shadow: 0 0 0 rem(4) rgba(137, 241, 142, 0.2), 0 rem(8) rem(24) rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, var(--brand-accent), #10b981);
+  box-shadow: 0 0 0 rem(4) rgba(16, 185, 129, 0.2), 0 rem(8) rem(24) rgba(0, 0, 0, 0.3);
   margin-bottom: rem(14);
 
   @include media(576) {
@@ -104,7 +104,7 @@
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  background: #0e2c2c;
+  background: var(--brand-accent);
 }
 
 // Имя
@@ -113,7 +113,7 @@
   z-index: 2;
   font-size: rem(20);
   font-weight: 800;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: 0.01em;
   margin-bottom: rem(8);
   text-shadow: 0 rem(1) rem(6) rgba(0, 0, 0, 0.4);
@@ -133,11 +133,11 @@
   margin-bottom: rem(10);
   padding: rem(2) rem(9) rem(2) rem(7);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: rem(1) solid rgba(255, 255, 255, 0.22);
+  background: var(--surface-elevated);
+  border: rem(1) solid var(--border);
   font-size: rem(11);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted);
   letter-spacing: 0.04em;
 
   &::before {
@@ -157,8 +157,8 @@
   margin-bottom: rem(14);
   padding: rem(4) rem(12);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: rem(1) solid rgba(255, 255, 255, 0.2);
+  background: var(--surface-elevated);
+  border: rem(1) solid var(--border);
 
   &.visible {
     display: inline-flex;
@@ -175,7 +175,7 @@
 .pm-team-name {
   font-size: rem(13);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-muted);
   white-space: normal;
   word-break: break-word;
   text-align: center;
@@ -190,8 +190,8 @@
   gap: rem(8);
   padding: rem(8) rem(20);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.15);
-  border: rem(1) solid rgba(255, 255, 255, 0.25);
+  background: var(--surface-elevated);
+  border: rem(1) solid var(--border);
   backdrop-filter: blur(rem(8));
   margin-bottom: rem(12);
 }
@@ -199,7 +199,7 @@
 .pm-rating-label {
   font-size: rem(12);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -207,8 +207,8 @@
 .pm-rating-value {
   font-size: rem(20);
   font-weight: 800;
-  color: #89f18e;
-  text-shadow: 0 0 rem(12) rgba(137, 241, 142, 0.6);
+  color: var(--brand-accent);
+  text-shadow: 0 0 rem(12) rgba(16, 185, 129, 0.6);
 
   @include media(576) {
     font-size: rem(24);
@@ -220,7 +220,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: rem(16) rem(12) rem(20);
-  background: #fff;
+  background: var(--surface-elevated);
   border-radius: rem(20) rem(20) 0 0;
   position: relative;
   z-index: 2;
@@ -249,13 +249,13 @@
       top: rem(14);
       bottom: rem(14);
       width: rem(1);
-      background: rgba(0, 0, 0, 0.06);
+      background: var(--border);
     }
   }
 
   // Горизонтальный разделитель
   &:nth-child(n+5) {
-    border-top: rem(1) solid rgba(0, 0, 0, 0.06);
+    border-top: rem(1) solid var(--border);
   }
 }
 
@@ -263,23 +263,24 @@
   font-size: rem(16);
   margin-bottom: rem(2);
 
-  .wins & { color: #10b981; }
-  .draws & { color: #f59e0b; }
-  .losses & { color: #ef4444; }
+  .wins & { color: var(--stat-win); }
+  .draws & { color: var(--stat-draw); }
+  .losses & { color: var(--stat-loss); }
   .games & { color: #2d8a50; }
   .goals & { color: #8b5cf6; }
   .assists & { color: #06b6d4; }
   .saves & { color: #ec4899; }
-  .mvp & { color: #f59e0b; }
+  .mvp & { color: var(--stat-mvp); }
 }
 
 .pm-stat-value {
   font-size: rem(22);
   font-weight: 800;
   line-height: 1;
-  color: #111827;
+  color: var(--text-primary);
 
-  .mvp & { color: #f59e0b; }
+  .draws & { color: var(--stat-draw); }
+  .mvp & { color: var(--stat-mvp); }
 
   @include media(576) {
     font-size: rem(26);
@@ -291,7 +292,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #9ca3af;
+  color: var(--text-muted);
   text-align: center;
 
   @include media(576) {
@@ -307,7 +308,7 @@
   border-radius: rem(20);
   overflow: hidden;
   box-shadow: 0 rem(24) rem(60) rgba(0, 0, 0, 0.25);
-  background: #0a1f12;
+  background: var(--surface-elevated);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -317,7 +318,7 @@
 // Hero команды
 .tm-hero {
   position: relative;
-  background: linear-gradient(160deg, #0a1f12 0%, #0e2c2c 40%, #1a5c3a 80%, #2d8a50 100%);
+  background: linear-gradient(160deg, var(--surface) 0%, var(--surface) 40%, var(--surface-elevated) 80%, var(--surface-elevated) 100%);
   padding: rem(18) rem(16) rem(32);
   flex-shrink: 0;
   box-sizing: border-box;
@@ -350,8 +351,8 @@
   height: rem(56);
   border-radius: 50%;
   padding: rem(3);
-  background: linear-gradient(135deg, #8df390, #2d8a50);
-  box-shadow: 0 0 0 rem(4) rgba(137, 241, 142, 0.2), 0 rem(8) rem(24) rgba(0, 0, 0, 0.35);
+  background: linear-gradient(135deg, var(--brand-accent), #10b981);
+  box-shadow: 0 0 0 rem(4) rgba(16, 185, 129, 0.2), 0 rem(8) rem(24) rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
 
   @include media(576) {
@@ -366,7 +367,7 @@
   border-radius: 50%;
   object-fit: contain;
   display: block;
-  background: #fff;
+  background: var(--surface-elevated);
 }
 
 .tm-name {
@@ -374,7 +375,7 @@
   z-index: 2;
   font-size: rem(20);
   font-weight: 800;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0;
   text-shadow: 0 rem(1) rem(6) rgba(0, 0, 0, 0.4);
   white-space: normal;
@@ -405,14 +406,14 @@
 
   .fa-trophy {
     font-size: rem(13);
-    color: #ffd700;
+    color: var(--warning);
     filter: drop-shadow(0 0 rem(4) rgba(255, 215, 0, 0.8));
   }
 
   .trophy-count-num {
     font-size: rem(14);
     font-weight: 800;
-    color: #ffd700;
+    color: var(--warning);
     line-height: 1;
   }
 }
@@ -427,11 +428,11 @@
   margin-bottom: rem(6);
   padding: rem(2) rem(9) rem(2) rem(7);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: rem(1) solid rgba(255, 255, 255, 0.22);
+  background: var(--surface-elevated);
+  border: rem(1) solid var(--border);
   font-size: rem(11);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted);
   letter-spacing: 0.04em;
 
   &::before {
@@ -444,7 +445,7 @@
 // Тело команды (список игроков)
 .tm-body {
   padding: rem(12) rem(12) rem(12);
-  background: #fff;
+  background: var(--surface-elevated);
   border-radius: rem(16) rem(16) 0 0;
   position: relative;
   z-index: 2;
@@ -469,16 +470,16 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #6b7280;
+  color: var(--text-muted);
   margin-bottom: rem(12);
 }
 
 .tm-player-count {
   font-size: rem(11);
   font-weight: 700;
-  color: #1a5c3a;
-  background: rgba(26, 92, 58, 0.1);
-  border: rem(1) solid rgba(26, 92, 58, 0.25);
+  color: var(--brand-accent);
+  background: var(--accent-soft);
+  border: rem(1) solid var(--border);
   border-radius: 9999px;
   padding: rem(1) rem(7);
   line-height: 1.5;
@@ -519,25 +520,17 @@
     }
 
     .swiper-pagination-bullet {
-      background: #0e2c2c;
+      background: var(--brand-accent);
       opacity: 0.4;
       width: rem(8);
       height: rem(8);
 
       &.swiper-pagination-bullet-active {
         opacity: 1;
-        background: #0e2c2c;
+        background: var(--brand-accent);
       }
     }
 
-    [data-theme="dark"] & .swiper-pagination-bullet {
-      background: #89f18e;
-
-      &.swiper-pagination-bullet-active {
-        background: #89f18e;
-        opacity: 1;
-      }
-    }
   }
 
   .team-players-grid-desktop {
@@ -550,8 +543,8 @@
     align-items: center;
     text-align: center;
     gap: rem(4);
-    background: #f8faf8;
-    border: rem(1) solid rgba(14, 44, 44, 0.08);
+    background: var(--surface);
+    border: rem(1) solid var(--border);
     border-radius: rem(10);
     padding: rem(7) rem(6);
     position: relative;
@@ -578,7 +571,7 @@
       position: absolute;
       top: rem(6);
       left: rem(6);
-      background: linear-gradient(135deg, #10b981, #059669);
+      background: linear-gradient(135deg, #047857, #059669);
       color: #fff;
       font-size: rem(8);
       font-weight: 700;
@@ -596,7 +589,7 @@
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-  border: rem(2) solid rgba(14, 44, 44, 0.12);
+  border: rem(2) solid var(--border);
   display: block;
 
   @include media(576) {
@@ -617,7 +610,7 @@
 .player-card .player-info .player-name {
   font-size: rem(11);
   font-weight: 600;
-  color: #111827;
+  color: var(--text-primary);
   white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -658,7 +651,7 @@
 .yc-num {
   font-size: rem(11);
   font-weight: 800;
-  color: #92400e;
+  color: var(--warning);
   line-height: 1;
   letter-spacing: -0.01em;
 }
@@ -680,74 +673,15 @@
 }
 
 
-// ===== ТЁМНАЯ ТЕМА =====
-
+// Светлые оттенки иконок для тёмных карточек.
 body[data-theme="dark"] {
-
   .player-modal.modal-content,
   .team-modal.modal-content {
-    background: #0d1c14;
     box-shadow: 0 rem(24) rem(60) rgba(0, 0, 0, 0.6);
   }
 
-  .pm-hero,
-  .tm-hero {
-    background: linear-gradient(160deg, #030905 0%, #071510 40%, #0e2c2c 80%, #1a5c3a 100%);
-  }
-
-  .pm-stats,
-  .tm-body {
-    background: #0d1c14;
-  }
-
-  .tm-section-label {
-    color: rgba(137, 241, 142, 0.5);
-  }
-
-  .tm-player-count {
-    background: rgba(137, 241, 142, 0.12);
-    color: #8df390;
-  }
-
-  .pm-stat {
-    &:not(:nth-child(4n))::after {
-      background: rgba(137, 241, 142, 0.08);
-    }
-
-    &:nth-child(n+5) {
-      border-top-color: rgba(137, 241, 142, 0.08);
-    }
-  }
-
-  .pm-stat-value {
-    color: #e8fde8;
-  }
-
-  .pm-stat-label {
-    color: rgba(200, 240, 204, 0.5);
-  }
-
-  .pm-stat-icon {
-    .wins & { color: #34d399; }
-    .draws & { color: #fbbf24; }
-    .losses & { color: #f87171; }
-    .games & { color: #6ee7b7; }
-    .goals & { color: #a78bfa; }
-    .assists & { color: #22d3ee; }
-    .saves & { color: #f472b6; }
-    .mvp & { color: #fbbf24; }
-  }
-
-  .player-card {
-    background: rgba(137, 241, 142, 0.04);
-    border-color: rgba(137, 241, 142, 0.1);
-  }
-
-  .player-card .player-info .player-name {
-    color: #e8fde8;
-  }
-
-  .player-card .player-photo {
-    border-color: rgba(137, 241, 142, 0.2);
-  }
+  .goals .pm-stat-icon { color: #a78bfa; }
+  .games .pm-stat-icon { color: #6ee7b7; }
+  .assists .pm-stat-icon { color: #22d3ee; }
+  .saves .pm-stat-icon { color: #f472b6; }
 }

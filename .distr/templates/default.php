@@ -18,7 +18,7 @@ $jsVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/js/script.js');
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
-    <meta name="theme-color" content="#0e2c2c">
+    <meta name="theme-color" content="#0f172a">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 
