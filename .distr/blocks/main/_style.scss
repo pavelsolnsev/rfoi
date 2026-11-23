@@ -459,7 +459,6 @@ body[data-theme="dark"] { --theme-icon-filter: none; }
   td[data-label="Рейтинг"],
   td[data-label="Рейт"] {
     color: #00bcd4;
-    font-weight: 700;
   }
 
   .rating-cell {
@@ -493,24 +492,20 @@ body[data-theme="dark"] { --theme-icon-filter: none; }
   td[data-label="Победы"],
   td[data-label="Поб"] {
     color: var(--stat-win);
-    font-weight: 700;
   }
 
   td[data-label="Ничьи"],
   td[data-label="Нич"] {
     color: var(--stat-draw);
-    font-weight: 700;
   }
 
   td[data-label="Поражения"],
   td[data-label="Пор"] {
     color: var(--stat-loss);
-    font-weight: 700;
   }
 
   td[data-label="MVP"] {
     color: var(--stat-mvp);
-    font-weight: 700;
   }
 
   td[data-label="Рейт"],
@@ -968,7 +963,7 @@ body[data-theme="dark"] {
 .trophy-count {
   display: inline-block;
 
-  font-weight: 800;
+  font-weight: 400;
   font-size: rem(9);
   color: #1a202c;
 
@@ -1035,7 +1030,6 @@ body[data-theme="dark"] {
 .players-table td[data-label="О"],
 .players-table td[data-label="Очки"] {
   color: #00bcd4;
-  font-weight: 700;
 }
 
 

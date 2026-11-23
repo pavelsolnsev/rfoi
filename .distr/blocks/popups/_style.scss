@@ -206,7 +206,7 @@
 
 .pm-rating-value {
   font-size: rem(20);
-  font-weight: 800;
+  font-weight: 400;
   color: var(--brand-accent);
   text-shadow: 0 0 rem(12) rgba(16, 185, 129, 0.6);
 
@@ -275,7 +275,7 @@
 
 .pm-stat-value {
   font-size: rem(22);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1;
   color: var(--text-primary);
 
@@ -374,7 +374,7 @@
   position: relative;
   z-index: 2;
   font-size: rem(20);
-  font-weight: 800;
+  font-weight: 400;
   color: var(--text-primary);
   margin: 0;
   text-shadow: 0 rem(1) rem(6) rgba(0, 0, 0, 0.4);
@@ -412,7 +412,7 @@
 
   .trophy-count-num {
     font-size: rem(14);
-    font-weight: 800;
+    font-weight: 400;
     color: var(--warning);
     line-height: 1;
   }
@@ -650,7 +650,7 @@
 
 .yc-num {
   font-size: rem(11);
-  font-weight: 800;
+  font-weight: 400;
   color: var(--warning);
   line-height: 1;
   letter-spacing: -0.01em;
