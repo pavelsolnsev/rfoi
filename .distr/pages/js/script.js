@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Бронницы': 'bronnitsy.webp',
     'Lamoda': 'lamoda.webp',
     'АСБИ': 'acbi.webp',
+    'Солянка': 'solyanka.webp',
   };
 
 

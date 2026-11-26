@@ -281,6 +281,7 @@ const showPlayerModalInTournament = (player, teamNameFromContext, rank) => {
     'Бронницы': 'bronnitsy.webp',
     'Lamoda': 'lamoda.webp',
     'АСБИ': 'acbi.webp',
+    'Солянка': 'solyanka.webp',
   };
 
   const teamInfo = document.getElementById("player-modal-team-info");
@@ -423,6 +424,7 @@ const loadAndOpenTeamModal = async (teamName) => {
       'Бронницы': 'bronnitsy.webp',
       'Lamoda': 'lamoda.webp',
       'АСБИ': 'acbi.webp',
+      'Солянка': 'solyanka.webp',
     };
 
     // Формируем путь к фото команды

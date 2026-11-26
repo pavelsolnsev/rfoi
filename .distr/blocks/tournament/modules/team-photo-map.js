@@ -24,6 +24,7 @@ export const teamPhotoMap = {
   'Бронницы': 'img/team/bronnitsy.webp',
   'Lamoda': 'img/team/lamoda.webp',
   'АСБИ': 'img/team/acbi.webp',
+  'Солянка': 'img/team/solyanka.webp',
 };
 
 /**
